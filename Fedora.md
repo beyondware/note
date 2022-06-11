@@ -27,6 +27,12 @@ sudo wget -O /etc/yum.repos.d/fedora-updates.repo http://mirrors.aliyun.com/repo
 sudo dnf makecache
 ```
 
+4、查看配置仓库
+
+```sh
+sudo dnf repolist
+```
+
 ### 参考源
 
 - 阿里云
