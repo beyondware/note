@@ -10,9 +10,9 @@ categories:
 ## 分区
 
 ```sh
-swap 4GB（通常设置电脑内存的2倍）
+swap 2GB（交换分区、通常设置电脑内存的2倍）
 /boot 1GB
-/boot/efi 200M
+/boot/efi 300M
 / 剩余留给root
 ```
 
