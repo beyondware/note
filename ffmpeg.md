@@ -5,15 +5,39 @@ tags:
   - [ffmpeg]
 ---
 
+## Fedora 安装 ffmpeg
+
+- 查询
+
+```sh
+dnf repolist | grep rpmfusion
+```
+
+1、安装 RPM Fusion repo
+
+```sh
+sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+```
+
+```sh
+sudo dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+```
+
+2、安装 ffmpeg
+
+```sh
+sudo dnf install ffmpeg
+```
+
 ## 基础
 
-- 查询版本
+1、查询版本
 
 ```sh
 ffmpeg -version
 ```
 
-- 显示文件信息
+2、显示文件信息
 
 ```sh
 ffmpeg -i 文件
