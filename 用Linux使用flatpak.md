@@ -157,11 +157,15 @@ flatpak list
 flatpak install
 ```
 
-- 安装多种方式
+- 安装（多种方式）
 
-> flatpak install flathub com.github.tchx84.Flatseal
+```sh
+flatpak install flathub com.github.tchx84.Flatseal
+```
 
-> flatpak install https://flathub.org/repo/flathub.flatpakrepo
+```sh
+flatpak install https://flathub.org/repo/flathub.flatpakrepo
+```
 
 > Installation complete. //安装完成
 
