@@ -7,42 +7,6 @@ categories:
   - [Linux]
 ---
 
-## 修改源
-
-1、fedora.repo
-
-```sh
-sudo wget -O /etc/yum.repos.d/fedora.repo http://mirrors.aliyun.com/repo/fedora.repo
-```
-
-2、fedora-updates.repo
-
-```sh
-sudo wget -O /etc/yum.repos.d/fedora-updates.repo http://mirrors.aliyun.com/repo/fedora-updates.repo
-```
-
-3、本地缓存
-
-```sh
-sudo dnf makecache
-```
-
-4、查看配置仓库
-
-```sh
-sudo dnf repolist
-```
-
-### 参考源
-
-- 阿里云
-
-> https://developer.aliyun.com/mirror/fedora
-
-- 腾讯云
-
-> https://mirrors.cloud.tencent.com/help/fedora.html
-
 ## SSH 登陆
 
 - 远程拒绝打开外壳通道:错误:未连接，需要启动 SSH
@@ -97,33 +61,71 @@ ps -e | grep ssh
 
 > 显示 00:00:00 sshd 表示连接上了 SSH
 
-## 显示 Dock 栏
+## 修改源
+
+1、fedora.repo
+
+```sh
+sudo wget -O /etc/yum.repos.d/fedora.repo http://mirrors.aliyun.com/repo/fedora.repo
+```
+
+2、fedora-updates.repo
+
+```sh
+sudo wget -O /etc/yum.repos.d/fedora-updates.repo http://mirrors.aliyun.com/repo/fedora-updates.repo
+```
+
+3、本地缓存
+
+```sh
+sudo dnf makecache
+```
+
+4、查看配置仓库
+
+```sh
+sudo dnf repolist
+```
+
+### 参考源
+
+- 阿里云
+
+> https://developer.aliyun.com/mirror/fedora
+
+- 腾讯云
+
+> https://mirrors.cloud.tencent.com/help/fedora.html
+
+## 桌面美化
+
+### 显示 Dock 栏
 
 > https://extensions.gnome.org/
 
 > https://extensions.gnome.org/extension/307/dash-to-dock/
 
-- 由于 GNOME 42 目前不支持，需要命令安装，再打开
+- 由于 GNOME 42 目前不支持，命令来安装；需要重启系统后，再打开
 
 ```sh
 sudo dnf install gnome-shell-extension-dash-to-dock.noarch
 ```
 
-## 特效扩展
+### 特效扩展
 
-Compiz windows effect：晃动特效
+1、Compiz windows effect：晃动特效
 
 > https://extensions.gnome.org/extension/3210/compiz-windows-effect/
 
-Compiz alike magic lamp effect：魔术灯效果（最小化、最大化效果）
+2、Compiz alike magic lamp effect：魔术灯效果（最小化、最大化效果）
 
 > https://extensions.gnome.org/extension/3740/compiz-alike-magic-lamp-effect/
 
-Coverflow Alt-Tab：组合键“Alt+Tab”切换效果
+3、Coverflow Alt-Tab：组合键“Alt+Tab”切换效果
 
 > https://extensions.gnome.org/extension/97/coverflow-alt-tab/
 
-AppIndicator and KStatusNotifierItem Support：恢复 GNOME 顶栏托盘图标
+4、AppIndicator and KStatusNotifierItem Support：恢复 GNOME 顶栏托盘图标
 
 > https://extensions.gnome.org/extension/615/appindicator-support/
 
