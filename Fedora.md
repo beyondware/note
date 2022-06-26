@@ -97,38 +97,6 @@ sudo dnf repolist
 
 > https://mirrors.cloud.tencent.com/help/fedora.html
 
-## 桌面美化
-
-### 显示 Dock 栏
-
-> https://extensions.gnome.org/
-
-> https://extensions.gnome.org/extension/307/dash-to-dock/
-
-- 由于 GNOME 42 目前不支持，命令来安装；需要重启系统后，再打开
-
-```sh
-sudo dnf install gnome-shell-extension-dash-to-dock.noarch
-```
-
-### 特效扩展
-
-1、Compiz windows effect：晃动特效
-
-> https://extensions.gnome.org/extension/3210/compiz-windows-effect/
-
-2、Compiz alike magic lamp effect：魔术灯效果（最小化、最大化效果）
-
-> https://extensions.gnome.org/extension/3740/compiz-alike-magic-lamp-effect/
-
-3、Coverflow Alt-Tab：组合键“Alt+Tab”切换效果
-
-> https://extensions.gnome.org/extension/97/coverflow-alt-tab/
-
-4、AppIndicator and KStatusNotifierItem Support：恢复 GNOME 顶栏托盘图标
-
-> https://extensions.gnome.org/extension/615/appindicator-support/
-
 ## 系统
 
 1、切换到 root 账号

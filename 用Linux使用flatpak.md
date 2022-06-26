@@ -59,10 +59,6 @@ flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/fl
 flatpak install flathub 软件名ID
 ```
 
-> Installation complete. //表示安装完成
-
-> 安装过程需要多次输入密码，安装失败基本上是网络环境问题（被墙了），需要多次尝试。必须全部打勾 ✔ 才能安装成功
-
 - 添加 fedora 仓库
 
 ```sh
@@ -133,6 +129,8 @@ flatpak remote-ls
 
 ## 常用命令
 
+### 查看
+
 1、查找远程仓库中的应用
 
 ```sh
@@ -151,35 +149,45 @@ flatpak list --app
 flatpak list
 ```
 
-4、安装
+4、查看已安装应用程序的详细信息
+
+```sh
+flatpak info
+```
+
+### 安装
+
+1、安装
 
 ```sh
 flatpak install
 ```
 
-- 安装（多种方式）
+2、安装（多种方式）
 
 ```sh
 flatpak install flathub com.github.tchx84.Flatseal
 ```
 
 ```sh
-flatpak install https://flathub.org/repo/flathub.flatpakrepo
+flatpak install https://dl.flathub.org/repo/appstream/com.github.tchx84.Flatseal.flatpakref
 ```
 
-> Installation complete. //安装完成
+> Installation complete. //表示安装完成
 
-- 报错（网络环境问题，需要多次安装尝试）
+> 必须全部打勾 ✔ 才能安装成功
+
+3、报错（网络环境问题，需要多次安装尝试）
 
 > error: Unable to load summary from remote flathub: Could not connect: 拒绝连接
 
-5、运行
+### 运行
 
 ```sh
 flatpak run
 ```
 
-6、卸载
+### 卸载
 
 ```sh
 flatpak uninstall
@@ -187,25 +195,23 @@ flatpak uninstall
 
 > Uninstall complete. //卸载完成
 
-7、更新远程仓库的元数据
+### 更新
+
+- 更新远程仓库的元数据
 
 ```sh
 flatpak update
 ```
 
-8、查看已安装应用程序的详细信息
+### 帮助
 
-```sh
-flatpak info
-```
-
-9、参考 Flatpak 帮助
+- 参考 Flatpak 帮助
 
 ```sh
 flatpak --help
 ```
 
-## 构建 flatpak-builder
+### 构建 flatpak-builder
 
 - Fedora
 

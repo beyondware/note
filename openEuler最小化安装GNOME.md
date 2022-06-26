@@ -111,21 +111,3 @@ sudo dnf install nautilus
 ```sh
 sudo dnf install gnome-terminal
 ```
-
-3、优化工具
-
-```sh
-sudo dnf install gnome-tweaks
-```
-
-- 桌面右键打开终端
-
-> 系统重启，设置-扩展-打开 Desktop icons
-
-- 设置-键盘快捷键
-
-```sh
-名称：open in terminal
-命令：/usr/bin/gnome-terminal
-快捷键：Ctrl+Alt+T
-```
