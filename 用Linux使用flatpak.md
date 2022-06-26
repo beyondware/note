@@ -211,7 +211,7 @@ flatpak update
 flatpak --help
 ```
 
-### 构建 flatpak-builder
+### 构建
 
 - Fedora
 
