@@ -111,3 +111,11 @@ sudo dnf install nautilus
 ```sh
 sudo dnf install gnome-terminal
 ```
+
+- 设置-键盘快捷键
+
+```sh
+名称：open in terminal
+命令：/usr/bin/gnome-terminal
+快捷键：Ctrl+Alt+T
+```
