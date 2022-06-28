@@ -5,6 +5,8 @@ categories:
   - [Linux]
 ---
 
+- 查看源代码中是否有 configure 或者 Makefile 文件
+
 ## 下载
 
 ```sh
@@ -14,16 +16,16 @@ wget 下载链接
 ## 解包
 
 ```sh
-tar -zxvf ./包
+tar -zxvf 下载包
 ```
 
 ## 进入包目录
 
 ```sh
-cd ./包目录
+cd 包目录
 ```
 
-## 配置
+## 配置生成 Makefile 文件
 
 - 执行 configure 指定安装路径
 
@@ -31,7 +33,7 @@ cd ./包目录
 ./configure --prefix=/usr/local/包名
 ```
 
-- 正确执行后，包目录生成一个 Makefile 文件
+- 正确执行后，包目录生成一个 **Makefile** 文件
 
 > creating objs/Makefile //显示结果
 
@@ -49,7 +51,7 @@ sudo dnf install xxx xxx-devel
 make clean
 ```
 
-## 编译
+## 根据 Makefile 文件编译
 
 ```sh
 make
