@@ -16,7 +16,11 @@ wget 下载链接
 ## 解包
 
 ```sh
-tar -zxvf 下载包
+tar -zxvf 下载包.tar.gz
+```
+
+```sh
+tar -jxvf 下载包.tar.bz2
 ```
 
 ## 进入包目录
@@ -51,6 +55,12 @@ sudo dnf install xxx xxx-devel
 make clean
 ```
 
+## 判断上一次操作是否正确
+
+```sh
+echo &?
+```
+
 ## 根据 Makefile 文件编译
 
 ```sh
@@ -61,6 +71,12 @@ make
 
 ```sh
 make install
+```
+
+## 卸载
+
+```sh
+make uninstall
 ```
 
 ## 启动
