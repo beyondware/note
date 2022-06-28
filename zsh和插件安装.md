@@ -44,6 +44,12 @@ sh -c "$(wget https://ghproxy.com/https://raw.githubusercontent.com/ohmyzsh/ohmy
 
 ### powerlevel10k（主题）
 
+- 安装位置
+
+```sh
+cd ~/.oh-my-zsh/custom/themes/
+```
+
 1、安装 powerlevel10k 主题
 
 ```sh
@@ -58,7 +64,9 @@ vim ~/.zshrc
 
 3、修改 ZSH_THEME
 
-> ZSH_THEME="powerlevel10k/powerlevel10k"
+```sh
+ZSH_THEME="powerlevel10k/powerlevel10k"
+```
 
 4、配置 powerlevel10k
 
@@ -74,9 +82,11 @@ source ~/.zshrc
 
 ### zsh-autosuggestions（自动补全）
 
-切换到
+- 安装位置
 
-> cd ~/.oh-my-zsh/custom/plugins/
+```sh
+cd ~/.oh-my-zsh/custom/plugins/
+```
 
 1、安装 zsh-autosuggestions
 
@@ -90,23 +100,31 @@ git clone https://ghproxy.com/https://github.com/zsh-users/zsh-autosuggestions.g
 vim ~/.zshrc
 ```
 
-> plugins 添加 zsh-autosuggestions
+3、添加
 
-3、执行生效
+```sh
+plugins 添加 zsh-autosuggestions
+```
+
+4、执行生效
 
 ```sh
 source ~/.zshrc
 ```
 
-如果高亮不明显，修改为 10
+5、如果高亮不明显，修改为 10
 
-> ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=’fg=10’
+```sh
+ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=’fg=10’
+```
 
 ### zsh-syntax-highlighting（显示高亮）
 
-切换到
+- 安装位置
 
-> cd ~/.oh-my-zsh/custom/plugins/
+```sh
+cd ~/.oh-my-zsh/custom/plugins/
+```
 
 1、安装 zsh-syntax-highlighting
 
@@ -120,9 +138,13 @@ git clone https://ghproxy.com/https://github.com/zsh-users/zsh-syntax-highlighti
 vim ~/.zshrc
 ```
 
-> plugins 添加 zsh-syntax-highlighting
+3、添加
 
-3、执行生效
+```sh
+plugins 添加 zsh-syntax-highlighting
+```
+
+4、执行生效
 
 ```sh
 source ~/.zshrc
@@ -143,7 +165,9 @@ zsh-syntax-highlighting
 
 1、新建
 
-> mkdir ~/.oh-my-zsh/plugins/incr
+```sh
+mkdir ~/.oh-my-zsh/plugins/incr
+```
 
 2、安装
 
