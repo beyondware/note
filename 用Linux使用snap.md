@@ -107,6 +107,20 @@ sudo snap disable
 sudo snap pack
 ```
 
+## 报错
+
+1、报错信息
+
+> cannot find signatures with metadata for snap
+
+2、解决方法
+
+> 任何未通过 Snap 商店分发的 Snap 包都必须使用 --dangerous 选项进行安装
+
+```sh
+sudo snap install --dangerous
+```
+
 ## 参考文档
 
 > https://snapcraft.io/docs/installing-snapd
