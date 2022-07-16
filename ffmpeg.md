@@ -55,18 +55,38 @@ ffmpeg -i input.mkv -vcodec copy -acodec copy output.mp4
 ffmpeg -i input.mkv -c:v copy -c:a copy output.mp4
 ```
 
-## 提取视频（音频）
+## 编码
 
-- 仅视频提取
+- 默认
 
 ```sh
-ffmpeg -i input.mp4 -vcodec copy -an output.mp4
+ffmpeg -i input.mkv -c:v libx264 output.mp4
 ```
 
-- 仅音频提取
+- 显卡加速
 
 ```sh
-ffmpeg -i input.mp4 -acodec copy -vn output.m4a
+ffmpeg -i input.mkv -c:v h264_nvenc output.mp4
+```
+
+## 删除（禁用）
+
+- 删除音频
+
+```sh
+ffmpeg -i input.mp4 -an output.mp4
+```
+
+- 删除视频
+
+```sh
+ffmpeg -i input.mp4 -vn output.mp3
+```
+
+- 删除字幕
+
+```sh
+ffmpeg -i input.mp4 -sn output.mp4
 ```
 
 ## 音视频合并（分两步）
