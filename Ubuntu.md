@@ -92,6 +92,12 @@ sudo apt remove
 sudo apt autoremove
 ```
 
+- 删除包和配置
+
+```sh
+apt purge
+```
+
 3、列出与该包关联文件
 
 ```sh
@@ -102,6 +108,48 @@ dpkg -L | grep 包
 
 ```sh
 sudo apt update
+```
+
+5、查看可以升级的软件包
+
+```sh
+apt list --upgradable
+```
+
+6、升级所有可升级包
+
+```sh
+sudo apt upgrade
+```
+
+- 自动处理依赖项升级包
+
+```sh
+apt full-upgrade
+```
+
+7、模拟升级（但不升级任何包）
+
+```sh
+apt -s upgrade
+```
+
+8、仅升级选定的包
+
+```sh
+sudo apt --only-upgrade install 包名
+```
+
+9、搜索
+
+```sh
+apt search 包名
+```
+
+10、显示包的详细信息
+
+```sh
+apt show 包名
 ```
 
 ## 修改镜像源
