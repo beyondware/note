@@ -75,7 +75,7 @@ call plug#end()
 
 ```sh
 " github镜像
-let g:plug_url_format = 'git@hub.fastgit.xyz/%s.git'
+let g:plug_url_format = 'https://git::@hub.fastgit.xyz/%s.git'
 "
 
 " 彩虹插件配置生效
