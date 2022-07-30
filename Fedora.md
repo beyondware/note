@@ -195,6 +195,20 @@ vi /etc/sudoers
 usermod -g root 用户名
 ```
 
+7、删除用户
+
+- 强制删除
+
+```sh
+userdel -f 用户名
+```
+
+- 删除用户主目录及其任何文件
+
+```sh
+userdel -r 用户名
+```
+
 ### 搜索
 
 1、搜索
