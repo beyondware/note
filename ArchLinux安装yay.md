@@ -1,10 +1,10 @@
-## 安装依赖
+### 安装依赖
 
 ```sh
 sudo pacman -S base-devel git
 ```
 
-## 安装 yay 稳定版
+### 安装 yay 稳定版
 
 1、克隆 yay
 
@@ -12,7 +12,7 @@ sudo pacman -S base-devel git
 sudo git clone https://aur.archlinux.org/yay.git
 ```
 
-2、更改源目录的所有者
+2、修改目录所有者
 
 ```sh
 sudo chown -R 用户名:用户组 ./yay
@@ -58,4 +58,22 @@ yay -Syu
 
 ```sh
 yay -Ps
+```
+
+5、搜索
+
+```sh
+yay -Ss
+```
+
+### 安装 pamac
+
+```sh
+yay -S pamac-aur
+```
+
+运行
+
+```sh
+pamac-manager
 ```

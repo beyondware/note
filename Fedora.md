@@ -99,37 +99,25 @@ sudo dnf repolist
 
 ## 系统
 
-1、切换到 root 账号
-
-```sh
-sudo su
-```
-
-2、修改 root 密码
-
-```sh
-passwd root
-```
-
-3、系统更新
+1、系统更新
 
 ```sh
 sudo dnf update
 ```
 
-4、管理 dnf 配置选项和存储库
+2、管理 dnf 配置选项和存储库
 
 ```sh
 sudo dnf config-manager
 ```
 
-5、将已安装的软件包同步到最新的可用版本
+3、将已安装的软件包同步到最新的可用版本
 
 ```sh
 sudo dnf distro-sync
 ```
 
-6、检查可用的软件包升级
+4、检查可用的软件包升级
 
 ```sh
 dnf check-update
@@ -165,6 +153,46 @@ dnf clean all
 
 ```sh
 dnf info
+```
+
+### 用户
+
+1、切换到 root 账号
+
+```sh
+sudo su
+```
+
+2、修改 root 密码
+
+```sh
+passwd root
+```
+
+3、添加用户
+
+```sh
+useradd 用户名
+```
+
+4、修改用户密码
+
+```sh
+passwd 用户名
+```
+
+5、增加权限
+
+```sh
+vi /etc/sudoers
+```
+
+去掉`%wheel ALL=(ALL) ALL`前面的注释
+
+6、修改用户组
+
+```sh
+usermod -g root 用户名
 ```
 
 ### 搜索
