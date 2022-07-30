@@ -71,8 +71,61 @@ call plug#end()
 :PlugUpdate
 ```
 
-6、查看插件信息
+### vimrc 配置
 
 ```sh
-:CocInfo
+" github镜像
+let g:plug_url_format = 'git@hub.fastgit.xyz/%s.git'
+"
+
+" 彩虹插件配置生效
+let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
+"
+
+" 代码补全
+let g:apc_enable_ft = {'*':1}
+"
+
+
+call plug#begin('~/.vim/plugged')
+
+" 彩虹括号
+Plug 'luochen1990/rainbow'
+"
+
+" 历史记录
+Plug 'mhinz/vim-startify'
+"
+
+" 轻量级代码补全
+Plug 'skywind3000/vim-auto-popmenu'
+Plug 'skywind3000/vim-dict'
+"
+
+call plug#end()
+
+```
+
+### 解决 github 无法链接
+
+在`vim ~/.vim/autoload/plug.vim`修改两处
+
+```sh
+let fmt = get(g:, 'plug_url_format', 'https://git::@github.com/%s.git')
+```
+
+改成
+
+```sh
+let fmt = get(g:, 'plug_url_format', 'https://git::@hub.fastgit.xyz/%s.git')
+```
+
+```sh
+\ '^https://git::@github\.com', 'https://github.com', '')
+```
+
+改成
+
+```sh
+\ '^https://git::@hub.fastgit\.xyz', 'https://hub.fastgit.xyz', '')
 ```
