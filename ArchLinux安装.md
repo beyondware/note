@@ -56,20 +56,6 @@ station wlan0 connect 网络名称
 quit 或者 exit
 ```
 
-### 更新系统时间
-
-- 启动 ntp
-
-```sh
-timedatectl set-ntp true
-```
-
-- 查看时间状态
-
-```sh
-timedatectl status
-```
-
 ### 修改镜像源
 
 - 自动获取
@@ -331,6 +317,12 @@ swapon /dev/sda2
 mkfs.ext4 /dev/sda3
 ```
 
+- 支持大文件
+
+```sh
+mkfs.xfs /dev/sda3
+```
+
 ### 挂载
 
 1、**必须**先挂载根目录
@@ -342,11 +334,11 @@ mount /dev/sda3 /mnt
 2、引导分区挂载
 
 ```sh
-mkdir -p /mnt/boot
+mkdir -p /mnt/boot/efi
 ```
 
 ```sh
-mount /dev/sda1 /mnt/boot
+mount /dev/sda1 /mnt/boot/efi
 ```
 
 3、查看挂载状态
@@ -366,7 +358,7 @@ df -h
 - 必装
 
 ```sh
-pacstrap /mnt base base-devel linux linux-firmware
+pacstrap /mnt base base-devel linux linux-firmware linux-headers
 ```
 
 - 选装
@@ -387,10 +379,14 @@ genfstab -U /mnt >> /mnt/etc/fstab
 cat /mnt/etc/fstab
 ```
 
-### 切换到物理安装的根分区
+### 切换到根分区
 
 ```sh
 arch-chroot /mnt
+```
+
+```sh
+pacman -Syy
 ```
 
 ### 更改时区
@@ -401,24 +397,30 @@ arch-chroot /mnt
 ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 ```
 
+或者
+
+```sh
+timedatectl set-timezone Asia/Shanghai
+```
+
 - 设置硬件时间
 
 ```sh
 hwclock --systohc
 ```
 
-### 设置文本编码
+### 更新系统时间
+
+- 启动 ntp
 
 ```sh
-vim /etc/locale.gen
+timedatectl set-ntp true
 ```
 
-删除`en_US.UTF-8`前面的`#`
-
-- 输入 locale-gen
+- 查看时间状态
 
 ```sh
-echo LANG=en_US.UTF-8 >> /etc/locale.conf
+timedatectl status
 ```
 
 ### 设置主机名
@@ -479,17 +481,17 @@ pacman -S amd-code
 1、安装 GRUB 引导加载程序和 EFI 引导管理器包
 
 ```sh
-pacman -S efibootmgr os-prober grub grub-efi-x86_64
-```
-
-2、部署 GRUB
-
-```sh
-grub-install --target=x86_64-efi -bootloader-id=grub
+pacman -S grub  efibootmgr efivar networkmanager
 ```
 
 ```sh
-grub-install –target=x86_64-efi –bootloader-id=grub_uefi
+sudo systemctl enable NetworkManager
+```
+
+2、部署 GRUB（整块硬盘）
+
+```sh
+grub-install /dev/sda
 ```
 
 3、生成 GRUB 配置文件
@@ -515,7 +517,7 @@ exit
 - 卸载挂载文件
 
 ```sh
-umount /mnt/boot
+umount /mnt/boot/efi
 umount /mnt
 ```
 
@@ -525,9 +527,24 @@ umount /mnt
 reboot
 ```
 
-### 物理机安装
+### 设置文本编码
 
-1、安装显示服务器
+```sh
+vim /etc/locale.gen
+```
+
+删除`en_US.UTF-8`和`zh_CN.UTF-8`前面的`#`
+
+- 输入 locale-gen
+
+```sh
+echo LANG=en_US.UTF-8 >> /etc/locale.conf
+echo LANG=zh_CN.UTF-8 >> /etc/locale.conf
+```
+
+### 软件安装
+
+1、安装 xorg
 
 ```sh
 sudo pacman -S  xorg xorg-server xorg-apps
@@ -536,7 +553,7 @@ sudo pacman -S  xorg xorg-server xorg-apps
 2、安装 GNOME 桌面环境
 
 ```sh
-sudo pacman -S gnome gnome-extra networkmanager
+sudo pacman -S gnome gnome-extra
 ```
 
 - KDE 桌面环境（另一种）
@@ -568,7 +585,6 @@ sudo pacman -S network-manager-applet
 
 ```sh
 sudo systemctl enable dhcpcd
-sudo systemctl enable NetworkManager
 ```
 
 5、中文输入法
