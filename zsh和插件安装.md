@@ -24,7 +24,7 @@ cat /etc/shells
 sudo dnf install zsh
 ```
 
-2、设置 zsh 为默认 shell（系统重启生效）
+2、设置 zsh 为默认 shell（重开终端生效）
 
 ```sh
 sudo chsh -s /usr/bin/zsh
