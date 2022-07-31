@@ -1,3 +1,9 @@
+### 设置终端字体大小
+
+```sh
+setfont ter-132n
+```
+
 ### 验证是否为 UEFI
 
 ```sh
@@ -71,7 +77,7 @@ timedatectl status
 1、获取 pacman 镜像源
 
 ```sh
-reflector -c China -a 5 --sort rate --save /etc/pacman.d/mirrorlist
+reflector --country China --age 24 --sort rate --protocol https --save /etc/pacman.d/mirrorlist
 ```
 
 - 中国镜像源
