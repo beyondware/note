@@ -427,6 +427,21 @@ timedatectl set-ntp true
 timedatectl status
 ```
 
+### 设置文本编码
+
+```sh
+vim /etc/locale.gen
+```
+
+删除`en_US.UTF-8`和`zh_CN.UTF-8`前面的`#`
+
+- 输入 locale-gen，生成 locale 信息
+
+```sh
+echo LANG=en_US.UTF-8 >> /etc/locale.conf
+echo LANG=zh_CN.UTF-8 >> /etc/locale.conf
+```
+
 ### 设置主机名
 
 ```sh
@@ -533,21 +548,6 @@ pacman -S sudo
 ```
 
 - 编辑 sudo vim /etc/sudoers 去掉`%wheel ALL=(ALL)ALL`注释
-
-### 设置文本编码
-
-```sh
-vim /etc/locale.gen
-```
-
-删除`en_US.UTF-8`和`zh_CN.UTF-8`前面的`#`
-
-- 输入 locale-gen
-
-```sh
-echo LANG=en_US.UTF-8 >> /etc/locale.conf
-echo LANG=zh_CN.UTF-8 >> /etc/locale.conf
-```
 
 ### 安装 xorg
 
