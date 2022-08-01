@@ -533,8 +533,7 @@ cat /boot/grub/grub.cfg
 1、安装 NetworkManager（必须先装，不然进入新系统无法联网）
 
 ```sh
-sudo pacman -S networkmanager
-sudo pacman -S network-manager-applet
+sudo pacman -S networkmanager network-manager-applet
 ```
 
 ```sh
@@ -724,7 +723,7 @@ sudo pacman -S noto-fonts-cjk adobe-source-han-sans-cn-fonts adobe-source-han-se
 1、安装 fcitx5
 
 ```sh
-sudo pacman -S fcitx5  fcitx5-qt fcitx5-gtk fcitx5-configtool fcitx5-chinese-addons fcitx5-pinyin-zhwiki fcitx5-pinyin-moegirl fcitx5-material-color
+sudo pacman -S fcitx5  fcitx5-qt fcitx5-gtk fcitx5-configtool fcitx5-chinese-addons fcitx5-pinyin-zhwiki fcitx5-material-color
 ```
 
 2、编辑 sudo vim /etc/environment
@@ -737,7 +736,7 @@ SDL_IM_MODULE=fcitx
 GLFW_IM_MODULE=ibus
 ```
 
-3、系统重启，才能生效。
+3、系统重启生效
 
 4、参考信息
 

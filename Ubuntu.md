@@ -1,12 +1,3 @@
----
-title: Ubuntu
-author: beyondware
-tags:
-  - [Ubuntu]
-categories:
-  - [Linux]
----
-
 ## SSH 登录
 
 1、查看是否开启 SSH
@@ -50,14 +41,16 @@ sudo /etc/init.d/ssh start
 5、重启 SSH
 
 ```sh
-sudo service ssh restart //重启
+sudo service ssh restart
 ```
+
+6、停止 SSH
 
 ```sh
-sudo service ssh stop //关闭
+sudo service ssh stop
 ```
 
-6、开机启动 SSH，修改 SSH 配置文件（ROOT 登录）
+7、开机启动 SSH，修改 SSH 配置文件（ROOT 登录）
 
 ```sh
 sudo vi /etc/ssh/sshd_config
@@ -86,6 +79,10 @@ sudo apt install
 sudo apt remove
 ```
 
+```sh
+dpkg uninstall
+```
+
 - 自动卸载
 
 ```sh
@@ -99,6 +96,10 @@ apt purge
 ```
 
 3、列出与该包关联文件
+
+```sh
+apt list --installed | grep -i 包的关键字
+```
 
 ```sh
 dpkg -L | grep 包
