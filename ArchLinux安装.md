@@ -112,13 +112,13 @@ Server = https://mirrors.tuna.tsinghua.edu.cn/manjaro/stable/$repo/$arch
 3、更新软件包缓存
 
 ```sh
-sudo pacman -Syy
+pacman -Syy
 ```
 
 4、更新 GPG key
 
 ```sh
-sudo pacman -S archlinux-keyring
+pacman -S archlinux-keyring
 ```
 
 5、查看镜像源
@@ -773,7 +773,7 @@ Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch
 2、更新软件包缓存
 
 ```sh
-pacman -Syy
+sudo pacman -Syy
 ```
 
 3、更新 GPG key
