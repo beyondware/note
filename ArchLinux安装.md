@@ -538,6 +538,12 @@ umount /mnt/boot
 umount /mnt
 ```
 
+- 如果无法卸载挂载磁盘，查看挂载状态
+
+```
+lsblk -l
+```
+
 8、系统重启
 
 ```sh
