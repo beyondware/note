@@ -525,9 +525,11 @@ grub-mkconfig -o /boot/grub/grub.cfg
 cat /boot/grub/grub.cfg
 ```
 
-> 查看是否包含`initramfs-linux-fallback.img initramfs-linux.img intel-ucode.img vmlinuz-linux`文件
+- 查看是否包含`initramfs-linux-fallback.img initramfs-linux.img intel-ucode.img vmlinuz-linux`文件
 
 ### systemd-boot 引导
+
+> https://wiki.archlinux.org/title/Systemd-boot
 
 1、创建 EFI 引导
 
@@ -593,7 +595,7 @@ vim /etc/pacman.d/hooks/100-systemd-boot.hook
 - 粘贴以下内容
 
 ```sh
-'[Trigger]
+[Trigger]
 Type = Package
 Operation = Upgrade
 Target = systemd
@@ -881,7 +883,7 @@ sudo pacman -S xf86-video-intel
 sudo pacman -S mesa xf86-video-nouveau
 ```
 
-## 声卡
+### 声卡
 
 ```sh
 sudo pacman -S pulseaudio
