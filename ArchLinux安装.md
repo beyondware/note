@@ -688,7 +688,7 @@ pacman -S sudo
 ### 安装 xorg
 
 ```sh
-sudo pacman -S  xorg xorg-drivers xorg-server xorg-apps
+sudo pacman -S  xorg xorg-apps xorg-drivers
 ```
 
 ### 桌面环境
