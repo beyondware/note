@@ -1,3 +1,7 @@
+### VMware Workstation 设置
+
+- 编辑虚拟机设置-选项-高级-固件类型，改成：UEFI
+
 ### arch 安装指南
 
 > https://wiki.archlinux.org/title/Installation_guide
@@ -362,7 +366,7 @@ pacstrap /mnt base base-devel linux linux-firmware linux-headers
 - 选装
 
 ```sh
-pacstrap /mnt bash-completion git wget vim ntf-3g
+pacstrap /mnt bash-completion git wget vim
 ```
 
 ### 生成 fstab 文件
