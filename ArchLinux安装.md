@@ -99,22 +99,22 @@ sudo pacman-mirrors -i -c China -m rank
 Server = https://mirrors.tuna.tsinghua.edu.cn/manjaro/stable/$repo/$arch
 ```
 
-3、更新 GPG key
+3、更新软件包缓存
+
+```sh
+sudo pacman -Syy
+```
+
+4、更新 GPG key
 
 ```sh
 sudo pacman -S archlinux-keyring
 ```
 
-4、查看镜像源
+5、查看镜像源
 
 ```sh
 cat /etc/pacman.d/mirrorlist
-```
-
-5、更新软件包缓存
-
-```sh
-sudo pacman -Syy
 ```
 
 ### 远程登陆
@@ -431,31 +431,6 @@ echo arch > /etc/hostname
 127.0.1.1 arch
 ```
 
-### 添加 archlinuxcn 源
-
-1、编辑配置文件
-
-```sh
-sudo vim /etc/pacman.conf
-```
-
-```sh
-[archlinuxcn]
-Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch
-```
-
-2、更新 GPG key
-
-```sh
-pacman -S archlinuxcn-keyring
-```
-
-3、更新软件包缓存
-
-```sh
-pacman -Syy
-```
-
 ### 安装微指令
 
 - 英特尔
@@ -467,7 +442,7 @@ pacman -S intel-ucode
 - AMD
 
 ```sh
-pacman -S amd-code
+pacman -S amd-ucode
 ```
 
 ### 引导部署
@@ -534,6 +509,31 @@ vim /etc/locale.gen
 ```sh
 echo LANG=en_US.UTF-8 >> /etc/locale.conf
 echo LANG=zh_CN.UTF-8 >> /etc/locale.conf
+```
+
+### 添加 archlinuxcn 源
+
+1、编辑配置文件
+
+```sh
+sudo vim /etc/pacman.conf
+```
+
+```sh
+[archlinuxcn]
+Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch
+```
+
+2、更新软件包缓存
+
+```sh
+pacman -Syy
+```
+
+3、更新 GPG key
+
+```sh
+pacman -S archlinuxcn-keyring
 ```
 
 ### 软件安装
