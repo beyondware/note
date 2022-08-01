@@ -34,6 +34,13 @@ cd yay
 makepkg -si
 ```
 
+4、不允许使用 root 账号
+
+```sh
+==> ERROR: Running makepkg as root is not allowed as it can cause permanent,
+catastrophic damage to your system.
+```
+
 ### yay 用法
 
 1、安装
