@@ -551,7 +551,7 @@ sudo pacman -S dhcpcd
 sudo systemctl enable dhcpcd
 ```
 
-### 设置 root 密码
+### 设置 root 密码（新系统登陆）
 
 ```sh
 passwd
