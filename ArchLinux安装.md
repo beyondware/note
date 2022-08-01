@@ -1,3 +1,7 @@
+### arch 安装指南
+
+> https://wiki.archlinux.org/title/Installation_guide
+
 ### 设置终端字体大小
 
 ```sh
@@ -358,7 +362,7 @@ pacstrap /mnt base base-devel linux linux-firmware linux-headers
 - 选装
 
 ```sh
-pacstrap /mnt bash-completion git wget vim
+pacstrap /mnt bash-completion git wget vim ntf-3g
 ```
 
 ### 生成 fstab 文件
@@ -372,6 +376,8 @@ genfstab -U /mnt >> /mnt/etc/fstab
 ```sh
 cat /mnt/etc/fstab
 ```
+
+---
 
 ### 切换到根分区
 
@@ -426,9 +432,9 @@ echo arch > /etc/hostname
 - 以下内容粘贴到 vim /etc/hosts
 
 ```sh
-127.0.0.1 localhost
-::1 localhost
-127.0.1.1 arch
+127.0.0.1   localhost
+::1      localhost
+127.0.1.1   arch.localdomain arch
 ```
 
 ### 安装微指令
@@ -445,7 +451,9 @@ pacman -S intel-ucode
 pacman -S amd-ucode
 ```
 
-### 引导部署
+### 引导部署 GRUB
+
+> https://wiki.archlinux.org/title/GRUB
 
 1、安装引导检测器
 
@@ -477,9 +485,9 @@ grub-mkconfig -o /boot/grub/grub.cfg
 cat /boot/grub/grub.cfg
 ```
 
-6、系统重启
+> 查看是否包含`initramfs-linux-fallback.img initramfs-linux.img intel-ucode.img vmlinuz-linux`文件
 
-- 退出 chroot 环境
+6、退出 chroot 环境
 
 ```sh
 exit
@@ -492,13 +500,35 @@ umount /mnt/boot/efi
 umount /mnt
 ```
 
-- 系统重启
+8、系统重启
 
 ```sh
 reboot
 ```
 
 ---
+
+### 添加新的用户
+
+1、添加用户到 wheel 组
+
+```sh
+useradd -m -G wheel 用户名
+```
+
+2、设置用户密码
+
+```sh
+passwd 用户名
+```
+
+3、设置 wheel 组权限
+
+```sh
+pacman -S sudo
+```
+
+- 编辑 sudo vim /etc/sudoers 去掉`%wheel ALL=(ALL)ALL`注释
 
 ### 设置文本编码
 
@@ -513,31 +543,6 @@ vim /etc/locale.gen
 ```sh
 echo LANG=en_US.UTF-8 >> /etc/locale.conf
 echo LANG=zh_CN.UTF-8 >> /etc/locale.conf
-```
-
-### 添加 archlinuxcn 源
-
-1、编辑配置文件
-
-```sh
-sudo vim /etc/pacman.conf
-```
-
-```sh
-[archlinuxcn]
-Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch
-```
-
-2、更新软件包缓存
-
-```sh
-pacman -Syy
-```
-
-3、更新 GPG key
-
-```sh
-pacman -S archlinuxcn-keyring
 ```
 
 ### 安装 xorg
@@ -622,3 +627,28 @@ GLFW_IM_MODULE=ibus
 4、参考信息
 
 > https://wiki.archlinux.org/title/Fcitx5
+
+### archlinuxcn 源
+
+1、编辑配置文件
+
+```sh
+sudo vim /etc/pacman.conf
+```
+
+```sh
+[archlinuxcn]
+Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch
+```
+
+2、更新软件包缓存
+
+```sh
+pacman -Syy
+```
+
+3、更新 GPG key
+
+```sh
+pacman -S archlinuxcn-keyring
+```
