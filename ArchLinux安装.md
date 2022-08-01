@@ -73,7 +73,7 @@ quit 或者 exit
 1、获取 pacman 镜像源
 
 ```sh
-reflector --country China --age 24 --sort rate --protocol https --save /etc/pacman.d/mirrorlist
+reflector --country China --age 72 --sort rate --protocol https --save /etc/pacman.d/mirrorlist
 ```
 
 2、查看 pacman 镜像源
@@ -472,7 +472,7 @@ pacman -S intel-ucode
 pacman -S amd-ucode
 ```
 
-### 引导部署 GRUB
+### GRUB 引导
 
 > https://wiki.archlinux.org/title/GRUB
 
@@ -527,6 +527,83 @@ cat /boot/grub/grub.cfg
 
 > 查看是否包含`initramfs-linux-fallback.img initramfs-linux.img intel-ucode.img vmlinuz-linux`文件
 
+### systemd-boot 引导
+
+1、创建 EFI 引导
+
+```sh
+bootctl install
+```
+
+2、默认启动项设置
+
+```sh
+vim /boot/loader/loader.conf
+```
+
+粘贴以下内容
+
+```sh
+default arch
+timeout 5
+console-mode max
+editor no
+```
+
+3、启动项配置
+
+```sh
+vim /boot/loader/entries/arch.conf
+```
+
+- AMD CPU
+
+```sh
+title Arch Linux
+linux /vmlinuz-linux
+initrd /amd-ucode.img
+initrd /initramfs-linux.img
+```
+
+- Intel CPU
+
+```sh
+title Arch Linux
+linux /vmlinuz-linux
+initrd /intel-ucode.img
+initrd /initramfs-linux.img
+```
+
+- /dev/sda3 指挂载的根目录
+
+```sh
+echo "options root=PARTUUID=$(blkid -s PARTUUID -o value /dev/sda3) rw rootflags=subvol=@" >> /boot/loader/entries/arch.conf
+```
+
+4、添加 hook 文件，方便更新内核时更新 efi 分区
+
+```sh
+mkdir /etc/pacman.d/hooks
+```
+
+```sh
+vim /etc/pacman.d/hooks/100-systemd-boot.hook
+```
+
+- 粘贴以下内容
+
+```sh
+'[Trigger]
+Type = Package
+Operation = Upgrade
+Target = systemd
+
+[Action]
+Description = Gracefully upgrading systemd-boot...
+When = PostTransaction
+Exec = /usr/bin/systemctl restart systemd-boot-update.service
+```
+
 ### 网络配置
 
 1、安装 NetworkManager（必须先装，不然进入新系统无法联网）
@@ -542,7 +619,7 @@ systemctl enable NetworkManager
 2、安装 dhcpcd
 
 ```sh
-pacman -S dhcp dhcpcd
+pacman -S dhcpcd
 ```
 
 ```sh
@@ -685,12 +762,6 @@ pacman -S sudo
 %wheel ALL=(ALL)ALL
 ```
 
-### 安装 xorg
-
-```sh
-sudo pacman -S  xorg xorg-apps xorg-drivers
-```
-
 ### 桌面环境
 
 - GNOME
@@ -782,22 +853,62 @@ sudo pacman -Syy
 sudo pacman -S archlinuxcn-keyring
 ```
 
-### 显卡驱动
+## 驱动
 
-- 英特尔
-
-```sh
-sudo pacman -S xf86-video-vesa
-```
-
-- 英伟达
+### 显示服务器 xorg
 
 ```sh
-sudo pacman -S nvidia nvidia-settings nvidia-utils opencl-nvidia lib32-opencl-nvidia lib32-nvidia-utils
+sudo pacman -S  xorg xorg-apps xorg-drivers
 ```
 
-### 触摸板驱动
+### 显卡
+
+- AMD
+
+```sh
+sudo pacman -S xf86-video-amdgpu
+```
+
+- Intel
+
+```sh
+sudo pacman -S xf86-video-intel
+```
+
+- NVIDIA
+
+```sh
+sudo pacman -S mesa xf86-video-nouveau
+```
+
+## 声卡
+
+```sh
+sudo pacman -S pulseaudio
+```
+
+### 蓝牙
+
+```sh
+sudo pacman -S pulseaudio-bluetooth
+```
+
+```sh
+sudo systemctl enable bluetooth
+```
+
+### 触摸板
 
 ```sh
 sudo pacman -S xf86-input-synaptics
+```
+
+### 打印机
+
+```sh
+sudo pacman -S cups
+```
+
+```sh
+sudo systemctl enable cups
 ```
