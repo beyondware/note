@@ -336,11 +336,11 @@ mount /dev/sda3 /mnt
 2、引导分区挂载
 
 ```sh
-mkdir -p /mnt/boot/efi
+mkdir -p /mnt/boot
 ```
 
 ```sh
-mount /dev/sda1 /mnt/boot/efi
+mount /dev/sda1 /mnt/boot
 ```
 
 3、查看挂载状态
@@ -474,13 +474,25 @@ pacman -S amd-ucode
 
 > https://wiki.archlinux.org/title/GRUB
 
-1、安装引导检测器
+1、查看磁盘信息
+
+```sh
+fdisk -l
+```
+
+2、挂载
+
+```sh
+mount /dev/sda1 /mnt
+```
+
+3、安装引导检测器
 
 ```sh
 pacman -S os-prober
 ```
 
-2、安装多重引导启动器
+4、安装多重引导启动器
 
 ```sh
 pacman -S grub efibootmgr mtools
@@ -489,7 +501,14 @@ pacman -S grub efibootmgr mtools
 3、部署 GRUB
 
 ```sh
-grub-install --target=x86_64-efi --efi-directory=/mnt/boot/efi --bootloader-id=grub
+grub-install --target=x86_64-efi --efi-directory=/mnt --bootloader-id=GRUB
+```
+
+- 输出以下信息，表示成功。
+
+```sh
+Installing for x86_64-efi platform.
+Installation finished. No error reported.
 ```
 
 4、生成 GRUB 配置文件
@@ -515,7 +534,7 @@ exit
 7、卸载挂载文件
 
 ```sh
-umount /mnt/boot/efi
+umount /mnt/boot
 umount /mnt
 ```
 
