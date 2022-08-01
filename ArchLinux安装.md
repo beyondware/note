@@ -464,13 +464,13 @@ pacman -S os-prober
 2、安装多重引导启动器
 
 ```sh
-pacman -S grub efibootmgr
+pacman -S grub efibootmgr mtools
 ```
 
 3、部署 GRUB
 
 ```sh
-grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=grub
+grub-install --target=x86_64-efi --efi-directory=/mnt/boot/efi --bootloader-id=grub
 ```
 
 4、生成 GRUB 配置文件
