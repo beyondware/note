@@ -173,9 +173,7 @@ passwd root
 ip add
 ```
 
-### 分区
-
-- fdisk 分区法
+### fdisk 分区法
 
 1、检查磁盘信息
 
@@ -245,7 +243,7 @@ Partition type
    e   extended (container for logical partitions)（扩展分区）
 ```
 
-- cfdisk 分区法
+### cfdisk 分区法
 
 ```sh
 cfdisk /dev/sda
