@@ -525,26 +525,37 @@ cat /boot/grub/grub.cfg
 
 > 查看是否包含`initramfs-linux-fallback.img initramfs-linux.img intel-ucode.img vmlinuz-linux`文件
 
-6、退出 chroot 环境
+### 设置 root 密码
 
 ```sh
-exit
+passwd
 ```
 
-7、卸载挂载文件
+### 退出 chroot 环境
+
+```sh
+exit 或者 Ctrl+d
+```
+
+### 卸载挂载磁盘
 
 ```sh
 umount /mnt/boot
-umount /mnt
 ```
 
-- 如果无法卸载挂载磁盘，查看挂载状态
+- 有助于发现任何「繁忙」的分区
+
+```
+umount  -R /mnt
+```
+
+- 查看挂载状态
 
 ```
 lsblk -l
 ```
 
-8、系统重启
+### 系统重启，进入全新系统
 
 ```sh
 reboot
