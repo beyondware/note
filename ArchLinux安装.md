@@ -433,14 +433,15 @@ timedatectl status
 vim /etc/locale.gen
 ```
 
-删除`en_US.UTF-8`和`zh_CN.UTF-8`前面的`#`
+删除`en_US.UTF-8`前面的`#`
 
 - 输入 locale-gen，生成 locale 信息
 
 ```sh
 echo LANG=en_US.UTF-8 >> /etc/locale.conf
-echo LANG=zh_CN.UTF-8 >> /etc/locale.conf
 ```
+
+- 警告：没有安装中文字体前，不要释放 zh_CN.UTF-8，否则会出现乱码。
 
 ### 设置主机名
 
@@ -524,6 +525,29 @@ cat /boot/grub/grub.cfg
 ```
 
 > 查看是否包含`initramfs-linux-fallback.img initramfs-linux.img intel-ucode.img vmlinuz-linux`文件
+
+### 网络配置
+
+1、安装 NetworkManager（必须先装，不然进入新系统无法联网）
+
+```sh
+sudo pacman -S networkmanager
+sudo pacman -S network-manager-applet
+```
+
+```sh
+sudo systemctl enable NetworkManager
+```
+
+2、安装 dhcpcd
+
+```sh
+sudo pacman -S dhcpcd
+```
+
+```sh
+sudo systemctl enable dhcpcd
+```
 
 ### 设置 root 密码
 
@@ -613,29 +637,6 @@ sudo pacman -S gdm
 
 ```sh
 sudo systemctl enable gdm
-```
-
-### 网络配置
-
-1、安装 NetworkManager
-
-```sh
-sudo pacman -S networkmanager
-sudo pacman -S network-manager-applet
-```
-
-```sh
-sudo systemctl enable NetworkManager
-```
-
-2、安装 dhcpcd
-
-```sh
-sudo pacman -S dhcpcd
-```
-
-```sh
-sudo systemctl enable dhcpcd
 ```
 
 ### 中文字体
