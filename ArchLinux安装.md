@@ -66,12 +66,6 @@ quit 或者 exit
 reflector --country China --age 24 --sort rate --protocol https --save /etc/pacman.d/mirrorlist
 ```
 
-- 中国镜像源
-
-```sh
-sudo pacman-mirrors --country China
-```
-
 2、查看 pacman 镜像源
 
 ```sh
