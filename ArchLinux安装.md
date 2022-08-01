@@ -199,7 +199,7 @@ d：删除分区
 p：查看分区
 ```
 
-- 分区帮助信息
+- fdisk 帮助信息
 
 ```sh
 Help:
@@ -273,19 +273,13 @@ partprobe
 
 ### 格式化
 
-- 一般分区 4 个
+- 一般分区 3 个
 
-1、引导分区（512M）
+1、引导分区（512M）/boot
 
-> /boot/efi
+2、交换分区 swap
 
-2、交换分区
-
-> swap
-
-3、根分区
-
-> /
+3、根分区 /
 
 - 格式化
 
@@ -397,7 +391,7 @@ pacman -Syy
 
 ### 更改时区
 
-- 设置时区（一般为上海）
+- 设置时区（中国为上海）
 
 ```sh
 ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
@@ -435,7 +429,12 @@ timedatectl status
 vim /etc/locale.gen
 ```
 
-删除`en_US.UTF-8`前面的`#`
+- 去掉前面的#
+
+```sh
+en_US.UTF-8 UTF-8
+zh_CN.UTF-8 UTF-8
+```
 
 - 输入 locale-gen，生成 locale 信息
 
@@ -533,21 +532,21 @@ cat /boot/grub/grub.cfg
 1、安装 NetworkManager（必须先装，不然进入新系统无法联网）
 
 ```sh
-sudo pacman -S networkmanager network-manager-applet
+pacman -S networkmanager network-manager-applet
 ```
 
 ```sh
-sudo systemctl enable NetworkManager
+systemctl enable NetworkManager
 ```
 
 2、安装 dhcpcd
 
 ```sh
-sudo pacman -S dhcpcd
+pacman -S dhcp dhcpcd
 ```
 
 ```sh
-sudo systemctl enable dhcpcd
+systemctl enable dhcpcd
 ```
 
 ### 设置 root 密码（新系统登陆）
@@ -680,7 +679,11 @@ passwd 用户名
 pacman -S sudo
 ```
 
-- 编辑 sudo vim /etc/sudoers 去掉`%wheel ALL=(ALL)ALL`注释
+- 编辑 sudo vim /etc/sudoers 去掉前面的#
+
+```sh
+%wheel ALL=(ALL)ALL
+```
 
 ### 安装 xorg
 
@@ -690,19 +693,21 @@ sudo pacman -S  xorg xorg-drivers xorg-server xorg-apps
 
 ### 桌面环境
 
-1、安装 GNOME 桌面环境
+- GNOME
 
 ```sh
 sudo pacman -S gnome gnome-extra
 ```
 
-2、安装 KDE 桌面环境（另一种选择）
+- KDE
 
 ```sh
 sudo pacman -S plasma kde-applications
 ```
 
 ### 开机登录界面
+
+- gdm
 
 ```sh
 sudo pacman -S gdm
@@ -712,10 +717,20 @@ sudo pacman -S gdm
 sudo systemctl enable gdm
 ```
 
+- sddm
+
+```sh
+sudo pacman -S sddm
+```
+
+```sh
+sudo systemctl enable sddm
+```
+
 ### 中文字体
 
 ```sh
-sudo pacman -S noto-fonts-cjk adobe-source-han-sans-cn-fonts adobe-source-han-serif-cn-fonts wqy-microhei wqy-zenhei
+sudo pacman -S noto-fonts-cjk noto-fonts-emoji wqy-microhei wqy-zenhei
 ```
 
 ### 中文输入法
@@ -764,5 +779,25 @@ pacman -Syy
 3、更新 GPG key
 
 ```sh
-pacman -S archlinuxcn-keyring
+sudo pacman -S archlinuxcn-keyring
+```
+
+### 显卡驱动
+
+- 英特尔
+
+```sh
+sudo pacman -S xf86-video-vesa
+```
+
+- 英伟达
+
+```sh
+sudo pacman -S nvidia nvidia-settings nvidia-utils opencl-nvidia lib32-opencl-nvidia lib32-nvidia-utils
+```
+
+### 触摸板驱动
+
+```sh
+sudo pacman -S xf86-input-synaptics
 ```
