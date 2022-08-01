@@ -1,3 +1,5 @@
+## 准备工作
+
 ### VMware Workstation 设置
 
 - 编辑虚拟机设置-选项-高级-固件类型，改成：UEFI
@@ -125,7 +127,7 @@ sudo pacman -S archlinux-keyring
 cat /etc/pacman.d/mirrorlist
 ```
 
-### 远程登陆
+### 登陆 ssh
 
 1、更新软件包缓存
 
@@ -381,7 +383,7 @@ genfstab -U /mnt >> /mnt/etc/fstab
 cat /mnt/etc/fstab
 ```
 
----
+## 系统重建
 
 ### 切换到根分区
 
@@ -585,7 +587,79 @@ lsblk -l
 reboot
 ```
 
----
+## 新的系统
+
+### 登陆 ssh（安装在新系统）
+
+1、更新软件包缓存
+
+```sh
+pacman -Syy
+```
+
+2、安装 ssh 软件
+
+```sh
+pacman -S openssh
+```
+
+3、启动 ssh
+
+```sh
+systemctl start sshd
+```
+
+4、开机启动 ssh
+
+```sh
+systemctl enable sshd
+```
+
+5、查看 ssh 状态
+
+```sh
+systemctl status sshd
+```
+
+- active (running) 表示开启
+
+### 无法登陆 ssh
+
+1、报错信息：无法远程登陆
+
+```sh
+All configured authentication methods failed
+```
+
+2、修改 ssh 配置文件
+
+```sh
+vim /etc/ssh/sshd_config
+```
+
+- 找到以下内容
+
+```sh
+#LoginGraceTime 2m
+#PermitRootLogin prohibit-password
+#StrictModes yes
+#MaxAuthTries 6
+#MaxSessions 10
+```
+
+- 追加以下内容
+
+```sh
+LoginGraceTime 120
+PermitRootLogin yes
+StrictModes yes
+```
+
+3、重新启动 ssh
+
+```sh
+systemctl restart sshd
+```
 
 ### 添加新的用户
 
