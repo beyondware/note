@@ -447,35 +447,37 @@ pacman -S amd-ucode
 
 ### 引导部署
 
-1、安装 GRUB 引导加载程序和 EFI 引导管理器包
+1、安装引导检测器
 
 ```sh
-pacman -S grub  efibootmgr efivar networkmanager
+pacman -S os-prober
 ```
+
+2、安装多重引导启动器
 
 ```sh
-sudo systemctl enable NetworkManager
+pacman -S grub efibootmgr
 ```
 
-2、部署 GRUB（整块硬盘）
+3、部署 GRUB
 
 ```sh
-grub-install /dev/sda
+grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=grub
 ```
 
-3、生成 GRUB 配置文件
+4、生成 GRUB 配置文件
 
 ```sh
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
-4、查看生成配置文件
+5、查看生成配置文件
 
 ```sh
 cat /boot/grub/grub.cfg
 ```
 
-5、系统重启
+6、系统重启
 
 - 退出 chroot 环境
 
@@ -483,7 +485,7 @@ cat /boot/grub/grub.cfg
 exit
 ```
 
-- 卸载挂载文件
+7、卸载挂载文件
 
 ```sh
 umount /mnt/boot/efi
@@ -495,6 +497,8 @@ umount /mnt
 ```sh
 reboot
 ```
+
+---
 
 ### 设置文本编码
 
@@ -536,74 +540,85 @@ pacman -Syy
 pacman -S archlinuxcn-keyring
 ```
 
-### 软件安装
-
-1、安装 xorg
+### 安装 xorg
 
 ```sh
-sudo pacman -S  xorg xorg-server xorg-apps
+sudo pacman -S  xorg xorg-drivers xorg-server xorg-apps
 ```
 
-2、安装 GNOME 桌面环境
+### 桌面环境
+
+1、安装 GNOME 桌面环境
 
 ```sh
 sudo pacman -S gnome gnome-extra
 ```
 
-- KDE 桌面环境（另一种）
+2、安装 KDE 桌面环境（另一种选择）
 
 ```sh
 sudo pacman -S plasma kde-applications
 ```
 
-3、登录桌面管理器
+### 开机登录界面
 
 ```sh
 sudo pacman -S gdm
 ```
 
-- 开机启动 gdm
-
 ```sh
 sudo systemctl enable gdm
 ```
 
-4、网络配置
+### 网络配置
+
+1、安装 NetworkManager
 
 ```sh
-sudo pacman -S dhcpcd
+sudo pacman -S networkmanager
 sudo pacman -S network-manager-applet
 ```
 
-- 开机启动网络
+```sh
+sudo systemctl enable NetworkManager
+```
+
+2、安装 dhcpcd
+
+```sh
+sudo pacman -S dhcpcd
+```
 
 ```sh
 sudo systemctl enable dhcpcd
 ```
 
-5、中文输入法
+### 中文字体
 
 ```sh
-sudo pacman -S fcitx5  fcitx5-qt fcitx5-gtk fcitx5-configtool fcitx5-chinese-addons fcitx5-pinyin-zhwiki
+sudo pacman -S noto-fonts-cjk adobe-source-han-sans-cn-fonts adobe-source-han-serif-cn-fonts wqy-microhei wqy-zenhei
 ```
 
-- 系统：sudo vim /etc/environment
+### 中文输入法
+
+1、安装 fcitx5
+
+```sh
+sudo pacman -S fcitx5  fcitx5-qt fcitx5-gtk fcitx5-configtool fcitx5-chinese-addons fcitx5-pinyin-zhwiki fcitx5-pinyin-moegirl fcitx5-material-color
+```
+
+2、编辑 sudo vim /etc/environment
 
 ```sh
 GTK_IM_MODULE=fcitx
 QT_IM_MODULE=fcitx
 XMODIFIERS=@im=fcitx
-INPUT_METHOD=fcitx
 SDL_IM_MODULE=fcitx
 GLFW_IM_MODULE=ibus
 ```
 
-- 个人：sudo vi ~/.bash_profile
+3、系统重启，才能生效。
 
-```sh
-export XMODIFIERS=@im=fcitx
-export GTK_IM_MODULE=fcitx
-export QT_IM_MODULE=fcitx
-```
+4、参考信息
 
-- 系统重启
+> https://wiki.archlinux.org/title/Fcitx5
