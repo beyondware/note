@@ -4,7 +4,14 @@
 sudo pacman -S base-devel git
 ```
 
-### 安装 yay
+### 禁止 root 账号安装
+
+```sh
+==> ERROR: Running makepkg as root is not allowed as it can cause permanent,
+catastrophic damage to your system.
+```
+
+### 安装 yay（普通账号）
 
 > https://github.com/Jguer/yay
 
@@ -36,13 +43,6 @@ cd yay
 makepkg -si
 ```
 
-### 禁止 root 安装
-
-```sh
-==> ERROR: Running makepkg as root is not allowed as it can cause permanent,
-catastrophic damage to your system.
-```
-
 ### go 换源
 
 - 临时换源
@@ -65,13 +65,13 @@ source ~/.profile
 1、安装
 
 ```sh
-yay -S 软件名
+yay -S 包名
 ```
 
 2、删除
 
 ```sh
-yay -Rns 软件名
+yay -Rns 包名
 ```
 
 3、系统升级
