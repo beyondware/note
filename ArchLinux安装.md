@@ -498,7 +498,9 @@ pacman -S os-prober
 pacman -S grub efibootmgr mtools
 ```
 
-3、部署 GRUB
+#### UEFI+GPT
+
+1、grub-install
 
 ```sh
 grub-install --target=x86_64-efi --efi-directory=/mnt --bootloader-id=GRUB
@@ -511,19 +513,56 @@ Installing for x86_64-efi platform.
 Installation finished. No error reported.
 ```
 
-4、生成 GRUB 配置文件
+2、生成 GRUB 配置文件
 
 ```sh
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
-5、查看生成配置文件
+3、查看生成配置文件
 
 ```sh
 cat /boot/grub/grub.cfg
 ```
 
 - 查看是否包含`initramfs-linux-fallback.img initramfs-linux.img intel-ucode.img vmlinuz-linux`文件
+
+#### 传统 BIOS+MBR
+
+1、grub-install（这里是整块硬盘）
+
+```sh
+grub-install --target=i386-pc /dev/sda
+```
+
+- 输出以下信息，表示成功。
+
+```sh
+Installing for i386-pc platform.
+Installation finished. No error reported.
+```
+
+2、生成 GRUB 配置文件
+
+```sh
+grub-mkconfig -o /boot/grub/grub.cfg
+```
+
+3、编辑 vim /etc/mkinitcpio.conf
+
+```sh
+MODULES=()
+
+修改为
+
+MODULES=(vsock vmw_vsock_vmci_transport vmw_balloon vmw_vmci vmwgfx)
+```
+
+4、执行配置文件生效
+
+```sh
+mkinitcpio -p linux
+```
 
 ### systemd-boot 引导
 
@@ -741,7 +780,7 @@ systemctl restart sshd
 1、添加用户到 wheel 组
 
 ```sh
-useradd -m -G wheel 用户名
+useradd -m -G wheel -s /bin/bash 用户名
 ```
 
 2、设置用户密码
@@ -756,7 +795,7 @@ passwd 用户名
 pacman -S sudo
 ```
 
-- 编辑 sudo vim /etc/sudoers 去掉前面的#
+- 编辑 sudo vim /etc/sudoers 或者 EDITOR=vim visudo 去掉前面的#
 
 ```sh
 %wheel ALL=(ALL)ALL
