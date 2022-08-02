@@ -1,0 +1,6 @@
+/* CSS 文件最前面添加如下代码 */
+
+html {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
+  -webkit-filter: grayscale(100%);
+}
