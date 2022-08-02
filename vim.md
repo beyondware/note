@@ -1,10 +1,3 @@
----
-title: vim 使用方法
-author: beyondware
-tags:
-  - [vim]
----
-
 ## 基础
 
 1、锁屏
@@ -336,7 +329,7 @@ ctrl+u(upward)
 y(yank)
 p(paste)
 
-## 全部命令
+## vim -h
 
 ```sh
 用法: vim [参数] [文件 ..]       编辑指定的文件
@@ -392,3 +385,20 @@ p(paste)
    -h  或  --help       打印帮助(本信息)并退出
    --version            打印版本信息并退出
 ```
+
+## 常见错误
+
+### E505
+
+```sh
+E505: "vimrc" is read-only (add ! to override)
+```
+
+- 无法保存退出，执行强制退出也不行:wq!
+
+```sh
+"vimrc" E212: Can't open file for writing
+Press ENTER or type command to continue
+```
+
+- 解决方法：sudo vim 运行
