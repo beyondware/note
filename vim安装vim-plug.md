@@ -76,34 +76,20 @@ call plug#end()
 ```sh
 " github镜像
 let g:plug_url_format = 'https://git::@hub.fastgit.xyz/%s.git'
-"
 
 " 彩虹插件配置生效
 let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
-"
-
-" 代码补全
-let g:apc_enable_ft = {'*':1}
-"
 
 
 call plug#begin('~/.vim/plugged')
 
 " 彩虹括号
 Plug 'luochen1990/rainbow'
-"
 
 " 历史记录
 Plug 'mhinz/vim-startify'
-"
-
-" 轻量级代码补全
-Plug 'skywind3000/vim-auto-popmenu'
-Plug 'skywind3000/vim-dict'
-"
 
 call plug#end()
-
 ```
 
 ### 解决 github 无法链接
@@ -128,4 +114,36 @@ let fmt = get(g:, 'plug_url_format', 'https://git::@hub.fastgit.xyz/%s.git')
 
 ```sh
 \ '^https://git::@hub.fastgit\.xyz', 'https://hub.fastgit.xyz', '')
+```
+
+### 基本配置
+
+```sh
+" 显示行号
+set number
+
+
+" 语法高亮
+syntax on
+
+
+" 自动对齐
+set autoindent
+
+" 智能对齐
+set smartindent
+
+" Tab键的宽度
+set tabstop=4
+
+"  统一缩进为4
+set softtabstop=4
+set shiftwidth=4
+
+
+" 历史纪录数
+set history=50
+
+" 高亮显示对应的括号
+set showmatch
 ```
