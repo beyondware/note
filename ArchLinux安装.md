@@ -780,7 +780,7 @@ systemctl restart sshd
 1、添加用户到 wheel 组
 
 ```sh
-useradd -m -G wheel -s /bin/bash 用户名
+useradd -m -g users -G wheel -s /bin/bash 用户名
 ```
 
 2、设置用户密码
@@ -795,7 +795,7 @@ passwd 用户名
 pacman -S sudo
 ```
 
-- 编辑 sudo vim /etc/sudoers 或者 EDITOR=vim visudo 去掉前面的#
+- 编辑 sudo vim /etc/sudoers 或者 EDITOR=vim visudo （推荐）去掉前面的#
 
 ```sh
 %wheel ALL=(ALL)ALL
