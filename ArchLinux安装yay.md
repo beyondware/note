@@ -35,7 +35,7 @@ makepkg -si
 
 ### go 换源
 
-- 临时换源（yay 安装失败）
+- 临时换源（yay 安装失败使用）
 
 ```sh
 export GO111MODULE=on
@@ -348,9 +348,7 @@ upgrade specific options:
 
 ## pamac
 
-> https://gitlab.manjaro.org/applications/pamac
-
-### yay 安装 pamac
+### yay 安装 pamac（推荐安装）
 
 ```sh
 yay -S pamac-aur
@@ -363,6 +361,30 @@ pamac-manager
 ```
 
 ### 源码安装 pamac
+
+#### 安装 libpamac
+
+> https://gitlab.manjaro.org/applications/libpamac
+
+1、克隆 libpamac（推荐 libpamac-aur）
+
+```sh
+git clone https://aur.archlinux.org/libpamac-aur.git
+```
+
+2、编译
+
+```sh
+cd libpamac-aur
+```
+
+```sh
+makepkg -si
+```
+
+#### 安装 pamac
+
+> https://gitlab.manjaro.org/applications/pamac
 
 1、克隆 pamac（推荐 pamac-aur）
 
