@@ -247,6 +247,52 @@ cd paru-bin
 makepkg -si
 ```
 
+### paru 命令
+
+1、安装
+
+```sh
+paru 包名
+```
+
+2、系统升级
+
+```sh
+paru -Syu
+```
+
+或者
+
+```sh
+paru -
+```
+
+3、仅升级 AUR 包
+
+```sh
+paru -Sua
+```
+
+4、可更新 AUR 包
+
+```sh
+paru -Qua
+```
+
+### 修改 paru 配置
+
+```sh
+sudo vim /etc/pacman.conf
+```
+
+1、启用颜色
+
+- 取消 Color 注释
+
+2、反转搜索顺序
+
+- 取消 BottomUp 注释
+
 ### paru -h
 
 ```sh
