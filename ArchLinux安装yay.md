@@ -9,7 +9,7 @@
 catastrophic damage to your system.
 ```
 
-### yay 安装（普通账号）
+### yay 安装
 
 1、安装依赖
 
@@ -17,37 +17,25 @@ catastrophic damage to your system.
 sudo pacman -S base-devel git
 ```
 
-2、克隆 yay
+2、克隆 yay（推荐 yay-bin）
 
 ```sh
-git clone https://aur.archlinux.org/yay.git
+git clone https://aur.archlinux.org/yay-bin.git
 ```
 
-3、修改目录所有者
+3、编译
 
 ```sh
-sudo chown -R 用户名:用户组 ./yay
-```
-
-- 不知道用户组，命令查询
-
-```sh
-id 用户名
-```
-
-4、编译
-
-```sh
-cd yay
+cd yay-bin
 ```
 
 ```sh
 makepkg -si
 ```
 
-### go 换源（yay 安装失败）
+### go 换源
 
-- 临时换源
+- 临时换源（yay 安装失败）
 
 ```sh
 export GO111MODULE=on
@@ -235,7 +223,7 @@ getpkgbuild specific options:
 
 > https://github.com/morganamilo/paru
 
-### paru 安装（推荐 paru-bin）
+### paru 安装
 
 1、安装依赖
 
@@ -243,7 +231,7 @@ getpkgbuild specific options:
 sudo pacman -S base-devel git
 ```
 
-2、克隆 paru-bin
+2、克隆 paru（推荐 paru-bin）
 
 ```sh
 git clone https://aur.archlinux.org/paru-bin.git
@@ -376,7 +364,7 @@ pamac-manager
 
 ### 源码安装 pamac
 
-1、克隆
+1、克隆 pamac（推荐 pamac-aur）
 
 ```sh
 git clone https://aur.archlinux.org/pamac-aur.git
