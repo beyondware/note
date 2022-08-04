@@ -15,7 +15,7 @@ sudo apt install ssh
 2、启动 SSH
 
 ```sh
-sudo systemctl start ssh
+sudo systemctl start sshd
 ```
 
 3、允许 SSH 远程登陆（root 登录）
@@ -29,13 +29,13 @@ sudo vim /etc/ssh/sshd_config
 4、重启 SSH
 
 ```sh
-sudo systemctl restart ssh
+sudo systemctl restart sshd
 ```
 
 5、开机启动 SSH
 
 ```sh
-sudo systemctl enable ssh
+sudo systemctl enable sshd
 ```
 
 6、查看 SSH 状态
@@ -47,7 +47,7 @@ sudo systemctl status sshd
 7、查看 SSH 进程
 
 ```sh
-ps -e | grep ssh
+ps -e | grep sshd
 ```
 
 > 显示 00:00:00 sshd 表示开启了 SSH
