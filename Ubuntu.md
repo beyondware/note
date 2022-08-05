@@ -6,12 +6,6 @@
 sudo apt install openssh-server
 ```
 
-或者
-
-```sh
-sudo apt install ssh
-```
-
 2、启动 SSH
 
 ```sh
@@ -54,13 +48,13 @@ ps -e | grep sshd
 
 ### 常用命令
 
-1、安装
+#### 安装
 
 ```sh
 apt install
 ```
 
-2、卸载
+#### 卸载
 
 ```sh
 apt remove
@@ -76,29 +70,35 @@ dpkg uninstall
 apt autoremove
 ```
 
-- 删除包和配置
+- 删除包和依赖
 
 ```sh
 apt purge
 ```
 
-3、列出与该包关联文件
+#### 列出
+
+列出与该包关联文件
 
 ```sh
 apt list --installed | grep -i 包的关键字
 ```
 
 ```sh
-dpkg -L | grep 包
+dpkg -L | grep 包的关键字
 ```
 
-4、更新本地包仓库缓存（更新）
+#### 更新
+
+更新本地包仓库缓存（更新）
 
 ```sh
 apt update
 ```
 
-5、升级所有可升级包（升级）
+#### 升级
+
+1、升级所有可升级的包（升级）
 
 ```sh
 apt upgrade
@@ -110,34 +110,42 @@ apt upgrade
 apt full-upgrade
 ```
 
-6、查看可升级的软件包
+2、查看可升级的软件包
 
 ```sh
 apt list --upgradable
 ```
 
-7、仅升级指定的包
+3、仅升级指定的软件包
 
 ```sh
 apt install --only-upgrade 包名
 ```
 
-8、模拟升级（但不升级任何包）
+4、模拟升级（但不升级任何包）
 
 ```sh
 apt -s upgrade
 ```
 
-9、搜索
+#### 搜索
 
 ```sh
 apt search 包名
 ```
 
-10、显示包的详细信息
+#### 详细信息
+
+1、显示包的详细信息
 
 ```sh
 apt show 包名
+```
+
+2、获取详细信息
+
+```sh
+apt info 包名
 ```
 
 ### 修改镜像源
