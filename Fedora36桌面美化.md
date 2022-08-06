@@ -1,3 +1,37 @@
+## 中文目录改成英文
+
+1、先将对应的中文目录重命名为英文
+
+```sh
+桌面：Desktop
+下载：Downloads
+模板：Templates
+公共：Public
+文档：Documents
+音乐：Music
+图片：Pictures
+视频：Videos
+```
+
+2、修改配置
+
+```sh
+sudo vim ~/.config/user-dirs.dirs
+```
+
+```sh
+XDG_DESKTOP_DIR="$HOME/Desktop"
+XDG_DOWNLOAD_DIR="$HOME/Downloads"
+XDG_TEMPLATES_DIR="$HOME/Templates"
+XDG_PUBLICSHARE_DIR="$HOME/Public"
+XDG_DOCUMENTS_DIR="$HOME/Documents"
+XDG_MUSIC_DIR="$HOME/Music"
+XDG_PICTURES_DIR="$HOME/Pictures"
+XDG_VIDEOS_DIR="$HOME/Videos"
+```
+
+3、重启系统
+
 ## 优化工具
 
 ```sh
