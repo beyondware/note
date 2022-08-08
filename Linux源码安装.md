@@ -1,19 +1,10 @@
----
-title: Linux 源码安装
-author: beyondware
-categories:
-  - [Linux]
----
-
-- 查看源代码中是否有 configure 或者 Makefile 文件
-
-## 下载
+### 下载
 
 ```sh
 wget 下载链接
 ```
 
-## 解包
+### 解压软件包
 
 ```sh
 tar -zxvf 下载包.tar.gz
@@ -23,13 +14,15 @@ tar -zxvf 下载包.tar.gz
 tar -jxvf 下载包.tar.bz2
 ```
 
-## 进入包目录
+### 进入包目录
 
 ```sh
 cd 包目录
 ```
 
-## 配置生成 Makefile 文件
+- 查看源代码中是否有 configure 或者 Makefile 文件
+
+### 执行 configure
 
 - 执行 configure 指定安装路径
 
@@ -41,7 +34,7 @@ cd 包目录
 
 > creating objs/Makefile //显示结果
 
-## 缺少依赖
+### 缺少依赖
 
 > 缺少 xxx library，报错
 
@@ -49,37 +42,51 @@ cd 包目录
 sudo dnf install xxx xxx-devel
 ```
 
-## 报错清理
+### 报错清理
 
 ```sh
 make clean
 ```
 
-## 判断上一次操作是否正确
+- 需要删除 Makefile 和 objs 文件
+
+```sh
+rm -rf Makefile objs
+```
+
+### 再执行 configure
+
+- 执行 configure 指定安装路径
+
+```sh
+./configure --prefix=/usr/local/包名
+```
+
+### 检验上一步操作是否正确
 
 ```sh
 echo &?
 ```
 
-## 根据 Makefile 文件编译
+### 编译 Makefile 文件
 
 ```sh
 make
 ```
 
-## 安装
+### 安装
 
 ```sh
 make install
 ```
 
-## 卸载
+### 卸载
 
 ```sh
 make uninstall
 ```
 
-## 启动
+### 使用软件
 
 - 安装成功后，一般进入下面路径，来启动、停止等操作。
 
