@@ -1,17 +1,6 @@
----
-title: 用Linux使用snap
-author: beyondware
-tags:
-  - [snap]
-categories:
-  - [Linux]
----
+### 安装 snap 环境
 
-## 安装环境
-
-安装 snap 环境
-
-- Ubuntu
+1、Ubuntu
 
 ```sh
 sudo apt update
@@ -21,99 +10,97 @@ sudo apt update
 sudo apt install snapd
 ```
 
-- Fedora
+2、Fedora
 
 ```sh
 sudo dnf install shapd
 ```
 
-安装 snap 商店(可选)
+3、安装 snap 商店(可选)
 
 ```sh
 sudo snap install snap-store
 ```
 
-## 常用命令
+### 常用命令
 
-查找某一命令帮助
-
-```sh
-snap help 命令
-```
-
-查找要安装的软件
-
-```sh
-snap find 软件名
-```
-
-查找要安装的软件详细信息
-
-```sh
-snap info 软件名
-```
-
-列出已安装
-
-```sh
-snap list
-```
-
-下载某一软件包到电脑
-
-```sh
-snap download 软件名
-```
-
-安装
+1、安装
 
 ```sh
 sudo snap install 软件名
 ```
 
-卸载
+2、卸载
 
 ```sh
 sudo snap remove 软件名
 ```
 
-更新
+3、更新
 
 ```sh
 sudo snap refresh 软件名
 ```
 
-运行
+4、运行
 
 ```sh
 snap run 软件名
 ```
 
-启用 snap
+5、启用 snap
 
 ```sh
 sudo snap enable
 ```
 
-禁用 snap
+6、禁用 snap
 
 ```sh
 sudo snap disable
 ```
 
-指定目录打包成 snap
+7、查找某一命令帮助
+
+```sh
+snap help 命令
+```
+
+8、查找要安装的软件
+
+```sh
+snap find 软件名
+```
+
+9、查找要安装的软件详细信息
+
+```sh
+snap info 软件名
+```
+
+10、列出已安装软件
+
+```sh
+snap list
+```
+
+11、下载某到本地
+
+```sh
+snap download 软件名
+```
+
+12、指定目录打包成 snap
 
 ```sh
 sudo snap pack
 ```
 
-## 报错
-
-1、报错信息
+### 报错信息
 
 > cannot find signatures with metadata for snap
 
-2、解决方法
+- 解决方法
 
 > 任何未通过 Snap 商店分发的 Snap 包都必须使用 --dangerous 选项进行安装
 
@@ -121,7 +108,7 @@ sudo snap pack
 sudo snap install --dangerous
 ```
 
-## 参考文档
+### 参考文档
 
 > https://snapcraft.io/docs/installing-snapd
 
