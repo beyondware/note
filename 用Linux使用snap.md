@@ -39,6 +39,10 @@ sudo snap remove 软件名
 3、更新
 
 ```sh
+sudo killall 软件名
+```
+
+```sh
 sudo snap refresh 软件名
 ```
 
