@@ -1,13 +1,4 @@
----
-title: Fedora
-author: beyondware
-tags:
-  - [Fedora]
-categories:
-  - [Linux]
----
-
-## SSH 登陆
+### SSH 登陆
 
 - 远程拒绝打开外壳通道:错误:未连接，需要启动 SSH
 
@@ -61,7 +52,7 @@ ps -e | grep ssh
 
 > 显示 00:00:00 sshd 表示连接上了 SSH
 
-## 修改源
+### 修改源
 
 1、fedora.repo
 
@@ -97,7 +88,7 @@ sudo dnf repolist
 
 > https://mirrors.cloud.tencent.com/help/fedora.html
 
-## 系统
+### 系统
 
 1、系统更新
 
@@ -121,38 +112,6 @@ sudo dnf distro-sync
 
 ```sh
 dnf check-update
-```
-
-## 常用命令
-
-1、安装
-
-```sh
-sudo dnf install
-```
-
-2、移除
-
-```sh
-sudo dnf remove
-```
-
-3、自动移除（包括：不需要的依赖）
-
-```sh
-sudo dnf autoremove
-```
-
-4、清理所有
-
-```sh
-dnf clean all
-```
-
-5、显示软件详细信息
-
-```sh
-dnf info
 ```
 
 ### 用户
@@ -209,6 +168,66 @@ userdel -f 用户名
 userdel -r 用户名
 ```
 
+### 登陆用户
+
+1、查看当前登录用户信息
+
+```sh
+who
+```
+
+2、查询当前登录用户
+
+```sh
+whoami
+```
+
+### 常用命令
+
+1、安装
+
+```sh
+sudo dnf install
+```
+
+2、移除
+
+```sh
+sudo dnf remove
+```
+
+3、自动移除（包括：不需要的依赖）
+
+```sh
+sudo dnf autoremove
+```
+
+4、清理所有
+
+```sh
+dnf clean all
+```
+
+5、显示软件详细信息
+
+```sh
+dnf info
+```
+
+### 删除（源码安装）
+
+1、列出已安装与`关键字`匹配的软件
+
+```sh
+dnf list installed | grep 关键字
+```
+
+2、删除相关的软件
+
+```sh
+sudo dnf remove 完全匹配名称
+```
+
 ### 搜索
 
 1、搜索
@@ -227,20 +246,6 @@ dnf repoquery
 
 ```sh
 dnf provides
-```
-
-### 登陆
-
-1、查看当前登录用户信息
-
-```sh
-who
-```
-
-2、查询当前登录用户
-
-```sh
-whoami
 ```
 
 ### 路径
@@ -271,7 +276,7 @@ find
 dnf list
 ```
 
-2、列出与`关键词`匹配仓库源
+2、列出与`关键字`匹配软件源
 
 ```sh
 dnf list | grep 关键字
@@ -283,19 +288,13 @@ dnf list | grep 关键字
 dnf list installed
 ```
 
-4、列出已安装与`关键词`匹配的软件
-
-```sh
-dnf list installed | grep 关键字
-```
-
-5、显示已配置的软件存储库（远程仓库）
+4、显示已配置的软件存储库（远程仓库）
 
 ```sh
 dnf repolist
 ```
 
-6、列出或创建命令别名
+5、列出或创建命令别名
 
 ```sh
 dnf alias
