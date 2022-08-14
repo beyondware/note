@@ -1,4 +1,30 @@
-## 基础
+### 源码安装
+
+1、安装依赖
+
+```sh
+sudo dnf install gcc make ncurses-devel
+```
+
+2、克隆 vim
+
+```sh
+git clone https://ghproxy.com/https://github.com/vim/vim.git
+```
+
+3、切换到 vim/src 目录
+
+```sh
+./configure --prefix=/usr/local/vim
+```
+
+4、编译和安装
+
+```sh
+make && make install
+```
+
+### 基础
 
 1、锁屏
 
@@ -90,7 +116,7 @@ vim -On 文件名1 文件名2
 
 本行之`前`新增一行输入：O（大写）
 
-## VISUAL 模式
+### VISUAL 模式
 
 - 在`普通模式`下，按下 v 可以选择文本
 
@@ -329,7 +355,7 @@ ctrl+u(upward)
 y(yank)
 p(paste)
 
-## vim -h
+### vim -h
 
 ```sh
 用法: vim [参数] [文件 ..]       编辑指定的文件
@@ -386,9 +412,9 @@ p(paste)
    --version            打印版本信息并退出
 ```
 
-## 常见错误
+### 常见错误
 
-### E505
+1、 E505
 
 ```sh
 E505: "vimrc" is read-only (add ! to override)
