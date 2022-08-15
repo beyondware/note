@@ -354,7 +354,7 @@ df -h
 - 必装
 
 ```sh
-pacstrap /mnt base base-devel linux linux-firmware linux-headers
+pacstrap /mnt base base-devel linux linux-firmware
 ```
 
 - 选装
