@@ -1,12 +1,3 @@
----
-title: Hexo搭建部署到Gitee
-author: beyondware
-tags:
-  - [hexo]
-categories:
-  - [node]
----
-
 ## 安装依赖
 
 > git node.js
