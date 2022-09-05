@@ -1,12 +1,3 @@
----
-title: npm、yarn 使用方法
-author: beyondware
-tags:
-  - [npm]
-categories:
-  - [node]
----
-
 ## node
 
 > https://nodejs.org/en/
