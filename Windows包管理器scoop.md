@@ -1,13 +1,3 @@
----
-title: scoop使用方法
-author: beyondware
-tags:
-  - [scoop]
-categories:
-  - [Windows]
-description: scoop：Windows命令行包管理器
----
-
 ## scoop
 
 > 安装时，请确认是否能支持访问 GitHub 及其存储库网站
