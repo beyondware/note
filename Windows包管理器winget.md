@@ -1,13 +1,3 @@
----
-title: winget 使用方法
-author: beyondware
-tags:
-  - [winget]
-categories:
-  - [Windows]
-description: winget：Windows命令行包管理器
----
-
 ## winget 安装
 
 1、先安装 App Installer（应用安装程序）
