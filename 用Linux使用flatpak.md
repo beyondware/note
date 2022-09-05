@@ -1,12 +1,3 @@
----
-title: 用Linux使用flatpak
-author: beyondware
-tags:
-  - [flatpak]
-categories:
-  - [Linux]
----
-
 ## 基本操作
 
 ### 安装 Flatpak
