@@ -1,12 +1,3 @@
----
-title: 用Linux使用brew
-author: beyondware
-tags:
-  - [brew]
-categories:
-  - [Linux]
----
-
 ## 安装依赖
 
 ```sh
