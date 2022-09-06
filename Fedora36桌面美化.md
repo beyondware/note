@@ -122,7 +122,7 @@ XDG_VIDEOS_DIR="$HOME/Videos"
 
 3、重启系统
 
-### 优化工具 gnome-tweaks
+### gnome-tweaks
 
 ```sh
 sudo dnf install gnome-tweaks
