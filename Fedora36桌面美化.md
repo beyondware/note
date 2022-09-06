@@ -1,4 +1,94 @@
-## 中文目录改成英文
+### SSH 登陆
+
+- 远程拒绝打开外壳通道:错误:未连接，需要启动 SSH
+
+> Remote rejected opening a shell channel: Error: Not connected
+
+1、查看 SSH 状态
+
+```sh
+systemctl status sshd
+```
+
+> Active: active (running) 表示开启
+
+> Active: inactive (dead) 表示关闭
+
+2、启动 SSH
+
+```sh
+sudo systemctl start sshd
+```
+
+或者
+
+```sh
+sudo systemctl start sshd.service
+```
+
+3、开机启动 SSH
+
+```sh
+sudo systemctl enable sshd
+```
+
+4、停止 SSH
+
+```sh
+sudo systemctl stop sshd.service
+```
+
+5、重启 SSH
+
+```sh
+sudo systemctl restart sshd.service
+```
+
+6、查看 SSH 连接状态
+
+```sh
+ps -e | grep ssh
+```
+
+> 显示 00:00:00 sshd 表示连接上了 SSH
+
+### 修改源
+
+1、fedora.repo
+
+```sh
+sudo wget -O /etc/yum.repos.d/fedora.repo http://mirrors.aliyun.com/repo/fedora.repo
+```
+
+2、fedora-updates.repo
+
+```sh
+sudo wget -O /etc/yum.repos.d/fedora-updates.repo http://mirrors.aliyun.com/repo/fedora-updates.repo
+```
+
+3、本地缓存
+
+```sh
+sudo dnf makecache
+```
+
+4、查看配置仓库
+
+```sh
+sudo dnf repolist
+```
+
+### 参考源
+
+- 阿里云
+
+> https://developer.aliyun.com/mirror/fedora
+
+- 腾讯云
+
+> https://mirrors.cloud.tencent.com/help/fedora.html
+
+### 目录改成英文
 
 1、先将对应的中文目录重命名为英文
 
@@ -32,13 +122,13 @@ XDG_VIDEOS_DIR="$HOME/Videos"
 
 3、重启系统
 
-## 优化工具
+### 优化工具 gnome-tweaks
 
 ```sh
 sudo dnf install gnome-tweaks
 ```
 
-## 显示 Dock 栏
+### 显示 Dock 栏
 
 > https://extensions.gnome.org/
 
@@ -50,7 +140,7 @@ sudo dnf install gnome-tweaks
 sudo dnf install gnome-shell-extension-dash-to-dock.noarch
 ```
 
-## 特效扩展
+### 特效扩展
 
 - 扩展安装位置
 
@@ -70,7 +160,7 @@ cd ~/.local/share/gnome-shell/extensions
 
 > https://extensions.gnome.org/extension/97/coverflow-alt-tab/
 
-## 主题
+### 主题
 
 > https://github.com/vinceliuice/WhiteSur-gtk-theme
 
@@ -92,7 +182,7 @@ cd WhiteSur-gtk-theme/
 cd ~/.themes
 ```
 
-## 图标
+### 图标
 
 > https://github.com/vinceliuice/WhiteSur-icon-theme
 
@@ -114,7 +204,7 @@ cd WhiteSur-icon-theme/
 cd ~/.local/share/icons
 ```
 
-## 光标
+### 光标
 
 > https://github.com/vinceliuice/WhiteSur-cursors
 
@@ -136,7 +226,7 @@ cd WhiteSur-cursors/
  cd ~/.local/share/icons
 ```
 
-## 壁纸
+### 壁纸
 
 > https://github.com/vinceliuice/WhiteSur-wallpapers
 
