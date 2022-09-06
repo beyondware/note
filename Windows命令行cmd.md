@@ -1,12 +1,3 @@
----
-title: cmd 使用方法
-author: beyondware
-tags:
-  - [cmd]
-categories:
-  - [Windows]
----
-
 ### 基础
 
 不区分`大小写`
