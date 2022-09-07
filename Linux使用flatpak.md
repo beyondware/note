@@ -2,7 +2,7 @@
 
 ### 安装 Flatpak
 
-- Fedora(默认已安装)
+- Fedora(默认：已安装)
 
 ```sh
 sudo dnf install flatpak
@@ -34,56 +34,56 @@ sudo apt install plasma-discover-backend-flatpak
 
 > error: No remote refs found similar to ‘flathub’ //未发现类似于 "flathub" 的远程引用
 
-- 添加 Flathub 仓库
+1、添加 Flathub 仓库
 
 ```sh
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 ```
 
-- Flabhub Beta
+2、添加 Flabhub Beta 仓库
 
 ```sh
 flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
 ```
 
 ```sh
-flatpak install flathub 软件名ID
+flatpak install flathub 应用程序ID
 ```
 
-- 添加 fedora 仓库
+3、添加 fedora 仓库
 
 ```sh
 flatpak remote-add --if-not-exists fedora oci+https://registry.fedoraproject.org
 ```
 
-- fedora testing
+4、添加 fedora testing 仓库
 
 ```sh
 flatpak remote-add --if-not-exists fedora-testing oci+https://registry.fedoraproject.org#testing
 ```
 
 ```sh
-flatpak install fedora 软件名ID
+flatpak install fedora 应用程序ID
 ```
 
-- 添加 GNOME nightly 仓库
+5、添加 GNOME nightly 仓库
 
 ```sh
 flatpak remote-add --if-not-exists gnome-nightly https://nightly.gnome.org/gnome-nightly.flatpakrepo
 ```
 
 ```sh
-flatpak install gnome-nightly 软件名ID
+flatpak install gnome-nightly 应用程序ID
 ```
 
-- 添加 KDE nightly 仓库
+6、添加 KDE nightly 仓库
 
 ```sh
 flatpak remote-add --if-not-exists kdeapps --from https://distribute.kde.org/kdeapps.flatpakrepo
 ```
 
 ```sh
-flatpak install kdeapps 软件名ID
+flatpak install kdeapps 应用程序ID
 ```
 
 ### 删除远程仓库
@@ -98,21 +98,15 @@ flatpak remote-delete
 flatpak remote-delete flathub
 ```
 
-### 查看远程仓库
+### 列出远程仓库
 
-1、查看已添加的软件远程仓库
+1、列出已添加的软件远程仓库
 
 ```sh
 flatpak remotes
 ```
 
-2、列出可安装的应用程序
-
-```sh
-flatpak remote-ls --app
-```
-
-3、列出可安装的应用程序和运行时环境
+2、列出可安装的应用程序和运行时环境
 
 ```sh
 flatpak remote-ls
@@ -120,41 +114,37 @@ flatpak remote-ls
 
 ## 常用命令
 
-### 查看
+### 搜索
 
-1、查找远程仓库中的应用
-
-```sh
-flatpak search
-```
-
-2、查看已安装的应用程序
+- 搜索远程仓库中的应用程序
 
 ```sh
-flatpak list --app
+flatpak search 关键字
 ```
 
-3、查看已安装的应用程序和运行时环境
+### 列出
+
+1、列出所有安装的应用程序
 
 ```sh
 flatpak list
 ```
 
-4、查看已安装应用程序的详细信息
+2、列出已安装的应用程序
 
 ```sh
-flatpak info
+flatpak list --app
+```
+
+3、已安装应用程序的更多信息
+
+```sh
+flatpak info 应用程序ID
 ```
 
 ### 安装
 
-1、安装
-
-```sh
-flatpak install
-```
-
-2、安装（多种方式）
+1、安装（多种安装方式）
 
 ```sh
 flatpak install flathub com.github.tchx84.Flatseal
@@ -168,38 +158,61 @@ flatpak install https://dl.flathub.org/repo/appstream/com.github.tchx84.Flatseal
 
 > 必须全部打勾 ✔ 才能安装成功
 
-3、报错（网络环境问题，需要多次安装尝试）
+2、安装报错（网络环境问题，需要多次安装尝试）
 
 > error: Unable to load summary from remote flathub: Could not connect: 拒绝连接
 
 ### 运行
 
 ```sh
-flatpak run
+flatpak run 应用程序ID
 ```
 
 ### 卸载
 
+1、卸载特定应用程序
+
 ```sh
-flatpak uninstall
+flatpak uninstall 应用程序ID
 ```
 
 > Uninstall complete. //卸载完成
 
+- 卸载和删除特定应用程序的数据
+
+```sh
+flatpak uninstall --delete-data 应用程序ID
+```
+
+2、卸载所有应用程序
+
+```sh
+flatpak uninstall --all
+```
+- 卸载和删除所有与Flatpak相关数据
+
+```sh
+flatpak uninstall --all --delete-data
+```
+
+3、卸载未使用的应用程序
+
+```sh
+flatpak uninstall --unused
+```
+
 ### 更新
 
-- 更新远程仓库的元数据
+1、更新所有的应用程序
 
 ```sh
 flatpak update
 ```
 
-### 帮助
-
-- 参考 Flatpak 帮助
+2、更新特定的应用程序
 
 ```sh
-flatpak --help
+flatpak update --app 应用程序ID
 ```
 
 ### 构建
@@ -248,7 +261,11 @@ sudo apt install flatpak-builder elfutils
 
 > https://community.kde.org/Guidelines_and_HOWTOs/Flatpak
 
-## 全部命令
+## 帮助
+
+```sh
+flatpak --help
+```
 
 ```sh
 Usage:
