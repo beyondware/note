@@ -527,7 +527,7 @@ cat /boot/grub/grub.cfg
 
 - 查看是否包含`initramfs-linux-fallback.img initramfs-linux.img intel-ucode.img vmlinuz-linux`文件
 
-#### 传统 BIOS+MBR
+#### BIOS+MBR
 
 1、grub-install（这里是整块硬盘）
 
@@ -643,7 +643,7 @@ When = PostTransaction
 Exec = /usr/bin/systemctl restart systemd-boot-update.service
 ```
 
-### 网络配置
+### 网络
 
 1、安装 NetworkManager（必须先装，不然进入新系统无法联网）
 
@@ -683,7 +683,7 @@ exit 或者 Ctrl+d
 umount /mnt/boot
 ```
 
-- 有助于发现任何「繁忙」的分区
+- 发现任何「繁忙」的分区
 
 ```
 umount  -R /mnt
@@ -817,7 +817,7 @@ sudo pacman -S plasma kde-applications
 
 ### 开机登录界面
 
-- gdm
+- gdm（GNOME）
 
 ```sh
 sudo pacman -S gdm
@@ -827,7 +827,7 @@ sudo pacman -S gdm
 sudo systemctl enable gdm
 ```
 
-- sddm
+- sddm（KDE）
 
 ```sh
 sudo pacman -S sddm
@@ -891,13 +891,27 @@ sudo pacman -Syy
 ```sh
 sudo pacman -S archlinuxcn-keyring
 ```
+4、如果遇到一连串error
+
+```sh
+rm -rf /etc/pacman.d/gnupg
+pacman-key --init
+pacman-key --populate archlinux archlinuxcn
+pacman -Syy
+```
 
 ## 驱动
 
-### 显示服务器 xorg
+### Xorg
 
 ```sh
 sudo pacman -S  xorg xorg-apps xorg-drivers
+```
+
+- 可选
+
+```sh
+sudo pacman -S xorg-apps
 ```
 
 ### 显卡
@@ -905,25 +919,49 @@ sudo pacman -S  xorg xorg-apps xorg-drivers
 - AMD
 
 ```sh
-sudo pacman -S xf86-video-amdgpu
+sudo pacman -S mesa lib32-mesa xf86-video-amdgpu
+```
+
+- 可选
+
+```sh
+sudo pacman -S vulkan-radeon lib32-vulkan-radeon
 ```
 
 - Intel
 
 ```sh
-sudo pacman -S xf86-video-intel
+sudo pacman -S mesa lib32-mesa xf86-video-intel
+```
+
+- 可选
+
+```sh
+sudo pacman -S vulkan-intel lib32-vulkan-intel
 ```
 
 - NVIDIA
 
 ```sh
-sudo pacman -S mesa xf86-video-nouveau
+sudo pacman -S mesa lib32-mesa xf86-video-nouveau
 ```
 
-### 声卡
+- 可选
 
 ```sh
-sudo pacman -S pulseaudio
+sudo pacman -S nvidia nvidia-settings lib32-nvidia-utils
+```
+
+### 视频驱动
+
+```sh
+sudo pacman -S xf86-video-vesa xf86-video-vmware
+```
+
+### 音频
+
+```sh
+sudo pacman -S alsa-utils pulseaudio pulseaudio-alsa
 ```
 
 ### 蓝牙
@@ -936,10 +974,10 @@ sudo pacman -S pulseaudio-bluetooth
 sudo systemctl enable bluetooth
 ```
 
-### 触摸板
+### 鼠标
 
 ```sh
-sudo pacman -S xf86-input-synaptics
+sudo pacman -S  xf86-input-vmmouse xf86-input-synaptics
 ```
 
 ### 打印机
