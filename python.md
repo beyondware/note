@@ -1,4 +1,4 @@
-## python 自定义安装
+### python 自定义安装
 
 1、选择“Customize installation”（自定义安装）
 
@@ -18,11 +18,11 @@ python --version
 pip --version
 ```
 
-## PyCharm
+### PyCharm
 
 > https://www.jetbrains.com/pycharm/
 
-## 解决 python 没有安装 pip 的问题
+### 解决 python 没有安装 pip 的问题
 
 - 一般 Linux 自带 python，但是没有安装 pip 报错
 
@@ -40,7 +40,7 @@ python -m ensurepip --upgrade
 python -m pip install --upgrade pip
 ```
 
-## 换镜像源
+### pypi 换镜像源
 
 ```sh
 pip install pip -U
@@ -52,7 +52,17 @@ pip install pip -U
 pip config set global.index-url https://mirror.nju.edu.cn/pypi/web/simple
 ```
 
-## pip 命令
+- 查看当前源
+
+```sh
+cat ~/.config/pip/pip.conf
+```
+
+- 参考源
+
+> https://mirror.nju.edu.cn/help/pypi
+
+### pip 命令
 
 ```sh
 Usage:
