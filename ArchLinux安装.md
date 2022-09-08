@@ -97,7 +97,7 @@ Server = https://mirror.nju.edu.cn/archlinux/$repo/os/$arch
 Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch
 ```
 
-- Manjaro
+#### Manjaro
 
 ```sh
 sudo pacman-mirrors -i -c China -m rank
@@ -431,7 +431,7 @@ vim /etc/locale.gen
 
 ```sh
 en_US.UTF-8 UTF-8
-zh_CN.UTF-8 UTF-8
+#zh_CN.UTF-8 UTF-8
 ```
 
 - 输入 locale-gen，生成 locale 信息
@@ -645,7 +645,7 @@ Exec = /usr/bin/systemctl restart systemd-boot-update.service
 
 ### 网络
 
-1、安装 NetworkManager（必须先装，不然进入新系统无法联网）
+1、安装 NetworkManager（必须先装，不然新系统无法联网）
 
 ```sh
 pacman -S networkmanager network-manager-applet
@@ -905,7 +905,7 @@ pacman -Syy
 ### Xorg
 
 ```sh
-sudo pacman -S  xorg xorg-apps xorg-drivers
+sudo pacman -S  xorg xorg-drivers
 ```
 
 - 可选
@@ -961,7 +961,7 @@ sudo pacman -S xf86-video-vesa xf86-video-vmware
 ### 音频
 
 ```sh
-sudo pacman -S alsa-utils pulseaudio pulseaudio-alsa
+sudo pacman -S pipewire pipewire-alsa pipewire-jack pipewire-media-session
 ```
 
 ### 蓝牙
@@ -977,13 +977,13 @@ sudo systemctl enable bluetooth
 ### 鼠标
 
 ```sh
-sudo pacman -S  xf86-input-vmmouse xf86-input-synaptics
+sudo pacman -S  xf86-input-vmmouse xf86-input-libinput xf86-input-synaptics
 ```
 
 ### 打印机
 
 ```sh
-sudo pacman -S cups
+sudo pacman -S cups cups-filters libcups cups-pk-helper system-config-printer
 ```
 
 ```sh
