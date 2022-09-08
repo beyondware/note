@@ -92,10 +92,16 @@ whoami
 sudo dnf install
 ```
 
-- 列出所有已安装的软件包
+### 列出所有已安装的软件包
 
 ```sh
 dnf list installed
+```
+
+### 显示软件详细信息
+
+```sh
+dnf info 软件包
 ```
 
 ### 移除
@@ -130,12 +136,6 @@ dnf list installed | grep 关键字
 
 ```sh
 sudo dnf remove 完整软件ID
-```
-
-### 显示详细信息
-
-```sh
-dnf info
 ```
 
 ### 搜索
