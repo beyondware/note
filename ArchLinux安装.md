@@ -66,67 +66,6 @@ station wlan0 connect 网络名称
 quit 或者 exit
 ```
 
-### 修改镜像源
-
-- 自动获取
-
-1、获取 pacman 镜像源
-
-```sh
-reflector --country China --age 72 --sort rate --protocol https --save /etc/pacman.d/mirrorlist
-```
-
-2、查看 pacman 镜像源
-
-```sh
-cat /etc/pacman.d/mirrorlist
-```
-
-- 手动添加
-
-1、编辑配置文件
-
-```sh
-vim /etc/pacman.d/mirrorlist
-```
-
-2、添加镜像源（南京大学为例，放在最前面）
-
-```sh
-Server = https://mirror.nju.edu.cn/archlinux/$repo/os/$arch
-Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch
-```
-
-#### Manjaro
-
-```sh
-sudo pacman-mirrors -i -c China -m rank
-```
-
-- 手动添加
-
-```sh
-Server = https://mirrors.tuna.tsinghua.edu.cn/manjaro/stable/$repo/$arch
-```
-
-3、更新软件包缓存
-
-```sh
-pacman -Syy
-```
-
-4、更新 GPG key
-
-```sh
-pacman -S archlinux-keyring
-```
-
-5、查看镜像源
-
-```sh
-cat /etc/pacman.d/mirrorlist
-```
-
 ### 登陆 ssh
 
 1、更新软件包缓存
@@ -170,22 +109,88 @@ passwd root
 7、查看 IP 地址
 
 ```sh
-ip add
+ip addr
 ```
 
-### fdisk 分区法
+8、禁止远程登陆
 
-1、检查磁盘信息
+- 报错信息
+
+```sh
+All configured authentication methods failed
+Remote rejected opening a shell channel: Error: Not connected
+```
+
+- 编辑 vim /etc/ssh/sshd_config
+
+> PermitRootLogin yes
+
+### 修改镜像源
+
+#### 自动获取
+
+1、获取 pacman 镜像源
+
+```sh
+reflector --country China --age 72 --sort rate --protocol https --save /etc/pacman.d/mirrorlist
+```
+
+2、查看 pacman 镜像源
+
+```sh
+cat /etc/pacman.d/mirrorlist
+```
+
+#### 手动添加
+
+1、编辑配置文件
+
+```sh
+vim /etc/pacman.d/mirrorlist
+```
+
+2、添加镜像源（南京大学为例，放在最前面）
+
+```sh
+Server = https://mirror.nju.edu.cn/archlinux/$repo/os/$arch
+Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch
+```
+
+3、更新软件包缓存
+
+```sh
+pacman -Syy
+```
+
+4、更新 GPG key
+
+```sh
+pacman -S archlinux-keyring
+```
+
+5、查看镜像源
+
+```sh
+cat /etc/pacman.d/mirrorlist
+```
+
+### 分区
+
+- 检查磁盘信息，确认磁盘名称
 
 ```sh
 fdisk -l
 ```
 
-2、分区（sda：硬盘名）
+#### fdisk 分区法
+
+1、分区（sda：磁盘名）
 
 ```sh
 fdisk /dev/sda
 ```
+
+2、选择磁盘类型：gpt
 
 ```sh
 g：gpt 格式
@@ -197,7 +202,7 @@ d：删除分区
 p：查看分区
 ```
 
-- fdisk 帮助信息
+3、fdisk 帮助信息
 
 ```sh
 Help:
@@ -243,13 +248,17 @@ Partition type
    e   extended (container for logical partitions)（扩展分区）
 ```
 
-### cfdisk 分区法
+#### cfdisk 分区法（推荐）
+
+1、分区
 
 ```sh
 cfdisk /dev/sda
 ```
 
-> 选择：gpt
+2、选择：gpt
+
+3、对应类型
 
 ```sh
 /dev/sda1 512M EFI System
@@ -259,27 +268,17 @@ cfdisk /dev/sda
 /dev/sda3 剩余 Linux filesystem
 ```
 
-光标回到 Write，输入 yes，Quit 退出。
+4、光标回到 Write，输入 yes，Quit 退出。
 
 > Syncing disks.
 
-- 如果没有显示，需要更新分区表（或者重启系统）
+### 分区格式
+
+- 查看磁盘信息
 
 ```sh
-partprobe
+fdisk -l
 ```
-
-### 格式化
-
-- 一般分区 3 个
-
-1、引导分区（512M）/boot
-
-2、交换分区 swap
-
-3、根分区 /
-
-- 格式化
 
 1、boot 分区必须是 fat32 格式
 
@@ -289,11 +288,15 @@ mkfs.fat -F32 /dev/sda1
 
 或者
 
+```
+这里输入代码
+```
+
 ```sh
 mkfs.vfat /dev/sda1
 ```
 
-2、交换分区（无需挂载）
+2、交换分区（激活）
 
 - 创建 swap
 
