@@ -128,18 +128,10 @@ mkfs.xfs /dev/sda2
 mount /dev/sda2 /mnt
 ```
 
-### 安装软件
-
-- 必装
+### 必备软件
 
 ```sh
-pacstrap /mnt base base-devel linux linux-firmware
-```
-
-- 选装
-
-```sh
-pacstrap /mnt bash-completion git wget vim
+pacstrap /mnt base linux linux-firmware dhcpcd vim openssh xfsprogs man net-tools
 ```
 
 ### 生成 fstab 文件
@@ -154,7 +146,7 @@ genfstab -U /mnt >> /mnt/etc/fstab
 cat /mnt/etc/fstab
 ```
 
-### 切换到根分区
+### 更改根目录
 
 ```sh
 arch-chroot /mnt
@@ -214,9 +206,47 @@ vim /etc/hosts
 pacman -S intel-ucode
 ```
 
+### 网络
+
+1、安装 NetworkManager（必须先装，不然新系统无法联网）
+
+```sh
+pacman -S networkmanager
+```
+
+```sh
+systemctl enable NetworkManager
+```
+
+2、启动 dhcpcd
+
+```sh
+systemctl enable dhcpcd
+```
+
+3、启动
+
+```sh
+systemctl enable sshd
+```
+
+4、修改SSH登录
+
+```sh
+sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/sshd_config
+```
+
+```sh
+systemctl restart sshd
+```
+
 ### GRUB 引导
 
 > https://wiki.archlinux.org/title/GRUB
+
+```sh
+pacman -S grub
+```
 
 1、查看磁盘信息
 
@@ -236,7 +266,6 @@ grub-install: error: will not proceed with blocklists.
 2、安装 parted
 
 ```sh
-pacman -S grub
 pacman -S parted
 ```
 
@@ -264,27 +293,10 @@ Installing for i386-pc platform.
 Installation finished. No error reported.
 ```
 
-### 网络
-
-1、安装 NetworkManager（必须先装，不然新系统无法联网）
+### 导出grub配置文件
 
 ```sh
-pacman -S networkmanager
-```
-
-```sh
-systemctl enable NetworkManager
-systemctl enable sshd
-```
-
-2、安装 dhcpcd
-
-```sh
-pacman -S dhcpcd
-```
-
-```sh
-systemctl enable dhcpcd
+grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
 ### 设置 root 密码（新系统登陆）
