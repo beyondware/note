@@ -121,9 +121,11 @@ All configured authentication methods failed
 Remote rejected opening a shell channel: Error: Not connected
 ```
 
-- 编辑 vim /etc/ssh/sshd_config
+- 编辑 PermitRootLogin 改成：yes
 
-> PermitRootLogin yes
+```sh
+vim /etc/ssh/sshd_config
+```
 
 ### 修改镜像源
 
@@ -135,7 +137,7 @@ Remote rejected opening a shell channel: Error: Not connected
 reflector --country China --age 72 --sort rate --protocol https --save /etc/pacman.d/mirrorlist
 ```
 
-2、查看 pacman 镜像源
+2、查看镜像源
 
 ```sh
 cat /etc/pacman.d/mirrorlist
@@ -174,91 +176,23 @@ pacman -S archlinux-keyring
 cat /etc/pacman.d/mirrorlist
 ```
 
-### 分区
+### cfdisk 分区法
 
-- 检查磁盘信息，确认磁盘名称
+1、检查磁盘信息，确认磁盘名称
 
 ```sh
 fdisk -l
 ```
 
-#### fdisk 分区法
-
-1、分区（sda：磁盘名）
-
-```sh
-fdisk /dev/sda
-```
-
-2、选择磁盘类型：gpt
-
-```sh
-g：gpt 格式
-
-n：创新分区
-
-d：删除分区
-
-p：查看分区
-```
-
-3、fdisk 帮助信息
-
-```sh
-Help:
-
-  DOS (MBR)
-   a   toggle a bootable flag
-   b   edit nested BSD disklabel
-   c   toggle the dos compatibility flag
-
-  Generic
-   d   delete a partition（删除分区）
-   F   list free unpartitioned space
-   l   list known partition types
-   n   add a new partition（添加新分区）
-   p   print the partition table（打印分区表）
-   t   change a partition type
-   v   verify the partition table
-   i   print information about a partition
-
-  Misc
-   m   print this menu（打印此菜单）
-   u   change display/entry units
-   x   extra functionality (experts only)
-
-  Script
-   I   load disk layout from sfdisk script file
-   O   dump disk layout to sfdisk script file
-
-  Save & Exit
-   w   write table to disk and exit（将表写入磁盘并退出）
-   q   quit without saving changes（退出而不保存更改）
-
-  Create a new label
-   g   create a new empty GPT partition table（创建一个新的空 GPT 分区表）
-   G   create a new empty SGI (IRIX) partition table
-   o   create a new empty DOS partition table
-   s   create a new empty Sun partition table
-```
-
-```sh
-Partition type
-   p   primary (0 primary, 0 extended, 4 free)（主分区，最多4个）
-   e   extended (container for logical partitions)（扩展分区）
-```
-
-#### cfdisk 分区法（推荐）
-
-1、分区
+2、分区
 
 ```sh
 cfdisk /dev/sda
 ```
 
-2、选择：gpt
+3、选择：gpt
 
-3、对应类型
+4、对应类型
 
 ```sh
 /dev/sda1 512M EFI System
@@ -268,19 +202,19 @@ cfdisk /dev/sda
 /dev/sda3 剩余 Linux filesystem
 ```
 
-4、光标回到 Write，输入 yes，Quit 退出。
+5、光标回到 Write，输入 yes，Quit 退出。
 
 > Syncing disks.
 
 ### 分区格式
 
-- 查看磁盘信息
+1、查看磁盘信息
 
 ```sh
 fdisk -l
 ```
 
-1、boot 分区必须是 fat32 格式
+2、boot 分区必须是 fat32 格式
 
 ```sh
 mkfs.fat -F32 /dev/sda1
@@ -292,7 +226,7 @@ mkfs.fat -F32 /dev/sda1
 mkfs.vfat /dev/sda1
 ```
 
-2、交换分区（激活）
+3、交换分区（激活）
 
 - 创建 swap
 
@@ -306,7 +240,7 @@ mkswap /dev/sda2
 swapon /dev/sda2
 ```
 
-3、根目录，一般是 ext4 格式
+4、根目录，一般是 ext4 格式
 
 ```sh
 mkfs.ext4 /dev/sda3
@@ -326,7 +260,7 @@ mkfs.xfs /dev/sda3
 mount /dev/sda3 /mnt
 ```
 
-2、引导分区挂载
+2、挂载引导分区
 
 ```sh
 mkdir -p /mnt/boot
@@ -362,7 +296,7 @@ pacstrap /mnt bash-completion git wget vim
 genfstab -U /mnt >> /mnt/etc/fstab
 ```
 
-- 查看是否有挂载信息
+- 查看信息
 
 ```sh
 cat /mnt/etc/fstab
@@ -383,13 +317,6 @@ pacman -Syy
 
 ### 更改时区
 
-- 报错信息
-
-```sh
-System has not been booted with systemd as init system (PID 1). Can't operate.
-Failed to connect to bus: Host is down
-```
-
 - 设置时区（中国为上海）
 
 ```sh
@@ -409,6 +336,13 @@ hwclock --systohc
 ```
 
 ### 更新系统时间
+
+- 报错信息
+
+```sh
+System has not been booted with systemd as init system (PID 1). Can't operate.
+Failed to connect to bus: Host is down
+```
 
 - 启动 ntp
 
@@ -555,6 +489,8 @@ pacman -S parted
 ```sh
 parted /dev/sda set 1 bios_grub on
 ```
+
+> nformation: You may need to update /etc/fstab.
 
 ```sh
 parted /dev/sda print
