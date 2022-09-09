@@ -1,98 +1,18 @@
-## 准备工作
+### SSH 登陆
 
-### VMware Workstation 设置
-
-- 编辑虚拟机设置-选项-高级-固件类型，改成：UEFI
-
-### arch 安装指南
-
-> https://wiki.archlinux.org/title/Installation_guide
-
-### 设置终端字体大小
-
-```sh
-setfont ter-132n
-```
-
-### 验证是否为 UEFI
-
-```sh
-ls /sys/firmware/efi/efivars
-```
-
-### 联网
-
-- 有线网络
-
-```sh
-dhcpcd
-```
-
-- 无线网络
-
-1、进入 iwd 环境
-
-```sh
-iwctl
-```
-
-2、列出网卡设备
-
-```sh
-device list
-```
-
-3、扫描网络（wlan0：无线网卡号）
-
-```sh
-station wlan0 scan
-```
-
-4、列出扫描到的网络
-
-```sh
-station wlan0 get-networks
-```
-
-5、连接无线网络
-
-```sh
-station wlan0 connect 网络名称
-```
-
-6、退出 iwd 环境
-
-```sh
-quit 或者 exit
-```
-
-### 登陆 ssh
-
-1、更新软件包缓存
-
-```sh
-pacman -Syy
-```
-
-2、安装 ssh 软件
-
-```sh
-pacman -S openssh
-```
-
-3、启动 ssh
+1、启动 ssh
 
 ```sh
 systemctl start sshd
 ```
 
-4、开机启动 ssh
+2、开机启动 ssh
 
 ```sh
 systemctl enable sshd
 ```
 
-5、查看 ssh 状态
+3、查看 ssh 状态
 
 ```sh
 systemctl status sshd
@@ -100,19 +20,19 @@ systemctl status sshd
 
 - active (running) 表示开启
 
-6、设置 root 密码
+4、设置 root 密码
 
 ```sh
 passwd root
 ```
 
-7、查看 IP 地址
+5、查看 IP 地址
 
 ```sh
 ip addr
 ```
 
-8、禁止远程登陆
+6、禁止远程登陆
 
 - 报错信息
 
@@ -129,33 +49,16 @@ vim /etc/ssh/sshd_config
 
 ### 修改镜像源
 
-#### 自动获取
-
-1、获取 pacman 镜像源
-
-```sh
-reflector --country China --age 72 --sort rate --protocol https --save /etc/pacman.d/mirrorlist
-```
-
-2、查看镜像源
-
-```sh
-cat /etc/pacman.d/mirrorlist
-```
-
-#### 手动添加
-
-1、编辑配置文件
+1、编辑
 
 ```sh
 vim /etc/pacman.d/mirrorlist
 ```
 
-2、添加镜像源（南京大学为例，放在最前面）
+2、添加镜像源（南京大学为例）
 
 ```sh
 Server = https://mirror.nju.edu.cn/archlinux/$repo/os/$arch
-Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch
 ```
 
 3、更新软件包缓存
@@ -178,7 +81,7 @@ cat /etc/pacman.d/mirrorlist
 
 ### cfdisk 分区法
 
-1、检查磁盘信息，确认磁盘名称
+1、查看，确认磁盘名
 
 ```sh
 fdisk -l
@@ -195,18 +98,15 @@ cfdisk /dev/sda
 4、对应类型
 
 ```sh
-/dev/sda1 512M EFI System
-
-/dev/sda2 4G Linux swap
-
-/dev/sda3 剩余 Linux filesystem
+/dev/sda1 1G Linux swap
+/dev/sda2 剩余 Linux filesystem
 ```
 
 5、光标回到 Write，输入 yes，Quit 退出。
 
 > Syncing disks.
 
-### 分区格式
+### 挂载分区
 
 1、查看磁盘信息
 
@@ -214,66 +114,18 @@ cfdisk /dev/sda
 fdisk -l
 ```
 
-2、boot 分区必须是 fat32 格式
+2、swap分区
 
 ```sh
-mkfs.fat -F32 /dev/sda1
+mkswap /dev/sda1
+swapon /dev/sda1
 ```
 
-或者
+3、根目录
 
 ```sh
-mkfs.vfat /dev/sda1
-```
-
-3、交换分区（激活）
-
-- 创建 swap
-
-```sh
-mkswap /dev/sda2
-```
-
-- 激活 swap
-
-```sh
-swapon /dev/sda2
-```
-
-4、根目录，一般是 ext4 格式
-
-```sh
-mkfs.ext4 /dev/sda3
-```
-
-- 支持大文件
-
-```sh
-mkfs.xfs /dev/sda3
-```
-
-### 挂载
-
-1、**必须**先挂载根目录
-
-```sh
-mount /dev/sda3 /mnt
-```
-
-2、挂载引导分区
-
-```sh
-mkdir -p /mnt/boot
-```
-
-```sh
-mount /dev/sda1 /mnt/boot
-```
-
-3、查看挂载状态
-
-```sh
-lsblk -l
+mkfs.xfs /dev/sda2
+mount /dev/sda2 /mnt
 ```
 
 ### 安装软件
@@ -301,9 +153,6 @@ genfstab -U /mnt >> /mnt/etc/fstab
 ```sh
 cat /mnt/etc/fstab
 ```
-------
-
-## 系统重建
 
 ### 切换到根分区
 
@@ -311,49 +160,16 @@ cat /mnt/etc/fstab
 arch-chroot /mnt
 ```
 
-```sh
-pacman -Syy
-```
-
 ### 更改时区
-
-- 设置时区（中国为上海）
 
 ```sh
 ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
-```
-
-或者
-
-```sh
-timedatectl set-timezone Asia/Shanghai
 ```
 
 - 设置硬件时间
 
 ```sh
 hwclock --systohc
-```
-
-### 更新系统时间
-
-- 报错信息
-
-```sh
-System has not been booted with systemd as init system (PID 1). Can't operate.
-Failed to connect to bus: Host is down
-```
-
-- 启动 ntp
-
-```sh
-timedatectl set-ntp true
-```
-
-- 查看时间状态
-
-```sh
-timedatectl status
 ```
 
 ### 设置文本编码
@@ -366,7 +182,6 @@ vim /etc/locale.gen
 
 ```sh
 en_US.UTF-8 UTF-8
-#zh_CN.UTF-8 UTF-8
 ```
 
 - 输入 locale-gen，生成 locale 信息
@@ -375,15 +190,17 @@ en_US.UTF-8 UTF-8
 echo LANG=en_US.UTF-8 >> /etc/locale.conf
 ```
 
-- 警告：没有安装中文字体前，不要释放 zh_CN.UTF-8，否则会出现乱码。
-
 ### 设置主机名
 
 ```sh
 echo arch > /etc/hostname
 ```
 
-- 以下内容粘贴到 vim /etc/hosts
+- 编辑
+
+```sh
+vim /etc/hosts
+```
 
 ```sh
 127.0.0.1   localhost
@@ -393,16 +210,8 @@ echo arch > /etc/hostname
 
 ### 安装 CPU 微指令
 
-- 英特尔
-
 ```sh
 pacman -S intel-ucode
-```
-
-- AMD
-
-```sh
-pacman -S amd-ucode
 ```
 
 ### GRUB 引导
@@ -415,62 +224,7 @@ pacman -S amd-ucode
 fdisk -l
 ```
 
-2、挂载
-
-```sh
-mount /dev/sda1 /mnt
-```
-
-3、安装引导检测器
-
-```sh
-pacman -S os-prober
-```
-
-4、安装多重引导启动器
-
-```sh
-pacman -S grub efibootmgr mtools
-```
-
-#### UEFI+GPT
-
-1、grub-install
-
-```sh
-grub-install --target=x86_64-efi --efi-directory=/mnt --bootloader-id=GRUB
-```
-
-- 输出以下信息，表示成功。
-
-```sh
-Installing for x86_64-efi platform.
-Installation finished. No error reported.
-```
-
-2、生成 GRUB 配置文件
-
-```sh
-grub-mkconfig -o /boot/grub/grub.cfg
-```
-
-3、查看生成配置文件
-
-```sh
-cat /boot/grub/grub.cfg
-```
-
-- 查看是否包含`initramfs-linux-fallback.img initramfs-linux.img intel-ucode.img vmlinuz-linux`文件
-
-#### BIOS+MBR
-
-- 执行 grub-install 报错（这里是整块硬盘sda）
-
-```sh
-grub-install --target=i386-pc /dev/sda
-```
-
-1、报错信息
+2、执行 grub-install 报错
 
 ```sh
 Installing for i386-pc platform.
@@ -482,6 +236,7 @@ grub-install: error: will not proceed with blocklists.
 2、安装 parted
 
 ```sh
+pacman -S grub
 pacman -S parted
 ```
 
@@ -509,28 +264,6 @@ Installing for i386-pc platform.
 Installation finished. No error reported.
 ```
 
-6、生成 GRUB 配置文件
-
-```sh
-grub-mkconfig -o /boot/grub/grub.cfg
-```
-
-7、编辑 vim /etc/mkinitcpio.conf
-
-```sh
-MODULES=()
-
-修改为
-
-MODULES=(vsock vmw_vsock_vmci_transport vmw_balloon vmw_vmci vmwgfx)
-```
-
-8、执行配置文件生效
-
-```sh
-mkinitcpio -p linux
-```
-
 ### 网络
 
 1、安装 NetworkManager（必须先装，不然新系统无法联网）
@@ -541,6 +274,7 @@ pacman -S networkmanager
 
 ```sh
 systemctl enable NetworkManager
+systemctl enable sshd
 ```
 
 2、安装 dhcpcd
@@ -562,16 +296,10 @@ passwd root
 ### 退出 chroot 环境
 
 ```sh
-exit 或者 Ctrl+d
+exit
 ```
 
-### 卸载挂载磁盘
-
-```sh
-umount /mnt/boot
-```
-
-- 发现任何「繁忙」的分区
+### 卸载挂载点
 
 ```sh
 umount  -R /mnt
@@ -583,14 +311,12 @@ umount  -R /mnt
 lsblk -l
 ```
 
-### 系统重启，进入全新系统
+### 系统重启
 
 ```sh
 reboot
 ```
 ------
-
-## 新系统
 
 ### 登陆 ssh（安装在新系统）
 
@@ -695,16 +421,10 @@ pacman -S sudo
 - GNOME
 
 ```sh
-sudo pacman -S gnome gnome-extra
+sudo pacman -S gnome
 ```
 
-- KDE
-
-```sh
-sudo pacman -S plasma kde-applications
-```
-
-### 开机登录界面
+### 登录界面
 
 - gdm（GNOME）
 
@@ -714,22 +434,6 @@ sudo pacman -S gdm
 
 ```sh
 sudo systemctl enable gdm
-```
-
-- sddm（KDE）
-
-```sh
-sudo pacman -S sddm
-```
-
-```sh
-sudo systemctl enable sddm
-```
-
-### 中文字体
-
-```sh
-sudo pacman -S noto-fonts-cjk noto-fonts-emoji wqy-microhei wqy-zenhei
 ```
 
 ### 中文输入法
@@ -795,12 +499,6 @@ pacman -Syy
 
 ```sh
 sudo pacman -S  xorg xorg-drivers
-```
-
-- 可选
-
-```sh
-sudo pacman -S xorg-apps
 ```
 
 ### 显卡
