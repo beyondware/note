@@ -288,10 +288,6 @@ mkfs.fat -F32 /dev/sda1
 
 或者
 
-```
-这里输入代码
-```
-
 ```sh
 mkfs.vfat /dev/sda1
 ```
