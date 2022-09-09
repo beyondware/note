@@ -342,12 +342,6 @@ mount /dev/sda1 /mnt/boot
 lsblk -l
 ```
 
-4、查看磁盘
-
-```sh
-df -h
-```
-
 ### 安装软件
 
 - 必装
@@ -373,6 +367,7 @@ genfstab -U /mnt >> /mnt/etc/fstab
 ```sh
 cat /mnt/etc/fstab
 ```
+------
 
 ## 系统重建
 
@@ -387,6 +382,13 @@ pacman -Syy
 ```
 
 ### 更改时区
+
+- 报错信息
+
+```sh
+System has not been booted with systemd as init system (PID 1). Can't operate.
+Failed to connect to bus: Host is down
+```
 
 - 设置时区（中国为上海）
 
@@ -455,7 +457,7 @@ echo arch > /etc/hostname
 127.0.1.1   arch.localdomain arch
 ```
 
-### 安装微指令
+### 安装 CPU 微指令
 
 - 英特尔
 
@@ -528,26 +530,56 @@ cat /boot/grub/grub.cfg
 
 #### BIOS+MBR
 
-1、grub-install（这里是整块硬盘）
+- 执行 grub-install 报错（这里是整块硬盘sda）
 
 ```sh
 grub-install --target=i386-pc /dev/sda
 ```
 
-- 输出以下信息，表示成功。
+1、报错信息
+
+```sh
+Installing for i386-pc platform.
+grub-install: warning: this GPT partition label contains no BIOS Boot Partition; embedding won't be possible.
+grub-install: warning: Embedding is not possible.  GRUB can only be installed in this setup by using blocklists.  However, blocklists are UNRELIABLE and their use is discouraged..
+grub-install: error: will not proceed with blocklists.
+```
+
+2、安装 parted
+
+```sh
+pacman -S parted
+```
+
+3、
+```sh
+parted /dev/sda set 1 bios_grub on
+```
+
+```sh
+parted /dev/sda print
+```
+
+4、（这里是整块硬盘sda）
+
+```sh
+grub-install /dev/sda
+```
+
+5、输出以下信息，表示成功。
 
 ```sh
 Installing for i386-pc platform.
 Installation finished. No error reported.
 ```
 
-2、生成 GRUB 配置文件
+6、生成 GRUB 配置文件
 
 ```sh
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
-3、编辑 vim /etc/mkinitcpio.conf
+7、编辑 vim /etc/mkinitcpio.conf
 
 ```sh
 MODULES=()
@@ -557,89 +589,10 @@ MODULES=()
 MODULES=(vsock vmw_vsock_vmci_transport vmw_balloon vmw_vmci vmwgfx)
 ```
 
-4、执行配置文件生效
+8、执行配置文件生效
 
 ```sh
 mkinitcpio -p linux
-```
-
-### systemd-boot 引导
-
-> https://wiki.archlinux.org/title/Systemd-boot
-
-1、创建 EFI 引导
-
-```sh
-bootctl install
-```
-
-2、默认启动项设置
-
-```sh
-vim /boot/loader/loader.conf
-```
-
-粘贴以下内容
-
-```sh
-default arch
-timeout 5
-console-mode max
-editor no
-```
-
-3、启动项配置
-
-```sh
-vim /boot/loader/entries/arch.conf
-```
-
-- AMD CPU
-
-```sh
-title Arch Linux
-linux /vmlinuz-linux
-initrd /amd-ucode.img
-initrd /initramfs-linux.img
-```
-
-- Intel CPU
-
-```sh
-title Arch Linux
-linux /vmlinuz-linux
-initrd /intel-ucode.img
-initrd /initramfs-linux.img
-```
-
-- /dev/sda3 指挂载的根目录
-
-```sh
-echo "options root=PARTUUID=$(blkid -s PARTUUID -o value /dev/sda3) rw rootflags=subvol=@" >> /boot/loader/entries/arch.conf
-```
-
-4、添加 hook 文件，方便更新内核时更新 efi 分区
-
-```sh
-mkdir /etc/pacman.d/hooks
-```
-
-```sh
-vim /etc/pacman.d/hooks/100-systemd-boot.hook
-```
-
-- 粘贴以下内容
-
-```sh
-[Trigger]
-Type = Package
-Operation = Upgrade
-Target = systemd
-
-[Action]
-Description = Gracefully upgrading systemd-boot...
-When = PostTransaction
-Exec = /usr/bin/systemctl restart systemd-boot-update.service
 ```
 
 ### 网络
@@ -647,7 +600,7 @@ Exec = /usr/bin/systemctl restart systemd-boot-update.service
 1、安装 NetworkManager（必须先装，不然新系统无法联网）
 
 ```sh
-pacman -S networkmanager network-manager-applet
+pacman -S networkmanager
 ```
 
 ```sh
@@ -667,7 +620,7 @@ systemctl enable dhcpcd
 ### 设置 root 密码（新系统登陆）
 
 ```sh
-passwd
+passwd root
 ```
 
 ### 退出 chroot 环境
@@ -684,13 +637,13 @@ umount /mnt/boot
 
 - 发现任何「繁忙」的分区
 
-```
+```sh
 umount  -R /mnt
 ```
 
 - 查看挂载状态
 
-```
+```sh
 lsblk -l
 ```
 
@@ -699,8 +652,9 @@ lsblk -l
 ```sh
 reboot
 ```
+------
 
-## 新的系统
+## 新系统
 
 ### 登陆 ssh（安装在新系统）
 
