@@ -614,3 +614,45 @@ sudo pacman -S cups cups-filters libcups cups-pk-helper system-config-printer
 ```sh
 sudo systemctl enable cups
 ```
+
+## 其他
+
+### gnome-terminal 无法启动
+
+```sh
+vim /etc/locale.gen
+```
+
+- 去掉前面#
+
+```sh
+en_US.UTF-8 UTF-8
+zh_CN.UTF-8 UTF-8
+```
+
+```sh
+sudo locale-gen
+```
+
+```sh
+sudo localectl set-locale LANG=en_US.UTF-8
+sudo localectl set-locale LANG=zh_CN.UTF-8
+```
+
+### 系统显示中文改回英文
+
+```sh
+vim /etc/default/locale
+```
+
+```sh
+LANG="zh_CN.UTF-8"
+LANGUAGE="zh_CN:zh"
+```
+
+改成
+
+```sh
+LANG="en_US.UTF-8"
+LANGUAGE="en_US:en"
+```
