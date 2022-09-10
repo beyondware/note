@@ -34,38 +34,6 @@ passwd root
 ip addr
 ```
 
-### 修改镜像源
-
-1、编辑
-
-```sh
-vim /etc/pacman.d/mirrorlist
-```
-
-2、添加镜像源（南京大学为例）
-
-```sh
-Server = https://mirror.nju.edu.cn/archlinux/$repo/os/$arch
-```
-
-3、更新软件包缓存
-
-```sh
-pacman -Syy
-```
-
-4、更新 GPG key
-
-```sh
-pacman -S archlinux-keyring
-```
-
-5、查看镜像源
-
-```sh
-cat /etc/pacman.d/mirrorlist
-```
-
 ### cfdisk 分区法
 
 1、查看磁盘
@@ -134,6 +102,38 @@ genfstab -U /mnt >> /mnt/etc/fstab
 
 ```sh
 cat /mnt/etc/fstab
+```
+
+### 修改镜像源
+
+1、编辑
+
+```sh
+vim /etc/pacman.d/mirrorlist
+```
+
+2、添加镜像源（南京大学为例）
+
+```sh
+Server = https://mirror.nju.edu.cn/archlinux/$repo/os/$arch
+```
+
+3、更新软件包缓存
+
+```sh
+pacman -Syy
+```
+
+4、更新 GPG key
+
+```sh
+pacman -S archlinux-keyring
+```
+
+5、查看镜像源
+
+```sh
+cat /etc/pacman.d/mirrorlist
 ```
 
 ### 装机必备
