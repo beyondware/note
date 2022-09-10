@@ -89,6 +89,15 @@ mkfs.ext4 /dev/sda3
 ```sh
 mount /dev/sda3 /mnt
 ```
+### 更新系统时间
+
+```sh
+timedatectl set-ntp true
+```
+
+```sh
+timedatectl status
+```
 
 ### 修改镜像源
 
