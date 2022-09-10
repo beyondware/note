@@ -4,6 +4,16 @@
 
 > https://wiki.archlinux.org/title/Installation_guide
 
+### VMware Workstation 设置
+
+> 编辑虚拟机设置→选项-高级-固件类型，改成：UEFI
+
+### 是否为 UEFI
+
+```sh
+ls /sys/firmware/efi/efivars
+```
+
 ### 设置终端字体大小
 
 ```sh
@@ -53,7 +63,7 @@ station wlan0 connect 网络名称
 6、退出 iwd 环境
 
 ```sh
-quit 或者 exit
+exit
 ```
 
 ### ssh 登陆
@@ -90,7 +100,9 @@ passwd root
 ip addr
 ```
 
-### cfdisk 分区法
+### 分区
+
+#### 传统 BIOS
 
 1、查看磁盘
 
@@ -118,7 +130,7 @@ cfdisk /dev/sda
 
 > Syncing disks.
 
-### 挂载
+##### 挂载
 
 1、查看磁盘信息
 
@@ -146,6 +158,94 @@ mkfs.ext4 /dev/sda3
 mount /dev/sda3 /mnt
 ```
 
+#### 先进 EFI
+
+1、检查磁盘信息，确认磁盘名称
+
+```sh
+fdisk -l
+```
+
+2、分区
+
+```sh
+cfdisk /dev/sda
+```
+
+3、选择：gpt
+
+4、对应类型
+
+```sh
+/dev/sda1 512M EFI System
+
+/dev/sda2 4G Linux swap
+
+/dev/sda3 剩余 Linux filesystem
+```
+
+5、光标回到 Write，输入 yes，Quit 退出。
+
+> Syncing disks.
+
+##### 挂载
+
+1、查看磁盘信息
+
+```sh
+fdisk -l
+```
+
+2、EFI 分区
+
+```sh
+mkfs.fat -F32 /dev/sda1
+```
+
+或者
+
+```sh
+mkfs.vfat /dev/sda1
+```
+
+3、swap 分区
+
+```sh
+mkswap /dev/sda2
+```
+
+```sh
+swapon /dev/sda2
+```
+
+4、根目录
+
+```sh
+mkfs.ext4 /dev/sda3
+```
+
+- 支持大文件
+
+```sh
+mkfs.xfs /dev/sda3
+```
+
+- **必须**先挂载根目录
+
+```sh
+mount /dev/sda3 /mnt
+```
+
+5、引导 EFI 分区
+
+```sh
+mkdir -p /mnt/boot
+```
+
+```sh
+mount /dev/sda1 /mnt/boot
+```
+
 ### 更新系统时间
 
 ```sh
@@ -158,16 +258,25 @@ timedatectl status
 
 ### 修改镜像源
 
+#### 自动获取
+
+```sh
+reflector --country China --age 72 --sort rate --protocol https --save /etc/pacman.d/mirrorlist
+```
+
+#### 手动添加
+
 1、编辑
 
 ```sh
 vim /etc/pacman.d/mirrorlist
 ```
 
-2、添加镜像源（南京大学为例）
+2、添加镜像源
 
 ```sh
 Server = https://mirror.nju.edu.cn/archlinux/$repo/os/$arch
+Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch
 ```
 
 3、更新软件包缓存
@@ -221,6 +330,8 @@ arch-chroot /mnt
 ### grub 引导
 
 > https://wiki.archlinux.org/title/GRUB
+
+#### 传统 BIOS 引导
 
 1、安装 grub
 
@@ -299,10 +410,69 @@ Installation finished. No error reported.
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
+#### 先进 EFI 引导
+
+1、查看磁盘信息
+
+```sh
+fdisk -l
+```
+
+2、挂载
+
+```sh
+mount /dev/sda1 /mnt
+```
+
+3、安装引导检测器
+
+```sh
+pacman -S os-prober
+```
+
+4、安装多重引导启动器
+
+```sh
+pacman -S grub efibootmgr
+```
+
+5、grub-install
+
+```sh
+grub-install --target=x86_64-efi --efi-directory=/mnt --bootloader-id=GRUB
+```
+
+- 输出以下信息，表示成功。
+
+```sh
+Installing for x86_64-efi platform.
+Installation finished. No error reported.
+```
+
+6、生成 GRUB 配置文件
+
+```sh
+grub-mkconfig -o /boot/grub/grub.cfg
+```
+
+7、查看生成配置文件
+
+```sh
+cat /boot/grub/grub.cfg
+```
+
+- 查看是否包含`initramfs-linux-fallback.img initramfs-linux.img intel-ucode.img vmlinuz-linux`文件
+
 ### 更改时区
 
 ```sh
 ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+```
+
+或者
+
+```sh
+timedatectl set-timezone Asia/Shanghai
 ```
 
 ```sh
@@ -546,6 +716,12 @@ sudo pacman -S sddm
 
 ```sh
 sudo systemctl enable sddm
+```
+
+### 中文字体
+
+```sh
+sudo pacman -S wqy-microhei wqy-zenhei noto-fonts-cjk noto-fonts-emoji
 ```
 
 ### fcitx5 输入法
