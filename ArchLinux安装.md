@@ -179,7 +179,7 @@ cfdisk /dev/sda
 ```sh
 /dev/sda1 512M EFI System
 
-/dev/sda2 4G Linux swap
+/dev/sda2 2G Linux swap
 
 /dev/sda3 剩余 Linux filesystem
 ```
@@ -239,11 +239,11 @@ mount /dev/sda3 /mnt
 5、引导 EFI 分区
 
 ```sh
-mkdir -p /mnt/boot
+mkdir -p /mnt/efi
 ```
 
 ```sh
-mount /dev/sda1 /mnt/boot
+mount /dev/sda1 /mnt/efi
 ```
 
 ### 更新系统时间
@@ -358,7 +358,7 @@ Installation finished. No error reported.
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
-#### 执行 grub-install 报错
+##### 执行 grub-install 报错
 
 ```sh
 Installing for i386-pc platform.
@@ -421,7 +421,7 @@ fdisk -l
 2、挂载
 
 ```sh
-mount /dev/sda1 /mnt
+mount /dev/sda1 /mnt/efi
 ```
 
 3、安装引导检测器
@@ -439,7 +439,7 @@ pacman -S grub efibootmgr
 5、grub-install
 
 ```sh
-grub-install --target=x86_64-efi --efi-directory=/mnt --bootloader-id=GRUB
+grub-install --target=x86_64-efi --efi-directory=/mnt/efi --bootloader-id=GRUB
 ```
 
 - 输出以下信息，表示成功。
@@ -870,6 +870,20 @@ sudo pacman -S cups cups-filters libcups cups-pk-helper system-config-printer
 
 ```sh
 sudo systemctl enable cups
+```
+
+### 固态硬盘优化
+
+1、启动
+
+```sh
+sudo systemctl start fstrim.service
+```
+
+2、开机启动
+
+```sh
+sudo systemctl enable fstrim.timer
 ```
 
 ## 其他
