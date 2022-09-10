@@ -236,16 +236,6 @@ mkfs.xfs /dev/sda3
 mount /dev/sda3 /mnt
 ```
 
-5、引导 EFI 分区
-
-```sh
-mkdir -p /mnt/efi
-```
-
-```sh
-mount /dev/sda1 /mnt/efi
-```
-
 ### 更新系统时间
 
 ```sh
@@ -339,7 +329,7 @@ arch-chroot /mnt
 pacman -S grub
 ```
 
-2、grub-install
+2、grub-install（整块硬盘：sda）
 
 ```sh
 grub-install /dev/sda
@@ -418,7 +408,11 @@ grub-mkconfig -o /boot/grub/grub.cfg
 fdisk -l
 ```
 
-2、挂载
+2、挂载 EFI 分区
+
+```sh
+mkdir -p /mnt/efi
+```
 
 ```sh
 mount /dev/sda1 /mnt/efi
@@ -428,6 +422,10 @@ mount /dev/sda1 /mnt/efi
 
 ```sh
 pacman -S os-prober
+```
+
+```sh
+os-prober
 ```
 
 4、安装多重引导启动器
@@ -455,7 +453,7 @@ Installation finished. No error reported.
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
-7、查看生成配置文件
+7、查看配置文件
 
 ```sh
 cat /boot/grub/grub.cfg
