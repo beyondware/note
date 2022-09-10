@@ -90,20 +90,6 @@ mkfs.ext4 /dev/sda3
 mount /dev/sda3 /mnt
 ```
 
-### fstab
-
-1、生成 fstab 文件
-
-```sh
-genfstab -U /mnt >> /mnt/etc/fstab
-```
-
-2、查看 fstab 信息
-
-```sh
-cat /mnt/etc/fstab
-```
-
 ### 修改镜像源
 
 1、编辑
@@ -144,6 +130,20 @@ pacstrap /mnt base base-devel linux linux-firmware
 
 ```sh
 pacstrap /mnt bash-completion git wget vim
+```
+
+### fstab
+
+1、生成 fstab 文件
+
+```sh
+genfstab -U /mnt >> /mnt/etc/fstab
+```
+
+2、查看 fstab 信息
+
+```sh
+cat /mnt/etc/fstab
 ```
 
 ## 进入 chroot 环境
