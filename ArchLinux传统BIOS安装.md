@@ -1,5 +1,61 @@
 ## 准备工作
 
+### Arch 安装指南
+
+> https://wiki.archlinux.org/title/Installation_guide
+
+### 设置终端字体大小
+
+```sh
+setfont ter-132n
+```
+
+### 联网
+
+- 有线网络
+
+```sh
+dhcpcd
+```
+
+- 无线网络
+
+1、进入 iwd 环境
+
+```sh
+iwctl
+```
+
+2、列出网卡设备
+
+```sh
+device list
+```
+
+3、扫描网络（wlan0：无线网卡号）
+
+```sh
+station wlan0 scan
+```
+
+4、列出扫描到的网络
+
+```sh
+station wlan0 get-networks
+```
+
+5、连接无线网络
+
+```sh
+station wlan0 connect 网络名称
+```
+
+6、退出 iwd 环境
+
+```sh
+quit 或者 exit
+```
+
 ### ssh 登陆
 
 1、启动 ssh
@@ -89,6 +145,7 @@ mkfs.ext4 /dev/sda3
 ```sh
 mount /dev/sda3 /mnt
 ```
+
 ### 更新系统时间
 
 ```sh
@@ -308,8 +365,16 @@ vim /etc/hosts
 
 ### CPU 微指令
 
+- Intel
+
 ```sh
 pacman -S intel-ucode
+```
+
+- AMD
+
+```sh
+pacman -S amd-ucode
 ```
 
 ### NetworkManager
@@ -447,13 +512,23 @@ sudo vim /etc/sudoers 或者 EDITOR=vim visudo （推荐）
 %wheel ALL=(ALL)ALL
 ```
 
-### GNOME 桌面环境
+### 桌面环境
+
+- GNOME
 
 ```sh
-sudo pacman -S gnome
+sudo pacman -S gnome gnome-extra
+```
+
+- KDE
+
+```sh
+sudo pacman -S plasma kde-applications
 ```
 
 ### 开机登录界面
+
+- gdm（GNOME）
 
 ```sh
 sudo pacman -S gdm
@@ -461,6 +536,16 @@ sudo pacman -S gdm
 
 ```sh
 sudo systemctl enable gdm
+```
+
+- sddm（KDE）
+
+```sh
+sudo pacman -S sddm
+```
+
+```sh
+sudo systemctl enable sddm
 ```
 
 ### fcitx5 输入法
