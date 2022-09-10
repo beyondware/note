@@ -391,9 +391,7 @@ vim /etc/ssh/sshd_config
 - 修改为
 
 ```sh
-LoginGraceTime 120
 PermitRootLogin yes
-StrictModes yes
 ```
 
 3、重新启动 SSH
