@@ -32,21 +32,6 @@ passwd root
 ip addr
 ```
 
-6、禁止远程登陆
-
-- 报错信息
-
-```sh
-All configured authentication methods failed
-Remote rejected opening a shell channel: Error: Not connected
-```
-
-- 编辑 PermitRootLogin 改成：yes
-
-```sh
-vim /etc/ssh/sshd_config
-```
-
 ### 修改镜像源
 
 1、编辑
@@ -81,7 +66,7 @@ cat /etc/pacman.d/mirrorlist
 
 ### cfdisk 分区法
 
-1、查看，确认磁盘名
+1、确认磁盘名
 
 ```sh
 fdisk -l
@@ -121,10 +106,13 @@ mkswap /dev/sda1
 swapon /dev/sda1
 ```
 
-3、根目录
+3、挂载根目录
 
 ```sh
-mkfs.xfs /dev/sda2
+mkfs.ext4 /dev/sda2
+```
+
+```sh
 mount /dev/sda2 /mnt
 ```
 
@@ -157,8 +145,6 @@ arch-chroot /mnt
 ```sh
 ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 ```
-
-- 设置硬件时间
 
 ```sh
 hwclock --systohc
@@ -280,7 +266,7 @@ parted /dev/sda set 1 bios_grub on
 parted /dev/sda print
 ```
 
-4、（这里是整块硬盘sda）
+4、（整块硬盘sda）
 
 ```sh
 grub-install /dev/sda
@@ -330,7 +316,7 @@ reboot
 ```
 ------
 
-### 登陆 ssh（安装在新系统）
+### 登陆 ssh（新系统）
 
 1、更新软件包缓存
 
@@ -364,31 +350,22 @@ systemctl status sshd
 
 - active (running) 表示开启
 
-### 无法登陆 ssh
+### 无法登陆 SSH
 
-1、报错信息：无法远程登陆
+1、报错信息
 
 ```sh
 All configured authentication methods failed
+Remote rejected opening a shell channel: Error: Not connected
 ```
 
-2、修改 ssh 配置文件
+2、编辑 SSH 配置文件
 
 ```sh
 vim /etc/ssh/sshd_config
 ```
 
-- 找到以下内容
-
-```sh
-#LoginGraceTime 2m
-#PermitRootLogin prohibit-password
-#StrictModes yes
-#MaxAuthTries 6
-#MaxSessions 10
-```
-
-- 追加以下内容
+- 修改为
 
 ```sh
 LoginGraceTime 120
@@ -396,7 +373,7 @@ PermitRootLogin yes
 StrictModes yes
 ```
 
-3、重新启动 ssh
+3、重新启动 SSH
 
 ```sh
 systemctl restart sshd
@@ -448,7 +425,9 @@ sudo pacman -S gdm
 sudo systemctl enable gdm
 ```
 
-### 中文输入法
+### fcitx5 输入法
+
+> https://wiki.archlinux.org/title/Fcitx5
 
 1、安装 fcitx5
 
@@ -456,7 +435,11 @@ sudo systemctl enable gdm
 sudo pacman -S fcitx5  fcitx5-qt fcitx5-gtk fcitx5-configtool fcitx5-chinese-addons fcitx5-pinyin-zhwiki fcitx5-material-color
 ```
 
-2、编辑 sudo vim /etc/environment
+2、编辑
+
+```sh
+sudo vim /etc/environment
+```
 
 ```sh
 GTK_IM_MODULE=fcitx
@@ -467,10 +450,6 @@ GLFW_IM_MODULE=ibus
 ```
 
 3、系统重启生效
-
-4、参考信息
-
-> https://wiki.archlinux.org/title/Fcitx5
 
 ### archlinuxcn 源
 
