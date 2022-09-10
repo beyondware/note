@@ -517,13 +517,13 @@ sudo vim /etc/sudoers 或者 EDITOR=vim visudo （推荐）
 - GNOME
 
 ```sh
-sudo pacman -S gnome gnome-extra
+sudo pacman -S gnome
 ```
 
 - KDE
 
 ```sh
-sudo pacman -S plasma kde-applications
+sudo pacman -S plasma
 ```
 
 ### 开机登录界面
