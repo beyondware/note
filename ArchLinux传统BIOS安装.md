@@ -1,4 +1,6 @@
-### 登陆 ssh
+## 准备工作
+
+### ssh 登陆
 
 1、启动 ssh
 
@@ -120,6 +122,20 @@ mkfs.ext4 /dev/sda3
 mount /dev/sda3 /mnt
 ```
 
+### fstab
+
+1、生成 fstab 文件
+
+```sh
+genfstab -U /mnt >> /mnt/etc/fstab
+```
+
+2、查看 fstab 信息
+
+```sh
+cat /mnt/etc/fstab
+```
+
 ### 装机必备
 
 ```sh
@@ -128,18 +144,6 @@ pacstrap /mnt base base-devel linux linux-firmware
 
 ```sh
 pacstrap /mnt bash-completion git wget vim
-```
-
-### 生成 fstab 文件
-
-```sh
-genfstab -U /mnt >> /mnt/etc/fstab
-```
-
-### 查看 fstab 信息
-
-```sh
-cat /mnt/etc/fstab
 ```
 
 ## 进入 chroot 环境
@@ -192,7 +196,8 @@ grub-install: error: will not proceed with blocklists.
 pacman -S parted
 ```
 
-2、
+2、parted
+
 ```sh
 parted /dev/sda set 1 bios_grub on
 ```
@@ -203,13 +208,13 @@ parted /dev/sda set 1 bios_grub on
 nformation: You may need to update /etc/fstab.
 ```
 
-3、打印
+3、打印结果
 
 ```sh
 parted /dev/sda print
 ```
 
-4、安装（整块硬盘sda）
+4、安装（整块硬盘：sda）
 
 ```sh
 grub-install /dev/sda
@@ -329,7 +334,7 @@ pacman -S openssh
 ```
 
 ```sh
-systemctl enable sshd
+systemctl start sshd
 ```
 
 2、修改 ssh 登录
@@ -342,7 +347,13 @@ sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/ssh
 systemctl restart sshd
 ```
 
-3、设置 root 密码（新系统登陆）
+```sh
+systemctl enable sshd
+```
+
+3、设置 root 密码
+
+- 登陆新系统使用
 
 ```sh
 passwd root
@@ -357,10 +368,10 @@ exit
 ### 卸载挂载点
 
 ```sh
-umount  -R /mnt
+umount -R /mnt
 ```
 
-### 查看挂载状态
+- 查看挂载状态
 
 ```sh
 lsblk -l
@@ -375,28 +386,6 @@ reboot
 ## 新系统
 
 ### ssh 登陆
-
-1、启动 ssh
-
-```sh
-systemctl start sshd
-```
-
-2、开机启动 ssh
-
-```sh
-systemctl enable sshd
-```
-
-3、查看 ssh 状态
-
-```sh
-systemctl status sshd
-```
-
-- active (running) 表示开启
-
-### ssh 无法登陆
 
 1、报错，禁止远程登陆
 
@@ -425,6 +414,12 @@ StrictModes yes
 systemctl restart sshd
 ```
 
+4、开机启动 ssh
+
+```sh
+systemctl enable sshd
+```
+
 ### 添加新用户
 
 1、添加用户到 wheel 组
@@ -445,7 +440,13 @@ passwd pc
 pacman -S sudo
 ```
 
-- 编辑 sudo vim /etc/sudoers 或者 EDITOR=vim visudo （推荐）去掉前面的#
+4、编辑
+
+```sh
+sudo vim /etc/sudoers 或者 EDITOR=vim visudo （推荐）
+```
+
+- 去掉前面#
 
 ```sh
 %wheel ALL=(ALL)ALL
