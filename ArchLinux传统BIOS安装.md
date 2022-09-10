@@ -1,4 +1,4 @@
-### SSH 登陆
+### 登陆 ssh
 
 1、启动 ssh
 
@@ -66,13 +66,13 @@ cat /etc/pacman.d/mirrorlist
 
 ### cfdisk 分区法
 
-1、确认磁盘名
+1、查看磁盘
 
 ```sh
 fdisk -l
 ```
 
-2、分区
+2、磁盘分区
 
 ```sh
 cfdisk /dev/sda
@@ -80,14 +80,14 @@ cfdisk /dev/sda
 
 3、选择：gpt
 
-4、对应类型
+4、磁盘类型
 
 ```sh
 /dev/sda1 1G Linux swap
 /dev/sda2 剩余 Linux filesystem
 ```
 
-5、光标回到 Write，输入 yes，Quit 退出。
+5、光标回到 Write，输入 yes，回到 Quit 回车退出。
 
 > Syncing disks.
 
@@ -99,10 +99,13 @@ cfdisk /dev/sda
 fdisk -l
 ```
 
-2、swap分区
+2、创建、激活 swap 分区
 
 ```sh
 mkswap /dev/sda1
+```
+
+```sh
 swapon /dev/sda1
 ```
 
@@ -119,7 +122,11 @@ mount /dev/sda2 /mnt
 ### 必备软件
 
 ```sh
-pacstrap /mnt base linux linux-firmware dhcpcd vim openssh xfsprogs man net-tools
+pacstrap /mnt base base-devel linux linux-firmware
+```
+
+```sh
+pacstrap /mnt bash-completion git wget vim
 ```
 
 ### 生成 fstab 文件
@@ -128,13 +135,13 @@ pacstrap /mnt base linux linux-firmware dhcpcd vim openssh xfsprogs man net-tool
 genfstab -U /mnt >> /mnt/etc/fstab
 ```
 
-- 查看信息
+### 查看 fstab 信息
 
 ```sh
 cat /mnt/etc/fstab
 ```
 
-### 更改根目录
+## 更改根目录
 
 ```sh
 arch-chroot /mnt
@@ -150,19 +157,23 @@ ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 hwclock --systohc
 ```
 
-### 设置文本编码
+### 文本编码
 
 ```sh
 vim /etc/locale.gen
 ```
 
-- 去掉前面的#
+- 去掉前面#
 
 ```sh
 en_US.UTF-8 UTF-8
 ```
 
-- 输入 locale-gen，生成 locale 信息
+- 生成 locale 信息
+
+```sh
+locale-gen
+```
 
 ```sh
 echo LANG=en_US.UTF-8 >> /etc/locale.conf
@@ -186,7 +197,7 @@ vim /etc/hosts
 127.0.1.1   arch.localdomain arch
 ```
 
-### 安装 CPU 微指令
+### CPU 微指令
 
 ```sh
 pacman -S intel-ucode
@@ -204,19 +215,26 @@ pacman -S networkmanager
 systemctl enable NetworkManager
 ```
 
-2、启动 dhcpcd
+2、安装 dhcpcd
+
+```sh
+pacman -S dhcpcd
+```
 
 ```sh
 systemctl enable dhcpcd
 ```
 
-3、启动
+3、安装 openssh
+
+```sh
+pacman -S openssh
 
 ```sh
 systemctl enable sshd
 ```
 
-4、修改SSH登录
+4、修改 ssh 登录
 
 ```sh
 sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/sshd_config
@@ -226,18 +244,14 @@ sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/ssh
 systemctl restart sshd
 ```
 
-### GRUB 引导
+### grub 引导
 
 > https://wiki.archlinux.org/title/GRUB
 
+1、 安装 grub
+
 ```sh
 pacman -S grub
-```
-
-1、查看磁盘信息
-
-```sh
-fdisk -l
 ```
 
 2、执行 grub-install 报错
@@ -260,26 +274,32 @@ pacman -S parted
 parted /dev/sda set 1 bios_grub on
 ```
 
-> nformation: You may need to update /etc/fstab.
+- 输出结果
+
+```sh
+nformation: You may need to update /etc/fstab.
+```
+
+4、打印
 
 ```sh
 parted /dev/sda print
 ```
 
-4、（整块硬盘sda）
+5、安装（整块硬盘sda）
 
 ```sh
 grub-install /dev/sda
 ```
 
-5、输出以下信息，表示成功。
+- 输出以下信息，表示成功。
 
 ```sh
 Installing for i386-pc platform.
 Installation finished. No error reported.
 ```
 
-### 导出grub配置文件
+6、导出 grub 配置文件
 
 ```sh
 grub-mkconfig -o /boot/grub/grub.cfg
@@ -303,7 +323,7 @@ exit
 umount  -R /mnt
 ```
 
-- 查看挂载状态
+### 查看挂载状态
 
 ```sh
 lsblk -l
@@ -314,9 +334,10 @@ lsblk -l
 ```sh
 reboot
 ```
-------
 
-### 登陆 ssh（新系统）
+## 新系统
+
+### ssh 登陆
 
 1、更新软件包缓存
 
@@ -350,9 +371,9 @@ systemctl status sshd
 
 - active (running) 表示开启
 
-### 无法登陆 SSH
+### ssh 无法登陆
 
-1、报错信息
+1、报错，禁止远程登陆
 
 ```sh
 All configured authentication methods failed
@@ -379,18 +400,18 @@ StrictModes yes
 systemctl restart sshd
 ```
 
-### 添加新的用户
+### 添加新用户
 
 1、添加用户到 wheel 组
 
 ```sh
-useradd -m -g users -G wheel -s /bin/bash 用户名
+useradd -m -g users -G wheel -s /bin/bash pc
 ```
 
 2、设置用户密码
 
 ```sh
-passwd 用户名
+passwd pc
 ```
 
 3、设置 wheel 组权限
@@ -405,17 +426,13 @@ pacman -S sudo
 %wheel ALL=(ALL)ALL
 ```
 
-### 桌面环境
-
-- GNOME
+### GNOME 桌面环境
 
 ```sh
 sudo pacman -S gnome
 ```
 
-### 登录界面
-
-- gdm（GNOME）
+### 开机登录界面
 
 ```sh
 sudo pacman -S gdm
@@ -441,6 +458,8 @@ sudo pacman -S fcitx5  fcitx5-qt fcitx5-gtk fcitx5-configtool fcitx5-chinese-add
 sudo vim /etc/environment
 ```
 
+- 添加
+
 ```sh
 GTK_IM_MODULE=fcitx
 QT_IM_MODULE=fcitx
@@ -449,15 +468,17 @@ SDL_IM_MODULE=fcitx
 GLFW_IM_MODULE=ibus
 ```
 
-3、系统重启生效
+3、重启生效
 
-### archlinuxcn 源
+### 添加 archlinuxcn 源
 
 1、编辑配置文件
 
 ```sh
 sudo vim /etc/pacman.conf
 ```
+
+- 添加
 
 ```sh
 [archlinuxcn]
@@ -475,6 +496,7 @@ sudo pacman -Syy
 ```sh
 sudo pacman -S archlinuxcn-keyring
 ```
+
 4、如果遇到一连串error
 
 ```sh
@@ -494,7 +516,7 @@ sudo pacman -S  xorg xorg-drivers
 
 ### 显卡
 
-- AMD
+1、AMD
 
 ```sh
 sudo pacman -S mesa lib32-mesa xf86-video-amdgpu
@@ -506,7 +528,7 @@ sudo pacman -S mesa lib32-mesa xf86-video-amdgpu
 sudo pacman -S vulkan-radeon lib32-vulkan-radeon
 ```
 
-- Intel
+2、Intel
 
 ```sh
 sudo pacman -S mesa lib32-mesa xf86-video-intel
@@ -518,7 +540,7 @@ sudo pacman -S mesa lib32-mesa xf86-video-intel
 sudo pacman -S vulkan-intel lib32-vulkan-intel
 ```
 
-- NVIDIA
+3、NVIDIA
 
 ```sh
 sudo pacman -S mesa lib32-mesa xf86-video-nouveau
