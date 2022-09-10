@@ -716,6 +716,12 @@ sudo pacman -S sddm
 sudo systemctl enable sddm
 ```
 
+### 开启图形化界面
+
+```sh
+sudo systemctl set-default graphical.target
+```
+
 ### 中文字体
 
 ```sh
