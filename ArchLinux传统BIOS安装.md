@@ -325,33 +325,7 @@ pacman -S dhcpcd
 systemctl enable dhcpcd
 ```
 
-### ssh
-
-1、安装 openssh
-
-```sh
-pacman -S openssh
-```
-
-```sh
-systemctl start sshd
-```
-
-2、修改 ssh 登录
-
-```sh
-sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/sshd_config
-```
-
-```sh
-systemctl restart sshd
-```
-
-```sh
-systemctl enable sshd
-```
-
-3、设置 root 密码
+### 设置 root 密码
 
 - 登陆新系统使用
 
@@ -386,6 +360,20 @@ reboot
 ## 新系统
 
 ### ssh 登陆
+
+1、安装 openssh
+
+```sh
+pacman -S openssh
+```
+
+2、开启 ssh
+
+```sh
+systemctl start sshd
+```
+
+### ssh 登陆失败
 
 1、报错，禁止远程登陆
 
