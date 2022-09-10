@@ -83,15 +83,16 @@ cfdisk /dev/sda
 4、磁盘类型
 
 ```sh
-/dev/sda1 1G Linux swap
-/dev/sda2 剩余 Linux filesystem
+/dev/sda1 1M BIOS boot
+/dev/sda2 1G Linux swap
+/dev/sda3 剩余 Linux filesystem
 ```
 
 5、光标回到 Write，输入 yes，回到 Quit 回车退出。
 
 > Syncing disks.
 
-### 挂载分区
+### 挂载
 
 1、查看磁盘信息
 
@@ -99,27 +100,27 @@ cfdisk /dev/sda
 fdisk -l
 ```
 
-2、创建、激活 swap 分区
+2、swap 分区
 
 ```sh
-mkswap /dev/sda1
+mkswap /dev/sda2
 ```
 
 ```sh
-swapon /dev/sda1
+swapon /dev/sda2
 ```
 
-3、挂载根目录
+3、根目录
 
 ```sh
-mkfs.ext4 /dev/sda2
+mkfs.ext4 /dev/sda3
 ```
 
 ```sh
-mount /dev/sda2 /mnt
+mount /dev/sda3 /mnt
 ```
 
-### 必备软件
+### 装机必备
 
 ```sh
 pacstrap /mnt base base-devel linux linux-firmware
@@ -141,10 +142,90 @@ genfstab -U /mnt >> /mnt/etc/fstab
 cat /mnt/etc/fstab
 ```
 
-## 更改根目录
+## 进入 chroot 环境
 
 ```sh
 arch-chroot /mnt
+```
+
+### grub 引导
+
+> https://wiki.archlinux.org/title/GRUB
+
+1、安装 grub
+
+```sh
+pacman -S grub
+```
+
+2、grub-install
+
+```sh
+grub-install /dev/sda
+```
+
+- 输出以下信息，表示成功。
+
+```sh
+Installing for i386-pc platform.
+Installation finished. No error reported.
+```
+
+3、导出 grub 配置文件
+
+```sh
+grub-mkconfig -o /boot/grub/grub.cfg
+```
+
+#### 执行 grub-install 报错
+
+```sh
+Installing for i386-pc platform.
+grub-install: warning: this GPT partition label contains no BIOS Boot Partition; embedding won't be possible.
+grub-install: warning: Embedding is not possible.  GRUB can only be installed in this setup by using blocklists.  However, blocklists are UNRELIABLE and their use is discouraged..
+grub-install: error: will not proceed with blocklists.
+```
+
+1、安装 parted
+
+```sh
+pacman -S parted
+```
+
+2、
+```sh
+parted /dev/sda set 1 bios_grub on
+```
+
+- 输出结果
+
+```sh
+nformation: You may need to update /etc/fstab.
+```
+
+3、打印
+
+```sh
+parted /dev/sda print
+```
+
+4、安装（整块硬盘sda）
+
+```sh
+grub-install /dev/sda
+```
+
+- 输出以下信息，表示成功。
+
+```sh
+Installing for i386-pc platform.
+Installation finished. No error reported.
+```
+
+5、导出 grub 配置文件
+
+```sh
+grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
 ### 更改时区
@@ -159,6 +240,8 @@ hwclock --systohc
 
 ### 文本编码
 
+1、编辑
+
 ```sh
 vim /etc/locale.gen
 ```
@@ -169,17 +252,27 @@ vim /etc/locale.gen
 en_US.UTF-8 UTF-8
 ```
 
-- 生成 locale 信息
+2、生成 locale 信息
 
 ```sh
 locale-gen
 ```
 
+- 输出信息
+
+```sh
+Generating locales...
+  en_US.UTF-8... done
+Generation complete.
+```
+
+3、写入
+
 ```sh
 echo LANG=en_US.UTF-8 >> /etc/locale.conf
 ```
 
-### 设置主机名
+### 主机名
 
 ```sh
 echo arch > /etc/hostname
@@ -191,9 +284,11 @@ echo arch > /etc/hostname
 vim /etc/hosts
 ```
 
+- 添加
+
 ```sh
 127.0.0.1   localhost
-::1      localhost
+::1         localhost
 127.0.1.1   arch.localdomain arch
 ```
 
@@ -203,9 +298,9 @@ vim /etc/hosts
 pacman -S intel-ucode
 ```
 
-### 网络
+### NetworkManager
 
-1、安装 NetworkManager（必须先装，不然新系统无法联网）
+- 必须先装，不然新系统无法联网
 
 ```sh
 pacman -S networkmanager
@@ -215,7 +310,7 @@ pacman -S networkmanager
 systemctl enable NetworkManager
 ```
 
-2、安装 dhcpcd
+### dhcpcd
 
 ```sh
 pacman -S dhcpcd
@@ -225,16 +320,19 @@ pacman -S dhcpcd
 systemctl enable dhcpcd
 ```
 
-3、安装 openssh
+### ssh
+
+1、安装 openssh
 
 ```sh
 pacman -S openssh
+```
 
 ```sh
 systemctl enable sshd
 ```
 
-4、修改 ssh 登录
+2、修改 ssh 登录
 
 ```sh
 sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/sshd_config
@@ -244,68 +342,7 @@ sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/ssh
 systemctl restart sshd
 ```
 
-### grub 引导
-
-> https://wiki.archlinux.org/title/GRUB
-
-1、 安装 grub
-
-```sh
-pacman -S grub
-```
-
-2、执行 grub-install 报错
-
-```sh
-Installing for i386-pc platform.
-grub-install: warning: this GPT partition label contains no BIOS Boot Partition; embedding won't be possible.
-grub-install: warning: Embedding is not possible.  GRUB can only be installed in this setup by using blocklists.  However, blocklists are UNRELIABLE and their use is discouraged..
-grub-install: error: will not proceed with blocklists.
-```
-
-2、安装 parted
-
-```sh
-pacman -S parted
-```
-
-3、
-```sh
-parted /dev/sda set 1 bios_grub on
-```
-
-- 输出结果
-
-```sh
-nformation: You may need to update /etc/fstab.
-```
-
-4、打印
-
-```sh
-parted /dev/sda print
-```
-
-5、安装（整块硬盘sda）
-
-```sh
-grub-install /dev/sda
-```
-
-- 输出以下信息，表示成功。
-
-```sh
-Installing for i386-pc platform.
-Installation finished. No error reported.
-```
-
-6、导出 grub 配置文件
-
-```sh
-grub-mkconfig -o /boot/grub/grub.cfg
-```
-
-### 设置 root 密码（新系统登陆）
+3、设置 root 密码（新系统登陆）
 
 ```sh
 passwd root
@@ -339,31 +376,19 @@ reboot
 
 ### ssh 登陆
 
-1、更新软件包缓存
-
-```sh
-pacman -Syy
-```
-
-2、安装 ssh 软件
-
-```sh
-pacman -S openssh
-```
-
-3、启动 ssh
+1、启动 ssh
 
 ```sh
 systemctl start sshd
 ```
 
-4、开机启动 ssh
+2、开机启动 ssh
 
 ```sh
 systemctl enable sshd
 ```
 
-5、查看 ssh 状态
+3、查看 ssh 状态
 
 ```sh
 systemctl status sshd
