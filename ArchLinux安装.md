@@ -20,7 +20,7 @@ ls /sys/firmware/efi/efivars
 setfont ter-132n
 ```
 
-### 联网
+### 联网（ping通就忽略）
 
 - 有线网络
 
