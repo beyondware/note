@@ -730,6 +730,12 @@ sudo pacman -S lightdm lightdm-gtk-greeter
 sudo systemctl enable lightdm
 ```
 
+#### UKUI
+
+```sh
+sudo pacman -S ukui
+```
+
 ### 开启图形化界面
 
 ```sh
