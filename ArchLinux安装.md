@@ -730,7 +730,7 @@ sudo pacman -S lightdm lightdm-gtk-greeter
 sudo systemctl enable lightdm
 ```
 
-#### UKUI
+#### UKUI（功能不全，谨慎使用）
 
 ```sh
 sudo pacman -S ukui
