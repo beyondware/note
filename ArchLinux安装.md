@@ -714,6 +714,22 @@ sudo pacman -S sddm
 sudo systemctl enable sddm
 ```
 
+#### XFCE（轻量级）
+
+```sh
+sudo pacman -S xfce4
+```
+
+- lightdm
+
+```sh
+sudo pacman -S lightdm lightdm-gtk-greeter
+```
+
+```sh
+sudo systemctl enable lightdm
+```
+
 ### 开启图形化界面
 
 ```sh
