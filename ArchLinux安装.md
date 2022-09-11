@@ -8,7 +8,7 @@
 
 > 编辑虚拟机设置→选项-高级-固件类型，改成：UEFI
 
-### 是否为 UEFI
+### 判断是否为 UEFI
 
 ```sh
 ls /sys/firmware/efi/efivars
@@ -66,7 +66,7 @@ station wlan0 connect 网络名称
 exit
 ```
 
-### ssh 登陆
+### ssh 登陆（默认：开启）
 
 1、启动 ssh
 
@@ -682,21 +682,13 @@ sudo vim /etc/sudoers 或者 EDITOR=vim visudo （推荐）
 
 ### 桌面环境
 
-- GNOME
+#### GNOME
 
 ```sh
 sudo pacman -S gnome
 ```
 
-- KDE
-
-```sh
-sudo pacman -S plasma
-```
-
-### 开机登录界面
-
-- gdm（GNOME）
+- gdm
 
 ```sh
 sudo pacman -S gdm
@@ -706,7 +698,13 @@ sudo pacman -S gdm
 sudo systemctl enable gdm
 ```
 
-- sddm（KDE）
+#### KDE
+
+```sh
+sudo pacman -S plasma
+```
+
+- sddm
 
 ```sh
 sudo pacman -S sddm
@@ -728,7 +726,9 @@ sudo systemctl set-default graphical.target
 sudo pacman -S wqy-microhei wqy-zenhei noto-fonts-cjk noto-fonts-emoji
 ```
 
-### fcitx5 输入法
+### 中文输入法
+
+#### fcitx5 输入法
 
 > https://wiki.archlinux.org/title/Fcitx5
 
@@ -797,7 +797,7 @@ pacman -Syy
 ### Xorg
 
 ```sh
-sudo pacman -S  xorg xorg-drivers
+sudo pacman -S xorg xorg-drivers
 ```
 
 ### 显卡
@@ -828,11 +828,13 @@ sudo pacman -S vulkan-intel lib32-vulkan-intel
 
 3、NVIDIA
 
+- 开源
+
 ```sh
 sudo pacman -S mesa lib32-mesa xf86-video-nouveau
 ```
 
-- 可选
+- 闭源
 
 ```sh
 sudo pacman -S nvidia nvidia-settings lib32-nvidia-utils
@@ -846,8 +848,16 @@ sudo pacman -S xf86-video-vesa xf86-video-vmware
 
 ### 音频
 
+#### pipewire
+
 ```sh
 sudo pacman -S pipewire pipewire-alsa pipewire-jack pipewire-media-session
+```
+
+#### pulseaudio
+
+```sh
+sudo pacman -S alsa-utils pulseaudio pulseaudio-alsa
 ```
 
 ### 蓝牙
@@ -863,7 +873,13 @@ sudo systemctl enable bluetooth
 ### 鼠标
 
 ```sh
-sudo pacman -S  xf86-input-vmmouse xf86-input-libinput xf86-input-synaptics
+sudo pacman -S  xf86-input-vmmouse
+```
+
+### 手写板
+
+```sh
+sudo pacman -S xf86-input-libinput xf86-input-synaptics
 ```
 
 ### 打印机
@@ -892,7 +908,7 @@ sudo systemctl enable fstrim.timer
 
 ## 其他
 
-### gnome-terminal 无法启动
+### 无法启动 gnome-terminal、vim
 
 ```sh
 vim /etc/locale.gen
