@@ -342,10 +342,18 @@ Installing for i386-pc platform.
 Installation finished. No error reported.
 ```
 
-3、导出 grub 配置文件
+3、导出 grub 配置文件（*非常*重要）
 
 ```sh
 grub-mkconfig -o /boot/grub/grub.cfg
+```
+
+- 如果没有执行上述步骤，重启将报错以下信息，无法进入系统。
+
+```sh
+Minimal BASH-like line editing is supported.For the first word.TAB 
+lists possible command completions.Anywhere else TAB lists possible 
+device or file completions.
 ```
 
 ##### 执行 grub-install 报错
@@ -874,7 +882,7 @@ sudo systemctl enable sddm
 sudo pacman -S xfce4
 ```
 
-- lightdm
+##### lightdm
 
 ```sh
 sudo pacman -S lightdm lightdm-gtk-greeter
@@ -884,7 +892,14 @@ sudo pacman -S lightdm lightdm-gtk-greeter
 sudo systemctl enable lightdm
 ```
 
-- XFCE 设置分辨率
+##### XFCE 报错信息
+
+```sh
+Job for lightdm.service failed because the control process exited with error code.
+See "systemctl status lightdm.service" and "journalctl -xeu lightdm.service" for details.
+```
+
+##### XFCE 设置分辨率
 
 > 显示（Display）→分辨率（Resolution）
 
