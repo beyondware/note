@@ -831,6 +831,10 @@ sudo pacman -S gdm
 ```
 
 ```sh
+sudo systemctl start gdm
+```
+
+```sh
 sudo systemctl enable gdm
 ```
 
@@ -846,7 +850,7 @@ sudo systemctl enable gdm
 sudo pacman -S plasma
 ```
 
-##### plasma 最小化安装
+##### plasma 最小化安装（备选）
 
 ```sh
 sudo pacman -S plasma-desktop kscreen dolphin konsole
@@ -856,6 +860,10 @@ sudo pacman -S plasma-desktop kscreen dolphin konsole
 
 ```sh
 sudo pacman -S sddm
+```
+
+```sh
+sudo systemctl start sddm
 ```
 
 ```sh
@@ -882,6 +890,10 @@ sudo pacman -S xfce4
 
 ```sh
 sudo pacman -S lightdm lightdm-gtk-greeter
+```
+
+```sh
+sudo systemctl start lightdm
 ```
 
 ```sh
@@ -933,7 +945,7 @@ SDL_IM_MODULE=fcitx
 GLFW_IM_MODULE=ibus
 ```
 
-3、重启生效
+3、系统重启，才能生效。
 
 #### ibus 输入法
 
@@ -1000,6 +1012,8 @@ ibus-daemon -d -x
 ```sh
 yay -S ibus-qt
 ```
+
+7、系统重启，才能生效。
 
 ### 添加 archlinuxcn 源
 
