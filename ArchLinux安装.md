@@ -732,12 +732,6 @@ sudo pacman -S mesa lib32-mesa xf86-video-nouveau
 sudo pacman -S nvidia nvidia-settings nvidia-utils
 ```
 
-- 启动 NVIDIA
-
-```sh
-nvidia-settings
-```
-
 #### 视频驱动
 
 ```sh
@@ -846,11 +840,13 @@ sudo systemctl enable gdm
 
 #### KDE
 
+##### plasma 桌面环境
+
 ```sh
 sudo pacman -S plasma
 ```
 
-##### KDE 最小化安装
+##### plasma 最小化安装
 
 ```sh
 sudo pacman -S plasma-desktop kscreen dolphin konsole
