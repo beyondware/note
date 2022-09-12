@@ -676,8 +676,16 @@ pacman -S sudo
 
 4、编辑
 
+- 推荐方式
+
 ```sh
-sudo vim /etc/sudoers 或者 EDITOR=vim visudo （推荐）
+EDITOR=vim visudo
+```
+
+- 保存时，可能会报错（不推荐）
+
+```sh
+sudo vim /etc/sudoers
 ```
 
 - 去掉前面#
@@ -697,7 +705,7 @@ sudo pacman -S xorg
 #### AMD
 
 ```sh
-sudo pacman -S mesa lib32-mesa xf86-video-amdgpu
+sudo pacman -S mesa xf86-video-amdgpu
 ```
 
 - 可选
@@ -709,7 +717,7 @@ sudo pacman -S vulkan-radeon lib32-vulkan-radeon
 #### Intel
 
 ```sh
-sudo pacman -S mesa lib32-mesa xf86-video-intel
+sudo pacman -S mesa xf86-video-intel
 ```
 
 - 可选
@@ -723,7 +731,7 @@ sudo pacman -S vulkan-intel lib32-vulkan-intel
 - 开源（谨慎）
 
 ```sh
-sudo pacman -S mesa lib32-mesa xf86-video-nouveau
+sudo pacman -S mesa xf86-video-nouveau
 ```
 
 - 闭源
