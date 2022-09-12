@@ -680,10 +680,8 @@ sudo vim /etc/sudoers 或者 EDITOR=vim visudo （推荐）
 
 ### Xorg
 
-- xorg-drivers：包含绝大部分显卡驱动
-
 ```sh
-sudo pacman -S xorg xorg-drivers
+sudo pacman -S xorg
 ```
 
 ### 显卡
@@ -714,7 +712,7 @@ sudo pacman -S vulkan-intel lib32-vulkan-intel
 
 #### NVIDIA
 
-- 开源
+- 开源（谨慎）
 
 ```sh
 sudo pacman -S mesa lib32-mesa xf86-video-nouveau
@@ -724,6 +722,12 @@ sudo pacman -S mesa lib32-mesa xf86-video-nouveau
 
 ```sh
 sudo pacman -S nvidia nvidia-settings lib32-nvidia-utils
+```
+
+- 启动 NVIDIA
+
+```sh
+nvidia-settings
 ```
 
 #### 视频驱动
@@ -749,6 +753,10 @@ sudo pacman -S alsa-utils pulseaudio pulseaudio-alsa
 ### 蓝牙
 
 ```sh
+sudo pacman -S bluez bluez-utils
+```
+
+```sh
 sudo pacman -S pulseaudio-bluetooth
 ```
 
@@ -764,14 +772,22 @@ sudo pacman -S  xf86-input-vmmouse
 
 ### 手写板
 
+- 推荐安装
+
 ```sh
-sudo pacman -S xf86-input-libinput xf86-input-synaptics
+sudo pacman -S xf86-input-synaptics
+```
+
+- 备选方案
+
+```sh
+sudo pacman -S xf86-input-synaptics
 ```
 
 ### 打印机
 
 ```sh
-sudo pacman -S cups cups-filters libcups cups-pk-helper system-config-printer
+sudo pacman -S cups libcups cups-filters cups-pk-helper system-config-printer
 ```
 
 ```sh
@@ -1010,6 +1026,18 @@ pacman-key --populate archlinux archlinuxcn
 pacman -Syy
 ```
 
+### 默认命令行编辑器
+
+```sh
+sudo vim /etc/profile
+```
+
+- 添加
+
+```sh
+export EDITOR='vim'
+```
+
 ## 其他
 
 ### 无法启动 gnome-terminal、vim
@@ -1034,7 +1062,7 @@ sudo localectl set-locale LANG=en_US.UTF-8
 sudo localectl set-locale LANG=zh_CN.UTF-8
 ```
 
-### 系统显示中文改回英文
+### 系统中文改回英文
 
 ```sh
 vim /etc/default/locale
