@@ -946,7 +946,7 @@ sudo pacman -S mesa lib32-mesa xf86-video-nouveau
 sudo pacman -S nvidia nvidia-settings lib32-nvidia-utils
 ```
 
-### 视频驱动
+#### 视频驱动
 
 ```sh
 sudo pacman -S xf86-video-vesa xf86-video-vmware
