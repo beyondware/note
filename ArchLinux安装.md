@@ -823,7 +823,7 @@ sudo pacman -S plasma
 - KDE 最小化安装
 
 ```sh
-sudo pacman -S plasma-desktop dolphin konsole
+sudo pacman -S plasma-desktop kscreen dolphin konsole
 ```
 
 - sddm
