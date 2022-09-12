@@ -729,7 +729,7 @@ sudo pacman -S mesa lib32-mesa xf86-video-nouveau
 - 闭源
 
 ```sh
-sudo pacman -S nvidia nvidia-settings lib32-nvidia-utils
+sudo pacman -S nvidia nvidia-settings nvidia-utils
 ```
 
 - 启动 NVIDIA
