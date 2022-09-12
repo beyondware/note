@@ -22,13 +22,13 @@ setfont ter-132n
 
 ### 联网（ping通就忽略）
 
-- 有线网络
+#### 有线网络
 
 ```sh
 dhcpcd
 ```
 
-- 无线网络
+#### 无线网络
 
 1、进入 iwd 环境
 
@@ -154,6 +154,8 @@ swapon /dev/sda2
 mkfs.ext4 /dev/sda3
 ```
 
+- *必须*先挂载根目录
+
 ```sh
 mount /dev/sda3 /mnt
 ```
@@ -178,9 +180,7 @@ cfdisk /dev/sda
 
 ```sh
 /dev/sda1 512M EFI System
-
 /dev/sda2 2G Linux swap
-
 /dev/sda3 剩余 Linux filesystem
 ```
 
@@ -381,7 +381,7 @@ nformation: You may need to update /etc/fstab.
 parted /dev/sda print
 ```
 
-4、安装（整块硬盘：sda）
+4、grub-install（整块硬盘：sda）
 
 ```sh
 grub-install /dev/sda
@@ -459,8 +459,6 @@ grub-mkconfig -o /boot/grub/grub.cfg
 cat /boot/grub/grub.cfg
 ```
 
-- 查看是否包含`initramfs-linux-fallback.img initramfs-linux.img intel-ucode.img vmlinuz-linux`文件
-
 ### 更改时区
 
 ```sh
@@ -533,13 +531,13 @@ vim /etc/hosts
 
 ### CPU 微指令
 
-- Intel
+#### Intel
 
 ```sh
 pacman -S intel-ucode
 ```
 
-- AMD
+#### AMD
 
 ```sh
 pacman -S amd-ucode
@@ -569,7 +567,7 @@ systemctl enable dhcpcd
 
 ### 设置 root 密码
 
-- 登陆新系统使用
+- 必须先设置，不然新系统无法登陆
 
 ```sh
 passwd root
@@ -698,10 +696,20 @@ sudo pacman -S gdm
 sudo systemctl enable gdm
 ```
 
+- Gnome/Budgie 设置分辨率
+
+> 显示（Displays）→分辨率（Resolution）
+
 #### KDE
 
 ```sh
 sudo pacman -S plasma
+```
+
+- KDE 最小化安装
+
+```sh
+sudo pacman -S plasma-desktop dolphin konsole
 ```
 
 - sddm
@@ -713,6 +721,10 @@ sudo pacman -S sddm
 ```sh
 sudo systemctl enable sddm
 ```
+
+- KDE 设置分辨率
+
+> 硬件（Hardware）→显示和监视（Display and Monitor）→分辨率（Resolution）
 
 #### XFCE（轻量级）
 
@@ -729,6 +741,10 @@ sudo pacman -S lightdm lightdm-gtk-greeter
 ```sh
 sudo systemctl enable lightdm
 ```
+
+- XFCE 设置分辨率
+
+> 显示（Display）→分辨率（Resolution）
 
 #### UKUI（功能不全，谨慎使用）
 
@@ -778,9 +794,75 @@ GLFW_IM_MODULE=ibus
 
 3、重启生效
 
+#### ibus 输入法
+
+> https://wiki.archlinux.org/title/IBus
+
+1、安装 ibus
+
+```sh
+sudo pacman -S ibus ibus-libpinyin ibus-table-chinese
+```
+
+2、运行 ibus-setup 初始程序
+
+```sh
+sudo ibus-setup
+```
+
+3、编辑
+
+```sh
+sudo vim ~/.bashrc
+```
+
+- 添加
+
+```sh
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
+```
+
+4、如果 ibus 尚未启动
+
+```sh
+sudo vim ~/.xprofile
+```
+
+- 添加
+
+```sh
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
+ibus-daemon -d -x
+```
+
+5、需 ibus 随 GNOME 启动
+
+```sh
+sudo vim ~/.profile
+```
+
+- 添加
+
+```sh
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
+ibus-daemon -d -x
+```
+
+6、如果 ibus 在 KDE 程序中不工作
+
+```sh
+yay -S ibus-qt
+```
+
 ### 添加 archlinuxcn 源
 
-1、编辑配置文件
+1、编辑
 
 ```sh
 sudo vim /etc/pacman.conf
@@ -818,13 +900,15 @@ pacman -Syy
 
 ### Xorg
 
+- xorg-drivers：包含绝大部分显卡驱动
+
 ```sh
 sudo pacman -S xorg xorg-drivers
 ```
 
 ### 显卡
 
-1、AMD
+#### AMD
 
 ```sh
 sudo pacman -S mesa lib32-mesa xf86-video-amdgpu
@@ -836,7 +920,7 @@ sudo pacman -S mesa lib32-mesa xf86-video-amdgpu
 sudo pacman -S vulkan-radeon lib32-vulkan-radeon
 ```
 
-2、Intel
+#### Intel
 
 ```sh
 sudo pacman -S mesa lib32-mesa xf86-video-intel
@@ -848,7 +932,7 @@ sudo pacman -S mesa lib32-mesa xf86-video-intel
 sudo pacman -S vulkan-intel lib32-vulkan-intel
 ```
 
-3、NVIDIA
+#### NVIDIA
 
 - 开源
 
@@ -969,3 +1053,37 @@ LANGUAGE="zh_CN:zh"
 LANG="en_US.UTF-8"
 LANGUAGE="en_US:en"
 ```
+
+### 系统设置中文
+
+> https://wiki.archlinux.org/title/Localization/Simplified_Chinese
+
+1、编辑
+
+```sh
+sudo vim /etc/locale.gen
+```
+
+- 去掉前面#
+
+```sh
+en_US.UTF-8 UTF-8
+zh_CN.UTF-8 UTF-8
+```
+
+2、执行 locale-gen 命令
+
+```sh
+locale-gen
+```
+
+3、警告：不推荐 LANG=zh_CN.UTF-8 写入 /etc/locale.conf，这会导致 tty 乱码。
+
+4、建议在 vim ~/.bashrc 或者 vim ~/.xprofile 添加下面两行到文件*最开头*
+
+```sh
+export LANG=zh_CN.UTF-8
+export LANGUAGE=zh_CN:en_US
+```
+
+5、系统重启，才能生效。
