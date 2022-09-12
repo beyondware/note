@@ -678,8 +678,6 @@ sudo vim /etc/sudoers 或者 EDITOR=vim visudo （推荐）
 %wheel ALL=(ALL)ALL
 ```
 
-## 驱动
-
 ### Xorg
 
 - xorg-drivers：包含绝大部分显卡驱动
@@ -840,7 +838,7 @@ sudo systemctl enable sddm
 
 - KDE 设置分辨率
 
-> 硬件（Hardware）→显示和监视（Display and Monitor）→分辨率（Resolution）
+> 系统设置（System Settings）→硬件（Hardware）→显示和监视（Display and Monitor）→显示配置（Display Configuration）→分辨率（Resolution）
 
 #### XFCE（轻量级）
 
