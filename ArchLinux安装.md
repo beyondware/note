@@ -792,6 +792,12 @@ sudo systemctl start fstrim.service
 sudo systemctl enable fstrim.timer
 ```
 
+### 中文字体
+
+```sh
+sudo pacman -S wqy-microhei wqy-zenhei noto-fonts-cjk noto-fonts-emoji
+```
+
 ### 桌面环境
 
 #### GNOME
@@ -820,13 +826,13 @@ sudo systemctl enable gdm
 sudo pacman -S plasma
 ```
 
-- KDE 最小化安装
+##### KDE 最小化安装
 
 ```sh
 sudo pacman -S plasma-desktop kscreen dolphin konsole
 ```
 
-- sddm
+##### sddm
 
 ```sh
 sudo pacman -S sddm
@@ -836,9 +842,15 @@ sudo pacman -S sddm
 sudo systemctl enable sddm
 ```
 
-- KDE 设置分辨率
+##### KDE 设置分辨率
 
 > 系统设置（System Settings）→硬件（Hardware）→显示和监视（Display and Monitor）→显示配置（Display Configuration）→分辨率（Resolution）
+
+##### KDE 设置中文界面
+
+> 系统设置（System Settings）→个性化（Personalization）→语言和区域设置（Regional Settings）→语言（Language）→添加语言（Add Languages）-添加：简体中文，并拖到第一行
+
+- 系统重启，才能生效。
 
 #### XFCE（轻量级）
 
@@ -864,18 +876,6 @@ sudo systemctl enable lightdm
 
 ```sh
 sudo pacman -S ukui
-```
-
-### 开启图形化界面
-
-```sh
-sudo systemctl set-default graphical.target
-```
-
-### 中文字体
-
-```sh
-sudo pacman -S wqy-microhei wqy-zenhei noto-fonts-cjk noto-fonts-emoji
 ```
 
 ### 中文输入法
