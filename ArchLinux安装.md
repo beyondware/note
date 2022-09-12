@@ -553,6 +553,8 @@ pacman -S amd-ucode
 
 ### NetworkManager
 
+> https://wiki.archlinux.org/title/Network_configuration
+
 - 必须先装，不然新系统无法联网
 
 ```sh
@@ -694,18 +696,30 @@ sudo vim /etc/sudoers
 %wheel ALL=(ALL)ALL
 ```
 
-### Xorg
+### Xorg（包含：xorg-server）
+
+> https://wiki.archlinux.org/title/Xorg
 
 ```sh
 sudo pacman -S xorg
 ```
 
+- 可选
+
+```sh
+sudo pacman -S xorg-xinit
+```
+
 ### 显卡
+
+```sh
+lspci -v | grep -A1 -e VGA -e 3D
+```
 
 #### AMD
 
 ```sh
-sudo pacman -S mesa xf86-video-amdgpu
+sudo pacman -S mesa mesa-utils xf86-video-amdgpu
 ```
 
 - 可选
@@ -717,7 +731,7 @@ sudo pacman -S vulkan-radeon lib32-vulkan-radeon
 #### Intel
 
 ```sh
-sudo pacman -S mesa xf86-video-intel
+sudo pacman -S mesa mesa-utils xf86-video-intel
 ```
 
 - 可选
@@ -728,16 +742,18 @@ sudo pacman -S vulkan-intel lib32-vulkan-intel
 
 #### NVIDIA
 
+> https://wiki.archlinux.org/title/NVIDIA
+
 - 开源（谨慎）
 
 ```sh
-sudo pacman -S mesa xf86-video-nouveau
+sudo pacman -S mesa mesa-utils xf86-video-nouveau
 ```
 
 - 闭源
 
 ```sh
-sudo pacman -S nvidia nvidia-settings nvidia-utils
+sudo pacman -S nvidia nvidia-utils nvidia-settings
 ```
 
 #### 视频驱动
@@ -782,19 +798,27 @@ sudo pacman -S  xf86-input-vmmouse
 
 ### 手写板
 
-- 推荐安装
+- 推荐
 
 ```sh
 sudo pacman -S xf86-input-synaptics
 ```
 
-- 备选方案
+- 备选
 
 ```sh
 sudo pacman -S xf86-input-synaptics
+```
+
+### 数位板
+
+```sh
+sudo pacman -S xf86-input-wacom libwacom
 ```
 
 ### 打印机
+
+> https://wiki.archlinux.org/title/CUPS
 
 ```sh
 sudo pacman -S cups libcups cups-filters cups-pk-helper system-config-printer
@@ -824,7 +848,11 @@ sudo systemctl enable fstrim.timer
 sudo pacman -S wqy-microhei wqy-zenhei noto-fonts-cjk noto-fonts-emoji
 ```
 
-### 桌面环境
+### 桌面环境（先装xorg）
+
+> https://wiki.archlinux.org/title/Desktop_environment
+
+> https://wiki.archlinux.org/title/Display_manager
 
 #### GNOME
 
@@ -851,6 +879,8 @@ sudo systemctl enable gdm
 > 显示（Displays）→分辨率（Resolution）
 
 #### KDE
+
+> https://wiki.archlinux.org/title/KDE
 
 ##### plasma 桌面环境
 
