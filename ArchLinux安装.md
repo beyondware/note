@@ -621,6 +621,12 @@ pacman -S openssh
 systemctl start sshd
 ```
 
+3、开机启动 ssh
+
+```sh
+systemctl enable sshd
+```
+
 ### ssh 登陆失败
 
 1、报错，禁止远程登陆
@@ -630,19 +636,19 @@ All configured authentication methods failed
 Remote rejected opening a shell channel: Error: Not connected
 ```
 
-2、编辑 SSH 配置文件
+2、编辑
 
 ```sh
 vim /etc/ssh/sshd_config
 ```
 
-- 修改为
+- 添加
 
 ```sh
 PermitRootLogin yes
 ```
 
-3、重新启动 SSH
+3、重新启动 ssh
 
 ```sh
 systemctl restart sshd
@@ -668,13 +674,7 @@ useradd -m -g users -G wheel -s /bin/bash pc
 passwd pc
 ```
 
-3、设置 wheel 组权限
-
-```sh
-pacman -S sudo
-```
-
-4、编辑
+3、编辑
 
 - 推荐方式
 
