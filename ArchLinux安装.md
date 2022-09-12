@@ -678,6 +678,122 @@ sudo vim /etc/sudoers 或者 EDITOR=vim visudo （推荐）
 %wheel ALL=(ALL)ALL
 ```
 
+## 驱动
+
+### Xorg
+
+- xorg-drivers：包含绝大部分显卡驱动
+
+```sh
+sudo pacman -S xorg xorg-drivers
+```
+
+### 显卡
+
+#### AMD
+
+```sh
+sudo pacman -S mesa lib32-mesa xf86-video-amdgpu
+```
+
+- 可选
+
+```sh
+sudo pacman -S vulkan-radeon lib32-vulkan-radeon
+```
+
+#### Intel
+
+```sh
+sudo pacman -S mesa lib32-mesa xf86-video-intel
+```
+
+- 可选
+
+```sh
+sudo pacman -S vulkan-intel lib32-vulkan-intel
+```
+
+#### NVIDIA
+
+- 开源
+
+```sh
+sudo pacman -S mesa lib32-mesa xf86-video-nouveau
+```
+
+- 闭源
+
+```sh
+sudo pacman -S nvidia nvidia-settings lib32-nvidia-utils
+```
+
+#### 视频驱动
+
+```sh
+sudo pacman -S xf86-video-vesa xf86-video-vmware
+```
+
+### 音频
+
+#### pipewire
+
+```sh
+sudo pacman -S pipewire pipewire-alsa pipewire-jack pipewire-media-session
+```
+
+#### pulseaudio
+
+```sh
+sudo pacman -S alsa-utils pulseaudio pulseaudio-alsa
+```
+
+### 蓝牙
+
+```sh
+sudo pacman -S pulseaudio-bluetooth
+```
+
+```sh
+sudo systemctl enable bluetooth
+```
+
+### 鼠标
+
+```sh
+sudo pacman -S  xf86-input-vmmouse
+```
+
+### 手写板
+
+```sh
+sudo pacman -S xf86-input-libinput xf86-input-synaptics
+```
+
+### 打印机
+
+```sh
+sudo pacman -S cups cups-filters libcups cups-pk-helper system-config-printer
+```
+
+```sh
+sudo systemctl enable cups
+```
+
+### 固态硬盘优化
+
+1、启动
+
+```sh
+sudo systemctl start fstrim.service
+```
+
+2、开机启动
+
+```sh
+sudo systemctl enable fstrim.timer
+```
+
 ### 桌面环境
 
 #### GNOME
@@ -894,122 +1010,6 @@ rm -rf /etc/pacman.d/gnupg
 pacman-key --init
 pacman-key --populate archlinux archlinuxcn
 pacman -Syy
-```
-
-## 驱动
-
-### Xorg
-
-- xorg-drivers：包含绝大部分显卡驱动
-
-```sh
-sudo pacman -S xorg xorg-drivers
-```
-
-### 显卡
-
-#### AMD
-
-```sh
-sudo pacman -S mesa lib32-mesa xf86-video-amdgpu
-```
-
-- 可选
-
-```sh
-sudo pacman -S vulkan-radeon lib32-vulkan-radeon
-```
-
-#### Intel
-
-```sh
-sudo pacman -S mesa lib32-mesa xf86-video-intel
-```
-
-- 可选
-
-```sh
-sudo pacman -S vulkan-intel lib32-vulkan-intel
-```
-
-#### NVIDIA
-
-- 开源
-
-```sh
-sudo pacman -S mesa lib32-mesa xf86-video-nouveau
-```
-
-- 闭源
-
-```sh
-sudo pacman -S nvidia nvidia-settings lib32-nvidia-utils
-```
-
-#### 视频驱动
-
-```sh
-sudo pacman -S xf86-video-vesa xf86-video-vmware
-```
-
-### 音频
-
-#### pipewire
-
-```sh
-sudo pacman -S pipewire pipewire-alsa pipewire-jack pipewire-media-session
-```
-
-#### pulseaudio
-
-```sh
-sudo pacman -S alsa-utils pulseaudio pulseaudio-alsa
-```
-
-### 蓝牙
-
-```sh
-sudo pacman -S pulseaudio-bluetooth
-```
-
-```sh
-sudo systemctl enable bluetooth
-```
-
-### 鼠标
-
-```sh
-sudo pacman -S  xf86-input-vmmouse
-```
-
-### 手写板
-
-```sh
-sudo pacman -S xf86-input-libinput xf86-input-synaptics
-```
-
-### 打印机
-
-```sh
-sudo pacman -S cups cups-filters libcups cups-pk-helper system-config-printer
-```
-
-```sh
-sudo systemctl enable cups
-```
-
-### 固态硬盘优化
-
-1、启动
-
-```sh
-sudo systemctl start fstrim.service
-```
-
-2、开机启动
-
-```sh
-sudo systemctl enable fstrim.timer
 ```
 
 ## 其他
