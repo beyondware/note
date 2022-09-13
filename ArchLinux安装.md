@@ -1092,10 +1092,11 @@ yay -S ibus-qt
 sudo vim /etc/pacman.conf
 ```
 
-- 添加
+- 文件末尾添加
 
 ```sh
 [archlinuxcn]
+Server = https://mirror.nju.edu.cn/archlinuxcn/$arch
 Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch
 ```
 
