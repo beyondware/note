@@ -716,6 +716,12 @@ sudo vim /etc/sudoers
 sudo pacman -S xorg
 ```
 
+- xorg-drivers（包含：显卡驱动）
+
+```sh
+sudo pacman -S xorg-drivers
+```
+
 - 可选
 
 ```sh
