@@ -88,9 +88,11 @@ sudo dnf repolist
 
 > https://mirrors.cloud.tencent.com/help/fedora.html
 
-### 目录改成英文
+### 家目录改成英文
 
-1、先将对应的中文目录重命名为英文
+- 方案一（推荐）
+
+1、先将中文目录对应重命名为英文
 
 ```sh
 桌面：Desktop
@@ -120,7 +122,33 @@ XDG_PICTURES_DIR="$HOME/Pictures"
 XDG_VIDEOS_DIR="$HOME/Videos"
 ```
 
-3、重启系统
+3、系统重启，才能生效。
+
+- 方案二（备选）
+
+1、家目录中文改为英文
+
+```sh
+export LANG=en_US
+```
+
+```sh
+xdg-user-dirs-gtk-update
+```
+
+> 勾选：不要再次询问我（Don't ask me this again）
+
+> 点击：更新名称（Update Names）
+
+2、家目录英文改为中文
+
+```sh
+export LANG=zh_CN.UTF-8
+```
+
+```sh
+xdg-user-dirs-gtk-update
+```
 
 ### gnome-tweaks
 
@@ -132,7 +160,7 @@ sudo dnf install gnome-tweaks
 
 > https://extensions.gnome.org/
 
-由于 GNOME 42 目前暂不支持，用命令安装，需要重启系统-打开才能生效。
+- 由于 GNOME 42 目前暂不支持，用命令安装，需要重启系统才能生效。
 
 > https://extensions.gnome.org/extension/307/dash-to-dock/
 
