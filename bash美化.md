@@ -42,6 +42,12 @@ source ~/.bashrc
 
 ### powerline 状态行
 
+> https://wiki.archlinux.org/title/Powerline
+
+> https://powerline.readthedocs.io/en/latest/index.html
+
+> https://github.com/powerline/powerline
+
 1、安装依赖
 
 ```sh
