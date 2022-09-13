@@ -916,7 +916,13 @@ sudo pacman -S plasma
 ##### plasma 最小化安装（备选）
 
 ```sh
-sudo pacman -S plasma-desktop kscreen dolphin konsole
+sudo pacman -S plasma-desktop kscreen
+```
+
+- 选装
+
+```sh
+sudo pacman -S dolphin konsole
 ```
 
 ##### sddm
