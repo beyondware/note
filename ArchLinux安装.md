@@ -1046,7 +1046,7 @@ sudo pacman -S ibus ibus-libpinyin ibus-table-chinese
 2、运行 ibus-setup 初始程序
 
 ```sh
-sudo ibus-setup
+ibus-setup
 ```
 
 3、编辑
