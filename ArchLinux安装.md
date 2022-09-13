@@ -920,19 +920,25 @@ sudo systemctl enable gdm
 
 > https://wiki.archlinux.org/title/KDE
 
-##### plasma 桌面环境
+##### plasma
 
 ```sh
 sudo pacman -S plasma
 ```
 
-##### plasma 最小化安装（备选）
+##### plasma 最小化安装
 
 ```sh
 sudo pacman -S plasma-desktop kscreen konsole
 ```
 
-- 选装
+- 文件管理器（推荐）
+
+```sh
+sudo pacman -S ranger
+```
+
+- 文件管理器（选装）
 
 ```sh
 sudo pacman -S dolphin
