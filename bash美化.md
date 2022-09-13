@@ -136,9 +136,15 @@ POWERLINE_BASH_SELECT=1
 . /usr/lib/python3.10/site-packages/powerline/bindings/bash/powerline.sh
 ```
 
-9、退出终端，重新打开生效。
+9、刷新配置
 
-10、vim配置powerline
+```sh
+source ~/.bashrc
+```
+
+10、退出终端，重新打开生效。
+
+### vim配置powerline
 
 ```sh
 vim ~/.vimrc
