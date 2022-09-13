@@ -774,10 +774,10 @@ sudo pacman -S mesa mesa-utils xf86-video-nouveau
 sudo pacman -S nvidia nvidia-utils nvidia-settings
 ```
 
-#### 视频驱动
+#### 虚拟机驱动
 
 ```sh
-sudo pacman -S xf86-video-vesa xf86-video-vmware
+sudo pacman -S mesa mesa-utils xf86-video-vesa xf86-video-vmware
 ```
 
 ### 音频
@@ -875,6 +875,7 @@ sudo pacman -S wqy-microhei wqy-zenhei noto-fonts-cjk noto-fonts-emoji
 - 报错信息
 
 ```sh
+warning: failed to retrieve some files
 error: failed to commit transaction (failed to retrieve some files)
 Errors occurred, no packages were upgraded.
 ```
@@ -922,13 +923,13 @@ sudo pacman -S plasma
 ##### plasma 最小化安装（备选）
 
 ```sh
-sudo pacman -S plasma-desktop kscreen
+sudo pacman -S plasma-desktop kscreen konsole
 ```
 
 - 选装
 
 ```sh
-sudo pacman -S dolphin konsole
+sudo pacman -S dolphin
 ```
 
 ##### sddm
