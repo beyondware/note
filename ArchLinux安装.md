@@ -1114,11 +1114,19 @@ sudo pacman -S archlinuxcn-keyring
 
 4、如果遇到一连串error
 
+> https://www.archlinuxcn.org/gnupg-2-1-and-the-pacman-keyring/
+
+- 以 root 权限运行
+
 ```sh
-rm -rf /etc/pacman.d/gnupg
+pacman -Syu haveged
+systemctl start haveged
+systemctl enable haveged
+
+rm -fr /etc/pacman.d/gnupg
 pacman-key --init
-pacman-key --populate archlinux archlinuxcn
-pacman -Syy
+pacman-key --populate archlinux
+pacman-key --populate archlinuxcn
 ```
 
 ### 默认命令行编辑器
