@@ -676,21 +676,33 @@ useradd -m -g users -G wheel -s /bin/bash pc
 passwd pc
 ```
 
-3、编辑
+3、切换到 root 删除用户及其任何文件
 
-- 推荐方式
+```sh
+userdel -rf pc
+```
+
+### 普通用户使用 root 权限
+
+1、推荐
 
 ```sh
 EDITOR=vim visudo
 ```
 
-- 保存时，可能会报错（不推荐）
+2、保存时，可能会报错（不推荐）
 
 ```sh
 sudo vim /etc/sudoers
 ```
 
-- 去掉前面#
+- 文件是只读，不加“!”保存会失败。
+
+```sh
+:wq!
+```
+
+3、去掉前面#
 
 ```sh
 %wheel ALL=(ALL)ALL
@@ -796,7 +808,7 @@ sudo systemctl enable bluetooth
 sudo pacman -S  xf86-input-vmmouse
 ```
 
-### 手写板
+### 触摸板
 
 - 推荐
 
@@ -853,6 +865,19 @@ sudo pacman -S wqy-microhei wqy-zenhei noto-fonts-cjk noto-fonts-emoji
 > https://wiki.archlinux.org/title/Desktop_environment
 
 > https://wiki.archlinux.org/title/Display_manager
+
+- 报错信息
+
+```sh
+error: failed to commit transaction (failed to retrieve some files)
+Errors occurred, no packages were upgraded.
+```
+
+- 需要软件数据同步
+
+```sh
+sudo pacman -Syy
+```
 
 #### GNOME
 
