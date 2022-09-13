@@ -1163,6 +1163,20 @@ pacman-key --populate archlinux
 pacman-key --populate archlinuxcn
 ```
 
+#### 安装 yay
+
+- 需先加入 archlinuxcn
+
+```sh
+sudo pacman -S yay
+```
+
+#### 安装 pamac-aur
+
+```sh
+yay -S pamac-aur
+```
+
 ### 默认命令行编辑器
 
 ```sh
