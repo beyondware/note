@@ -1126,12 +1126,29 @@ sudo pacman -S archlinuxcn-keyring
 
 ```sh
 pacman -Syu haveged
-systemctl start haveged
-systemctl enable haveged
+```
 
+```sh
+systemctl start haveged
+```
+
+```sh
+systemctl enable haveged
+```
+
+```sh
 rm -fr /etc/pacman.d/gnupg
+```
+
+```sh
 pacman-key --init
+```
+
+```sh
 pacman-key --populate archlinux
+```
+
+```sh
 pacman-key --populate archlinuxcn
 ```
 
