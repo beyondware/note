@@ -774,7 +774,7 @@ sudo pacman -S mesa mesa-utils xf86-video-nouveau
 sudo pacman -S nvidia nvidia-utils nvidia-settings
 ```
 
-#### 虚拟机驱动
+#### 虚拟机
 
 ```sh
 sudo pacman -S mesa mesa-utils xf86-video-vesa xf86-video-vmware
