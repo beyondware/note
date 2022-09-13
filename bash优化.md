@@ -1,4 +1,4 @@
-### bash 美化 
+### bash 界面美化 
 
 1、编辑
 
@@ -18,7 +18,7 @@ PS1='\[\033[0;31m\]\342\224\214\342\224\200$([[ $? != 0 ]] && echo "[\[\033[0;31
 source ~/.bashrc
 ```
 
-### bash-it 命令补全
+### bash-it 命令补全（推荐）
 
 > https://github.com/Bash-it/bash-it
 
