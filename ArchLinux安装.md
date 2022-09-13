@@ -342,7 +342,7 @@ Installing for i386-pc platform.
 Installation finished. No error reported.
 ```
 
-3、导出 grub 配置文件（*非常*重要）
+3、导出 grub 配置文件（非常重要）
 
 ```sh
 grub-mkconfig -o /boot/grub/grub.cfg
@@ -455,7 +455,7 @@ Installing for x86_64-efi platform.
 Installation finished. No error reported.
 ```
 
-6、生成 GRUB 配置文件
+6、生成 GRUB 配置文件（非常重要）
 
 ```sh
 grub-mkconfig -o /boot/grub/grub.cfg
@@ -555,10 +555,16 @@ pacman -S amd-ucode
 
 > https://wiki.archlinux.org/title/Network_configuration
 
-- 必须先装，不然新系统无法联网
+- 警告：必须先装，不然新系统无法联网
 
 ```sh
 pacman -S networkmanager
+```
+
+- 选装
+
+```sh
+pacman -S network-manager-applet
 ```
 
 ```sh
@@ -577,7 +583,7 @@ systemctl enable dhcpcd
 
 ### 设置 root 密码
 
-- 必须先设置，不然新系统无法登陆
+- 警告：必须先设置，不然新系统无法登陆
 
 ```sh
 passwd root
