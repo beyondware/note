@@ -954,6 +954,10 @@ sudo systemctl enable sddm
 
 > 系统设置（System Settings）→个性化（Personalization）→语言和区域设置（Regional Settings）→语言（Language）→添加语言（Add Languages）-添加：简体中文，并拖到第一行
 
+##### 解除锁屏
+
+> 系统设置（System Settings）→工作区（Workspace）→工作区行为（Workspace Behavior）→锁屏（Screen Loking）→自动锁定屏幕（Lock screen automatically）取消：两个勾
+
 - 系统重启，才能生效。
 
 #### XFCE（轻量级）
