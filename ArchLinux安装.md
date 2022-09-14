@@ -1109,6 +1109,8 @@ yay -S ibus-qt
 
 ### 添加 archlinuxcn 源
 
+> https://www.archlinuxcn.org/archlinux-cn-repo-and-mirror/
+
 1、编辑
 
 ```sh
