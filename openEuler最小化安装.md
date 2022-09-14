@@ -114,17 +114,19 @@ sudo reboot
 
 ### 选装
 
-1、文件管理器
+#### 文件管理器
 
 ```sh
 sudo dnf install nautilus
 ```
 
-2、终端
+#### 终端
 
 ```sh
 sudo dnf install gnome-terminal
 ```
+
+#### 快捷键打开终端
 
 - 设置-键盘快捷键
 
