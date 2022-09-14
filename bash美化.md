@@ -18,7 +18,7 @@ PS1='\[\033[0;31m\]\342\224\214\342\224\200$([[ $? != 0 ]] && echo "[\[\033[0;31
 source ~/.bashrc
 ```
 
-### bash-it 命令补全（推荐）
+### bash-it 命令补全
 
 > https://github.com/Bash-it/bash-it
 
@@ -56,16 +56,48 @@ sudo pacman -S python-pip git
 
 2、安装powerline
 
-- 可能不是最新版（注意：安装powerline-status，而不是powerline）
+- 方案一，警告：安装powerline-status，而不是powerline
 
 ```sh
 pip install powerline-status
 ```
 
-- 网络环境原因（不推荐）
+- 方案二，网络环境原因（官方，不推荐）
 
 ```sh
 pip install git+git://github.com/powerline/powerline
+```
+
+- 方案三，github地址代理（推荐）
+
+```sh
+pip install git+https://ghproxy.com/https://github.com/powerline/powerline.git
+```
+
+- 方案四，离线安装
+
+①克隆到本地
+
+```sh
+git clone https://ghproxy.com/https://github.com/powerline/powerline.git
+```
+
+②切换到powerline目录
+
+```sh
+cd powerline/
+```
+
+③执行安装（推荐）
+
+```sh
+pip install .
+```
+
+或者
+
+```sh
+python setup.py install
 ```
 
 3、下载系统字体及字体配置文件
@@ -81,7 +113,7 @@ wget https://ghproxy.com/https://github.com/powerline/powerline/raw/develop/font
 4、将系统字体移到字体目录
 
 ```sh
-mv PowerlineSymbols.otf /usr/share/fonts/
+sudo mv PowerlineSymbols.otf /usr/share/fonts/
 ```
 5、更新系统的字体缓存
 
@@ -92,7 +124,7 @@ fc-cache -vf /usr/share/fonts/
 6、移动字体配置文件
 
 ```sh
-mv 10-powerline-symbols.conf /etc/fonts/conf.d/
+sudo mv 10-powerline-symbols.conf /etc/fonts/conf.d/
 ```
 
 7、bash配置powerline
@@ -115,7 +147,7 @@ export TERM="screen-256color"
 pip show powerline-status
 ```
 
-- 获取地址（后面会用到）
+- 获取地址（后面会用到，每个人安装路径不一样）
 
 ```sh
 /usr/lib/python3.10/site-packages
