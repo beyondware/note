@@ -1,19 +1,12 @@
----
-title: ffmpeg 常用方法
-author: beyondware
-tags:
-  - [ffmpeg]
----
+### Fedora 安装 ffmpeg
 
-## Fedora 安装 ffmpeg
-
-- 查询
+1、查询
 
 ```sh
 dnf repolist | grep rpmfusion
 ```
 
-1、安装 RPM Fusion repo
+2、安装 RPM Fusion repo
 
 ```sh
 sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
@@ -23,27 +16,25 @@ sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-rele
 sudo dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 ```
 
-2、安装 ffmpeg
+3、安装 ffmpeg
 
 ```sh
 sudo dnf install ffmpeg
 ```
 
-## 基础
-
-1、查询版本
+4、查询版本，确认安装成功。
 
 ```sh
 ffmpeg -version
 ```
 
-2、显示文件信息
+### 显示文件信息
 
 ```sh
 ffmpeg -i 文件
 ```
 
-## 视频格式转换
+### 视频格式转换
 
 ```sh
 ffmpeg -i input.mkv -vcodec copy -acodec copy output.mp4
@@ -55,7 +46,7 @@ ffmpeg -i input.mkv -vcodec copy -acodec copy output.mp4
 ffmpeg -i input.mkv -c:v copy -c:a copy output.mp4
 ```
 
-## 编码
+### 编码
 
 - 默认
 
@@ -69,7 +60,7 @@ ffmpeg -i input.mkv -c:v libx264 output.mp4
 ffmpeg -i input.mkv -c:v h264_nvenc output.mp4
 ```
 
-## 删除（禁用）
+### 删除（禁用）
 
 - 删除音频
 
@@ -89,7 +80,7 @@ ffmpeg -i input.mp4 -vn output.mp3
 ffmpeg -i input.mp4 -sn output.mp4
 ```
 
-## 音视频合并（分两步）
+### 音视频合并（分两步）
 
 1、先视频消音
 
@@ -103,7 +94,7 @@ ffmpeg -i input.mp4 -vcodec copy -an output.mp4
 ffmpeg -i input.mp4 -i input.mp3 -c copy output.mp4
 ```
 
-## ffmpeg -h
+### ffmpeg 命令
 
 ```sh
 Hyper fast Audio and Video encoder
