@@ -1,4 +1,4 @@
-### 系统
+## 系统
 
 1、系统更新
 
@@ -18,7 +18,9 @@ sudo dnf distro-sync
 dnf check-update
 ```
 
-### 用户
+## 用户
+
+### 切换用户
 
 1、切换到 root 账号
 
@@ -32,19 +34,21 @@ sudo su
 passwd root
 ```
 
-3、添加用户
+### 添加用户
+
+1、添加用户
 
 ```sh
-useradd 用户名
+useradd -m -g users -G wheel -s /bin/bash 用户名
 ```
 
-4、修改用户密码
+2、修改用户密码
 
 ```sh
 passwd 用户名
 ```
 
-5、增加权限
+3、增加权限
 
 ```sh
 vi /etc/sudoers
@@ -52,24 +56,18 @@ vi /etc/sudoers
 
 去掉`%wheel ALL=(ALL) ALL`前面的注释
 
-6、修改用户组
+### 修改用户组
 
 ```sh
 usermod -g root 用户名
 ```
 
-7、删除用户
-
-- 强制删除
-
-```sh
-userdel -f 用户名
-```
+### 删除用户
 
 - 删除用户主目录及其任何文件
 
 ```sh
-userdel -r 用户名
+userdel -rf 用户名
 ```
 
 ### 登陆用户
@@ -86,13 +84,15 @@ who
 whoami
 ```
 
+## 常用命令
+
 ### 安装
 
 ```sh
 sudo dnf install
 ```
 
-### 列出所有已安装的软件包
+#### 列出所有已安装的软件包
 
 ```sh
 dnf list installed
@@ -172,7 +172,13 @@ dnf list
 dnf list | grep 关键字
 ```
 
-3、显示已配置的软件存储库（远程仓库）
+3、列出与`关键字`匹配的已安装软件
+
+```sh
+dnf list installed | grep 关键字
+```
+
+4、显示已配置的软件存储库（远程仓库）
 
 ```sh
 dnf repolist
@@ -236,7 +242,7 @@ sudo dnf groupremove
 sudo dnf groupupdate
 ```
 
-### 全部命令
+## 全部命令
 
 ```sh
 usage: dnf [options] COMMAND
