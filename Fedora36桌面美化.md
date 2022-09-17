@@ -20,12 +20,6 @@ systemctl status sshd
 sudo systemctl start sshd
 ```
 
-或者
-
-```sh
-sudo systemctl start sshd.service
-```
-
 3、开机启动 SSH
 
 ```sh
@@ -35,13 +29,13 @@ sudo systemctl enable sshd
 4、停止 SSH
 
 ```sh
-sudo systemctl stop sshd.service
+sudo systemctl stop sshd
 ```
 
 5、重启 SSH
 
 ```sh
-sudo systemctl restart sshd.service
+sudo systemctl restart sshd
 ```
 
 6、查看 SSH 连接状态
@@ -53,6 +47,10 @@ ps -e | grep ssh
 > 显示 00:00:00 sshd 表示连接上了 SSH
 
 ### 修改源
+
+- 安装路径
+
+> cd /etc/yum.repos.d/
 
 1、fedora.repo
 
@@ -72,10 +70,10 @@ sudo wget -O /etc/yum.repos.d/fedora-updates.repo http://mirrors.aliyun.com/repo
 sudo dnf makecache
 ```
 
-4、查看配置仓库
+4、查看仓库配置
 
 ```sh
-sudo dnf repolist
+dnf repolist
 ```
 
 ### 参考源
@@ -87,6 +85,28 @@ sudo dnf repolist
 - 腾讯云
 
 > https://mirrors.cloud.tencent.com/help/fedora.html
+
+### 安装 rpmfusion
+
+> https://rpmfusion.org/
+
+- 免费
+
+```sh
+sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+```
+
+- 不免费
+
+```sh
+sudo dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+```
+
+### 添加源
+
+```sh
+sudo dnf config-manager  --add-repo URL.repo
+```
 
 ### 家目录改成英文
 
