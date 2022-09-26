@@ -30,6 +30,8 @@ dhcpcd
 
 #### 无线网络
 
+> https://wiki.archlinux.org/title/Iwd
+
 1、进入 iwd 环境
 
 ```sh
@@ -564,7 +566,7 @@ pacman -S networkmanager
 - 选装
 
 ```sh
-pacman -S network-manager-applet
+pacman -S network-manager-applet networkmanager-openvpn
 ```
 
 ```sh
@@ -734,6 +736,10 @@ sudo pacman -S xorg-drivers
 sudo pacman -S xorg-xinit
 ```
 
+### Wayland（备选）
+
+> https://wiki.archlinux.org/title/Wayland
+
 ### 显卡
 
 ```sh
@@ -894,11 +900,13 @@ sudo pacman -Syy
 
 #### GNOME
 
+> https://wiki.archlinux.org/title/GNOME
+
 ```sh
 sudo pacman -S gnome
 ```
 
-- gdm
+##### gdm
 
 ```sh
 sudo pacman -S gdm
@@ -912,7 +920,7 @@ sudo systemctl start gdm
 sudo systemctl enable gdm
 ```
 
-- Gnome/Budgie 设置分辨率
+##### GNOME设置分辨率
 
 > 显示（Displays）→分辨率（Resolution）
 
