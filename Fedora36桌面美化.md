@@ -86,6 +86,14 @@ dnf repolist
 
 > https://mirrors.cloud.tencent.com/help/fedora.html
 
+- 清华大学
+
+> https://mirrors.tuna.tsinghua.edu.cn/help/fedora/
+
+- 中国科学技术大学
+
+> https://mirrors.ustc.edu.cn/help/fedora.html
+
 ### 安装 rpmfusion
 
 > https://rpmfusion.org/
