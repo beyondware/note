@@ -3,19 +3,19 @@
 1、全部升级
 
 ```sh
-pacman -Syu
+sudo pacman -Syu
 ```
 
 2、强制更新（软件包数据库）
 
 ```sh
-pacman -Syy
+sudo pacman -Syy
 ```
 
 3、全部强制升级
 
 ```sh
-pacman -Syyu
+sudo pacman -Syyu
 ```
 
 ### 安装
@@ -23,37 +23,37 @@ pacman -Syyu
 1、安装多个包，用空格隔开
 
 ```sh
-pacman -S 包名
+sudo pacman -S 包名
 ```
 
 2、更新（包数据库）
 
 ```sh
-pacman -Sy 包名
+sudo pacman -Sy 包名
 ```
 
 3、安装过程，显示执行信息
 
 ```sh
-pacman -Sv 包名
+sudo pacman -Sv 包名
 ```
 
 4、安装本地包，扩展名：pkg.tar.gz 或 pkg.tar.xz
 
 ```sh
-pacman -U 本地包
+sudo pacman -U 本地包
 ```
 
 5、安装远程包（不在官方源）
 
 ```sh
-pacman -U 软件包URL
+sudo pacman -U 软件包URL
 ```
 
 6、只下载，不安装
 
 ```sh
-pacman -Sw 包名
+sudo pacman -Sw 包名
 ```
 
 ### 删除
@@ -61,37 +61,43 @@ pacman -Sw 包名
 1、只删除包，保留依赖
 
 ```sh
-pacman -R 包名
+sudo pacman -R 包名
 ```
 
 2、删除不需要的依赖
 
 ```sh
-pacman -Rs 包名
+sudo pacman -Rs 包名
 ```
 
 > pacman -Rs 被拒，可以尝试
 
 ```sh
-pacman -Rsu 包名
+sudo pacman -Rsu 包名
 ```
 
 3、删除包和所有依赖（警告）
 
 ```sh
-pacman -Rsc 包名
+sudo pacman -Rsc 包名
 ```
 
 4、删除包，跳过检查
 
 ```sh
-pacman -Rd 包名
+sudo pacman -Rd 包名
 ```
 
 5、强制删除，跳过所有检查（务必谨慎）
 
 ```sh
-pacman -Rdd 包名
+sudo pacman -Rdd 包名
+```
+
+6、删除依赖项和配置文件
+
+```sh
+sudo pacman -Rns 包名
 ```
 
 ### 清理
@@ -99,13 +105,13 @@ pacman -Rdd 包名
 1、清理未安装包，位于/var/cache/pacman/pkg
 
 ```sh
-pacman -Sc
+sudo pacman -Sc
 ```
 
 2、清理所有缓存
 
 ```sh
-pacman -Scc
+sudo pacman -Scc
 ```
 
 ### 搜索
@@ -113,19 +119,19 @@ pacman -Scc
 1、搜索含*关键字*的包
 
 ```sh
-pacman -Ss 关键字
+sudo pacman -Ss 关键字
 ```
 
 2、显示包的详尽信息
 
 ```sh
-pacman -Si 包名
+sudo pacman -Si 包名
 ```
 
 3、搜索所属组的所有包
 
 ```sh
-pacman -Sg 组名
+sudo pacman -Sg 组名
 ```
 
 ### 列出
@@ -176,12 +182,6 @@ pacman -Qqd
 
 ```sh
 pacman -Qqdt
-```
-
-- 通常配合使用
-
-```sh
-sudo pacman -Qqdt | sudo pacman -Rs -
 ```
 
 9、显示包的依赖树
