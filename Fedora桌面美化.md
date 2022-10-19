@@ -106,7 +106,7 @@ dnf repolist | grep rpmfusion
 
 2、安装
 
-#### fedora
+#### Fedora
 
 - 自由版
 
@@ -120,7 +120,7 @@ sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-rele
 sudo dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 ```
 
-### Silverblue
+#### Silverblue
 
 - 自由版
 
