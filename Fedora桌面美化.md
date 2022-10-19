@@ -98,22 +98,66 @@ dnf repolist
 
 > https://rpmfusion.org/
 
-- 免费
+1、检查是否安装 RPM fusion
+
+```sh
+dnf repolist | grep rpmfusion
+```
+
+2、安装
+
+#### fedora
+
+- 自由版
 
 ```sh
 sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
 ```
 
-- 不免费
+- 非自由版
 
 ```sh
 sudo dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+```
+
+### Silverblue
+
+- 自由版
+
+```sh
+sudo rpm-ostree install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+```
+
+- 非自由版
+
+```sh
+sudo rpm-ostree install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 ```
 
 ### 添加源
 
 ```sh
 sudo dnf config-manager  --add-repo URL.repo
+```
+
+3、查看添加 Fedora 仓库列表
+
+```sh
+dnf repolist
+```
+
+4、删除 rpmfusion 仓库
+
+- 列出
+
+```sh
+rpm -qa 'rpmfusion*'
+```
+
+- 删除
+
+```sh
+sudo dnf remove rpmfusion-free-release rpmfusion-nonfree-release
 ```
 
 ### 家目录改成英文
