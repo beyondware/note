@@ -1011,12 +1011,6 @@ See "systemctl status lightdm.service" and "journalctl -xeu lightdm.service" for
 
 > 显示（Display）→分辨率（Resolution）
 
-#### UKUI（功能不全，谨慎使用）
-
-```sh
-sudo pacman -S ukui
-```
-
 ### 中文输入法
 
 #### fcitx5 输入法
@@ -1190,7 +1184,7 @@ sudo pacman -S yay
 #### 安装 pamac-aur
 
 ```sh
-yay -S pamac-aur
+yay -Syu pamac-aur
 ```
 
 ### 默认命令行编辑器
