@@ -144,12 +144,6 @@ sudo rpm-ostree install https://download1.rpmfusion.org/free/fedora/rpmfusion-fr
 sudo rpm-ostree install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 ```
 
-### 添加源
-
-```sh
-sudo dnf config-manager  --add-repo URL.repo
-```
-
 3、查看添加 Fedora 仓库列表
 
 ```sh
@@ -168,6 +162,12 @@ rpm -qa 'rpmfusion*'
 
 ```sh
 sudo dnf remove rpmfusion-free-release rpmfusion-nonfree-release
+```
+
+### config-manager
+
+```sh
+sudo dnf config-manager  --add-repo URL.repo
 ```
 
 ### 家目录中文改成英文
