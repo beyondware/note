@@ -46,6 +46,16 @@ ps -e | grep ssh
 
 > 显示 00:00:00 sshd 表示连接上了 SSH
 
+### 快捷键打开终端
+
+- 设置-键盘快捷键
+
+```sh
+名称：open in terminal
+命令：/usr/bin/gnome-terminal
+快捷键：Ctrl+Alt+T
+```
+
 ### 修改源
 
 - 安装路径
@@ -160,9 +170,9 @@ rpm -qa 'rpmfusion*'
 sudo dnf remove rpmfusion-free-release rpmfusion-nonfree-release
 ```
 
-### 家目录改成英文
+### 家目录中文改成英文
 
-- 方案一（推荐）
+#### 方案一（推荐）
 
 1、先将中文目录对应重命名为英文
 
@@ -196,7 +206,7 @@ XDG_VIDEOS_DIR="$HOME/Videos"
 
 3、系统重启，才能生效。
 
-- 方案二（备选）
+#### 方案二（备选）
 
 1、家目录中文改为英文
 
@@ -212,7 +222,7 @@ xdg-user-dirs-gtk-update
 
 > 点击：更新名称（Update Names）
 
-2、家目录英文改为中文
+### 家目录英文改为中文
 
 ```sh
 export LANG=zh_CN.UTF-8
