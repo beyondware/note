@@ -57,7 +57,7 @@ sudo dnf install kiran-desktop
 3、以图形界面启动
 
 ```sh
-systemctl set-default graphical.target
+sudo systemctl set-default graphical.target
 ```
 
 4、重启系统
