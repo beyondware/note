@@ -51,29 +51,29 @@ ps -e | grep sshd
 #### 安装
 
 ```sh
-apt install
+sudo apt install 包名
 ```
 
 #### 卸载
 
 ```sh
-apt remove
+sudo apt remove 包名
 ```
 
 ```sh
-dpkg uninstall
+dpkg uninstall 包名
 ```
 
 - 自动卸载
 
 ```sh
-apt autoremove
+sudo apt autoremove 包名
 ```
 
 - 删除包和依赖
 
 ```sh
-apt purge
+sudo apt purge
 ```
 
 #### 列出
@@ -81,7 +81,7 @@ apt purge
 列出与该包关联文件
 
 ```sh
-apt list --installed | grep -i 包的关键字
+sudo apt list --installed | grep -i 包的关键字
 ```
 
 ```sh
@@ -93,7 +93,7 @@ dpkg -L | grep 包的关键字
 更新包缓存（只获得包的最新信息，并不会下载或者安装包）
 
 ```sh
-apt update
+sudo apt update
 ```
 
 #### 升级
@@ -101,13 +101,13 @@ apt update
 1、升级包到最新版本（下载和升级到最新版本）
 
 ```sh
-apt upgrade
+sudo apt upgrade 包名
 ```
 
 - 自动处理依赖项升级包
 
 ```sh
-apt full-upgrade
+sudo apt full-upgrade 包名
 ```
 
 2、查看可升级的软件包
@@ -119,7 +119,7 @@ apt list --upgradable
 3、仅升级指定的软件包
 
 ```sh
-apt install --only-upgrade 包名
+sudo apt install --only-upgrade 包名
 ```
 
 4、模拟升级（但不升级任何包）
