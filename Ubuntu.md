@@ -46,6 +46,24 @@ ps -e | grep sshd
 
 > 显示 00:00:00 sshd 表示开启了 SSH
 
+### 修改镜像源
+
+```sh
+sudo vim /etc/apt/sources.list
+```
+
+官方源
+
+> http://archive.ubuntu.com/ubuntu/
+
+阿里云
+
+> https://developer.aliyun.com/mirror/ubuntu
+
+清华大学
+
+> https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/
+
 ### 常用命令
 
 #### 安装
@@ -147,24 +165,6 @@ apt show 包名
 ```sh
 apt info 包名
 ```
-
-### 修改镜像源
-
-```sh
-sudo vim /etc/apt/sources.list
-```
-
-官方源
-
-> http://archive.ubuntu.com/ubuntu/
-
-阿里云
-
-> https://developer.aliyun.com/mirror/ubuntu
-
-清华大学
-
-> https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/
 
 ### 终端美化
 
