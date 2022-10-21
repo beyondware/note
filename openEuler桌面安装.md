@@ -8,18 +8,16 @@ swap 2GB 交换分区
 
 ### 联网
 
-- 正常不用管
-
 ```sh
-vi /etc/sysconfig/network-scripts/ifcfg-ens33
+vim /etc/sysconfig/network-scripts/ifcfg-ens33
 ```
 
-- ONBOOT=no 改成 yes
+- ONBOOT=no 改成 yes（正常联网，不用管）
 
 ### SSH 登陆
 
 ```sh
-vi /etc/ssh/sshd_config
+vim /etc/ssh/sshd_config
 ```
 
 - PermitRootLogin no 改成 yes
