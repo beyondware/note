@@ -115,7 +115,7 @@ sudo snap pack
 > 任何未通过 Snap 商店分发的 Snap 包都必须使用 --dangerous 选项进行安装
 
 ```sh
-sudo snap install --dangerous
+sudo snap install 软件包.snap --dangerous
 ```
 
 ### 参考文档
