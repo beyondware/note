@@ -1,6 +1,6 @@
 ### 安装 snapd
 
-1、Ubuntu
+#### Ubuntu
 
 ```sh
 sudo apt update
@@ -10,7 +10,7 @@ sudo apt update
 sudo apt install snapd
 ```
 
-2、Fedora
+#### Fedora
 
 ```sh
 sudo dnf install shapd
@@ -38,6 +38,14 @@ sudo snap remove 软件名
 
 3、更新
 
+- 先杀死进程
+
+```sh
+sudo killall 软件名
+```
+
+- 在更新软件
+
 ```sh
 sudo snap refresh 软件名
 ```
@@ -46,10 +54,6 @@ sudo snap refresh 软件名
 
 ```sh
 sudo snap refresh 软件名 channel=latest/stable
-```
-
-```sh
-sudo killall 软件名
 ```
 
 4、运行
