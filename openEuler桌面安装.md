@@ -38,7 +38,7 @@ vi /etc/yum.repos.d/openEuler.repo
 
 > https://mirrors.tuna.tsinghua.edu.cn/openeuler/
 
-### kiran-desktop 安装
+### 安装 kiran-desktop
 
 1、更新软件源
 
@@ -62,4 +62,10 @@ sudo systemctl set-default graphical.target
 
 ```sh
 sudo reboot
+```
+
+### 安装 open-vm-tools
+
+```sh
+sudo dnf install open-vm-tools-desktop fuse
 ```
