@@ -1,4 +1,4 @@
-### 安装 snap 环境
+### 安装 snapd
 
 1、Ubuntu
 
@@ -16,18 +16,18 @@ sudo apt install snapd
 sudo dnf install shapd
 ```
 
-3、安装 snap 商店(可选)
-
-```sh
-sudo snap install snap-store
-```
-
 ### 常用命令
 
 1、安装
 
 ```sh
 sudo snap install 软件名
+```
+
+- 安装 snap-store（可选）
+
+```sh
+sudo snap install snap-store
 ```
 
 2、卸载
@@ -39,11 +39,17 @@ sudo snap remove 软件名
 3、更新
 
 ```sh
-sudo killall 软件名
+sudo snap refresh 软件名
+```
+
+- 指定通道版本
+
+```sh
+sudo snap refresh 软件名 channel=latest/stable
 ```
 
 ```sh
-sudo snap refresh 软件名
+sudo killall 软件名
 ```
 
 4、运行
