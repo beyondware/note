@@ -64,6 +64,56 @@ sudo systemctl set-default graphical.target
 sudo reboot
 ```
 
+### 知识拓展
+
+1、查看服务运行状态
+
+```sh
+systemctl status crond
+```
+
+2、查看服务是否启用
+
+```sh
+systemctl is-enabled crond.service
+```
+
+3、查看服务是否活跃
+
+```sh
+systemctl is-active crond
+```
+
+4、查看默认模式
+
+```sh
+systemctl get-default
+```
+
+5、设置图形模式
+
+```sh
+systemctl set-default graphical.target
+```
+
+6、立即进入图形模式
+
+```sh
+systemctl isolate graphical.target
+```
+
+7、设置字符模式
+
+```sh
+systemctl set-default multi-user.target
+```
+
+8、立即进入字符模式
+
+```sh
+systemctl isolate multi-user.target
+```
+
 ### 安装 open-vm-tools
 
 ```sh
