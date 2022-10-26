@@ -1175,7 +1175,7 @@ pacman-key --populate archlinuxcn
 
 #### 安装 yay
 
-- 需先加入 archlinuxcn
+- 需先添加 archlinuxcn 源
 
 ```sh
 sudo pacman -S yay
@@ -1185,6 +1185,10 @@ sudo pacman -S yay
 
 ```sh
 yay -Syu pamac-aur
+```
+
+```sh
+pamac-manager
 ```
 
 ### 默认命令行编辑器
