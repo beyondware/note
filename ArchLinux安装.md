@@ -1011,6 +1011,12 @@ See "systemctl status lightdm.service" and "journalctl -xeu lightdm.service" for
 
 > 显示（Display）→分辨率（Resolution）
 
+### 安装 open-vm-tools
+
+```sh
+sudo pacman -S open-vm-tools
+```
+
 ### 中文输入法
 
 #### fcitx5 输入法
