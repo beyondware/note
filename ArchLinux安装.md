@@ -1143,7 +1143,7 @@ sudo pacman -S archlinuxcn-keyring
 
 > https://www.archlinuxcn.org/gnupg-2-1-and-the-pacman-keyring/
 
-- 以 root 权限运行
+- 以 root 账号运行
 
 ```sh
 pacman -Syu haveged
