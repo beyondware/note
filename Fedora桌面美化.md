@@ -232,7 +232,7 @@ export LANG=zh_CN.UTF-8
 xdg-user-dirs-gtk-update
 ```
 
-### gnome-tweaks
+### 安装 gnome-tweaks
 
 ```sh
 sudo dnf install gnome-tweaks
@@ -242,7 +242,7 @@ sudo dnf install gnome-tweaks
 
 > https://extensions.gnome.org/
 
-- 由于 GNOME 42 目前暂不支持，用命令安装，需要重启系统才能生效。
+- 由于 GNOME 42 目前暂不支持，用命令安装，重启系统才能生效。
 
 > https://extensions.gnome.org/extension/307/dash-to-dock/
 
