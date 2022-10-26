@@ -34,95 +34,91 @@ sudo pacman -Syu
 sudo pacman -S flatpak
 ```
 
-## 远程仓库
-
-### 添加远程仓库，需重启系统
+## 添加远程仓库，需重启系统
 
 > error: No remote refs found similar to ‘flathub’ //未发现类似于 "flathub" 的远程引用
 
-1、添加 Flathub 仓库
+### 添加 Flathub 仓库
 
 ```sh
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 ```
 
-2、添加 Flabhub Beta 仓库
+- 添加 Flabhub Beta 仓库
 
 ```sh
 flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
 ```
 
+- 安装
+
 ```sh
 flatpak install flathub 应用程序ID
 ```
 
-3、添加 fedora 仓库
+### 添加 fedora 仓库
 
 ```sh
 flatpak remote-add --if-not-exists fedora oci+https://registry.fedoraproject.org
 ```
 
-4、添加 fedora testing 仓库
+- 添加 fedora testing 仓库
 
 ```sh
 flatpak remote-add --if-not-exists fedora-testing oci+https://registry.fedoraproject.org#testing
 ```
 
+- 安装
+
 ```sh
 flatpak install fedora 应用程序ID
 ```
 
-5、添加 GNOME nightly 仓库
+### 添加 GNOME nightly 仓库
 
 ```sh
 flatpak remote-add --if-not-exists gnome-nightly https://nightly.gnome.org/gnome-nightly.flatpakrepo
 ```
 
+- 安装
+
 ```sh
 flatpak install gnome-nightly 应用程序ID
 ```
 
-6、添加 KDE nightly 仓库
+### 添加 KDE nightly 仓库
 
 ```sh
 flatpak remote-add --if-not-exists kdeapps --from https://distribute.kde.org/kdeapps.flatpakrepo
 ```
 
+- 安装
+
 ```sh
 flatpak install kdeapps 应用程序ID
 ```
 
-### 删除远程仓库
+## 删除远程仓库
 
 ```sh
 flatpak remote-delete
 ```
 
-- 例如：flathub
+- 例如：删除 flathub 仓库
 
 ```sh
 flatpak remote-delete flathub
 ```
 
-### 列出远程仓库
-
-1、列出已添加的软件远程仓库
+## 列出已添加的软件远程仓库
 
 ```sh
 flatpak remotes
 ```
 
-2、列出可安装的应用程序和运行时环境
-
-```sh
-flatpak remote-ls
-```
-
 ## 常用命令
 
-### 搜索
-
-- 搜索远程仓库中的应用程序
+### 搜索远程仓库中的应用程序
 
 ```sh
 flatpak search 关键字
@@ -130,19 +126,19 @@ flatpak search 关键字
 
 ### 列出
 
-1、列出所有安装的应用程序
+1、列出所有安装
 
 ```sh
 flatpak list
 ```
 
-2、列出已安装的应用程序
+2、列出已安装
 
 ```sh
 flatpak list --app
 ```
 
-3、已安装应用程序的更多信息
+### 查看详细信息
 
 ```sh
 flatpak info 应用程序ID
@@ -168,7 +164,7 @@ flatpak install https://dl.flathub.org/repo/appstream/com.github.tchx84.Flatseal
 
 > error: Unable to load summary from remote flathub: Could not connect: 拒绝连接
 
-### 运行
+### 运行程序
 
 ```sh
 flatpak run 应用程序ID
@@ -176,7 +172,7 @@ flatpak run 应用程序ID
 
 ### 卸载
 
-1、卸载特定应用程序
+1、卸载特定
 
 ```sh
 flatpak uninstall 应用程序ID
@@ -190,18 +186,19 @@ flatpak uninstall 应用程序ID
 flatpak uninstall --delete-data 应用程序ID
 ```
 
-2、卸载所有应用程序
+2、卸载所有
 
 ```sh
 flatpak uninstall --all
 ```
+
 - 卸载和删除所有与Flatpak相关数据
 
 ```sh
 flatpak uninstall --all --delete-data
 ```
 
-3、卸载未使用的应用程序
+3、卸载未使用
 
 ```sh
 flatpak uninstall --unused
@@ -209,27 +206,27 @@ flatpak uninstall --unused
 
 ### 更新
 
-1、更新所有的应用程序
+1、更新所有
 
 ```sh
 flatpak update
 ```
 
-2、更新特定的应用程序
+2、更新特定
 
 ```sh
 flatpak update --app 应用程序ID
 ```
 
-### 构建
+## 构建
 
-- Fedora
+### Fedora
 
 ```sh
 sudo dnf install flatpak-builder
 ```
 
-- Ubuntu
+### Ubuntu
 
 ```sh
 sudo add-apt-repository ppa:alexlarsson/flatpak
