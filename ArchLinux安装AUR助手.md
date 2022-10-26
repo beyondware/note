@@ -9,6 +9,8 @@
 catastrophic damage to your system.
 ```
 
+- 不能使用 root 账号安装
+
 ### yay 安装
 
 1、安装依赖
@@ -35,7 +37,7 @@ makepkg -si
 
 ### go 换源
 
-- 临时换源（yay 安装失败使用）
+- 临时换源（yay 安装失败）
 
 ```sh
 export GO111MODULE=on
@@ -50,7 +52,7 @@ echo "export GOPROXY=https://goproxy.cn" >> ~/.profile
 source ~/.profile
 ```
 
-### yay 命令
+### yay 常用命令
 
 1、安装
 
@@ -247,7 +249,7 @@ cd paru-bin
 makepkg -si
 ```
 
-### paru 命令
+### paru 常用命令
 
 1、安装
 
@@ -394,19 +396,21 @@ upgrade specific options:
 
 ## pamac
 
-### yay 安装 pamac（推荐安装）
+### yay 安装（推荐安装）
+
+1、安装 pamac-aur
 
 ```sh
-yay -S pamac-aur
+yay -Syu pamac-aur
 ```
 
-- 运行
+2、运行 pamac-manager
 
 ```sh
 pamac-manager
 ```
 
-### 源码安装 pamac
+### 源码安装
 
 #### 安装 libpamac
 
