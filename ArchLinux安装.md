@@ -615,7 +615,9 @@ lsblk -l
 reboot
 ```
 
-## 新系统
+---
+
+## 进入全新系统
 
 ### ssh 登陆
 
@@ -637,37 +639,10 @@ systemctl start sshd
 systemctl enable sshd
 ```
 
-### ssh 登陆失败
-
-1、报错，禁止远程登陆
+4、查看 ssh 状态
 
 ```sh
-All configured authentication methods failed
-Remote rejected opening a shell channel: Error: Not connected
-```
-
-2、编辑
-
-```sh
-vim /etc/ssh/sshd_config
-```
-
-- 添加
-
-```sh
-PermitRootLogin yes
-```
-
-3、重新启动 ssh
-
-```sh
-systemctl restart sshd
-```
-
-4、开机启动 ssh
-
-```sh
-systemctl enable sshd
+systemctl status sshd
 ```
 
 ### 添加新用户
@@ -692,28 +667,61 @@ userdel -rf pc
 
 ### 普通用户使用 root 权限
 
-1、推荐
+方法一、推荐
 
 ```sh
 EDITOR=vim visudo
 ```
 
-2、保存时，可能会报错（不推荐）
+方法二、不推荐
+
+1、编辑
 
 ```sh
 sudo vim /etc/sudoers
 ```
 
-- 文件是只读，不加“!”保存会失败。
+2、去掉前面#
+
+```sh
+%wheel ALL=(ALL)ALL
+```
+
+3、由于文件是只读，需加 ! 才能保存。
 
 ```sh
 :wq!
 ```
 
-3、去掉前面#
+### ssh 登陆
+
+1、报错信息，禁止远程登陆
 
 ```sh
-%wheel ALL=(ALL)ALL
+All configured authentication methods failed
+Remote rejected opening a shell channel: Error: Not connected
+```
+
+2、编辑
+
+```sh
+sudo vim /etc/ssh/sshd_config
+```
+
+```sh
+PermitRootLogin prohibit-password
+```
+
+改成
+
+```sh
+PermitRootLogin yes
+```
+
+3、重新启动 ssh
+
+```sh
+sudo systemctl restart sshd
 ```
 
 ### Xorg（包含：xorg-server）
@@ -794,7 +802,7 @@ sudo pacman -S mesa mesa-utils xf86-video-vesa xf86-video-vmware
 
 ### 音频
 
-#### pipewire
+#### pipewire（推荐）
 
 ```sh
 sudo pacman -S pipewire pipewire-alsa pipewire-jack pipewire-media-session
@@ -828,14 +836,6 @@ sudo pacman -S  xf86-input-vmmouse
 
 ### 触摸板
 
-- 推荐
-
-```sh
-sudo pacman -S xf86-input-synaptics
-```
-
-- 备选
-
 ```sh
 sudo pacman -S xf86-input-synaptics
 ```
@@ -858,7 +858,7 @@ sudo pacman -S cups libcups cups-filters cups-pk-helper system-config-printer
 sudo systemctl enable cups
 ```
 
-### 固态硬盘优化
+### 固态硬盘
 
 1、启动
 
@@ -892,7 +892,7 @@ error: failed to commit transaction (failed to retrieve some files)
 Errors occurred, no packages were upgraded.
 ```
 
-- 需要软件数据同步
+- 数据同步
 
 ```sh
 sudo pacman -Syy
@@ -1011,7 +1011,7 @@ See "systemctl status lightdm.service" and "journalctl -xeu lightdm.service" for
 
 > 显示（Display）→分辨率（Resolution）
 
-### 安装 open-vm-tools
+### 安装 open-vm-tools，重启系统
 
 ```sh
 sudo pacman -S open-vm-tools
