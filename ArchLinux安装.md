@@ -313,6 +313,8 @@ genfstab -U /mnt >> /mnt/etc/fstab
 cat /mnt/etc/fstab
 ```
 
+---
+
 ## 进入 chroot 环境
 
 ```sh
