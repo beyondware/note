@@ -1,36 +1,42 @@
-## 基本操作
+## 安装 Flatpak
 
-### 安装 Flatpak
-
-- Fedora(默认：已安装)
+### Fedora（默认：已安装）
 
 ```sh
 sudo dnf install flatpak
 ```
 
-- Ubuntu
+### Ubuntu
 
 ```sh
 sudo apt install flatpak
 ```
 
-### 提供额外插件
-
-- GNOME 提供了 Flatpak 插件
+- GNOME 提供 Flatpak 插件
 
 ```sh
 sudo apt install gnome-software-plugin-flatpak
 ```
 
-- KDE 提供了 Flatpak 插件
+- KDE 提供 Flatpak 插件
 
 ```sh
 sudo apt install plasma-discover-backend-flatpak
 ```
 
+### Arch
+
+```sh
+sudo pacman -Syu
+```
+
+```sh
+sudo pacman -S flatpak
+```
+
 ## 远程仓库
 
-### 添加远程仓库
+### 添加远程仓库，需重启系统
 
 > error: No remote refs found similar to ‘flathub’ //未发现类似于 "flathub" 的远程引用
 
