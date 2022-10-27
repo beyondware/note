@@ -89,7 +89,7 @@ whoami
 ### 安装
 
 ```sh
-sudo dnf install
+sudo dnf install 包名
 ```
 
 #### 列出所有已安装的软件包
@@ -98,10 +98,16 @@ sudo dnf install
 dnf list installed
 ```
 
+### 更新
+
+```sh
+sudo dnf update 包名
+```
+
 ### 显示软件详细信息
 
 ```sh
-dnf info 软件包
+dnf info 包名
 ```
 
 ### 移除
@@ -109,13 +115,13 @@ dnf info 软件包
 1、移除
 
 ```sh
-sudo dnf remove
+sudo dnf remove 包名
 ```
 
 2、自动移除（包括：不需要的依赖）
 
 ```sh
-sudo dnf autoremove
+sudo dnf autoremove 包名
 ```
 
 3、清理所有
@@ -135,7 +141,7 @@ dnf list installed | grep 关键字
 2、删除相关的软件
 
 ```sh
-sudo dnf remove 完整软件ID
+sudo dnf remove 完整的包名
 ```
 
 ### 搜索
@@ -143,45 +149,45 @@ sudo dnf remove 完整软件ID
 1、搜索
 
 ```sh
-dnf search
+dnf search 包名
 ```
 
 2、搜索匹配`关键字`的软件包
 
 ```sh
-dnf repoquery
+dnf repoquery 关键字
 ```
 
 3、查找提供`指定内容`的软件包
 
 ```sh
-dnf provides
+dnf provides 关键字
 ```
 
 ### 列出
 
-1、查看列表（远程仓库）
+1、列表所有软件（远程仓库）
 
 ```sh
 dnf list
 ```
 
-2、列出与`关键字`匹配软件源
+2、列出已配置的软件存储库（远程仓库）
+
+```sh
+dnf repolist
+```
+
+3、列出与`关键字`匹配软件源
 
 ```sh
 dnf list | grep 关键字
 ```
 
-3、列出与`关键字`匹配的已安装软件
+4、列出与`关键字`匹配的已安装软件
 
 ```sh
 dnf list installed | grep 关键字
-```
-
-4、显示已配置的软件存储库（远程仓库）
-
-```sh
-dnf repolist
 ```
 
 ### 别名
@@ -212,31 +218,25 @@ find
 
 ### 组
 
-1、组显示
-
-```sh
-dnf group
-```
-
-2、组列出
+1、组列出
 
 ```sh
 dnf grouplist
 ```
 
-3、组安装
+2、组安装
 
 ```sh
 sudo dnf groupinstall
 ```
 
-4、组移除
+3、组移除
 
 ```sh
 sudo dnf groupremove
 ```
 
-5、组升级
+4、组更新
 
 ```sh
 sudo dnf groupupdate
