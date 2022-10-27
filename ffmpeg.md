@@ -1,12 +1,12 @@
 ### Fedora 安装 ffmpeg
 
-1、查询
+1、查询是否已安装 rpmfusion
 
 ```sh
 dnf repolist | grep rpmfusion
 ```
 
-2、安装 RPM Fusion repo
+2、安装 rpmfusion
 
 ```sh
 sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
@@ -22,7 +22,7 @@ sudo dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfre
 sudo dnf install ffmpeg
 ```
 
-4、查询版本，确认安装成功。
+4、查询版本，确认是否安装成功
 
 ```sh
 ffmpeg -version
@@ -60,41 +60,41 @@ ffmpeg -i input.mkv -c:v libx264 output.mp4
 ffmpeg -i input.mkv -c:v h264_nvenc output.mp4
 ```
 
-### 删除（禁用）
+### 禁用
 
-- 删除音频
+- 禁用音频
 
 ```sh
 ffmpeg -i input.mp4 -an output.mp4
 ```
 
-- 删除视频
+- 禁用视频
 
 ```sh
 ffmpeg -i input.mp4 -vn output.mp3
 ```
 
-- 删除字幕
+- 禁用字幕
 
 ```sh
 ffmpeg -i input.mp4 -sn output.mp4
 ```
 
-### 音视频合并（分两步）
+### 合并（分两步）
 
-1、先视频消音
+1、先消音
 
 ```sh
 ffmpeg -i input.mp4 -vcodec copy -an output.mp4
 ```
 
-2、再合并音视频
+2、再合并
 
 ```sh
-ffmpeg -i input.mp4 -i input.mp3 -c copy output.mp4
+ffmpeg -i output.mp4 -i input.mp3 -vcodec copy -acodec copy new_output.mp4
 ```
 
-### ffmpeg 命令
+### ffmpeg -h
 
 ```sh
 Hyper fast Audio and Video encoder
