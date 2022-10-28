@@ -56,6 +56,12 @@ flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/fl
 flatpak install flathub 应用程序ID
 ```
 
+### 修改 Flathub 镜像源
+
+```sh
+sudo flatpak remote-modify flathub --url=https://mirror.sjtu.edu.cn/flathub
+```
+
 ### 添加 fedora 仓库
 
 ```sh
@@ -252,9 +258,9 @@ sudo apt install flatpak-builder elfutils
 
 > https://www.flathub.org/apps
 
-3、上海交通大学镜像源（**慎用**：好像没有同步更新了）
+3、Flathub 镜像源
 
-> https://mirrors.sjtug.sjtu.edu.cn/docs/flathub
+> https://mirror.sjtu.edu.cn/docs/flathub
 
 4、gnome-nightly
 
