@@ -271,78 +271,78 @@ flatpak --help
 ```
 
 ```sh
-Usage:
-  flatpak [OPTION…] COMMAND
+用法：
+  flatpak [选项…] 命令
 
-Builtin Commands:
- Manage installed applications and runtimes
-  install                Install an application or runtime
-  update                 Update an installed application or runtime
-  uninstall              Uninstall an installed application or runtime
-  mask                   Mask out updates and automatic installation
-  pin                    Pin a runtime to prevent automatic removal
-  list                   List installed apps and/or runtimes
-  info                   Show info for installed app or runtime
-  history                Show history
-  config                 Configure flatpak
-  repair                 Repair flatpak installation
-  create-usb             Put applications or runtimes onto removable media
+内置命令：
+ 管理已安装的应用程序和运行时
+  install                安装应用程序或运行时
+  update                 更新已安装的应用程序或运行时
+  uninstall              卸载已安装的应用程序或运行时
+  mask                   屏蔽更新和自动安装
+  pin                    置顶运行时以避免自动移除
+  list                   列出已安装的应用和/或运行时
+  info                   显示已安装应用或运行时的信息
+  history                显示历史
+  config                 配置 flatpak
+  repair                 修复 flatpak 安装
+  create-usb             将应用程序或运行时放到可移动媒体上
 
- Find applications and runtimes
-  search                 Search for remote apps/runtimes
+查找应用程序和运行时
+  search                 搜索远程仓库的应用/运行时
 
- Manage running applications
-  run                    Run an application
-  override               Override permissions for an application
-  make-current           Specify default version to run
-  enter                  Enter the namespace of a running application
-  ps                     Enumerate running applications
-  kill                   Stop a running application
+管理正在运行的应用程序
+  run                    运行应用程序
+  override               覆盖应用程序的权限
+  make-current           指定要运行的默认版本
+  enter                  进入正在运行应用程序的命名空间
+  ps                     列举正在运行的应用程序
+  kill                   停止正在运行的应用程序
 
- Manage file access
-  documents              List exported files
-  document-export        Grant an application access to a specific file
-  document-unexport      Revoke access to a specific file
-  document-info          Show information about a specific file
+管理文件访问
+  documents              列出导出的文件
+  document-export        同意应用程序对特定文件的访问
+  document-unexport      撤消对特定文件的访问
+  document-info          显示有关特定文件的信息
 
- Manage dynamic permissions
-  permissions            List permissions
-  permission-remove      Remove item from permission store
-  permission-set         Set permissions
-  permission-show        Show app permissions
-  permission-reset       Reset app permissions
+管理动态权限
+  permissions            列出权限
+  permission-remove      从权限存储中移除项目
+  permission-set         设置权限
+  permission-show        显示应用权限
+  permission-reset       重置应用权限
 
- Manage remote repositories
-  remotes                List all configured remotes
-  remote-add             Add a new remote repository (by URL)
-  remote-modify          Modify properties of a configured remote
-  remote-delete          Delete a configured remote
-  remote-ls              List contents of a configured remote
-  remote-info            Show information about a remote app or runtime
+管理远程仓库
+  remotes                列出所有已配置的远程仓库
+  remote-add             添加新的远程仓库（通过网址）
+  remote-modify          修改已配置远程仓库的属性
+  remote-delete          删除已配置的远程仓库
+  remote-ls              列出已配置远程仓库的内容
+  remote-info            显示远程仓库中应用或运行时的有关信息
 
- Build applications
-  build-init             Initialize a directory for building
-  build                  Run a build command inside the build dir
-  build-finish           Finish a build dir for export
-  build-export           Export a build dir to a repository
-  build-bundle           Create a bundle file from a ref in a local repository
-  build-import-bundle    Import a bundle file
-  build-sign             Sign an application or runtime
-  build-update-repo      Update the summary file in a repository
-  build-commit-from      Create new commit based on existing ref
-  repo                   Show information about a repo
+构建应用程序
+  build-init             初始化用于构建的目录
+  build                  在构建目录中运行构建命令
+  build-finish           完成导出的构建目录
+  build-export           将构建目录导出到仓库
+  build-bundle           从本地仓库中的引用创建捆绑包文件
+  build-import-bundle    导入捆绑包文件
+  build-sign             签署应用程序或运行时
+  build-update-repo      更新仓库中的摘要文件
+  build-commit-from      基于现有引用创建新的交付
+  repo                   显示仓库的有关信息
 
-Help Options:
-  -h, --help              Show help options
+帮助选项：
+  -h, --help              显示帮助选项
 
-Application Options:
-  --version               Print version information and exit
-  --default-arch          Print default arch and exit
-  --supported-arches      Print supported arches and exit
-  --gl-drivers            Print active gl drivers and exit
-  --installations         Print paths for system installations and exit
-  --print-updated-env     Print the updated environment needed to run flatpaks
-  --print-system-only     Only include the system installation with --print-updated-env
-  -v, --verbose           Show debug information, -vv for more detail
-  --ostree-verbose        Show OSTree debug information
+应用程序选项：
+  --version               打印版本信息并退出
+  --default-arch          显示默认架构并退出
+  --supported-arches      显示支持架构并退出
+  --gl-drivers            显示激活 gl 驱动并退出
+  --installations         显示系统安装路径并退出
+  --print-updated-env     显示运行 flatpak 应用所需的已更新环境
+  --print-system-only     仅包含带有 --print-updated-env 的系统安装
+  -v, --verbose           显示调试信息，-vv 显示更多详情
+  --ostree-verbose        显示 OSTree 调试信息
 ```
