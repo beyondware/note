@@ -190,7 +190,11 @@ pacman -Qqdt
 pactree 包名
 ```
 
-### pacman -h
+### 全部命令
+
+```sh
+pacman -h
+```
 
 ```sh
 用法:  pacman <操作> [...]
@@ -204,6 +208,8 @@ pactree 包名
     pacman {-S --sync}     [选项] [软件包]
     pacman {-T --deptest}  [选项] [软件包]
     pacman {-U --upgrade}  [选项] <文件>
+
+使用 'pacman {-h --help}' 及某个操作以查看可用选项
 
 pacman -D -h
 用法:  pacman {-D --database} <选项> <软件包>
