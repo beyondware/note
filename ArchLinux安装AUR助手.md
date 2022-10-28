@@ -461,18 +461,18 @@ pamac-manager
 ### pamac -h
 
 ```sh
-Available actions:
-  pamac --version
-  pamac --help, -h     [action]
-  pamac search         [options] <package(s)>
-  pamac list           [options] <package(s)>
-  pamac info           [options] <package(s)>
-  pamac install        [options] <package(s)>
-  pamac reinstall      [options] <package(s)>
-  pamac remove         [options] [package(s)]
-  pamac checkupdates   [options]
-  pamac update,upgrade [options]
-  pamac clone          [options] <package(s)>
-  pamac build          [options] [package(s)]
-  pamac clean          [options]
+可用操作:
+  pamac --version     
+  pamac --help, -h     [操作]
+  pamac search         [选项] <软件包>
+  pamac list           [选项] <软件包>
+  pamac info           [选项] <软件包>
+  pamac install        [选项] <软件包>
+  pamac reinstall      [选项] <软件包>
+  pamac remove         [选项] [软件包]
+  pamac checkupdates   [选项]
+  pamac update,upgrade [选项]
+  pamac clone          [选项] <软件包>
+  pamac build          [选项] [软件包]
+  pamac clean          [选项]
 ```
