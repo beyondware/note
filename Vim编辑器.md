@@ -128,7 +128,7 @@ vim /关键词 文件名
 :w 新的文件名
 ```
 
-### 分屏打开
+### 分屏
 
 1、上下分屏
 
@@ -174,20 +174,20 @@ vim -On 文件名1 文件名2
 :wqa（:xa）
 ```
 
-### 操作
+### 常用操作
 
 ```sh
 :w（write）保存
 :q（quit）退出
 
 u（undo）撤销
-CTRL+r 恢复撤销
+Ctrl+r 恢复撤销
 
 
 增
-a/A（append）追加，A行尾，a光标后
-i/I（insert）插入，I行首，i光标前
-o/O（open a line）o下一行，O上一行
+i/I（insert）插入，I：行首；i：光标前
+a/A（append）追加，A：行尾；a：光标后
+o/O o：向下插一行；O：向上插一行
 
 
 删
