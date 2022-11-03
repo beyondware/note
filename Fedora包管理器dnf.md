@@ -118,25 +118,17 @@ dnf info 包名
 
 ### 移除
 
-1、移除
-
 ```sh
 sudo dnf remove 包名
 ```
 
-2、自动移除（包括：不需要的依赖）
+#### 自动移除（包括：不需要的依赖）
 
 ```sh
 sudo dnf autoremove 包名
 ```
 
-3、清理所有
-
-```sh
-dnf clean all
-```
-
-### 删除
+#### 移除相关
 
 1、列出与`关键字`匹配的已安装软件
 
@@ -148,6 +140,12 @@ dnf list installed | grep 关键字
 
 ```sh
 sudo dnf remove 完整的包名
+```
+
+#### 清理所有
+
+```sh
+dnf clean all
 ```
 
 ### 搜索
