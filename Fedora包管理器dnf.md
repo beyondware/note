@@ -92,6 +92,12 @@ whoami
 sudo dnf install 包名
 ```
 
+#### 下载到本地安装
+
+```sh
+sudo dnf localinstall xxx.rpm
+```
+
 #### 列出所有已安装的软件包
 
 ```sh
