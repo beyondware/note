@@ -116,7 +116,7 @@ let fmt = get(g:, 'plug_url_format', 'https://git::@hub.fastgit.xyz/%s.git')
 \ '^https://git::@hub.fastgit\.xyz', 'https://hub.fastgit.xyz', '')
 ```
 
-### 基本配置
+### vim 配置
 
 ```sh
 " 显示行号
