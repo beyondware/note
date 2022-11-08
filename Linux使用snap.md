@@ -30,7 +30,7 @@ sudo snap install 软件名
 sudo snap install snap-store
 ```
 
-2、卸载
+2、移除
 
 ```sh
 sudo snap remove 软件名
@@ -108,6 +108,44 @@ snap download 软件名
 
 ```sh
 sudo snap pack
+```
+
+13、安装位置
+
+> /var/lib/snapd/snaps
+
+14、删除所有旧版本的快照
+
+- 清理 Snap 脚本，例如：clean_snap.sh
+
+```sh
+#!/bin/bash
+# Removes old revisions of snaps
+# CLOSE ALL SNAPS BEFORE RUNNING THIS
+set -eu
+
+LANG=C snap list --all | awk '/disabled/{print $1, $3}' |
+    while read snapname revision; do
+        snap remove "$snapname" --revision="$revision"
+    done
+```
+
+- 提权
+
+```sh
+chmod +x clean_snap.sh
+```
+
+- 运行
+
+```sh
+sudo ./clean_snap.sh
+```
+
+15、清理缓存文件
+
+```sh
+sudo rm -rf /var/lib/snapd/cache/*
 ```
 
 ### 报错信息
