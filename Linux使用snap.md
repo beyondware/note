@@ -18,7 +18,7 @@ sudo dnf install shapd
 
 ### 常用命令
 
-1、安装
+#### 安装
 
 ```sh
 sudo snap install 软件名
@@ -30,13 +30,19 @@ sudo snap install 软件名
 sudo snap install snap-store
 ```
 
-2、移除
+##### 列出已安装软件
+
+```sh
+snap list
+```
+
+#### 移除
 
 ```sh
 sudo snap remove 软件名
 ```
 
-3、更新
+#### 更新
 
 - 先杀死进程
 
@@ -56,65 +62,53 @@ sudo snap refresh 软件名
 sudo snap refresh 软件名 channel=latest/stable
 ```
 
-4、运行
+#### 运行
 
 ```sh
 snap run 软件名
 ```
 
-5、启用 snap
+#### 启用 snap
 
 ```sh
 sudo snap enable
 ```
 
-6、禁用 snap
+#### 禁用 snap
 
 ```sh
 sudo snap disable
 ```
 
-7、查找某一命令帮助
+#### 帮助
 
 ```sh
 snap help 命令
 ```
 
-8、查找要安装的软件
+#### 查找
 
 ```sh
 snap find 软件名
 ```
 
-9、查找要安装的软件详细信息
+#### 详细信息
 
 ```sh
 snap info 软件名
 ```
 
-10、列出已安装软件
-
-```sh
-snap list
-```
-
-11、下载某到本地
+#### 下载到本地
 
 ```sh
 snap download 软件名
 ```
 
-12、指定目录打包成 snap
-
-```sh
-sudo snap pack
-```
-
-13、安装位置
+#### 安装位置
 
 > /var/lib/snapd/snaps
 
-14、删除所有旧版本的快照
+#### 删除所有旧版本的快照
 
 - 清理 Snap 脚本，例如：clean_snap.sh
 
@@ -142,10 +136,16 @@ chmod +x clean_snap.sh
 sudo ./clean_snap.sh
 ```
 
-15、清理缓存文件
+#### 清理缓存文件
 
 ```sh
 sudo rm -rf /var/lib/snapd/cache/*
+```
+
+#### 指定目录打包成 snap
+
+```sh
+sudo snap pack
 ```
 
 ### 报错信息
