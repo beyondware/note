@@ -176,6 +176,20 @@ flatpak install https://dl.flathub.org/repo/appstream/com.github.tchx84.Flatseal
 flatpak run 应用程序ID
 ```
 
+### 更新
+
+1、更新所有
+
+```sh
+flatpak update
+```
+
+2、更新特定
+
+```sh
+flatpak update --app 应用程序ID
+```
+
 ### 卸载
 
 1、卸载特定
@@ -198,7 +212,7 @@ flatpak uninstall --delete-data 应用程序ID
 flatpak uninstall --all
 ```
 
-- 卸载和删除所有与Flatpak相关数据
+- 删除所有和Flatpak相关数据
 
 ```sh
 flatpak uninstall --all --delete-data
@@ -210,18 +224,22 @@ flatpak uninstall --all --delete-data
 flatpak uninstall --unused
 ```
 
-### 更新
+4、安装位置
 
-1、更新所有
+> /var/lib/flatpak
+
+> ~/.local/share/flatpak
+
+5、列出所有已安装 flatpak，包括安装类型、大小和应用程序 ID
 
 ```sh
-flatpak update
+flatpak --columns=app,name,size,installation list
 ```
 
-2、更新特定
+6、删除缓存文件
 
 ```sh
-flatpak update --app 应用程序ID
+sudo rm -rf /var/tmp/flatpak-cache-*
 ```
 
 ## 构建
