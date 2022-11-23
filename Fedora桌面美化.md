@@ -1,3 +1,29 @@
+## Rocky 安装桌面
+
+### 组列出
+
+```sh
+dnf group list
+```
+
+### 组安装
+
+```sh
+dnf groupinstall "Server with GUI"
+```
+
+### 开启图形化
+
+```sh
+systemctl set-default graphical
+```
+
+### 组移除
+
+```sh
+dnf groupremove "Server with GUI"
+```
+
 ### SSH 登陆
 
 - 远程拒绝打开外壳通道:错误:未连接，需要启动 SSH
