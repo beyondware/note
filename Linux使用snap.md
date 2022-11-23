@@ -62,6 +62,20 @@ sudo snap refresh 软件名
 sudo snap refresh 软件名 channel=latest/stable
 ```
 
+#### 禁止更新
+
+1、永久禁用 snap 软件包自动更新
+
+```sh
+snap refresh --hold
+```
+
+2、临时禁用 snap 软件包自动更新（如：48小时）
+
+```sh
+snap refresh --hold=48h
+```
+
 #### 运行
 
 ```sh
