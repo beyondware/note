@@ -750,6 +750,12 @@ sudo pacman -S xorg-xinit
 
 > https://wiki.archlinux.org/title/Wayland
 
+#### 显示服务器
+
+```sh
+echo $XDG_SESSION_TYPE
+```
+
 ### 显卡
 
 ```sh
