@@ -72,6 +72,12 @@ sudo vim /etc/apt/sources.list
 sudo apt install 包名
 ```
 
+#### 本地安装
+
+```sh
+sudo dpkg -i xxx.deb
+```
+
 #### 卸载
 
 ```sh
