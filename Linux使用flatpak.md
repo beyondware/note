@@ -172,7 +172,7 @@ flatpak install https://dl.flathub.org/repo/appstream/com.github.tchx84.Flatseal
 
 ### 降级
 
-1、获取包的<Application ID>
+1、获取包的应用ID
 
 ```sh
 flatpak list --app
@@ -181,13 +181,13 @@ flatpak list --app
 2、列出以前的版本并获取对应<Commit值>
 
 ```sh
-flatpak remote-info --log flathub <Application ID>
+flatpak remote-info --log flathub 应用ID
 ```
 
 3、降级 Flatpack 包
 
 ```sh
-sudo flatpak update --commit=<Commit值> <Application ID>
+sudo flatpak update --commit=<Commit值> 应用ID
 ```
 
 4、检查是否降级软件包
