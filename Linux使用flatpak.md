@@ -170,6 +170,32 @@ flatpak install https://dl.flathub.org/repo/appstream/com.github.tchx84.Flatseal
 
 > error: Unable to load summary from remote flathub: Could not connect: 拒绝连接
 
+### 降级
+
+1、获取包的<Application ID>
+
+```sh
+flatpak list --app
+```
+
+2、列出以前的版本并获取对应<Commit值>
+
+```sh
+flatpak remote-info --log flathub <Application ID>
+```
+
+3、降级 Flatpack 包
+
+```sh
+sudo flatpak update --commit=<Commit值> <Application ID>
+```
+
+4、检查是否降级软件包
+
+```sh
+flatpak update
+```
+
 ### 运行程序
 
 ```sh
