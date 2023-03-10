@@ -130,53 +130,39 @@ dnf repolist
 
 > https://mirrors.ustc.edu.cn/help/fedora.html
 
-### 安装 rpmfusion
+### RPM Fusion
 
-> https://rpmfusion.org/
+> https://rpmfusion.org/Configuration
 
-1、检查是否安装 RPM fusion
+1、检查是否已安装 RPM fusion
 
 ```sh
 dnf repolist | grep rpmfusion
 ```
 
-2、安装
+2、安装 RPM fusion
 
 #### Fedora
 
-- 自由版
-
 ```sh
-sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+sudo dnf install https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 ```
 
-- 非自由版
+#### Silverblue、Kinoite、CoreOS
 
 ```sh
-sudo dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+sudo rpm-ostree install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+sudo rpm-ostree install https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 ```
 
-#### Silverblue
-
-- 自由版
-
-```sh
-sudo rpm-ostree install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
-```
-
-- 非自由版
-
-```sh
-sudo rpm-ostree install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
-```
-
-3、查看添加 Fedora 仓库列表
+3、查看添加的仓库列表
 
 ```sh
 dnf repolist
 ```
 
-4、删除 rpmfusion 仓库
+4、删除 RPM fusion
 
 - 列出
 
@@ -199,6 +185,22 @@ sudo dnf config-manager  --add-repo URL.repo
 ### 家目录中文改成英文
 
 #### 方案一（推荐）
+
+1、家目录中文改为英文
+
+```sh
+export LANG=en_US
+```
+
+```sh
+xdg-user-dirs-gtk-update
+```
+
+> 勾选：不要再次询问我（Don't ask me this again）
+
+> 点击：更新名称（Update Names）
+
+#### 方案二（备选）
 
 1、先将中文目录对应重命名为英文
 
@@ -231,22 +233,6 @@ XDG_VIDEOS_DIR="$HOME/Videos"
 ```
 
 3、系统重启，才能生效。
-
-#### 方案二（备选）
-
-1、家目录中文改为英文
-
-```sh
-export LANG=en_US
-```
-
-```sh
-xdg-user-dirs-gtk-update
-```
-
-> 勾选：不要再次询问我（Don't ask me this again）
-
-> 点击：更新名称（Update Names）
 
 ### 家目录英文改为中文
 
