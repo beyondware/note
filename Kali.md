@@ -1,4 +1,4 @@
-### ssh
+### SSH
 
 ```sh
 sudo vim /etc/ssh/sshd_config
@@ -28,8 +28,8 @@ deb-src http://http.kali.org/kali kali-rolling main contrib non-free
 改成
 
 ```sh
-deb https://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib
-deb-src https://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib
+deb https://mirrors.cernet.edu.cn/kali kali-rolling main non-free contrib
+deb-src https://mirrors.cernet.edu.cn/kali kali-rolling main non-free contrib
 ```
 
 ### 更新
@@ -39,6 +39,8 @@ sudo apt update
 ```
 
 ### 参考
+
+> https://help.mirrors.cernet.edu.cn/kali/
 
 > https://mirrors.ustc.edu.cn/help/kali.html
 
