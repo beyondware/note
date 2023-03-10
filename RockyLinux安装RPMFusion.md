@@ -12,6 +12,14 @@ dnf repolist | grep rpmfusion
 
 3、安装 EPEL
 
+- 启用 CRB 存储库
+
+```sh
+sudo dnf config-manager --set-enabled crb
+```
+
+- 导入 EPEL
+
 ```sh
 sudo dnf install --nogpgcheck https://dl.fedoraproject.org/pub/epel/epel-release-latest-$(rpm -E %rhel).noarch.rpm
 ```
@@ -92,6 +100,8 @@ sudo dnf remove rpmfusion-nonfree-release-tainted
 dnf repolist
 ```
 
-8、参考网站
+8、参考文档
+
+> https://docs.fedoraproject.org/en-US/epel/
 
 > https://rpmfusion.org/Configuration
