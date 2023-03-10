@@ -1,19 +1,16 @@
 ### Fedora 安装 ffmpeg
 
-1、查询是否已安装 rpmfusion
+1、查询是否已安装 RPM Fusion
 
 ```sh
 dnf repolist | grep rpmfusion
 ```
 
-2、安装 rpmfusion
+2、安装 RPM Fusion
 
 ```sh
-sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
-```
-
-```sh
-sudo dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+sudo dnf install https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 ```
 
 3、安装 ffmpeg
