@@ -1,13 +1,4 @@
----
-title: Gitee Pages 自动刷新
-author: beyondware
-tags:
-  - [gitee]
-categories:
-  - [python]
----
-
-## 安装 python
+## 安装 Python
 
 > https://www.python.org/downloads/
 
