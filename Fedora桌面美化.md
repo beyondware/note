@@ -345,29 +345,3 @@ sudo ./install-gnome-backgrounds.sh
 ```sh
 cd /usr/share/backgrounds
 ```
-
-### Rocky 安装桌面
-
-1、组列出
-
-```sh
-dnf group list
-```
-
-2、组安装
-
-```sh
-dnf groupinstall "Server with GUI"
-```
-
-3、开启图形化
-
-```sh
-systemctl set-default graphical
-```
-
-4、组移除
-
-```sh
-dnf groupremove "Server with GUI"
-```
