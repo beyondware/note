@@ -72,10 +72,16 @@ sudo vim /etc/apt/sources.list
 sudo apt install 包名
 ```
 
-#### 本地安装
+#### 下载安装
 
 ```sh
-sudo dpkg -i xxx.deb
+sudo dpkg -i 本地包.deb
+```
+
+- 报错的话，需要修复依赖项
+
+```sh
+sudo apt install -f
 ```
 
 #### 卸载
@@ -97,7 +103,7 @@ sudo apt autoremove 包名
 - 删除包和依赖
 
 ```sh
-sudo apt purge
+sudo apt purge 包名
 ```
 
 #### 列出
