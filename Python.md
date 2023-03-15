@@ -1,4 +1,4 @@
-### python 自定义安装
+### Python 自定义安装
 
 1、选择“Customize installation”（自定义安装）
 
@@ -22,7 +22,7 @@ pip --version
 
 > https://www.jetbrains.com/pycharm/
 
-### 解决 python 没有安装 pip 的问题
+### 解决 Python 没有安装 pip 的问题
 
 - 一般 Linux 自带 python，但是没有安装 pip 报错
 
