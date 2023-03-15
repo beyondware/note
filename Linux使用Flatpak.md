@@ -34,7 +34,7 @@ sudo pacman -Syu
 sudo pacman -S flatpak
 ```
 
-## 构建
+## 构建 Flatpak
 
 ### Fedora
 
@@ -148,32 +148,6 @@ flatpak remotes
 
 ## 常用命令
 
-### 搜索远程仓库中的应用程序
-
-```sh
-flatpak search 关键字
-```
-
-### 列出
-
-1、列出所有
-
-```sh
-flatpak list
-```
-
-2、列出已安装
-
-```sh
-flatpak list --app
-```
-
-### 详细信息
-
-```sh
-flatpak info 应用程序ID
-```
-
 ### 安装
 
 1、安装（多种安装方式）
@@ -218,26 +192,6 @@ sudo flatpak update --commit=<Commit值> 应用ID
 
 ```sh
 flatpak update
-```
-
-### 运行程序
-
-```sh
-flatpak run 应用程序ID
-```
-
-### 更新
-
-1、更新所有
-
-```sh
-flatpak update
-```
-
-2、更新指定软件
-
-```sh
-flatpak update --app 应用程序ID
 ```
 
 ### 卸载
@@ -290,6 +244,52 @@ flatpak --columns=app,name,size,installation list
 
 ```sh
 sudo rm -rf /var/tmp/flatpak-cache-*
+```
+
+### 运行
+
+```sh
+flatpak run 应用程序ID
+```
+
+### 更新
+
+1、更新所有
+
+```sh
+flatpak update
+```
+
+2、更新指定软件
+
+```sh
+flatpak update --app 应用程序ID
+```
+
+### 搜索
+
+```sh
+flatpak search 关键字
+```
+
+### 列出
+
+1、列出所有
+
+```sh
+flatpak list
+```
+
+2、列出已安装
+
+```sh
+flatpak list --app
+```
+
+### 详细信息
+
+```sh
+flatpak info 应用程序ID
 ```
 
 ## 参考文档
