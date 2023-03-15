@@ -1,4 +1,4 @@
-### Fedora 安装 ffmpeg
+### Fedora 安装 FFmpeg
 
 1、查询是否已安装 RPM Fusion
 
