@@ -1,18 +1,24 @@
 ## 系统
 
-1、系统更新
+1、系统升级并刷新
+
+```sh
+sudo dnf upgrade --refresh
+```
+
+2、系统更新
 
 ```sh
 sudo dnf update
 ```
 
-2、列出已安装软件的最新版本
+3、列出已安装最新版本
 
 ```sh
 sudo dnf distro-sync
 ```
 
-3、检查可升级的软件
+4、检查可升级
 
 ```sh
 dnf check-update
@@ -88,64 +94,56 @@ whoami
 
 ### 安装
 
+1、在线安装
+
 ```sh
 sudo dnf install 包名
 ```
 
-#### 下载到本地安装
+2、本地安装
 
 ```sh
 sudo dnf localinstall xxx.rpm
 ```
 
-#### 列出所有已安装的软件包
+3、列出所有已安装
 
 ```sh
 dnf list installed
 ```
 
-### 更新
+### 删除
 
-```sh
-sudo dnf update 包名
-```
-
-### 显示软件详细信息
-
-```sh
-dnf info 包名
-```
-
-### 移除
+1、指定删除
 
 ```sh
 sudo dnf remove 包名
 ```
 
-#### 自动移除（包括：不需要的依赖）
+2、自动删除（包括：不需要的依赖）
 
 ```sh
 sudo dnf autoremove 包名
 ```
 
-#### 移除相关
+3、清理所有
 
-1、列出与`关键字`匹配的已安装软件
+```sh
+dnf clean all
+```
+
+4、相关删除
+
+① 列出与`关键字`匹配的已安装软件
 
 ```sh
 dnf list installed | grep 关键字
 ```
 
-2、删除相关的软件
+② 删除相关（完整包名）
 
 ```sh
 sudo dnf remove 完整的包名
-```
-
-#### 清理所有
-
-```sh
-dnf clean all
 ```
 
 ### 搜索
@@ -168,15 +166,33 @@ dnf repoquery 关键字
 dnf provides 关键字
 ```
 
+### 更新软件
+
+```sh
+sudo dnf update 包名
+```
+
+### 详细信息
+
+```sh
+dnf info 包名
+```
+
+### 别名
+
+```sh
+dnf alias
+```
+
 ### 列出
 
-1、列表所有软件（远程仓库）
+1、列表所有（远程仓库）
 
 ```sh
 dnf list
 ```
 
-2、列出已配置的软件存储库（远程仓库）
+2、列出已配置（远程仓库）
 
 ```sh
 dnf repolist
@@ -192,12 +208,6 @@ dnf list | grep 关键字
 
 ```sh
 dnf list installed | grep 关键字
-```
-
-### 别名
-
-```sh
-dnf alias
 ```
 
 ### 路径
@@ -234,7 +244,7 @@ dnf grouplist
 sudo dnf groupinstall
 ```
 
-3、组移除
+3、组删除
 
 ```sh
 sudo dnf groupremove
@@ -246,7 +256,7 @@ sudo dnf groupremove
 sudo dnf groupupdate
 ```
 
-## 全部命令
+## dnf --help
 
 ```sh
 usage: dnf [options] COMMAND
