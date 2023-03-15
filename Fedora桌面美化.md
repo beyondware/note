@@ -56,37 +56,47 @@ ps -e | grep ssh
 快捷键：Ctrl+Alt+T
 ```
 
-### 修改源
+### 镜像源
 
-- 安装路径
+1、提高 DNF 速度
+
+① 配置 DNF 包管理器
+
+```sh
+sudo vim /etc/dnf/dnf.conf
+```
+
+将添加到`/etc/dnf/dnf.conf`文件底部
+
+```sh
+max_parallel_downloads=10  //同时下载的最大包数
+fastestmirror=True  //配置最快的镜像
+```
+
+② 系统升级并刷新
+
+```sh
+sudo dnf upgrade --refresh
+```
+
+2、修改源
+
+① 安装路径
 
 > cd /etc/yum.repos.d/
 
-1、fedora.repo
-
 ```sh
 sudo wget -O /etc/yum.repos.d/fedora.repo http://mirrors.aliyun.com/repo/fedora.repo
-```
-
-2、fedora-updates.repo
-
-```sh
 sudo wget -O /etc/yum.repos.d/fedora-updates.repo http://mirrors.aliyun.com/repo/fedora-updates.repo
 ```
 
-3、本地缓存
+② 本地缓存
 
 ```sh
 sudo dnf makecache
 ```
 
-4、查看仓库配置
-
-```sh
-dnf repolist
-```
-
-### 参考源
+3、参考源
 
 - 阿里云
 
@@ -144,23 +154,15 @@ dnf repolist
 rpm -qa 'rpmfusion*'
 ```
 
-- 删除
-
 ```sh
 sudo dnf remove rpmfusion-free-release rpmfusion-nonfree-release
 ```
 
-### config-manager
+### 家目录
 
-```sh
-sudo dnf config-manager  --add-repo URL.repo
-```
+#### 家目录英文改为中文
 
-### 家目录中文改成英文
-
-#### 方案一（推荐）
-
-1、家目录中文改为英文
+方案一（推荐）
 
 ```sh
 export LANG=en_US
@@ -174,9 +176,9 @@ xdg-user-dirs-gtk-update
 
 > 点击：更新名称（Update Names）
 
-#### 方案二（备选）
+方案二（备选）
 
-1、先将中文目录对应重命名为英文
+① 先将中文目录对应重命名为英文
 
 ```sh
 桌面：Desktop
@@ -189,7 +191,7 @@ xdg-user-dirs-gtk-update
 视频：Videos
 ```
 
-2、修改配置
+② 修改配置
 
 ```sh
 sudo vim ~/.config/user-dirs.dirs
@@ -206,9 +208,9 @@ XDG_PICTURES_DIR="$HOME/Pictures"
 XDG_VIDEOS_DIR="$HOME/Videos"
 ```
 
-3、系统重启，才能生效。
+③ 系统重启，才能生效。
 
-### 家目录英文改为中文
+#### 家目录英文改为中文
 
 ```sh
 export LANG=zh_CN.UTF-8
