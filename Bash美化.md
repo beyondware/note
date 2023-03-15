@@ -74,19 +74,19 @@ pip install git+https://ghproxy.com/https://github.com/powerline/powerline.git
 
 - 方案四，离线安装
 
-①克隆到本地
+① 克隆到本地
 
 ```sh
 git clone https://ghproxy.com/https://github.com/powerline/powerline.git
 ```
 
-②切换到powerline目录
+② 切换到powerline目录
 
 ```sh
 cd powerline/
 ```
 
-③执行安装（推荐）
+③ 执行安装（推荐）
 
 ```sh
 pip install .
@@ -196,13 +196,13 @@ set t_Co=256
 sudo vim ~/.bashrc
 ```
 
-2、添加（部分系统，可能不会生效）
+2、添加
 
 ```sh
 PS1='\[\033[0;31m\]\342\224\214\342\224\200$([[ $? != 0 ]] && echo "[\[\033[0;31m\]\342\234\227\[\033[0;37m\]]\342\224\200")[\[\033[0;39m\]\u\[\033[01;33m\]@\[\033[01;96m\]\h\[\033[0;31m\]]\342\224\200[\[\033[0;32m\]\w\[\033[0;31m\]]\n\[\033[0;31m\]\342\224\224\342\224\200\342\224\200\342\225\274 \[\033[0m\]\[\e[01;33m\]\$\[\e[0m\]'
 ```
 
-3、刷新生效
+3、刷新生效（部分系统，可能不会生效）
 
 ```sh
 source ~/.bashrc
