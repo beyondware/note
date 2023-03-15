@@ -25,7 +25,7 @@ vim /etc/ssh/sshd_config
 ### 修改源
 
 ```sh
-vi /etc/yum.repos.d/openEuler.repo
+sudo vim /etc/yum.repos.d/openEuler.repo
 ```
 
 > http://repo.openeuler.org/
@@ -117,5 +117,5 @@ systemctl isolate multi-user.target
 ### 安装 open-vm-tools
 
 ```sh
-sudo dnf install open-vm-tools-desktop fuse
+sudo dnf install open-vm-tools open-vm-tools-desktop fuse
 ```
