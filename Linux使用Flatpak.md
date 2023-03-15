@@ -12,13 +12,13 @@ sudo dnf install flatpak
 sudo apt install flatpak
 ```
 
-- GNOME 提供 Flatpak 插件
+1、GNOME 提供 Flatpak 插件
 
 ```sh
 sudo apt install gnome-software-plugin-flatpak
 ```
 
-- KDE 提供 Flatpak 插件
+2、KDE 提供 Flatpak 插件
 
 ```sh
 sudo apt install plasma-discover-backend-flatpak
@@ -34,71 +34,95 @@ sudo pacman -Syu
 sudo pacman -S flatpak
 ```
 
-## 添加远程仓库，需重启系统
+## 构建
+
+### Fedora
+
+```sh
+sudo dnf install flatpak-builder
+```
+
+### Ubuntu
+
+```sh
+sudo add-apt-repository ppa:alexlarsson/flatpak
+sudo apt update
+sudo apt install flatpak-builder elfutils
+```
+
+## 添加远程仓库
+
+### 添加 flathub
 
 > error: No remote refs found similar to ‘flathub’ //未发现类似于 "flathub" 的远程引用
 
-### 添加 Flathub 仓库
+1、添加 flathub
 
 ```sh
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 ```
 
-- 添加 Flabhub Beta 仓库
+2、添加 flathub-beta
 
 ```sh
 flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
 ```
 
-- 安装
+3、安装
 
 ```sh
 flatpak install flathub 应用程序ID
 ```
 
-### 修改 Flathub 镜像源
+4、修改 flathub 镜像源
 
 ```sh
 sudo flatpak remote-modify flathub --url=https://mirror.sjtu.edu.cn/flathub
 ```
 
-### 添加 fedora 仓库
+### 添加 fedora
+
+1、添加 fedora
 
 ```sh
 flatpak remote-add --if-not-exists fedora oci+https://registry.fedoraproject.org
 ```
 
-- 添加 fedora testing 仓库
+2、添加 fedora-testing
 
 ```sh
 flatpak remote-add --if-not-exists fedora-testing oci+https://registry.fedoraproject.org#testing
 ```
 
-- 安装
+3、安装
 
 ```sh
 flatpak install fedora 应用程序ID
 ```
 
-### 添加 GNOME nightly 仓库
+### 添加 GNOME
+
+1、添加 gnome-nightly
 
 ```sh
 flatpak remote-add --if-not-exists gnome-nightly https://nightly.gnome.org/gnome-nightly.flatpakrepo
 ```
 
-- 安装
+2、安装
 
 ```sh
 flatpak install gnome-nightly 应用程序ID
 ```
 
-### 添加 KDE nightly 仓库
+### 添加 KDE
+
+1、添加 kdeapps
 
 ```sh
 flatpak remote-add --if-not-exists kdeapps --from https://distribute.kde.org/kdeapps.flatpakrepo
 ```
 
-- 安装
+2、安装
 
 ```sh
 flatpak install kdeapps 应用程序ID
@@ -107,16 +131,16 @@ flatpak install kdeapps 应用程序ID
 ## 删除远程仓库
 
 ```sh
-flatpak remote-delete
+flatpak remote-delete 仓库名
 ```
 
-- 例如：删除 flathub 仓库
+- 例如：删除 flathub
 
 ```sh
 flatpak remote-delete flathub
 ```
 
-## 列出已添加的软件远程仓库
+## 列出远程仓库
 
 ```sh
 flatpak remotes
@@ -132,7 +156,7 @@ flatpak search 关键字
 
 ### 列出
 
-1、列出所有安装
+1、列出所有
 
 ```sh
 flatpak list
@@ -144,7 +168,7 @@ flatpak list
 flatpak list --app
 ```
 
-### 查看详细信息
+### 详细信息
 
 ```sh
 flatpak info 应用程序ID
@@ -210,7 +234,7 @@ flatpak run 应用程序ID
 flatpak update
 ```
 
-2、更新特定
+2、更新指定软件
 
 ```sh
 flatpak update --app 应用程序ID
@@ -218,7 +242,7 @@ flatpak update --app 应用程序ID
 
 ### 卸载
 
-1、卸载特定
+1、卸载指定软件
 
 ```sh
 flatpak uninstall 应用程序ID
@@ -226,7 +250,7 @@ flatpak uninstall 应用程序ID
 
 > Uninstall complete. //卸载完成
 
-- 卸载和删除特定应用程序的数据
+- 卸载和删除指定软件的数据
 
 ```sh
 flatpak uninstall --delete-data 应用程序ID
@@ -266,28 +290,6 @@ flatpak --columns=app,name,size,installation list
 
 ```sh
 sudo rm -rf /var/tmp/flatpak-cache-*
-```
-
-## 构建
-
-### Fedora
-
-```sh
-sudo dnf install flatpak-builder
-```
-
-### Ubuntu
-
-```sh
-sudo add-apt-repository ppa:alexlarsson/flatpak
-```
-
-```sh
-sudo apt update
-```
-
-```sh
-sudo apt install flatpak-builder elfutils
 ```
 
 ## 参考文档
