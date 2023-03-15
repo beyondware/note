@@ -2,15 +2,15 @@
 
 > Win+Shift+Tab
 
-### ssh 登陆
+### SSH
 
-1、安装ssh
+1、安装 SSH
 
 ```sh
 sudo apt install openssh-server
 ```
 
-2、启动ssh
+2、启动 SSH
 
 ```sh
 sudo /etc/init.d/ssh start
@@ -22,13 +22,13 @@ sudo /etc/init.d/ssh start
 sudo systemctl start ssh
 ```
 
-3、开机启动ssh
+3、开机启动 SSH
 
 ```sh
 sudo systemctl enable ssh
 ```
 
-4、修改ssh允许登陆
+4、修改 SSH 允许远程登陆
 
 ```sh
 sudo vim /etc/ssh/sshd_config
