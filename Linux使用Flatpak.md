@@ -82,6 +82,12 @@ flatpak install flathub 应用程序ID
 flatpak remote-modify --enable flathub
 ```
 
+- 访问系统文件（慎用）
+
+```sh
+sudo flatpak override 应用程序ID --filesystem=host
+```
+
 4、修改 flathub 镜像源
 
 ```sh
