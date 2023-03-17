@@ -60,13 +60,19 @@ sudo dnf config-manager --set-enabled google-chrome*
 
 8、删除存储库
 
+① 查看
+
 ```sh
 dnf repolist | grep chrome
 ```
 
+② 切换到目录
+
 ```sh
 cd /etc/yum.repos.d
 ```
+
+③ 删除
 
 ```sh
 sudo rm google-chrome.repo
