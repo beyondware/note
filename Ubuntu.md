@@ -184,3 +184,41 @@ apt info 包名
 
 - 文本和背景颜色：Solarized
 - 调色板：Solarized
+
+### 浏览器
+
+#### Firefox
+
+1、查看
+
+```sh
+dpkg -L | grep firefox
+```
+
+- 三个关联包：firefox、firefox-locale-en、firefox-locale-zh-hans
+
+2、删除
+
+```sh
+sudo dpkg -P firefox firefox-locale-en firefox-locale-zh-hans
+```
+
+#### Chrome
+
+1、下载
+
+```sh
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+```
+
+2、安装
+
+```sh
+sudo apt install google-chrome-stable_current_amd64.deb
+```
+
+3、删除下载包
+
+```sh
+rm google-chrome-stable_current_amd64.deb
+```
