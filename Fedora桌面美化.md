@@ -58,30 +58,7 @@ ps -e | grep ssh
 
 ### 镜像源
 
-1、提高 DNF 速度
-
-① 配置 DNF 包管理器
-
-```sh
-sudo vim /etc/dnf/dnf.conf
-```
-
-将添加到`/etc/dnf/dnf.conf`文件底部
-
-```sh
-max_parallel_downloads=10  //同时下载的最大包数
-fastestmirror=True  //配置最快的镜像
-```
-
-② 系统升级并刷新
-
-```sh
-sudo dnf upgrade --refresh
-```
-
-2、修改源
-
-① 安装路径
+1、切换路径
 
 > cd /etc/yum.repos.d/
 
@@ -90,7 +67,7 @@ sudo wget -O /etc/yum.repos.d/fedora.repo http://mirrors.aliyun.com/repo/fedora.
 sudo wget -O /etc/yum.repos.d/fedora-updates.repo http://mirrors.aliyun.com/repo/fedora-updates.repo
 ```
 
-② 本地缓存
+2、本地缓存
 
 ```sh
 sudo dnf makecache
@@ -148,10 +125,8 @@ dnf repolist
 
 4、删除 RPM fusion
 
-- 列出
-
 ```sh
-rpm -qa 'rpmfusion*'
+rpm -qa 'rpmfusion*'  //列出
 ```
 
 ```sh
