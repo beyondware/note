@@ -1,4 +1,4 @@
-### SSH 登录
+### SSH
 
 1、安装 SSH
 
@@ -12,7 +12,13 @@ sudo apt install openssh-server
 sudo systemctl start sshd
 ```
 
-3、允许 SSH 远程登陆（root 登录）
+3、开机启动 SSH
+
+```sh
+sudo systemctl enable sshd
+```
+
+4、允许登陆 SSH
 
 ```sh
 sudo vim /etc/ssh/sshd_config
@@ -20,16 +26,10 @@ sudo vim /etc/ssh/sshd_config
 
 > PermitRootLogin without-password 修改为 PermitRootLogin yes
 
-4、重启 SSH
+5、重启 SSH
 
 ```sh
 sudo systemctl restart sshd
-```
-
-5、开机启动 SSH
-
-```sh
-sudo systemctl enable sshd
 ```
 
 6、查看 SSH 状态
@@ -46,7 +46,7 @@ ps -e | grep sshd
 
 > 显示 00:00:00 sshd 表示开启了 SSH
 
-### 修改镜像源
+### 镜像源
 
 ```sh
 sudo vim /etc/apt/sources.list
@@ -64,18 +64,28 @@ sudo vim /etc/apt/sources.list
 
 > https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/
 
+### 系统
+
+```sh
+sudo apt update && sudo apt upgrade
+```
+
+```sh
+sudo apt autoremove --purge
+```
+
 ### 常用命令
 
 #### 安装
 
 ```sh
-sudo apt install 包名
+sudo apt install 包名 或者 包.deb
 ```
 
-#### 下载安装
+#### 本地安装
 
 ```sh
-sudo dpkg -i 本地包.deb
+sudo dpkg -i 包.deb
 ```
 
 - 报错的话，需要修复依赖项
@@ -106,29 +116,21 @@ sudo apt autoremove 包名
 sudo apt purge 包名
 ```
 
-#### 列出
-
-列出与该包关联文件
+#### 列出已安装
 
 ```sh
 sudo apt list --installed | grep -i 包的关键字
 ```
 
+#### 列出
+
 ```sh
 dpkg -L | grep 包的关键字
 ```
 
-#### 更新
-
-更新包缓存（只获得包的最新信息，并不会下载或者安装包）
-
-```sh
-sudo apt update
-```
-
 #### 升级
 
-1、升级包到最新版本（下载和升级到最新版本）
+1、升级到最新版本
 
 ```sh
 sudo apt upgrade 包名
