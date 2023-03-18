@@ -195,7 +195,7 @@ export LANG=zh_CN.UTF-8
 xdg-user-dirs-gtk-update
 ```
 
-### 安装 gnome-tweaks
+### gnome-tweaks
 
 ```sh
 sudo dnf install gnome-tweaks
