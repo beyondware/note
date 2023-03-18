@@ -1,24 +1,51 @@
-## 系统
+## 提高 DNF 速度
 
-1、系统升级并刷新
+1、配置 DNF 包管理器
+
+```sh
+sudo vim /etc/dnf/dnf.conf
+```
+
+2、将添加到`/etc/dnf/dnf.conf`文件底部
+
+```sh
+max_parallel_downloads=10  //同时下载的最大包数
+fastestmirror=True  //配置最快的镜像
+```
+
+3、系统升级并刷新
 
 ```sh
 sudo dnf upgrade --refresh
 ```
 
-2、系统更新
+## 系统
+
+### 系统升级并刷新
+
+```sh
+sudo dnf upgrade --refresh
+```
+
+### 系统更新
 
 ```sh
 sudo dnf update
 ```
 
-3、列出已安装最新版本
+### 删除旧内核
+
+```sh
+sudo dnf remove --oldinstallonly
+```
+
+### 列出已安装最新版本
 
 ```sh
 sudo dnf distro-sync
 ```
 
-4、检查可升级
+### 检查可升级
 
 ```sh
 dnf check-update
@@ -242,6 +269,10 @@ dnf grouplist
 
 ```sh
 sudo dnf groupinstall
+```
+
+```sh
+sudo dnf groupinstall "Development tools"
 ```
 
 3、组删除
