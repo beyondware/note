@@ -46,28 +46,20 @@ ps -e | grep ssh
 
 > 显示 00:00:00 sshd 表示连接上了 SSH
 
-### 快捷键打开终端
-
-- 设置-键盘快捷键
-
-```sh
-名称：open in terminal
-命令：/usr/bin/gnome-terminal
-快捷键：Ctrl+Alt+T
-```
-
 ### 镜像源
 
-1、切换路径
+1、切换目录
 
-> cd /etc/yum.repos.d/
+```sh
+cd /etc/yum.repos.d/
+```
 
 ```sh
 sudo wget -O /etc/yum.repos.d/fedora.repo http://mirrors.aliyun.com/repo/fedora.repo
 sudo wget -O /etc/yum.repos.d/fedora-updates.repo http://mirrors.aliyun.com/repo/fedora-updates.repo
 ```
 
-2、本地缓存
+2、生成缓存
 
 ```sh
 sudo dnf makecache
@@ -141,7 +133,7 @@ XDG_PICTURES_DIR="$HOME/Pictures"
 XDG_VIDEOS_DIR="$HOME/Videos"
 ```
 
-③ 系统重启，才能生效。
+③ 重启生效
 
 #### 家目录英文改为中文
 
@@ -153,22 +145,34 @@ export LANG=zh_CN.UTF-8
 xdg-user-dirs-gtk-update
 ```
 
-### gnome-tweaks
+### 优化界面
+
+1、优化
 
 ```sh
 sudo dnf install gnome-tweaks
 ```
 
-### 显示 Dock 栏
-
-> https://extensions.gnome.org/
-
-- 由于 GNOME 42 目前暂不支持，用命令安装，重启系统才能生效。
-
-> https://extensions.gnome.org/extension/307/dash-to-dock/
+2、扩展
 
 ```sh
-sudo dnf install gnome-shell-extension-dash-to-dock.noarch
+sudo dnf install gnome-extensions-app
+```
+
+3、Dock（重启生效）
+
+```sh
+sudo dnf install gnome-shell-extension-dash-to-dock
+```
+
+### 快捷键打开终端
+
+- 设置-键盘快捷键
+
+```sh
+名称：open in terminal
+命令：/usr/bin/gnome-terminal
+快捷键：Ctrl+Alt+T
 ```
 
 ### 特效扩展
