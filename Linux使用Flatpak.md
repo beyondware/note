@@ -56,11 +56,11 @@ sudo apt install flatpak-builder elfutils
 
 ## 添加远程仓库
 
-### 添加 flathub
-
-> error: No remote refs found similar to ‘flathub’ //未发现类似于 "flathub" 的远程
+### 添加 Flathub
 
 1、添加 flathub
+
+> error: No remote refs found similar to ‘flathub’ //未发现类似于 "flathub" 的远程
 
 ```sh
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
@@ -100,7 +100,7 @@ sudo flatpak override 应用程序ID --filesystem=host
 sudo flatpak remote-modify flathub --url=https://mirror.sjtu.edu.cn/flathub
 ```
 
-### 添加 fedora
+### 添加 Fedora
 
 1、添加 fedora
 
