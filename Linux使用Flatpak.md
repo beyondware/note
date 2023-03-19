@@ -1,5 +1,9 @@
 ## 安装 Flatpak
 
+> https://flatpak.org/setup/
+
+> https://docs.flatpak.org/en/latest/
+
 ### Fedora（默认：已安装）
 
 ```sh
@@ -27,7 +31,7 @@ sudo apt install plasma-discover-backend-flatpak
 ### Arch
 
 ```sh
-sudo pacman -Syu
+sudo pacman -Syyu
 ```
 
 ```sh
@@ -88,7 +92,9 @@ flatpak remote-modify --enable flathub
 sudo flatpak override 应用程序ID --filesystem=host
 ```
 
-4、修改 flathub 镜像源
+#### 修改 flathub 镜像源
+
+> https://mirror.sjtu.edu.cn/docs/flathub
 
 ```sh
 sudo flatpak remote-modify flathub --url=https://mirror.sjtu.edu.cn/flathub
@@ -114,7 +120,9 @@ flatpak remote-add --if-not-exists fedora-testing oci+https://registry.fedorapro
 flatpak install fedora 应用程序ID
 ```
 
-### 添加 GNOME
+### 添加 GNOME Nightly
+
+> https://wiki.gnome.org/Apps/Nightly
 
 1、添加 gnome-nightly
 
@@ -128,7 +136,11 @@ flatpak remote-add --if-not-exists gnome-nightly https://nightly.gnome.org/gnome
 flatpak install gnome-nightly 应用程序ID
 ```
 
-### 添加 KDE
+### 添加 KDE kdeapps
+
+> https://userbase.kde.org/Tutorials/Flatpak
+
+> https://develop.kde.org/docs/packaging/flatpak/
 
 1、添加 kdeapps
 
@@ -142,6 +154,12 @@ flatpak remote-add --if-not-exists kdeapps --from https://distribute.kde.org/kde
 flatpak install kdeapps 应用程序ID
 ```
 
+## 列出远程仓库
+
+```sh
+flatpak remotes
+```
+
 ## 删除远程仓库
 
 ```sh
@@ -152,12 +170,6 @@ flatpak remote-delete 仓库名
 
 ```sh
 flatpak remote-delete flathub
-```
-
-## 列出远程仓库
-
-```sh
-flatpak remotes
 ```
 
 ## 常用命令
@@ -184,7 +196,7 @@ flatpak install https://dl.flathub.org/repo/appstream/com.github.tchx84.Flatseal
 
 ### 降级
 
-1、获取包的应用ID
+1、获取应用程序ID
 
 ```sh
 flatpak list --app
@@ -193,13 +205,13 @@ flatpak list --app
 2、列出以前的版本并获取对应<Commit值>
 
 ```sh
-flatpak remote-info --log flathub 应用ID
+flatpak remote-info --log flathub 应用程序ID
 ```
 
 3、降级 Flatpack 包
 
 ```sh
-sudo flatpak update --commit=<Commit值> 应用ID
+sudo flatpak update --commit=<Commit值> 应用程序ID
 ```
 
 4、检查是否降级软件包
@@ -305,30 +317,6 @@ flatpak list --app
 ```sh
 flatpak info 应用程序ID
 ```
-
-## 参考文档
-
-1、Flatpak
-
-> https://flatpak.org/setup/
-
-> https://docs.flatpak.org/zh_CN/latest/
-
-2、Flathub
-
-> https://www.flathub.org/apps
-
-3、Flathub 镜像源
-
-> https://mirror.sjtu.edu.cn/docs/flathub
-
-4、gnome-nightly
-
-> https://wiki.gnome.org/Apps/Nightly
-
-5、kdeapps
-
-> https://community.kde.org/Guidelines_and_HOWTOs/Flatpak
 
 ## 帮助
 
