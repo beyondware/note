@@ -91,48 +91,6 @@ sudo dnf makecache
 
 > https://mirrors.ustc.edu.cn/help/fedora.html
 
-### RPM Fusion
-
-> https://rpmfusion.org/Configuration
-
-1、检查是否已安装 RPM fusion
-
-```sh
-dnf repolist | grep rpmfusion
-```
-
-2、安装 RPM fusion
-
-#### Fedora
-
-```sh
-sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
-sudo dnf install https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
-```
-
-#### Silverblue、Kinoite、CoreOS
-
-```sh
-sudo rpm-ostree install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
-sudo rpm-ostree install https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
-```
-
-3、查看添加的仓库列表
-
-```sh
-dnf repolist
-```
-
-4、删除 RPM fusion
-
-```sh
-rpm -qa 'rpmfusion*'  //列出
-```
-
-```sh
-sudo dnf remove rpmfusion-free-release rpmfusion-nonfree-release
-```
-
 ### 家目录
 
 #### 家目录英文改为中文
