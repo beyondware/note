@@ -248,7 +248,7 @@ timedatectl set-ntp true
 timedatectl status
 ```
 
-### 修改镜像源
+### 镜像源
 
 #### 自动获取
 
@@ -267,6 +267,7 @@ vim /etc/pacman.d/mirrorlist
 2、添加镜像源
 
 ```sh
+Server = https://mirrors.cernet.edu.cn/archlinux/$repo/os/$arch
 Server = https://mirror.nju.edu.cn/archlinux/$repo/os/$arch
 Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch
 ```
@@ -274,7 +275,7 @@ Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch
 3、更新软件包缓存
 
 ```sh
-pacman -Syy
+pacman -Syyu
 ```
 
 4、更新 GPG key
