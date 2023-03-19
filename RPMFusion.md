@@ -1,30 +1,4 @@
-### 安装桌面环境
-
-1、组列出
-
-```sh
-dnf group list
-```
-
-2、组安装
-
-```sh
-dnf groupinstall "Server with GUI"
-```
-
-3、开启图形化
-
-```sh
-systemctl set-default graphical
-```
-
-4、组移除
-
-```sh
-dnf groupremove "Server with GUI"
-```
-
-### RPM Fusion
+## Rocky Linux
 
 1、更新 Rocky Linux
 
@@ -38,23 +12,23 @@ sudo dnf upgrade --refresh
 dnf repolist | grep rpmfusion
 ```
 
-3、安装 EPEL
+### EPEL
 
-- 启用 CRB 存储库
+1、启用 CRB 存储库
 
 ```sh
 sudo dnf config-manager --set-enabled crb
 ```
 
-- 导入 EPEL
+2、导入 EPEL
 
 ```sh
 sudo dnf install --nogpgcheck https://dl.fedoraproject.org/pub/epel/epel-release-latest-$(rpm -E %rhel).noarch.rpm
 ```
 
-4、RPM Fusion
+### RPM Fusion
 
-- 安装
+1、安装
 
 ```sh
 sudo dnf install --nogpgcheck https://mirrors.rpmfusion.org/free/el/rpmfusion-free-release-$(rpm -E %rhel).noarch.rpm
@@ -79,7 +53,7 @@ sudo dnf groupupdate multimedia --setop="install_weak_deps=False" --exclude=Pack
 sudo dnf groupupdate sound-and-video
 ```
 
-- 删除
+2、删除
 
 ```sh
 rpm -qa 'rpmfusion*'
@@ -90,7 +64,7 @@ sudo dnf remove rpmfusion-free-release
 sudo dnf remove rpmfusion-nonfree-release
 ```
 
-5、RPM Fusion Testing Updates
+3、RPM Fusion Testing Updates
 
 - 启用
 
@@ -106,7 +80,7 @@ sudo dnf config-manager --set-disabled rpmfusion-free-updates-testing
 sudo dnf config-manager --set-disabled rpmfusion-nonfree-updates-testing
 ```
 
-6、RPM Fusion Tainted
+4、RPM Fusion Tainted
 
 - 安装
 
@@ -122,13 +96,13 @@ sudo dnf remove rpmfusion-free-release-tainted
 sudo dnf remove rpmfusion-nonfree-release-tainted
 ```
 
-7、查看添加的存储库列表
+5、查看存储库列表
 
 ```sh
 dnf repolist
 ```
 
-8、参考文档
+6、参考文档
 
 > https://docs.fedoraproject.org/en-US/epel/
 
