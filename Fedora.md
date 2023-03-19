@@ -48,6 +48,32 @@ ps -e | grep ssh
 
 ### 镜像源
 
+#### 方案一（推荐）
+
+1、替换
+
+```sh
+sudo sed -e 's|^metalink=|#metalink=|g' \
+         -e 's|^#baseurl=http://download.example/pub/fedora/linux|baseurl=https://mirrors.cernet.edu.cn/fedora|g' \
+         -i.backup \
+         /etc/yum.repos.d/fedora.repo \
+         /etc/yum.repos.d/fedora-modular.repo \
+         /etc/yum.repos.d/fedora-updates.repo \
+         /etc/yum.repos.d/fedora-updates-modular.repo
+```
+
+2、生成缓存
+
+```sh
+sudo dnf makecache
+```
+
+3、参考
+
+> https://help.mirrors.cernet.edu.cn/fedora/
+
+#### 方案二
+
 1、切换目录
 
 ```sh
