@@ -26,6 +26,8 @@ dnf groupremove "Server with GUI"
 
 ## 镜像源
 
+1、替换
+
 ```sh
 sudo sed -e 's|^mirrorlist=|#mirrorlist=|g' \
          -e 's|^#baseurl=http://dl.rockylinux.org/$contentdir|baseurl=https://mirrors.cernet.edu.cn/rocky|g' \
@@ -34,13 +36,13 @@ sudo sed -e 's|^mirrorlist=|#mirrorlist=|g' \
          /etc/yum.repos.d/rocky.repo
 ```
 
-- 更新缓存
+2、生成缓存
 
 ```sh
 sudo dnf makecache
 ```
 
-- 参考
+3、参考
 
 > https://help.mirrors.cernet.edu.cn/rocky/
 
