@@ -227,7 +227,7 @@ cd /etc/yum.repos.d
 ② 删除
 
 ```sh
-sudo rm packages.microsoft.com_yumrepos_edge.repo
+sudo rm packages.microsoft.com_yumrepos_edge.repo microsoft-edge.repo
 ```
 
 ## LibreWolf
