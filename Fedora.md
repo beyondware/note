@@ -193,7 +193,7 @@ sudo dnf install gnome-shell-extension-dash-to-dock
 
 ### 快捷键打开终端
 
-- 设置-键盘快捷键
+- 设置-键盘-自定义快捷键
 
 ```sh
 名称：open in terminal
