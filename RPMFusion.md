@@ -1,6 +1,6 @@
-## Rocky Linux
+## 系统
 
-1、更新 Rocky Linux
+1、升级
 
 ```sh
 sudo dnf upgrade --refresh
@@ -11,6 +11,28 @@ sudo dnf upgrade --refresh
 ```sh
 dnf repolist | grep rpmfusion
 ```
+
+3、查看存储库列表
+
+```sh
+dnf repolist
+```
+
+## Fedora
+
+```sh
+sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+sudo dnf install https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+```
+
+## Silverblue、Kinoite、CoreOS
+
+```sh
+sudo rpm-ostree install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+sudo rpm-ostree install https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+```
+
+## Rocky Linux、CentOS Stream
 
 ### EPEL
 
@@ -24,6 +46,7 @@ sudo dnf config-manager --set-enabled crb
 
 ```sh
 sudo dnf install --nogpgcheck https://dl.fedoraproject.org/pub/epel/epel-release-latest-$(rpm -E %rhel).noarch.rpm
+sudo dnf install --nogpgcheck https://dl.fedoraproject.org/pub/epel/epel-next-release-latest-$(rpm -E %rhel).noarch.rpm
 ```
 
 ### RPM Fusion
@@ -64,45 +87,39 @@ sudo dnf remove rpmfusion-free-release
 sudo dnf remove rpmfusion-nonfree-release
 ```
 
-3、RPM Fusion Testing Updates
+### RPM Fusion Testing Updates
 
-- 启用
+1、启用
 
 ```sh
 sudo dnf config-manager --set-enabled rpmfusion-free-updates-testing
 sudo dnf config-manager --set-enabled rpmfusion-nonfree-updates-testing
 ```
 
-- 禁用
+2、禁用
 
 ```sh
 sudo dnf config-manager --set-disabled rpmfusion-free-updates-testing
 sudo dnf config-manager --set-disabled rpmfusion-nonfree-updates-testing
 ```
 
-4、RPM Fusion Tainted
+### RPM Fusion Tainted
 
-- 安装
+1、安装
 
 ```sh
 sudo dnf install rpmfusion-free-release-tainted
 sudo dnf install rpmfusion-nonfree-release-tainted
 ```
 
-- 删除
+2、删除
 
 ```sh
 sudo dnf remove rpmfusion-free-release-tainted
 sudo dnf remove rpmfusion-nonfree-release-tainted
 ```
 
-5、查看存储库列表
-
-```sh
-dnf repolist
-```
-
-6、参考文档
+## 参考文档
 
 > https://docs.fedoraproject.org/en-US/epel/
 
