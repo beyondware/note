@@ -159,12 +159,24 @@ sudo dnf autoremove 包名
 dnf clean all
 ```
 
-4、相关删除
+4、清理未安装的包
+
+```sh
+dnf clean packages
+```
+
+5、关键匹配删除
 
 ① 列出与`关键字`匹配的已安装软件
 
 ```sh
 dnf list installed | grep 关键字
+```
+
+或者
+
+```sh
+rpm -qa | grep 关键字
 ```
 
 ② 删除相关（完整包名）
