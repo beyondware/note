@@ -355,3 +355,4 @@ sudo dnf install freetype-devel
 sudo dnf install libXrandr-devel
 ```
 
+
