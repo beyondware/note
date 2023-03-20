@@ -310,3 +310,48 @@ sudo ./install-gnome-backgrounds.sh
 ```sh
 cd /usr/share/backgrounds
 ```
+
+### 编译报错汇总
+
+1、configure: error: Cannot build a 32-bit program, you need to install 32-bit development libraries.
+
+```sh
+./configure --enable-win64
+```
+
+2、configure: error: no acceptable C compiler found in $PATH
+
+```sh
+sudo dnf install gcc-c++
+```
+
+3、configure: error: no suitable flex found. Please install the 'flex' package.
+
+```sh
+sudo dnf install flex
+```
+
+4、configure: error: no suitable bison found. Please install the 'bison' package.
+
+```sh
+sudo dnf install bison
+```
+
+5、configure: error: X 64-bit development files not found. Wine will be built
+
+```sh
+sudo dnf install libX11-devel
+```
+
+6、configure: error: FreeType 64-bit development files not found. Fonts will not be built.
+
+```sh
+sudo dnf install freetype-devel
+```
+
+7、fatal error: X11/extensions/Xrandr.h: No such file or directory
+
+```sh
+sudo dnf install libXrandr-devel
+```
+
