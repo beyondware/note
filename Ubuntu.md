@@ -79,10 +79,16 @@ sudo apt autoremove --purge
 #### 安装
 
 ```sh
-sudo apt install 包名 或者 包.deb
+sudo apt install 包名
 ```
 
 #### 本地安装
+
+```sh
+sudo apt install 包.deb
+```
+
+或者
 
 ```sh
 sudo dpkg -i 包.deb
@@ -99,6 +105,8 @@ sudo apt install -f
 ```sh
 sudo apt remove 包名
 ```
+
+或者
 
 ```sh
 dpkg uninstall 包名
@@ -119,13 +127,13 @@ sudo apt purge 包名
 #### 列出已安装
 
 ```sh
-sudo apt list --installed | grep -i 包的关键字
+sudo apt list --installed | grep -i 关键字
 ```
 
-#### 列出
+或者
 
 ```sh
-dpkg -L | grep 包的关键字
+dpkg -L | grep 关键字
 ```
 
 #### 升级
