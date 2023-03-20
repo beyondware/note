@@ -1,4 +1,4 @@
-### SSH
+## SSH
 
 - 远程拒绝打开外壳通道:错误:未连接，需要启动 SSH
 
@@ -46,9 +46,9 @@ ps -e | grep ssh
 
 > 显示 00:00:00 sshd 表示连接上了 SSH
 
-### 镜像源
+## 镜像源
 
-#### 方案一（推荐）
+### 方案一（推荐）
 
 1、替换
 
@@ -72,7 +72,7 @@ sudo dnf makecache
 
 > https://help.mirrors.cernet.edu.cn/fedora/
 
-#### 方案二
+### 方案二
 
 1、切换目录
 
@@ -109,11 +109,11 @@ sudo dnf makecache
 
 > https://mirrors.ustc.edu.cn/help/fedora.html
 
-### 家目录
+## 家目录
 
-#### 家目录中文改为英文
+### 家目录中文改为英文
 
-方案一（推荐）
+#### 方案一（推荐）
 
 ```sh
 export LANG=en_US
@@ -127,7 +127,7 @@ xdg-user-dirs-gtk-update
 
 > 点击：更新名称（Update Names）
 
-方案二（备选）
+#### 方案二
 
 ① 先将中文目录对应重命名为英文
 
@@ -161,7 +161,7 @@ XDG_VIDEOS_DIR="$HOME/Videos"
 
 ③ 重启生效
 
-#### 家目录英文改为中文
+### 家目录英文改为中文
 
 ```sh
 export LANG=zh_CN.UTF-8
@@ -171,7 +171,7 @@ export LANG=zh_CN.UTF-8
 xdg-user-dirs-gtk-update
 ```
 
-### 优化界面
+## 优化界面
 
 1、优化
 
@@ -201,7 +201,7 @@ sudo dnf install gnome-shell-extension-dash-to-dock
 快捷键：Ctrl+Alt+T
 ```
 
-### 特效扩展
+## 特效扩展
 
 - 扩展安装位置
 
@@ -220,6 +220,8 @@ cd ~/.local/share/gnome-shell/extensions
 3、Coverflow Alt-Tab：组合键“Alt+Tab”切换效果
 
 > https://extensions.gnome.org/extension/97/coverflow-alt-tab/
+
+## 美化界面
 
 ### 主题
 
@@ -311,7 +313,7 @@ sudo ./install-gnome-backgrounds.sh
 cd /usr/share/backgrounds
 ```
 
-### 编译报错汇总
+## 编译报错汇总
 
 1、configure: error: Cannot build a 32-bit program, you need to install 32-bit development libraries.
 
