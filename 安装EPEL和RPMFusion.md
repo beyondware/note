@@ -32,7 +32,7 @@ sudo rpm-ostree install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free
 sudo rpm-ostree install https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 ```
 
-## Rocky Linux、CentOS Stream
+## Rocky、CentOS Stream
 
 ### EPEL
 
@@ -46,6 +46,11 @@ sudo dnf config-manager --set-enabled crb
 
 ```sh
 sudo dnf install --nogpgcheck https://dl.fedoraproject.org/pub/epel/epel-release-latest-$(rpm -E %rhel).noarch.rpm
+```
+
+- CentOS Stream 需要添加，Rocky 不需要
+
+```
 sudo dnf install --nogpgcheck https://dl.fedoraproject.org/pub/epel/epel-next-release-latest-$(rpm -E %rhel).noarch.rpm
 ```
 
