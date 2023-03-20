@@ -14,13 +14,17 @@ tar -zxvf 下载包.tar.gz
 tar -jxvf 下载包.tar.bz2
 ```
 
+```sh
+tar -zxJf 下载包.tar.xz
+```
+
 ### 进入包目录
 
 ```sh
 cd 包目录
 ```
 
-- 查看源代码中是否有 configure 或者 Makefile 文件
+- 查看源代码中是否有`configure`或者`Makefile`文件
 
 ### 执行 configure
 
@@ -30,7 +34,7 @@ cd 包目录
 ./configure --prefix=/usr/local/包名
 ```
 
-- 正确执行后，包目录生成一个 **Makefile** 文件
+- 正确执行后，会生成`Makefile`文件
 
 > creating objs/Makefile //显示结果
 
@@ -71,19 +75,19 @@ echo &?
 ### 编译 Makefile 文件
 
 ```sh
-make
+make -j4  //4线程
 ```
 
 ### 安装
 
 ```sh
-make install
+sudo make install
 ```
 
 ### 卸载
 
 ```sh
-make uninstall
+sudo make uninstall
 ```
 
 ### 使用软件
@@ -95,7 +99,7 @@ make uninstall
 - 如果启动失败，需要关闭防火墙
 
 ```sh
-systemctl stop firewalld.service
+systemctl stop firewalld
 ```
 
 1、启动
