@@ -1,4 +1,4 @@
-## Fedora
+## Wine
 
 ### 方案一（推荐）
 
@@ -75,4 +75,53 @@ winecfg
 ```sh
 sudo rm /etc/yum.repos.d/winehq.repo
 ```
+
+## Winetricks
+
+1、使用Wine打开微信无法看到输入框内容
+
+### 方案一（推荐）
+
+从Windows系统中
+
+```sh
+C:\Windows\System32
+C:\Windows\SysWOW64
+```
+
+分别复制riched20.dll、riched32.dll到Linux系统
+
+```sh
+/home/$USER/.wine/drive_c/windows/system32/
+/home/$USER/.wine/drive_c/windows/syswow64/
+```
+
+Wine Configuration-函数库-新增函数库顶替-添加riched20、riched32
+
+### 方案二
+
+```sh
+sudo dnf install winetricks
+```
+
+```sh
+winetricks riched20
+```
+
+- 安装失败，解决方法：
+
+W2KSP4_EN.EXE放到win2ksp4目录下
+
+> http://x3270.bgp.nu/download/specials/W2KSP4_EN.EXE
+
+```sh
+/home/$USER/.cache/winetricks/win2ksp4/
+```
+
+InstMsiW.exe放到msls31目录下
+
+```sh
+/home/$USER/.cache/winetricks/msls31/
+```
+
 
