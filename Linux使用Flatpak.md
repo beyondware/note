@@ -242,7 +242,11 @@ flatpak uninstall --delete-data 应用程序ID
 flatpak uninstall --all
 ```
 
-- 删除所有和Flatpak相关数据
+#### 删除所有和Flatpak相关数据
+
+```sh
+flatpak uninstall --delete-data
+```
 
 ```sh
 flatpak uninstall --all --delete-data
