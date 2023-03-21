@@ -1,3 +1,17 @@
+### Linux内核版本
+
+```sh
+uname -a
+```
+
+```sh
+hostnamectl | grep -i kernel
+```
+
+```sh
+cat /proc/version
+```
+
 ### SSH
 
 ```sh
