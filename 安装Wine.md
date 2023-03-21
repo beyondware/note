@@ -124,4 +124,49 @@ InstMsiW.exe放到msls31目录下
 /home/$USER/.cache/winetricks/msls31/
 ```
 
+### winetricks --help
+
+```sh
+Usage: /usr/bin/winetricks [options] [command|verb|path-to-verb] ...
+Executes given verbs.  Each verb installs an application or changes a setting.
+
+Options:
+    --country=CC      Set country code to CC and don't detect your IP address
+-f, --force           Don't check whether packages were already installed
+    --gui             Show gui diagnostics even when driven by commandline
+    --gui=OPT         Set OPT to kdialog or zenity to override GUI engine
+    --isolate         Install each app or game in its own bottle (WINEPREFIX)
+    --self-update     Update this application to the last version
+    --update-rollback Rollback the last self update
+-k, --keep_isos       Cache isos (allows later installation without disc)
+    --no-clean        Don't delete temp directories (useful during debugging)
+-q, --unattended      Don't ask any questions, just install automatically
+-r, --ddrescue        Retry hard when caching scratched discs
+-t  --torify          Run downloads under torify, if available
+    --verify          Run (automated) GUI tests for verbs, if available
+-v, --verbose         Echo all commands as they are executed
+-h, --help            Display this message and exit
+-V, --version         Display version and exit
+
+Commands:
+list                  list categories
+list-all              list all categories and their verbs
+apps list             list verbs in category 'applications'
+benchmarks list       list verbs in category 'benchmarks'
+dlls list             list verbs in category 'dlls'
+fonts list            list verbs in category 'fonts'
+games list            list verbs in category 'games'
+settings list         list verbs in category 'settings'
+list-cached           list cached-and-ready-to-install verbs
+list-download         list verbs which download automatically
+list-manual-download  list verbs which download with some help from the user
+list-installed        list already-installed verbs
+arch=32|64            create wineprefix with 32 or 64 bit, this option must be
+                      given before prefix=foobar and will not work in case of
+                      the default wineprefix.
+prefix=foobar         select WINEPREFIX=/home/pc/.local/share/wineprefixes/foobar
+annihilate            Delete ALL DATA AND APPLICATIONS INSIDE THIS WINEPREFIX
+```
+
+
 
