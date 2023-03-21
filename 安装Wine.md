@@ -168,5 +168,48 @@ prefix=foobar         select WINEPREFIX=/home/pc/.local/share/wineprefixes/fooba
 annihilate            Delete ALL DATA AND APPLICATIONS INSIDE THIS WINEPREFIX
 ```
 
+## Flatpak 安装 Wine
+
+1、添加存储库
+
+```sh
+sudo flatpak --system remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+```
+
+2、更换镜像源
+
+```sh
+sudo flatpak remote-modify flathub --url=https://mirror.sjtu.edu.cn/flathub
+```
+
+3、启用 Flathub
+
+```sh
+flatpak remote-modify --enable flathub
+```
+
+4、安装一些依赖
+
+```sh
+sudo flatpak --system -y  install \
+	org.freedesktop.Platform/x86_64/22.08 \
+	org.freedesktop.Platform.Compat.i386/x86_64/22.08 \
+	org.freedesktop.Platform.GL32.default/x86_64/22.08 \
+	org.freedesktop.Platform.VAAPI.Intel/x86_64/22.08 \
+	org.freedesktop.Platform.VAAPI.Intel.i386/x86_64/22.08
+```
+
+5、安装 Wine
+
+```sh
+flatpak install flathub org.winehq.Wine
+```
+
+6、查询版本
+
+```sh
+flatpak run org.winehq.Wine --version
+```
+
 
 
