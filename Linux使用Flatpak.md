@@ -154,13 +154,13 @@ flatpak remote-add --if-not-exists kdeapps --from https://distribute.kde.org/kde
 flatpak install kdeapps 应用程序ID
 ```
 
-## 列出远程仓库
+## 列出 Flatpak 存储库
 
 ```sh
 flatpak remotes
 ```
 
-## 删除远程仓库
+## 删除 Flatpak 存储库
 
 ```sh
 flatpak remote-delete 仓库名
@@ -170,6 +170,12 @@ flatpak remote-delete 仓库名
 
 ```sh
 flatpak remote-delete flathub
+```
+
+### 查找系统中禁用的 Flatpak 存储库
+
+```sh
+flatpak remotes --show-disabled
 ```
 
 ## 常用命令
