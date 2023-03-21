@@ -12,6 +12,20 @@ hostnamectl | grep -i kernel
 cat /proc/version
 ```
 
+### 查看无线网卡型号
+
+```sh
+lspci
+lspci | grep Network
+lspci | grep -i net
+```
+
+```sh
+lsusb
+nmcli radio
+nmcli radio wifi on
+```
+
 ### SSH
 
 ```sh
