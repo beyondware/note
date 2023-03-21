@@ -76,6 +76,12 @@ winecfg
 sudo rm /etc/yum.repos.d/winehq.repo
 ```
 
+### 删除 Wine 安装的软件
+
+```sh
+wine uninstaller
+```
+
 ## Winetricks
 
 1、使用Wine打开微信无法看到输入框内容
