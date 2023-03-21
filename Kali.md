@@ -21,9 +21,12 @@ lspci | grep -i net
 ```
 
 ```sh
-lsusb
 nmcli radio
 nmcli radio wifi on
+```
+
+```sh
+lsusb
 ```
 
 ### SSH
