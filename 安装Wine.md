@@ -179,7 +179,7 @@ annihilate            Delete ALL DATA AND APPLICATIONS INSIDE THIS WINEPREFIX
 1、添加存储库
 
 ```sh
-sudo flatpak --system remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 ```
 
 2、更换镜像源
@@ -197,12 +197,12 @@ flatpak remote-modify --enable flathub
 4、安装一些依赖
 
 ```sh
-sudo flatpak --system -y  install \
-	org.freedesktop.Platform/x86_64/22.08 \
-	org.freedesktop.Platform.Compat.i386/x86_64/22.08 \
-	org.freedesktop.Platform.GL32.default/x86_64/22.08 \
-	org.freedesktop.Platform.VAAPI.Intel/x86_64/22.08 \
-	org.freedesktop.Platform.VAAPI.Intel.i386/x86_64/22.08
+sudo flatpak install \
+    org.freedesktop.Platform/x86_64/22.08 \
+    org.freedesktop.Platform.Compat.i386/x86_64/22.08 \
+    org.freedesktop.Platform.GL32.default/x86_64/22.08 \
+    org.freedesktop.Platform.VAAPI.Intel/x86_64/22.08 \
+    org.freedesktop.Platform.VAAPI.Intel.i386/x86_64/22.08
 ```
 
 5、安装 Wine
@@ -217,5 +217,9 @@ flatpak install flathub org.winehq.Wine
 flatpak run org.winehq.Wine --version
 ```
 
+7、配置
 
+```sh
+flatpak run org.winehq.Wine winecfg
+```
 
