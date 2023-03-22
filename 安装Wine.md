@@ -174,7 +174,7 @@ prefix=foobar         select WINEPREFIX=/home/pc/.local/share/wineprefixes/fooba
 annihilate            Delete ALL DATA AND APPLICATIONS INSIDE THIS WINEPREFIX
 ```
 
-## Flatpak 安装 Wine
+## Flatpak 安装 Wine（不推荐）
 
 1、添加存储库
 
