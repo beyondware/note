@@ -213,6 +213,20 @@ dpkg -L | grep firefox
 sudo dpkg -P firefox firefox-locale-en firefox-locale-zh-hans
 ```
 
+#### Chromium
+
+1、安装
+
+```sh
+sudo apt install chromium-browser
+```
+
+2、删除
+
+```sh
+sudo apt remove chromium-browser
+```
+
 #### Chrome
 
 1、下载
