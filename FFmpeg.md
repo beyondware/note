@@ -1,6 +1,6 @@
-### 安装 FFmpeg
+## 安装 FFmpeg
 
-- Fedora
+### Fedora
 
 1、查询是否已安装 RPM Fusion
 
@@ -21,7 +21,13 @@ sudo dnf install https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-
 sudo dnf install ffmpeg
 ```
 
-4、查询版本，确认是否安装成功
+### Ubuntu
+
+```sh
+sudo apt install ffmpeg
+```
+
+### 查询版本，确认是否安装成功
 
 ```sh
 ffmpeg -version
@@ -93,7 +99,7 @@ ffmpeg -i input.mp4 -vcodec copy -an output.mp4
 ffmpeg -i output.mp4 -i input.mp3 -vcodec copy -acodec copy new_output.mp4
 ```
 
-### ffmpeg -h
+## ffmpeg -h
 
 ```sh
 Hyper fast Audio and Video encoder
