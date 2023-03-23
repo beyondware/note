@@ -250,6 +250,14 @@ timedatectl status
 
 ### 镜像源
 
+- 多进程
+
+```sh
+sudo vim /etc/pacman.conf
+```
+
+> MaxParallelDownloads = 5 //取消#注释，并行下载数
+
 #### 自动获取
 
 ```sh
@@ -267,9 +275,12 @@ vim /etc/pacman.d/mirrorlist
 2、添加镜像源
 
 ```sh
+# China
 Server = https://mirrors.cernet.edu.cn/archlinux/$repo/os/$arch
 Server = https://mirror.nju.edu.cn/archlinux/$repo/os/$arch
 Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch
+Server = https://mirrors.ustc.edu.cn/archlinux/$repo/os/$arch
+Server = https://mirrors.sjtug.sjtu.edu.cn/archlinux/$repo/os/$arch
 ```
 
 3、更新软件包缓存
