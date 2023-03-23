@@ -250,7 +250,7 @@ timedatectl status
 
 ### 镜像源
 
-- 多进程
+#### 多进程
 
 ```sh
 sudo vim /etc/pacman.conf
