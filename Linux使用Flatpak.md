@@ -214,6 +214,12 @@ flatpak install https://dl.flathub.org/repo/appstream/com.github.tchx84.Flatseal
 
 > 必须全部打勾 ✔ 才能安装成功
 
+#### 安装位置
+
+> /var/lib/flatpak
+
+> ~/home/$USER/.local/share/flatpak
+
 #### 报错信息
 
 > error: Unable to load summary from remote flathub: Could not connect: 拒绝连接
@@ -281,22 +287,17 @@ flatpak uninstall --all --delete-data
 3、卸载未使用
 
 ```sh
-flatpak uninstall --unused  或者  flatpak remove --unused
+flatpak uninstall --unused
+flatpak remove --unused
 ```
 
-4、安装位置
-
-> /var/lib/flatpak
-
-> ~/.local/share/flatpak
-
-5、列出所有已安装 flatpak，包括安装类型、大小和应用程序 ID
+4、列出所有已安装 flatpak，包括安装类型、大小和应用程序 ID
 
 ```sh
 flatpak --columns=app,name,size,installation list
 ```
 
-6、删除缓存文件
+#### 删除缓存文件
 
 ```sh
 sudo rm -rf /var/tmp/flatpak-cache-*
