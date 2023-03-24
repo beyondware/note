@@ -1,46 +1,4 @@
-### 模式切换
-
-> Win+Shift+Tab
-
-### SSH
-
-1、安装 SSH
-
-```sh
-sudo apt install openssh-server
-```
-
-2、启动 SSH
-
-```sh
-sudo /etc/init.d/ssh start
-```
-
-或者
-
-```sh
-sudo systemctl start ssh
-```
-
-3、开机启动 SSH
-
-```sh
-sudo systemctl enable ssh
-```
-
-4、修改 SSH 允许远程登陆
-
-```sh
-sudo vim /etc/ssh/sshd_config
-```
-
-- 修改成
-
-```sh
-PermitRootLogin yes
-```
-
-### 修改源
+## Deepin 换源
 
 1、编辑
 
@@ -63,3 +21,35 @@ sudo apt update
 3、参考源
 
 > https://developer.aliyun.com/mirror/deepin
+
+## Kali 换源
+
+1、修改
+
+```sh
+sudo vim /etc/apt/sources.list
+```
+
+```sh
+deb http://http.kali.org/kali kali-rolling main contrib non-free
+deb-src http://http.kali.org/kali kali-rolling main contrib non-free
+```
+
+改成
+
+```sh
+deb https://mirrors.cernet.edu.cn/kali kali-rolling main non-free contrib
+deb-src https://mirrors.cernet.edu.cn/kali kali-rolling main non-free contrib
+```
+
+2、更新
+
+```sh
+sudo apt update
+```
+
+3、参考
+
+> https://help.mirrors.cernet.edu.cn/kali/
+
+> https://mirrors.ustc.edu.cn/help/kali.html
