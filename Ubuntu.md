@@ -1,52 +1,6 @@
-### SSH
-
-1、安装 SSH
-
-```sh
-sudo apt install openssh-server
-```
-
-2、启动 SSH
-
-```sh
-sudo systemctl start sshd
-```
-
-3、开机启动 SSH
-
-```sh
-sudo systemctl enable sshd
-```
-
-4、允许登陆 SSH
-
-```sh
-sudo vim /etc/ssh/sshd_config
-```
-
-> PermitRootLogin without-password 修改为 PermitRootLogin yes
-
-5、重启 SSH
-
-```sh
-sudo systemctl restart sshd
-```
-
-6、查看 SSH 状态
-
-```sh
-sudo systemctl status sshd
-```
-
-7、查看 SSH 进程
-
-```sh
-ps -e | grep sshd
-```
-
-> 显示 00:00:00 sshd 表示开启了 SSH
-
 ### 镜像源
+
+#### Ubuntu
 
 ```sh
 sudo vim /etc/apt/sources.list
@@ -63,6 +17,9 @@ sudo vim /etc/apt/sources.list
 清华大学
 
 > https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/
+
+
+
 
 ### 系统
 
