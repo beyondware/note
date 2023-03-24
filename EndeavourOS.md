@@ -38,9 +38,9 @@ sudo vim  /etc/pacman.d/endeavouros-mirrorlist
 ```
 
 ```sh
+## China
 Server = https://mirrors.nju.edu.cn/endeavouros/repo/$repo/$arch
 Server = https://mirrors.tuna.tsinghua.edu.cn/endeavouros/repo/$repo/$arch
-Server = https://mirror.linux.pizza/endeavouros/repo/$repo/$arch
 ```
 
 2、更新缓存
