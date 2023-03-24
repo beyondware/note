@@ -291,12 +291,6 @@ flatpak uninstall --unused
 flatpak remove --unused
 ```
 
-4、列出所有已安装 flatpak，包括安装类型、大小和应用程序 ID
-
-```sh
-flatpak --columns=app,name,size,installation list
-```
-
 #### 删除缓存文件
 
 ```sh
@@ -343,17 +337,19 @@ flatpak list
 flatpak list --app
 ```
 
+3、列出所有已安装 flatpak，包括安装类型、大小和应用程序 ID
+
+```sh
+flatpak --columns=app,name,size,installation list
+```
+
 ### 详细信息
 
 ```sh
 flatpak info 应用程序ID
 ```
 
-## 帮助
-
-```sh
-flatpak --help
-```
+## flatpak --help
 
 ```sh
 用法：
