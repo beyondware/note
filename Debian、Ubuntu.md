@@ -1,27 +1,84 @@
-### 镜像源
+## 镜像源
 
-#### Ubuntu
+### 换源
 
 ```sh
 sudo vim /etc/apt/sources.list
 ```
 
-官方源
+#### Debian
+
+- 官方源
+
+> http://deb.debian.org/debian
+
+修改为
+
+> https://mirrors.cernet.edu.cn/debian/
+
+- 参考
+
+> https://help.mirrors.cernet.edu.cn/debian/
+
+> https://mirrors.tuna.tsinghua.edu.cn/help/debian/
+
+#### Ubuntu
+
+- 官方源
 
 > http://archive.ubuntu.com/ubuntu/
 
-阿里云
+修改为
 
-> https://developer.aliyun.com/mirror/ubuntu
+> https://mirrors.cernet.edu.cn/ubuntu/
 
-清华大学
+- 参考
+
+> https://help.mirrors.cernet.edu.cn/ubuntu/
 
 > https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/
 
+> https://developer.aliyun.com/mirror/ubuntu
 
+#### Deepin
 
+- 文件最前面添加以下内容
 
-### 系统
+```sh
+deb [by-hash=force] https://mirrors.nju.edu.cn/deepin/ apricot main contrib non-free
+```
+
+- 参考源
+
+> https://developer.aliyun.com/mirror/deepin
+
+#### Kali
+
+```sh
+deb http://http.kali.org/kali kali-rolling main contrib non-free
+deb-src http://http.kali.org/kali kali-rolling main contrib non-free
+```
+
+改成
+
+```sh
+deb https://mirrors.cernet.edu.cn/kali kali-rolling main non-free contrib
+deb-src https://mirrors.cernet.edu.cn/kali kali-rolling main non-free contrib
+```
+
+- 参考
+
+> https://help.mirrors.cernet.edu.cn/kali/
+
+> https://mirrors.ustc.edu.cn/help/kali.html
+
+### 更新
+
+```sh
+sudo apt update
+```
+
+## 系统
 
 ```sh
 sudo apt update && sudo apt upgrade
@@ -152,9 +209,9 @@ apt info 包名
 - 文本和背景颜色：Solarized
 - 调色板：Solarized
 
-### 浏览器
+## 浏览器
 
-#### Firefox
+### Firefox
 
 1、查看
 
@@ -170,7 +227,7 @@ dpkg -L | grep firefox
 sudo dpkg -P firefox firefox-locale-en firefox-locale-zh-hans
 ```
 
-#### Chromium
+### Chromium
 
 1、安装
 
@@ -184,7 +241,7 @@ sudo apt install chromium-browser
 sudo apt remove chromium-browser
 ```
 
-#### Chrome
+### Chrome
 
 1、下载
 
