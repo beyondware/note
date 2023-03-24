@@ -33,7 +33,7 @@ sudo pacman -Syyu
 1、安装多个包，用空格隔开
 
 ```sh
-sudo pacman -S 包名
+sudo pacman -S 包1 包2
 ```
 
 2、更新（包数据库）
