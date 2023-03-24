@@ -31,6 +31,8 @@ sudo pacman -S archlinux-keyring
 
 > https://github.com/endeavouros-team/repo
 
+1、修改
+
 ```sh
 sudo vim  /etc/pacman.d/endeavouros-mirrorlist
 ```
@@ -39,6 +41,18 @@ sudo vim  /etc/pacman.d/endeavouros-mirrorlist
 Server = https://mirrors.nju.edu.cn/endeavouros/repo/$repo/$arch
 Server = https://mirrors.tuna.tsinghua.edu.cn/endeavouros/repo/$repo/$arch
 Server = https://mirror.linux.pizza/endeavouros/repo/$repo/$arch
+```
+
+2、更新缓存
+
+```sh
+sudo pacman -Syyu
+```
+
+3、更新 GPG key
+
+```sh
+sudo pacman -S endeavouros-keyring
 ```
 
 ## 添加 archlinuxcn 镜像源
@@ -65,7 +79,7 @@ Server = https://mirror.sjtu.edu.cn/archlinux-cn/$arch
 2、更新缓存
 
 ```sh
-sudo pacman -Syy
+sudo pacman -Syyu
 ```
 
 3、更新 GPG key
