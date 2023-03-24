@@ -1,4 +1,6 @@
-### 换源
+### Kali 换源
+
+1、修改
 
 ```sh
 sudo vim /etc/apt/sources.list
@@ -16,13 +18,13 @@ deb https://mirrors.cernet.edu.cn/kali kali-rolling main non-free contrib
 deb-src https://mirrors.cernet.edu.cn/kali kali-rolling main non-free contrib
 ```
 
-### 更新
+2、更新
 
 ```sh
 sudo apt update
 ```
 
-### 参考
+3、参考
 
 > https://help.mirrors.cernet.edu.cn/kali/
 
