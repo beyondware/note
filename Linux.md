@@ -38,6 +38,22 @@ sudo systemctl stop sshd
 sudo systemctl restart sshd
 ```
 
+### 允许 SSH 远程登陆
+
+```sh
+sudo vim /etc/ssh/sshd_config
+```
+
+```sh
+PermitRootLogin prohibit-password
+```
+
+改成
+
+```sh
+PermitRootLogin yes
+```
+
 ### 查看 SSH 连接状态
 
 ```sh
@@ -116,4 +132,31 @@ xdg-user-dirs-gtk-update
 名称：open in terminal
 命令：/usr/bin/gnome-terminal
 快捷键：Ctrl+Alt+T
+```
+
+## Linux内核版本
+
+```sh
+uname -a
+```
+
+```sh
+hostnamectl | grep -i kernel
+```
+
+```sh
+cat /proc/version
+```
+
+## 查看无线网卡型号
+
+```sh
+lspci
+lspci | grep Network
+lspci | grep -i net
+```
+
+```sh
+nmcli radio
+nmcli radio wifi on
 ```
