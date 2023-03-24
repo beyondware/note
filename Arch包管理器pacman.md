@@ -200,11 +200,7 @@ pacman -Qqdt
 pactree 包名
 ```
 
-### 全部命令
-
-```sh
-pacman -h
-```
+### pacman -h
 
 ```sh
 用法:  pacman <操作> [...]
@@ -220,8 +216,11 @@ pacman -h
     pacman {-U --upgrade}  [选项] <文件>
 
 使用 'pacman {-h --help}' 及某个操作以查看可用选项
+```
 
-pacman -D -h
+#### pacman -D -h
+
+```sh
 用法:  pacman {-D --database} <选项> <软件包>
 选项:
   -b, --dbpath <路径>  指定另外的数据库位置
@@ -244,8 +243,11 @@ pacman -D -h
       --logfile <路径> 指定另外的日志文件
       --noconfirm      不询问确认
       --sysroot        在一个已挂载的 guest 系统操作（仅 root）
+```
 
-pacman -F -h
+#### pacman -F -h
+
+```sh
 用法:  pacman {-F --files} [选项] [文件]
 选项:
   -b, --dbpath <路径>  指定另外的数据库位置
@@ -271,8 +273,11 @@ pacman -F -h
                        产生机器可读输出
       --noconfirm      不询问确认
       --sysroot        在一个已挂载的 guest 系统操作（仅 root）
+```
 
-pacman -Q -h
+#### pacman -Q -h
+
+```sh
 用法:  pacman {-Q --query} [选项] [软件包]
 选项:
   -b, --dbpath <路径>  指定另外的数据库位置
@@ -306,8 +311,11 @@ pacman -Q -h
       --logfile <路径> 指定另外的日志文件
       --noconfirm      不询问确认
       --sysroot        在一个已挂载的 guest 系统操作（仅 root）
+```
 
-pacman -R -h
+#### pacman -R -h
+
+```sh
 用法:  pacman {-R --remove} [选项] <软件包>
 选项:
   -b, --dbpath <路径>  指定另外的数据库位置
@@ -340,8 +348,11 @@ pacman -R -h
       --print-format <字符串>
                        指定如何打印目标
       --sysroot        在一个已挂载的 guest 系统操作（仅 root）
+```
 
-pacman -S -h
+#### pacman -S -h
+
+```sh
 用法:  pacman {-S --sync} [选项] [软件包]
 选项:
   -b, --dbpath <路径>  指定另外的数据库位置
@@ -388,8 +399,11 @@ pacman -S -h
       --print-format <字符串>
                        指定如何打印目标
       --sysroot        在一个已挂载的 guest 系统操作（仅 root）
+```
 
-pacman -T -h
+#### pacman -T -h
+
+```sh
 用法:  pacman {-T --deptest} [选项] [软件包]
 选项:
   -b, --dbpath <路径>  指定另外的数据库位置
@@ -408,8 +422,11 @@ pacman -T -h
       --logfile <路径> 指定另外的日志文件
       --noconfirm      不询问确认
       --sysroot        在一个已挂载的 guest 系统操作（仅 root）
+```
 
-pacman -U -h
+#### pacman -U -h
+
+```sh
 用法:  pacman {-U --upgrade} [选项] <文件>
 选项:
   -b, --dbpath <路径>  指定另外的数据库位置
