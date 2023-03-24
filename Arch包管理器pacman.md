@@ -1,3 +1,13 @@
+### 多进程
+
+```sh
+sudo vim /etc/pacman.conf
+```
+
+> MaxParallelDownloads = 5 //取消#注释，并行下载数
+
+> ParallelDownloads = 5
+
 ### 系统
 
 1、全部升级
