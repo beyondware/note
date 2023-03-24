@@ -61,68 +61,6 @@ sudo dnf makecache
 
 > https://mirrors.ustc.edu.cn/help/fedora.html
 
-## 家目录
-
-### 家目录中文改为英文
-
-#### 方案一（推荐）
-
-```sh
-export LANG=en_US
-```
-
-```sh
-xdg-user-dirs-gtk-update
-```
-
-> 勾选：不要再次询问我（Don't ask me this again）
-
-> 点击：更新名称（Update Names）
-
-#### 方案二
-
-① 先将中文目录对应重命名为英文
-
-```sh
-桌面：Desktop
-下载：Downloads
-模板：Templates
-公共：Public
-文档：Documents
-音乐：Music
-图片：Pictures
-视频：Videos
-```
-
-② 修改配置
-
-```sh
-sudo vim ~/.config/user-dirs.dirs
-```
-
-```sh
-XDG_DESKTOP_DIR="$HOME/Desktop"
-XDG_DOWNLOAD_DIR="$HOME/Downloads"
-XDG_TEMPLATES_DIR="$HOME/Templates"
-XDG_PUBLICSHARE_DIR="$HOME/Public"
-XDG_DOCUMENTS_DIR="$HOME/Documents"
-XDG_MUSIC_DIR="$HOME/Music"
-XDG_PICTURES_DIR="$HOME/Pictures"
-XDG_VIDEOS_DIR="$HOME/Videos"
-```
-
-③ 重启生效
-
-### 家目录英文改为中文
-
-```sh
-export LANG=zh_CN.UTF-8
-```
-
-```sh
-xdg-user-dirs-gtk-update
-```
-
 ## 优化界面
 
 1、优化
