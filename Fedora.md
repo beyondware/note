@@ -81,16 +81,6 @@ sudo dnf install gnome-extensions-app
 sudo dnf install gnome-shell-extension-dash-to-dock
 ```
 
-### 快捷键打开终端
-
-- 设置-键盘-自定义快捷键
-
-```sh
-名称：open in terminal
-命令：/usr/bin/gnome-terminal
-快捷键：Ctrl+Alt+T
-```
-
 ## 特效扩展
 
 - 扩展安装位置
