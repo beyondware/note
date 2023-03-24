@@ -43,21 +43,13 @@ sudo wget -O /etc/yum.repos.d/fedora-updates.repo http://mirrors.aliyun.com/repo
 sudo dnf makecache
 ```
 
-3、参考源
-
-- 阿里云
+3、参考
 
 > https://developer.aliyun.com/mirror/fedora
 
-- 腾讯云
-
 > https://mirrors.cloud.tencent.com/help/fedora.html
 
-- 清华大学
-
 > https://mirrors.tuna.tsinghua.edu.cn/help/fedora/
-
-- 中国科学技术大学
 
 > https://mirrors.ustc.edu.cn/help/fedora.html
 
