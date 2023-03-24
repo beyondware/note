@@ -250,14 +250,6 @@ timedatectl status
 
 ### 镜像源
 
-#### 多进程
-
-```sh
-sudo vim /etc/pacman.conf
-```
-
-> MaxParallelDownloads = 5 //取消#注释，并行下载数
-
 #### 自动获取
 
 ```sh
@@ -275,7 +267,7 @@ vim /etc/pacman.d/mirrorlist
 2、添加镜像源
 
 ```sh
-# China
+## China
 Server = https://mirrors.cernet.edu.cn/archlinux/$repo/os/$arch
 Server = https://mirror.nju.edu.cn/archlinux/$repo/os/$arch
 Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch
@@ -898,6 +890,12 @@ sudo systemctl enable fstrim.timer
 sudo pacman -S wqy-microhei wqy-zenhei noto-fonts-cjk noto-fonts-emoji
 ```
 
+### 安装 open-vm-tools，重启系统
+
+```sh
+sudo pacman -S open-vm-tools open-vm-tools-desktop
+```
+
 ### 桌面环境（先装xorg）
 
 > https://wiki.archlinux.org/title/Desktop_environment
@@ -1031,12 +1029,6 @@ See "systemctl status lightdm.service" and "journalctl -xeu lightdm.service" for
 
 > 显示（Display）→分辨率（Resolution）
 
-### 安装 open-vm-tools，重启系统
-
-```sh
-sudo pacman -S open-vm-tools
-```
-
 ### 中文输入法
 
 #### fcitx5 输入法
@@ -1134,88 +1126,6 @@ yay -S ibus-qt
 ```
 
 7、系统重启，才能生效。
-
-### 添加 archlinuxcn 源
-
-> https://www.archlinuxcn.org/archlinux-cn-repo-and-mirror/
-
-1、编辑
-
-```sh
-sudo vim /etc/pacman.conf
-```
-
-- 文件末尾添加
-
-```sh
-[archlinuxcn]
-Server = https://mirror.nju.edu.cn/archlinuxcn/$arch
-Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch
-```
-
-2、更新软件包缓存
-
-```sh
-sudo pacman -Syy
-```
-
-3、更新 GPG key
-
-```sh
-sudo pacman -S archlinuxcn-keyring
-```
-
-4、如果遇到一连串error
-
-> https://www.archlinuxcn.org/gnupg-2-1-and-the-pacman-keyring/
-
-- 以 root 账号运行
-
-```sh
-pacman -Syu haveged
-```
-
-```sh
-systemctl start haveged
-```
-
-```sh
-systemctl enable haveged
-```
-
-```sh
-rm -fr /etc/pacman.d/gnupg
-```
-
-```sh
-pacman-key --init
-```
-
-```sh
-pacman-key --populate archlinux
-```
-
-```sh
-pacman-key --populate archlinuxcn
-```
-
-#### 安装 yay
-
-- 需先添加 archlinuxcn 源
-
-```sh
-sudo pacman -S yay
-```
-
-#### 安装 pamac-aur
-
-```sh
-yay -Syu pamac-aur
-```
-
-```sh
-pamac-manager
-```
 
 ### 默认命令行编辑器
 
