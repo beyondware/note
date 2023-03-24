@@ -18,13 +18,13 @@ Server = https://mirrors.sjtug.sjtu.edu.cn/archlinux/$repo/os/$arch
 2、更新缓存
 
 ```sh
-pacman -Syyu
+sudo pacman -Syyu
 ```
 
 3、更新 GPG key
 
 ```sh
-pacman -S archlinux-keyring
+sudo pacman -S archlinux-keyring
 ```
 
 ## 修改 endeavouros 镜像源
