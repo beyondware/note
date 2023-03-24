@@ -1,5 +1,7 @@
 ## 修改 archlinux 镜像源
 
+1、修改
+
 ```sh
 sudo vim /etc/pacman.d/mirrorlist
 ```
@@ -11,6 +13,18 @@ Server = https://mirror.nju.edu.cn/archlinux/$repo/os/$arch
 Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch
 Server = https://mirrors.ustc.edu.cn/archlinux/$repo/os/$arch
 Server = https://mirrors.sjtug.sjtu.edu.cn/archlinux/$repo/os/$arch
+```
+
+2、更新缓存
+
+```sh
+pacman -Syyu
+```
+
+3、更新 GPG key
+
+```sh
+pacman -S archlinux-keyring
 ```
 
 ## 修改 endeavouros 镜像源
