@@ -4,6 +4,14 @@
 
 > Remote rejected opening a shell channel: Error: Not connected
 
+### 安装 SSH
+
+- Debian、Ubuntu
+
+```sh
+sudo apt install openssh-server
+```
+
 ### 查看 SSH 状态
 
 ```sh
@@ -15,6 +23,12 @@ systemctl status sshd
 > Active: inactive (dead) 表示关闭
 
 ### 启动 SSH
+
+```sh
+sudo /etc/init.d/ssh start
+```
+
+或者
 
 ```sh
 sudo systemctl start sshd
