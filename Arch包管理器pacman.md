@@ -68,7 +68,7 @@ sudo pacman -Sw 包名
 
 ### 删除
 
-1、只删除包，保留依赖
+1、删除，保留依赖
 
 ```sh
 sudo pacman -R 包名
@@ -86,28 +86,28 @@ sudo pacman -Rs 包名
 sudo pacman -Rsu 包名
 ```
 
-3、删除包和所有依赖（警告）
+3、删除依赖和配置文件
+
+```sh
+sudo pacman -Rsn 包名
+```
+
+4、删除包和所有依赖（警告）
 
 ```sh
 sudo pacman -Rsc 包名
 ```
 
-4、删除包，跳过检查
+5、删除包，跳过检查
 
 ```sh
 sudo pacman -Rd 包名
 ```
 
-5、强制删除，跳过所有检查（务必谨慎）
+6、强制删除，跳过所有检查（务必谨慎）
 
 ```sh
 sudo pacman -Rdd 包名
-```
-
-6、删除依赖项和配置文件
-
-```sh
-sudo pacman -Rns 包名
 ```
 
 ### 清理
