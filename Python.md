@@ -12,6 +12,9 @@
 
 ```sh
 python --version
+```
+
+```sh
 pip --version
 ```
 
@@ -27,6 +30,9 @@ Failed to find python3-pip;21.3.1-2.fc36;noarch;fedora
 
 ```sh
 python -m ensurepip --upgrade
+```
+
+```sh
 python -m pip install --upgrade pip
 ```
 
@@ -38,6 +44,9 @@ python -m pip install --upgrade pip
 
 ```sh
 python -m pip install -i https://mirrors.cernet.edu.cn/pypi/web/simple --upgrade pip
+```
+
+```sh
 pip config set global.index-url https://mirrors.cernet.edu.cn/pypi/web/simple
 ```
 
