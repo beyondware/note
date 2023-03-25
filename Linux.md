@@ -160,11 +160,22 @@ cat /proc/version
 
 ```sh
 lspci
-lspci | grep Network
-lspci | grep -i net
 ```
 
 ```sh
+lspci | grep Network
+```
+
+```sh
+lspci | grep -i net
+```
+
+## 查看 WiFi 是否打开
+
+```sh
 nmcli radio
+```
+
+```sh
 nmcli radio wifi on
 ```
