@@ -1,15 +1,3 @@
----
-title: PowerShell 使用方法
-author: beyondware
-tags:
-  - [PowerShell]
-categories:
-  - [Windows]
-description: 一款跨平台的shell
-toc: true
-pin: true
----
-
 ## PowerShell
 
 - 参考
