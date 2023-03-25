@@ -1,10 +1,3 @@
----
-title: 浏览器离线安装.crx扩展
-author: beyondware
-tags:
-  - [浏览器]
----
-
 1、开启设置
 
 - Chrome
