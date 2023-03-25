@@ -76,7 +76,7 @@ pip config set global.index-url https://mirrors.cernet.edu.cn/pypi/web/simple
 ### 配置多个镜像源，源地址之间需要有空格
 
 ```sh
-pip config set global.extra-index-url "https://mirrors.cernet.edu.cn/pypi/web/simple https://mirror.nju.edu.cn/pypi/web/simple"
+pip config set global.extra-index-url "https://mirror.nju.edu.cn/pypi/web/simple https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple"
 ```
 
 ### 查看当前源
@@ -90,6 +90,8 @@ cat ~/.config/pip/pip.conf
 > https://help.mirrors.cernet.edu.cn/pypi/
 
 > https://mirror.nju.edu.cn/help/pypi
+
+> https://mirrors.tuna.tsinghua.edu.cn/help/pypi/
 
 ## pip 升级
 
