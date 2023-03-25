@@ -22,13 +22,13 @@ pip --version
 
 > https://www.jetbrains.com/pycharm/
 
-## 解决 Python 没有安装 pip 的问题
+## 报错汇总
+
+1、解决 Python 没有安装 pip 的问题
 
 ```sh
 Failed to find python3-pip;21.3.1-2.fc36;noarch;fedora
 ```
-
-> 一般 Linux 自带 python，但是没有安装 pip 报错。
 
 - 解决方法
 
@@ -38,6 +38,29 @@ python -m ensurepip --upgrade
 
 ```sh
 python -m pip install --upgrade pip
+```
+
+2、未加入 PATH 路径
+
+```sh
+WARNING: The scripts pip, pip3 and pip3.10 are installed in '/home/pc/.local/bin' which is not on PATH.
+Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+```
+
+- 解决方法
+
+```sh
+echo 'export PATH=/home/pc/.local/bin:$PATH' >>~/.bashrc
+```
+
+```sh
+source ~/.bashrc
+```
+
+- 验证
+
+```sh
+pip --version
 ```
 
 ## pip 换镜像源
