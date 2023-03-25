@@ -18,6 +18,10 @@ python --version
 pip --version
 ```
 
+## PyCharm
+
+> https://www.jetbrains.com/pycharm/
+
 ## 解决 Python 没有安装 pip 的问题
 
 ```sh
@@ -36,10 +40,6 @@ python -m ensurepip --upgrade
 python -m pip install --upgrade pip
 ```
 
-## PyCharm
-
-> https://www.jetbrains.com/pycharm/
-
 ## pip 换镜像源
 
 ```sh
@@ -50,7 +50,7 @@ python -m pip install -i https://mirrors.cernet.edu.cn/pypi/web/simple --upgrade
 pip config set global.index-url https://mirrors.cernet.edu.cn/pypi/web/simple
 ```
 
-### 配置多个镜像源
+### 配置多个镜像源，源地址之间需要有空格
 
 ```sh
 pip config set global.extra-index-url "https://mirrors.cernet.edu.cn/pypi/web/simple https://mirror.nju.edu.cn/pypi/web/simple"
