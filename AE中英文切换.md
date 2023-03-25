@@ -1,12 +1,3 @@
----
-title: AE 中英文切换
-author: beyondware
-tags:
-  - [cmd]
-categories:
-  - [Windows]
----
-
 - AE 路径
 
 ```sh
