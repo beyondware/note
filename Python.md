@@ -1,4 +1,4 @@
-### Python 自定义安装
+## Python 自定义安装
 
 1、选择“Customize installation”（自定义安装）
 
@@ -8,61 +8,72 @@
 
 > 显示“Setup was successful”（表示安装成功）
 
-4、验证结果
+### 验证结果
 
 ```sh
 python --version
-```
-
-```sh
 pip --version
 ```
 
-### PyCharm
-
-> https://www.jetbrains.com/pycharm/
-
-### 解决 Python 没有安装 pip 的问题
-
-- 一般 Linux 自带 python，但是没有安装 pip 报错
+## 解决 Python 没有安装 pip 的问题
 
 ```sh
 Failed to find python3-pip;21.3.1-2.fc36;noarch;fedora
 ```
 
+> 一般 Linux 自带 python，但是没有安装 pip 报错。
+
 - 解决方法
 
 ```sh
 python -m ensurepip --upgrade
-```
-
-```sh
 python -m pip install --upgrade pip
 ```
 
-### pypi 换镜像源
+## PyCharm
+
+> https://www.jetbrains.com/pycharm/
+
+## pip 换镜像源
 
 ```sh
-pip install pip -U
+python -m pip install -i https://mirrors.cernet.edu.cn/pypi/web/simple --upgrade pip
+pip config set global.index-url https://mirrors.cernet.edu.cn/pypi/web/simple
 ```
 
-- 永久性，以**南京大学**镜像源为例：
+### 配置多个镜像源
 
 ```sh
-pip config set global.index-url https://mirror.nju.edu.cn/pypi/web/simple
+pip config set global.extra-index-url "https://mirrors.cernet.edu.cn/pypi/web/simple https://mirror.nju.edu.cn/pypi/web/simple"
 ```
 
-- 查看当前源
+### 查看当前源
 
 ```sh
 cat ~/.config/pip/pip.conf
 ```
 
-- 参考源
+### 参考
+
+> https://help.mirrors.cernet.edu.cn/pypi/
 
 > https://mirror.nju.edu.cn/help/pypi
 
-### pip 命令
+## pip 升级
+
+### 升级指定程序包
+
+```sh
+pip install --upgrade 包名
+```
+
+### 升级所有软件包
+
+```sh
+pip install --upgrade $(pip freeze | awk -F= '{print $1}')
+```
+
+## pip --help
 
 ```sh
 Usage:
