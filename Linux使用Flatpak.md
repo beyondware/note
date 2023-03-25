@@ -106,6 +106,9 @@ flatpak remote-modify --enable flathub
 
 ```sh
 XDG_DATA_DIRS=报错路径
+```
+
+```sh
 export XDG_DATA_DIRS
 ```
 
@@ -285,6 +288,9 @@ flatpak uninstall --all --delete-data
 
 ```sh
 flatpak uninstall --unused
+```
+
+```sh
 flatpak remove --unused
 ```
 
