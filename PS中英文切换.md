@@ -1,12 +1,3 @@
----
-title: PS 中英文切换
-author: beyondware
-tags:
-  - [cmd]
-categories:
-  - [Windows]
----
-
 - PS 路径
 
 ```sh
