@@ -117,5 +117,5 @@ systemctl isolate multi-user.target
 ### 安装 open-vm-tools
 
 ```sh
-sudo dnf install open-vm-tools open-vm-tools-desktop fuse
+sudo dnf install open-vm-tools open-vm-tools-desktop
 ```
