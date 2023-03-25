@@ -84,30 +84,6 @@ flatpak install flathub 应用程序ID
 sudo flatpak override 应用程序ID --filesystem=host
 ```
 
-
-4、报错汇总
-
-① "error: Unable to load summary from remote flathub: Can't fetch summary from disabled remote 'flathub,"
-
-- 解决方法
-
-```sh
-flatpak remote-modify --enable flathub
-```
-
-② XDG_DATA_DIRS is not set on fish shell. No desktop entry appears after install an app.
-
-```sh
-XDG_DATA_DIRS=报错路径
-export XDG_DATA_DIRS
-```
-
-重启系统
-
-```sh
-echo $XDG_DATA_DIRS
-```
-
 #### 修改 flathub 镜像源
 
 > https://mirror.sjtu.edu.cn/docs/flathub
@@ -115,6 +91,33 @@ echo $XDG_DATA_DIRS
 ```sh
 sudo flatpak remote-modify flathub --url=https://mirror.sjtu.edu.cn/flathub
 ```
+
+#### 报错汇总
+
+1、"error: Unable to load summary from remote flathub: Can't fetch summary from disabled remote 'flathub,"
+
+- 解决方法
+
+```sh
+flatpak remote-modify --enable flathub
+```
+
+2、XDG_DATA_DIRS is not set on fish shell. No desktop entry appears after install an app.
+
+```sh
+XDG_DATA_DIRS=报错路径
+export XDG_DATA_DIRS
+```
+
+重启系统，查看输出结果
+
+```sh
+echo $XDG_DATA_DIRS
+```
+
+3、error: Unable to load summary from remote flathub: Could not connect: 拒绝连接
+
+网络环境问题，需要多次安装尝试
 
 ### 添加 Fedora
 
@@ -196,6 +199,12 @@ flatpak remotes --show-disabled
 
 ## 常用命令
 
+### 安装位置
+
+> /var/lib/flatpak
+
+> ~/home/$USER/.local/share/flatpak
+
 ### 安装
 
 #### 方案一
@@ -213,18 +222,6 @@ flatpak install https://dl.flathub.org/repo/appstream/com.github.tchx84.Flatseal
 > Installation complete. //表示安装完成
 
 > 必须全部打勾 ✔ 才能安装成功
-
-#### 安装位置
-
-> /var/lib/flatpak
-
-> ~/home/$USER/.local/share/flatpak
-
-#### 报错信息
-
-> error: Unable to load summary from remote flathub: Could not connect: 拒绝连接
-
-网络环境问题，需要多次安装尝试
 
 ### 降级
 
@@ -262,7 +259,7 @@ flatpak uninstall 应用程序ID
 
 > Uninstall complete. //卸载完成
 
-- 卸载和删除指定软件的数据
+#### 删除指定软件和Flatpak相关数据
 
 ```sh
 flatpak uninstall --delete-data 应用程序ID
