@@ -6,6 +6,9 @@
 
 ```sh
 sudo dnf install wine wine.i686
+```
+
+```sh
 sudo dnf autoremove wine wine.i686
 ```
 
@@ -41,6 +44,9 @@ sudo dnf config-manager --add-repo https://dl.winehq.org/wine-builds/fedora/$(rp
 
 ```sh
 sudo dnf install winehq-stable
+```
+
+```sh
 sudo dnf autoremove winehq-stable
 ```
 
@@ -48,6 +54,9 @@ sudo dnf autoremove winehq-stable
 
 ```sh
 sudo dnf install winehq-staging
+```
+
+```sh
 sudo dnf autoremove winehq-staging
 ```
 
@@ -55,6 +64,9 @@ sudo dnf autoremove winehq-staging
 
 ```sh
 sudo dnf install winehq-devel
+```
+
+```sh
 sudo dnf autoremove winehq-devel
 ```
 
@@ -92,6 +104,9 @@ wine uninstaller
 
 ```sh
 C:\Windows\System32
+```
+
+```sh
 C:\Windows\SysWOW64
 ```
 
@@ -99,6 +114,9 @@ C:\Windows\SysWOW64
 
 ```sh
 /home/$USER/.wine/drive_c/windows/system32/
+```
+
+```sh
 /home/$USER/.wine/drive_c/windows/syswow64/
 ```
 
