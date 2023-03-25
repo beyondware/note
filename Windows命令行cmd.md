@@ -11,107 +11,147 @@ exit：退出
 
 ### 开关机
 
-关机
+1、关机
 
-> shutdown -s
+```sh
+shutdown -s
+```
 
-重启
+2、重启
 
-> shutdown -r
+```sh
+shutdown -r
+```
 
-注销
+3、注销
 
-> shutdown -l 或者 logoff
+```sh
+shutdown -l 或者 logoff
+```
 
-### 切换目录
+### cd 目录
 
-- cd：（change directory）切换目录
+cd：（change directory）切换目录
 
-当前目录
+1、当前目录
 
-> cd.
+```sh
+cd.
+```
 
-切换上一级目录
+2、切换上一级目录
 
-> cd..
+```sh
+cd..
+```
 
-切换根目录
+3、切换根目录
 
-> cd \
+```sh
+cd \
+```
 
-切换盘符(如：E 盘)
+4、切换盘符(如：E 盘)
 
-> e:
+```sh
+e:
+```
 
-目录
+### dir 目录
 
-> dir：（directory）查看当前目录
+dir：（directory）查看当前目录
 
-> mkdir 或者 md：（make directory）创建目录
+```sh
+mkdir 或者 md：（make directory）创建目录
+```
 
-> rmdir 或者 rd：（remove directory）删除目录
+```sh
+rmdir 或者 rd：（remove directory）删除目录
+```
 
-删除
+### del 删除
 
-> del：删除文件
+```sh
+del：删除文件
+```
 
-复制
+### 复制
 
-> copy：复制文件
+```sh
+copy：复制文件
+```
 
-> xcopy：复制目录
+```sh
+xcopy：复制目录
+```
 
-移动
+### move 移动
 
-> move
+### rename 重命名
 
-重命名
+```sh
+rename 或者 ren：重命名文件
+```
 
-> rename 或者 ren：重命名文件
+### echo 输出
 
-### 输出
-
-- echo
+```sh
+echo abc > a.txt
+```
 
 abc 内容`输入`到 a.txt
 
-> echo abc > a.txt
+```sh
+echo abc >> a.txt
+```
 
 abc 内容`追加`到 a.txt
 
-> echo abc >> a.txt
+### tasklist 进程
 
-### 进程
+1、显示正在运行进程
 
-显示正在运行进程
+```sh
+tasklist
+```
 
-> tasklist
+2、结束进程
 
-结束进程
+```sh
+taskkill /pid 进程编号
+```
 
-> taskkill /pid 进程编号
+3、关闭程序
 
-关闭程序
+```sh
+taskkill /im 程序名
+```
 
-> taskkill /im 程序名
+4、运行程序
 
-运行程序
-
-> start 程序名
+```sh
+start 程序名
+```
 
 ### 网络
 
-显示 IP 地址信息
+1、显示 IP 地址信息
 
-> ipconfig
+```sh
+ipconfig
+```
 
-清除本地 DNS 缓存
+2、清除本地 DNS 缓存
 
-> ipconfig /flushdns
+```sh
+ipconfig /flushdns
+```
 
-ping IP 地址：延迟和丢包率
+3、延迟和丢包率
 
-> ping 61.139.2.69 -t
+```sh
+ping 61.139.2.69 -t
+```
 
 - 向（61.139.2.69）发包
 
