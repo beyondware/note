@@ -34,6 +34,9 @@ cd /etc/yum.repos.d/
 
 ```sh
 sudo wget -O /etc/yum.repos.d/fedora.repo http://mirrors.aliyun.com/repo/fedora.repo
+```
+
+```sh
 sudo wget -O /etc/yum.repos.d/fedora-updates.repo http://mirrors.aliyun.com/repo/fedora-updates.repo
 ```
 
