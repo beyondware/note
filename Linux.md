@@ -68,7 +68,7 @@ PermitRootLogin yes
 ps -e | grep ssh
 ```
 
-> 显示 00:00:00 sshd 表示连接上了 SSH
+> 显示 00:00:00 sshd 表示 SSH 已启动
 
 ## 家目录
 
