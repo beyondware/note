@@ -22,6 +22,9 @@ dnf repolist
 
 ```sh
 sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+```
+
+```sh
 sudo dnf install https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 ```
 
@@ -29,6 +32,9 @@ sudo dnf install https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-
 
 ```sh
 sudo rpm-ostree install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+```
+
+```sh
 sudo rpm-ostree install https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 ```
 
@@ -60,6 +66,9 @@ sudo dnf install --nogpgcheck https://dl.fedoraproject.org/pub/epel/epel-next-re
 
 ```sh
 sudo dnf install --nogpgcheck https://mirrors.rpmfusion.org/free/el/rpmfusion-free-release-$(rpm -E %rhel).noarch.rpm
+```
+
+```sh
 sudo dnf install --nogpgcheck https://mirrors.rpmfusion.org/nonfree/el/rpmfusion-nonfree-release-$(rpm -E %rhel).noarch.rpm
 ```
 
@@ -89,6 +98,9 @@ rpm -qa 'rpmfusion*'
 
 ```sh
 sudo dnf remove rpmfusion-free-release
+```
+
+```sh
 sudo dnf remove rpmfusion-nonfree-release
 ```
 
@@ -98,6 +110,9 @@ sudo dnf remove rpmfusion-nonfree-release
 
 ```sh
 sudo dnf config-manager --set-enabled rpmfusion-free-updates-testing
+```
+
+```sh
 sudo dnf config-manager --set-enabled rpmfusion-nonfree-updates-testing
 ```
 
@@ -105,6 +120,9 @@ sudo dnf config-manager --set-enabled rpmfusion-nonfree-updates-testing
 
 ```sh
 sudo dnf config-manager --set-disabled rpmfusion-free-updates-testing
+```
+
+```sh
 sudo dnf config-manager --set-disabled rpmfusion-nonfree-updates-testing
 ```
 
@@ -114,6 +132,9 @@ sudo dnf config-manager --set-disabled rpmfusion-nonfree-updates-testing
 
 ```sh
 sudo dnf install rpmfusion-free-release-tainted
+```
+
+```sh
 sudo dnf install rpmfusion-nonfree-release-tainted
 ```
 
@@ -121,10 +142,13 @@ sudo dnf install rpmfusion-nonfree-release-tainted
 
 ```sh
 sudo dnf remove rpmfusion-free-release-tainted
+```
+
+```sh
 sudo dnf remove rpmfusion-nonfree-release-tainted
 ```
 
-## 参考文档
+## 参考
 
 > https://docs.fedoraproject.org/en-US/epel/
 
