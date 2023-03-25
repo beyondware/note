@@ -1,11 +1,3 @@
----
-title: 在 AI 中使用 Ai2Psd
-author: beyondware
-tags:
-  - [AI]
-description: AI 制作好后.psd格式转出
----
-
 1、下载 Ai2Psd
 
 > https://github.com/creold/ai-to-psd
