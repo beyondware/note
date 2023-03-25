@@ -25,12 +25,6 @@ systemctl status sshd
 ### 启动 SSH
 
 ```sh
-sudo /etc/init.d/ssh start
-```
-
-或者
-
-```sh
 sudo systemctl start sshd
 ```
 
