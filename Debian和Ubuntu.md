@@ -78,25 +78,31 @@ deb-src https://mirrors.cernet.edu.cn/kali kali-rolling main non-free contrib
 sudo apt update
 ```
 
-## 系统
+## 系统升级
 
 ```sh
 sudo apt update && sudo apt upgrade
 ```
 
+### 自动处理包依赖
+
 ```sh
-sudo apt autoremove --purge
+sudo apt dist-upgrade
 ```
 
-### 常用命令
+### 升级整个系统
 
-#### 安装
+```sh
+sudo apt full-upgrade
+```
+
+## 安装
 
 ```sh
 sudo apt install 包名
 ```
 
-#### 本地安装
+### 本地安装
 
 ```sh
 sudo apt install 包.deb
@@ -114,7 +120,7 @@ sudo dpkg -i 包.deb
 sudo apt install -f
 ```
 
-#### 卸载
+## 删除
 
 ```sh
 sudo apt remove 包名
@@ -126,7 +132,7 @@ sudo apt remove 包名
 dpkg uninstall 包名
 ```
 
-- 自动卸载
+### 自动删除
 
 ```sh
 sudo apt autoremove 包名
@@ -138,7 +144,13 @@ sudo apt autoremove 包名
 sudo apt purge 包名
 ```
 
-#### 列出已安装
+### 自动删除和依赖
+
+```sh
+sudo apt autoremove --purge
+```
+
+## 列出已安装
 
 ```sh
 sudo apt list --installed | grep -i 关键字
@@ -150,59 +162,57 @@ sudo apt list --installed | grep -i 关键字
 dpkg -L | grep 关键字
 ```
 
-#### 升级
-
-1、升级到最新版本
+## 升级
 
 ```sh
 sudo apt upgrade 包名
 ```
 
-- 自动处理依赖项升级包
+### 自动处理依赖项升级包
 
 ```sh
 sudo apt full-upgrade 包名
 ```
 
-2、查看可升级的软件包
+### 查看可升级的软件包
 
 ```sh
 apt list --upgradable
 ```
 
-3、仅升级指定的软件包
+### 仅升级指定的软件包
 
 ```sh
 sudo apt install --only-upgrade 包名
 ```
 
-4、模拟升级（但不升级任何包）
+### 模拟升级（但不升级任何包）
 
 ```sh
 apt -s upgrade
 ```
 
-#### 搜索
+## 搜索
 
 ```sh
 apt search 包名
 ```
 
-#### 详细信息
+## 详细信息
 
-1、显示包的详细信息
+### 显示包的详细信息
 
 ```sh
 apt show 包名
 ```
 
-2、获取详细信息
+### 获取详细信息
 
 ```sh
 apt info 包名
 ```
 
-### 终端美化
+## 终端美化
 
 终端-点击“三杠”-配置文件首选项
 
