@@ -1,30 +1,16 @@
-### 下载
+### 下载并解压包
 
 ```sh
 wget 下载链接
 ```
 
-### 解压软件包
-
-```sh
-tar -zxvf 下载包.tar.gz
-```
-
-```sh
-tar -jxvf 下载包.tar.bz2
-```
-
-```sh
-tar -zxJf 下载包.tar.xz
-```
-
-### 进入包目录
+### 切换到包目录
 
 ```sh
 cd 包目录
 ```
 
-- 查看源代码中是否有`configure`或者`Makefile`文件
+- 查看目录中是否有`configure`或者`Makefile`文件
 
 ### 执行 configure
 
@@ -64,12 +50,6 @@ rm -rf Makefile objs
 
 ```sh
 ./configure --prefix=/usr/local/包名
-```
-
-### 检验上一步操作是否正确
-
-```sh
-echo &?
 ```
 
 ### 编译 Makefile 文件
