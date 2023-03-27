@@ -30,6 +30,12 @@ sudo dnf install ffmpeg
 sudo apt install ffmpeg
 ```
 
+### Arch
+
+```sh
+sudo pacman -S ffmpeg
+```
+
 ### 查询版本，确认是否安装成功
 
 ```sh
