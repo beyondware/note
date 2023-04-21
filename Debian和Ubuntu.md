@@ -22,24 +22,6 @@ sudo vim /etc/apt/sources.list
 
 > https://mirrors.tuna.tsinghua.edu.cn/help/debian/
 
-#### Ubuntu
-
-- 官方源
-
-> http://archive.ubuntu.com/ubuntu/
-
-修改为
-
-> https://mirrors.cernet.edu.cn/ubuntu/
-
-- 参考
-
-> https://help.mirrors.cernet.edu.cn/ubuntu/
-
-> https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/
-
-> https://developer.aliyun.com/mirror/ubuntu
-
 #### Deepin
 
 - 文件最前面添加以下内容
@@ -72,10 +54,77 @@ deb-src https://mirrors.cernet.edu.cn/kali kali-rolling main non-free contrib
 
 > https://mirrors.ustc.edu.cn/help/kali.html
 
+#### Ubuntu
+
+- 官方源
+
+> http://archive.ubuntu.com/ubuntu/
+
+修改为
+
+> https://mirrors.cernet.edu.cn/ubuntu/
+
+- 参考
+
+> https://help.mirrors.cernet.edu.cn/ubuntu/
+
+> https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/
+
+> https://developer.aliyun.com/mirror/ubuntu
+
+#### KDE neon
+
+1、编辑
+
+```sh
+sudo vim /etc/apt/sources.list.d/neon.list
+```
+
+2、修改
+
+```sh
+deb https://mirrors.bfsu.edu.cn/kde-neon/user focal main
+deb https://mirror.nju.edu.cn/kde-neon/user focal main
+deb https://mirror.iscas.ac.cn/kde-neon/user focal main
+```
+
+3、更新
+
+```sh
+apt update
+```
+
 ### 更新
 
 ```sh
 sudo apt update
+```
+
+## PPA
+
+1、列出已安装 PPA
+
+```sh
+ls /etc/apt/sources.list.d/
+```
+2、删除 PPA
+
+```sh
+sudo add-apt-repository --remove ppa:username/ppa-name
+```
+
+```sh
+sudo add-apt-repository --remove xxx.list
+```
+
+3、使用 PPA-Purge 删除 PPA
+
+```sh
+sudo apt install ppa-purge
+```
+
+```sh
+sudo ppa-purge ppa:username/ppa-name
 ```
 
 ## 系统升级
