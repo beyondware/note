@@ -1,12 +1,12 @@
 ## 镜像源
 
-### 换源
+一、编辑
 
 ```sh
 sudo vim /etc/apt/sources.list
 ```
 
-#### Debian
+### Debian
 
 - 官方源
 
@@ -22,7 +22,7 @@ sudo vim /etc/apt/sources.list
 
 > https://mirrors.tuna.tsinghua.edu.cn/help/debian/
 
-#### Deepin
+### Deepin
 
 - 文件最前面添加以下内容
 
@@ -34,7 +34,7 @@ deb [by-hash=force] https://mirrors.nju.edu.cn/deepin/ apricot main contrib non-
 
 > https://developer.aliyun.com/mirror/deepin
 
-#### Kali
+### Kali
 
 ```sh
 deb http://http.kali.org/kali kali-rolling main contrib non-free
@@ -54,7 +54,7 @@ deb-src https://mirrors.cernet.edu.cn/kali kali-rolling main non-free contrib
 
 > https://mirrors.ustc.edu.cn/help/kali.html
 
-#### Ubuntu
+### Ubuntu
 
 - 官方源
 
@@ -72,7 +72,7 @@ deb-src https://mirrors.cernet.edu.cn/kali kali-rolling main non-free contrib
 
 > https://developer.aliyun.com/mirror/ubuntu
 
-#### KDE neon
+### KDE neon
 
 1、编辑
 
@@ -88,13 +88,7 @@ deb https://mirror.nju.edu.cn/kde-neon/user focal main
 deb https://mirror.iscas.ac.cn/kde-neon/user focal main
 ```
 
-3、更新
-
-```sh
-apt update
-```
-
-### 更新
+二、更新
 
 ```sh
 sudo apt update
