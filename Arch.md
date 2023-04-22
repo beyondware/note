@@ -1066,7 +1066,7 @@ GLFW_IM_MODULE=ibus
 1、安装 ibus
 
 ```sh
-sudo pacman -S ibus ibus-libpinyin ibus-table-chinese
+sudo pacman -S ibus ibus-libpinyin ibus-libzhuyin ibus-table-chinese ibus-typing-booster
 ```
 
 2、运行 ibus-setup 初始程序
