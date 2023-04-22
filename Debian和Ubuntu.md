@@ -1,22 +1,32 @@
 ## 镜像源
 
-一、编辑
+### Debian
+
+1、编辑
 
 ```sh
 sudo vim /etc/apt/sources.list
 ```
 
-### Debian
+2、官方源
 
-- 官方源
-
-> http://deb.debian.org/debian
+```sh
+http://deb.debian.org/debian
+```
 
 修改为
 
-> https://mirrors.cernet.edu.cn/debian/
+```sh
+https://mirrors.cernet.edu.cn/debian/
+```
 
-- 参考
+3、更新
+
+```sh
+sudo apt update
+```
+
+4、参考
 
 > https://help.mirrors.cernet.edu.cn/debian/
 
@@ -24,17 +34,37 @@ sudo vim /etc/apt/sources.list
 
 ### Deepin
 
-- 文件最前面添加以下内容
+1、编辑
+
+```sh
+sudo vim /etc/apt/sources.list
+```
+
+2、文件最前面添加以下内容
 
 ```sh
 deb [by-hash=force] https://mirrors.nju.edu.cn/deepin/ apricot main contrib non-free
 ```
 
-- 参考源
+3、更新
+
+```sh
+sudo apt update
+```
+
+4、参考
 
 > https://developer.aliyun.com/mirror/deepin
 
 ### Kali
+
+1、编辑
+
+```sh
+sudo vim /etc/apt/sources.list
+```
+
+2、修改
 
 ```sh
 deb http://http.kali.org/kali kali-rolling main contrib non-free
@@ -48,7 +78,13 @@ deb https://mirrors.cernet.edu.cn/kali kali-rolling main non-free contrib
 deb-src https://mirrors.cernet.edu.cn/kali kali-rolling main non-free contrib
 ```
 
-- 参考
+3、更新
+
+```sh
+sudo apt update
+```
+
+4、参考
 
 > https://help.mirrors.cernet.edu.cn/kali/
 
@@ -56,15 +92,31 @@ deb-src https://mirrors.cernet.edu.cn/kali kali-rolling main non-free contrib
 
 ### Ubuntu
 
-- 官方源
+1、编辑
 
-> http://archive.ubuntu.com/ubuntu/
+```sh
+sudo vim /etc/apt/sources.list
+```
+
+2、官方源
+
+```sh
+http://archive.ubuntu.com/ubuntu/
+```
 
 修改为
 
-> https://mirrors.cernet.edu.cn/ubuntu/
+```sh
+https://mirrors.cernet.edu.cn/ubuntu/
+```
 
-- 参考
+3、更新
+
+```sh
+sudo apt update
+```
+
+4、参考
 
 > https://help.mirrors.cernet.edu.cn/ubuntu/
 
@@ -88,7 +140,7 @@ deb https://mirror.nju.edu.cn/kde-neon/user focal main
 deb https://mirror.iscas.ac.cn/kde-neon/user focal main
 ```
 
-二、更新
+3、更新
 
 ```sh
 sudo apt update
@@ -121,19 +173,21 @@ sudo apt install ppa-purge
 sudo ppa-purge ppa:username/ppa-name
 ```
 
-## 系统升级
+## 系统
+
+1、系统升级
 
 ```sh
 sudo apt update && sudo apt upgrade
 ```
 
-### 自动处理包依赖
+2、自动处理包依赖
 
 ```sh
 sudo apt dist-upgrade
 ```
 
-### 升级整个系统
+3、整个系统升级
 
 ```sh
 sudo apt full-upgrade
