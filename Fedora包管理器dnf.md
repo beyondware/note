@@ -53,31 +53,31 @@ sudo dnf system-upgrade reboot
 
 ## 系统
 
-### 系统升级并刷新
+1、系统升级并刷新
 
 ```sh
 sudo dnf upgrade --refresh
 ```
 
-### 系统更新
+2、系统更新
 
 ```sh
 sudo dnf update
 ```
 
-### 删除旧内核
+3、删除旧内核
 
 ```sh
 sudo dnf remove --oldinstallonly
 ```
 
-### 列出已安装最新版本
+4、列出已安装最新版本
 
 ```sh
 sudo dnf distro-sync
 ```
 
-### 检查可升级
+5、检查可升级
 
 ```sh
 dnf check-update
