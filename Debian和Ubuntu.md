@@ -122,6 +122,52 @@ sudo apt update
 
 > https://developer.aliyun.com/mirror/ubuntu
 
+### Linux Mint
+
+1、编辑
+
+```sh
+sudo vim /etc/apt/sources.list.d/official-package-repositories.list
+```
+
+2、修改
+
+#### Linux-Mint
+
+```sh
+http://packages.linuxmint.com/
+```
+
+修改为
+
+```sh
+https://mirrors.cernet.edu.cn/linuxmint/
+```
+
+#### Ubuntu
+
+```sh
+http://archive.ubuntu.com/ubuntu
+```
+
+修改为
+
+```sh
+https://mirrors.cernet.edu.cn/ubuntu/
+```
+
+3、更新
+
+```sh
+sudo apt update
+```
+
+4、参考
+
+```sh
+https://help.mirrors.cernet.edu.cn/linuxmint/
+```
+
 ### KDE neon
 
 #### Ubuntu
