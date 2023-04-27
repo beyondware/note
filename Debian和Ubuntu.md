@@ -64,18 +64,16 @@ sudo apt update
 sudo vim /etc/apt/sources.list
 ```
 
-2、修改
+2、官方源
 
 ```sh
-deb http://http.kali.org/kali kali-rolling main contrib non-free
-deb-src http://http.kali.org/kali kali-rolling main contrib non-free
+http://http.kali.org/kali
 ```
 
-改成
+修改为
 
 ```sh
-deb https://mirrors.cernet.edu.cn/kali kali-rolling main non-free contrib
-deb-src https://mirrors.cernet.edu.cn/kali kali-rolling main non-free contrib
+https://mirrors.cernet.edu.cn/kali
 ```
 
 3、更新
@@ -126,18 +124,79 @@ sudo apt update
 
 ### KDE neon
 
+#### Ubuntu
+
+1、编辑
+
+```sh
+sudo vim /etc/apt/sources.list
+```
+
+2、官方源
+
+```sh
+http://archive.ubuntu.com/ubuntu/
+```
+
+修改为
+
+```sh
+https://mirrors.cernet.edu.cn/ubuntu/
+```
+
+3、更新
+
+```sh
+sudo apt update
+```
+
+#### KDE-neon
+
 1、编辑
 
 ```sh
 sudo vim /etc/apt/sources.list.d/neon.list
 ```
 
-2、修改
+2、官方源
 
 ```sh
-deb https://mirrors.bfsu.edu.cn/kde-neon/user focal main
-deb https://mirror.nju.edu.cn/kde-neon/user focal main
-deb https://mirror.iscas.ac.cn/kde-neon/user focal main
+http://archive.neon.kde.org/user
+```
+
+修改为
+
+```sh
+https://mirrors.bfsu.edu.cn/kde-neon/user
+https://mirror.nju.edu.cn/kde-neon/user
+https://mirror.iscas.ac.cn/kde-neon/user
+```
+
+3、更新
+
+```sh
+sudo apt update
+```
+
+### openKylin
+
+1、编辑
+
+```sh
+sudo vim /etc/apt/sources.list
+```
+
+2、官方源
+
+```sh
+https://archive.openkylin.top/openkylin/
+```
+
+修改为
+
+```sh
+https://mirror.nju.edu.cn/openkylin/
+https://mirrors.lzu.edu.cn/openkylin/
 ```
 
 3、更新
@@ -171,6 +230,84 @@ sudo apt install ppa-purge
 
 ```sh
 sudo ppa-purge ppa:username/ppa-name
+```
+
+## 将Ubuntu 22.04升级到Ubuntu 23.04
+
+1、查看当前版本
+
+```sh
+lsb_release -a
+```
+
+2、系统更新并升级
+
+```sh
+sudo apt update && sudo apt upgrade
+```
+
+3、安装 update-manager-core
+
+```sh
+sudo apt install update-manager-core
+```
+
+开发版
+
+```sh
+update-manager -c -d
+```
+
+4、编辑
+
+```sh
+sudo vim /etc/update-manager/release-upgrades
+```
+
+> Prompt=lts
+
+改为
+
+> Prompt=normal
+
+5、替代
+
+```sh
+sudo sed -i ‘s/jammy/lunar/g’ /etc/apt/sources.list
+```
+
+注：jammy为22.04版本，lunar为23.04版本
+
+6、更新并升级
+
+```sh
+sudo apt update && sudo apt upgrade
+```
+
+7、执行升级
+
+```sh
+sudo apt dist-upgrade
+```
+
+8、开始版本升级
+
+```sh
+sudo do-release-upgrade -d
+```
+
+> 第三方 PPA 和存储库在升级期间被禁用
+
+9、重启
+
+```sh
+sudo reboot
+```
+
+10、确认版本，是否升级成功
+
+```sh
+cat /etc/os-release
 ```
 
 ## 系统
