@@ -26,6 +26,28 @@
 
 > https://github.com/MehediH/winstall
 
+## 镜像源
+
+1、更换源（以管理员身份运行终端）
+
+```sh
+winget source remove winget
+```
+
+```sh
+winget source add winget https://mirrors.ustc.edu.cn/winget-source
+```
+
+2、重置为官方源
+
+```sh
+winget source reset winget
+```
+
+3、参考
+
+> https://unicom.mirrors.ustc.edu.cn/help/winget-source.html
+
 ## winget --help
 
 ```sh
