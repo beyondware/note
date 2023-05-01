@@ -1,4 +1,4 @@
-## winget 安装
+## 安装 winget
 
 1、先安装 App Installer（应用安装程序）
 
@@ -26,9 +26,11 @@
 
 > https://github.com/MehediH/winstall
 
-## 命令
+## winget --help
 
 ```sh
+WinGet 命令行实用工具可从命令行安装应用程序和其他程序包。
+
 使用情况: winget [<命令>] [<选项>]
 
 下列命令有效:
@@ -51,4 +53,6 @@
 下列选项可用：
   -v,--version  显示工具的版本
   --info        显示工具的常规信息
+
+可在此找到更多帮助： https://aka.ms/winget-command-help
 ```
