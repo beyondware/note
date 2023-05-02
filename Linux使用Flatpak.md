@@ -58,9 +58,9 @@ sudo apt install flatpak-builder elfutils
 
 ### 添加 Flathub
 
-1、添加 flathub
-
 > error: No remote refs found similar to ‘flathub’ //未发现类似于 "flathub" 的远程
+
+1、添加 flathub
 
 ```sh
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
@@ -84,7 +84,7 @@ flatpak install flathub 应用程序ID
 sudo flatpak override 应用程序ID --filesystem=host
 ```
 
-#### 修改 flathub 镜像源
+### 修改 flathub 镜像源
 
 > https://mirror.sjtu.edu.cn/docs/flathub
 
@@ -95,8 +95,6 @@ sudo flatpak remote-modify flathub --url=https://mirror.sjtu.edu.cn/flathub
 ### 报错汇总
 
 1、"error: Unable to load summary from remote flathub: Can't fetch summary from disabled remote 'flathub,"
-
-- 解决方法
 
 ```sh
 flatpak remote-modify --enable flathub
