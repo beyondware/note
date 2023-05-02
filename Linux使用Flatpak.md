@@ -92,7 +92,7 @@ sudo flatpak override 应用程序ID --filesystem=host
 sudo flatpak remote-modify flathub --url=https://mirror.sjtu.edu.cn/flathub
 ```
 
-#### 报错汇总
+### 报错汇总
 
 1、"error: Unable to load summary from remote flathub: Can't fetch summary from disabled remote 'flathub,"
 
@@ -120,7 +120,13 @@ echo $XDG_DATA_DIRS
 
 3、error: Unable to load summary from remote flathub: Could not connect: 拒绝连接
 
-网络环境问题，需要多次安装尝试
+> 网络问题，需要多次安装尝试
+
+4、Warning: org.freedesktop.Platform.openh264 not installed
+
+```sh
+flatpak install flathub org.freedesktop.Platform.openh264
+```
 
 ### 添加 Fedora
 
