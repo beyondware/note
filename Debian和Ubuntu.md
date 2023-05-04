@@ -90,7 +90,7 @@ sudo apt update
 
 ### Parrot
 
-- 安装报错
+#### 安装卡住91%报错
 
 > 命令 /usr/sbin/sources-media-unmount 未能在 600 秒内完成
 
@@ -100,7 +100,7 @@ sudo apt update
 sudo vim /usr/sbin/sources-media-unmount
 ```
 
-注释掉
+- 注释掉
 
 ```sh
 # rm $CHROOT/etc/apt/sources.list || true
