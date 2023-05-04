@@ -40,10 +40,18 @@ sudo apt update
 sudo vim /etc/apt/sources.list
 ```
 
-2、文件最前面添加以下内容
+2、官方源
 
 ```sh
-deb [by-hash=force] https://mirrors.nju.edu.cn/deepin/ apricot main contrib non-free
+https://community-packages.deepin.com/deepin/
+```
+
+修改为
+
+```sh
+https://mirrors.nju.edu.cn/deepin/
+https://mirrors.aliyun.com/deepin/
+https://mirrors.tuna.tsinghua.edu.cn/deepin/
 ```
 
 3、更新
