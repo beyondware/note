@@ -214,6 +214,16 @@ flatpak remotes --show-disabled
 
 ### 安装
 
+- Flatpak默认运行在系统级
+
+```sh
+flatpak --system（默认）
+```
+
+```sh
+flatpak --user 
+```
+
 #### 方案一
 
 ```sh
