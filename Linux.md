@@ -1,18 +1,14 @@
 ## SSH
 
-- 远程拒绝打开外壳通道:错误:未连接，需要启动 SSH
-
-> Remote rejected opening a shell channel: Error: Not connected
-
 ### 安装 SSH
 
-- Debian、Ubuntu
+> Unit sshd.service could not be found.
 
 ```sh
 sudo apt install openssh-server
 ```
 
-### 查看 SSH 状态
+### 查看 SSH
 
 ```sh
 systemctl status sshd
@@ -48,6 +44,8 @@ sudo systemctl restart sshd
 
 ### 允许 SSH 远程登陆
 
+> Remote rejected opening a shell channel: Error: Not connected
+
 ```sh
 sudo vim /etc/ssh/sshd_config
 ```
@@ -62,13 +60,13 @@ PermitRootLogin prohibit-password
 PermitRootLogin yes
 ```
 
-### 查看 SSH 连接状态
+### 查看运行状态
 
 ```sh
 ps -e | grep ssh
 ```
 
-> 显示 00:00:00 sshd 表示 SSH 已启动
+> 显示 00:00:00 sshd
 
 ## 家目录
 
