@@ -1,6 +1,4 @@
-### bash-it 命令补全
-
-> https://github.com/Bash-it/bash-it
+## bash-it
 
 1、克隆
 
@@ -34,17 +32,13 @@ cd $BASH_IT
 rm -rf $BASH_IT
 ```
 
-5、参看文档
+5、参看
+
+> https://github.com/Bash-it/bash-it
 
 > https://bash-it.readthedocs.io/en/latest/
 
-### powerline 状态行
-
-> https://wiki.archlinux.org/title/Powerline
-
-> https://powerline.readthedocs.io/en/latest/index.html
-
-> https://github.com/powerline/powerline
+## powerline
 
 1、安装依赖
 
@@ -52,27 +46,27 @@ rm -rf $BASH_IT
 sudo pacman -S python-pip git
 ```
 
-2、安装powerline
+2、安装 powerline
 
-- 方案一，警告：安装powerline-status，而不是powerline
+### 方案一，警告：安装powerline-status，而不是powerline
 
 ```sh
 pip install powerline-status
 ```
 
-- 方案二，网络环境原因（官方，不推荐）
+### 方案二，网络环境原因（官方，不推荐）
 
 ```sh
 pip install git+git://github.com/powerline/powerline
 ```
 
-- 方案三，github地址代理（推荐）
+### 方案三，github地址代理（推荐）
 
 ```sh
 pip install git+https://ghproxy.com/https://github.com/powerline/powerline.git
 ```
 
-- 方案四，离线安装
+### 方案四，离线安装
 
 ① 克隆到本地
 
@@ -166,7 +160,7 @@ POWERLINE_BASH_SELECT=1
 . /usr/lib/python3.10/site-packages/powerline/bindings/bash/powerline.sh
 ```
 
-9、刷新配置
+9、刷新
 
 ```sh
 source ~/.bashrc
@@ -174,7 +168,15 @@ source ~/.bashrc
 
 10、退出终端，重新打开生效。
 
-### vim配置powerline
+11、参考
+
+> https://wiki.archlinux.org/title/Powerline
+
+> https://powerline.readthedocs.io/en/latest/index.html
+
+> https://github.com/powerline/powerline
+
+### vim 配置 powerline
 
 ```sh
 vim ~/.vimrc
@@ -188,7 +190,29 @@ set laststatus=2
 set t_Co=256
 ```
 
-### Parrot 风格美化
+## Parrot 风格美化
+
+### 全局
+
+1、查看当前 PS1
+
+```sh
+echo "$PS1" 
+```
+
+2、编辑
+
+```sh
+sudo vim /etc/bash.bashrc 或者 sudo vim /etc/bashrc（Debian）
+```
+
+3、添加
+
+```sh
+export PS1='\[\033[0;31m\]\342\224\214\342\224\200$([[ $? != 0 ]] && echo "[\[\033[0;31m\]\342\234\227\[\033[0;37m\]]\342\224\200")[\[\033[0;39m\]\u\[\033[01;33m\]@\[\033[01;96m\]\h\[\033[0;31m\]]\342\224\200[\[\033[0;32m\]\w\[\033[0;31m\]]\n\[\033[0;31m\]\342\224\224\342\224\200\342\224\200\342\225\274 \[\033[0m\]\[\e[01;33m\]\$\[\e[0m\]'
+```
+
+### 用户
 
 1、编辑
 
@@ -199,10 +223,10 @@ sudo vim ~/.bashrc
 2、添加
 
 ```sh
-PS1='\[\033[0;31m\]\342\224\214\342\224\200$([[ $? != 0 ]] && echo "[\[\033[0;31m\]\342\234\227\[\033[0;37m\]]\342\224\200")[\[\033[0;39m\]\u\[\033[01;33m\]@\[\033[01;96m\]\h\[\033[0;31m\]]\342\224\200[\[\033[0;32m\]\w\[\033[0;31m\]]\n\[\033[0;31m\]\342\224\224\342\224\200\342\224\200\342\225\274 \[\033[0m\]\[\e[01;33m\]\$\[\e[0m\]'
+export PS1='\[\033[0;31m\]\342\224\214\342\224\200$([[ $? != 0 ]] && echo "[\[\033[0;31m\]\342\234\227\[\033[0;37m\]]\342\224\200")[\[\033[0;39m\]\u\[\033[01;33m\]@\[\033[01;96m\]\h\[\033[0;31m\]]\342\224\200[\[\033[0;32m\]\w\[\033[0;31m\]]\n\[\033[0;31m\]\342\224\224\342\224\200\342\224\200\342\225\274 \[\033[0m\]\[\e[01;33m\]\$\[\e[0m\]'
 ```
 
-3、刷新生效（部分系统，可能不会生效）
+3、刷新（部分系统，可能不会生效）
 
 ```sh
 source ~/.bashrc
