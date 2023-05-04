@@ -1,5 +1,7 @@
 ## 直接安装
 
+> https://nodejs.org/en/download/package-manager
+
 ### Ubuntu
 
 ```sh
