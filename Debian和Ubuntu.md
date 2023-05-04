@@ -88,6 +88,35 @@ sudo apt update
 
 > https://mirrors.ustc.edu.cn/help/kali.html
 
+### Parrot
+
+1、编辑
+
+```sh
+sudo vim /etc/apt/sources.list.d/parrot.list
+```
+
+2、官方源
+
+```sh
+https://deb.parrot.sh/parrot/
+```
+
+修改为
+
+```sh
+https://mirrors.aliyun.com/parrot/
+https://mirrors.ustc.edu.cn/parrot/
+https://mirrors.tuna.tsinghua.edu.cn/parrot/
+https://mirrors.sjtug.sjtu.edu.cn/parrot/
+```
+
+3、更新
+
+```sh
+sudo apt update
+```
+
 ### Ubuntu
 
 1、编辑
