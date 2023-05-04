@@ -1,4 +1,18 @@
-### nvm 管理器安装 node（推荐）
+## 直接安装
+
+### Ubuntu
+
+```sh
+sudo apt install nodejs
+```
+
+### Fedora
+
+```sh
+sudo dnf install nodejs
+```
+
+## nvm 安装
 
 > https://github.com/nvm-sh/nvm
 
@@ -8,7 +22,7 @@
 wget -qO- https://ghproxy.com/https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 ```
 
-- 安装后，需要退出终端，重新进入。
+- 安装后，需退出终端，重新进入。
 
 2、列出可安装 node 版本
 
@@ -72,7 +86,7 @@ nvm alias default 版本号
 nvm use 版本号
 ```
 
-### 二进制安装 node（root 账号）
+## 源码安装（root 账号）
 
 > https://nodejs.org/zh-cn/download/
 
@@ -91,7 +105,7 @@ wget https://nodejs.org/dist/v16.16.0/node-v16.16.0-linux-x64.tar.xz
 3、解压 node
 
 ```sh
-tar -xvf node-v16.16.0-linux-x64.tar.xz
+tar -Jxvf node-v16.16.0-linux-x64.tar.xz
 ```
 
 4、 建立软链接，全局引用
