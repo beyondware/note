@@ -21,7 +21,7 @@ systemctl status sshd
 ### 启动 SSH
 
 ```sh
-sudo systemctl start sshd
+sudo systemctl start sshd 或者 sudo /etc/init.d/sshd start
 ```
 
 ### 开机启动 SSH
@@ -39,7 +39,7 @@ sudo systemctl stop sshd
 ### 重启 SSH
 
 ```sh
-sudo systemctl restart sshd
+sudo systemctl restart sshd 或者 sudo /etc/init.d/sshd restart
 ```
 
 ### 允许 SSH 远程登陆
