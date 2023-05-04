@@ -1,3 +1,139 @@
+## 系统
+
+1、系统升级
+
+```sh
+sudo apt update && sudo apt upgrade
+```
+
+2、自动处理包依赖
+
+```sh
+sudo apt dist-upgrade
+```
+
+3、整个系统升级
+
+```sh
+sudo apt full-upgrade
+```
+
+## 安装
+
+```sh
+sudo apt install 包名
+```
+
+### 本地安装
+
+```sh
+sudo apt install 包.deb
+```
+
+或者
+
+```sh
+sudo dpkg -i 包.deb
+```
+
+- 报错的话，需要修复依赖项
+
+```sh
+sudo apt install -f
+```
+
+## 删除
+
+```sh
+sudo apt remove 包名
+```
+
+或者
+
+```sh
+dpkg uninstall 包名
+```
+
+### 自动删除
+
+```sh
+sudo apt autoremove 包名
+```
+
+- 删除包和依赖
+
+```sh
+sudo apt purge 包名
+```
+
+### 自动删除和依赖
+
+```sh
+sudo apt autoremove --purge
+```
+
+## 列出已安装
+
+```sh
+sudo apt list --installed | grep -i 关键字
+```
+
+或者
+
+```sh
+dpkg -L | grep 关键字
+```
+
+## 升级
+
+```sh
+sudo apt upgrade 包名
+```
+
+### 自动处理依赖项升级包
+
+```sh
+sudo apt full-upgrade 包名
+```
+
+### 查看可升级的软件包
+
+```sh
+apt list --upgradable
+```
+
+### 仅升级指定的软件包
+
+```sh
+sudo apt install --only-upgrade 包名
+```
+
+### 模拟升级（但不升级任何包）
+
+```sh
+apt -s upgrade
+```
+
+## 搜索
+
+```sh
+apt search 包名
+```
+
+## 详细信息
+
+### 显示包的详细信息
+
+```sh
+apt show 包名
+```
+
+### 获取详细信息
+
+```sh
+apt info 包名
+```
+
 ## apt
 
 ```sh
