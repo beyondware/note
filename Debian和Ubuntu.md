@@ -90,6 +90,24 @@ sudo apt update
 
 ### Parrot
 
+- 安装报错
+
+> 命令 /usr/sbin/sources-media-unmount 未能在 600 秒内完成
+
+- 安装前，修改
+
+```sh
+sudo vim /usr/sbin/sources-media-unmount
+```
+
+注释掉
+
+```sh
+# rm $CHROOT/etc/apt/sources.list || true
+# mv $CHROOT/etc/apt/sources.list.orig $CHROOT/etc/apt/sources.list
+# mv $CHROOT/etc/apt/sources.list.parrot $CHROOT/etc/apt/sources.list.d/parrot.list
+```
+
 1、编辑
 
 ```sh
