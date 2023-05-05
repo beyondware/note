@@ -8,10 +8,16 @@
 sudo apt install openssh-server
 ```
 
+- 查看版本
+
+```sh
+ssh -V
+```
+
 ### 查看 SSH
 
 ```sh
-systemctl status sshd
+systemctl status sshd 或者 sudo /etc/init.d/ssh status 或者 service sshd status
 ```
 
 > Active: active (running) 表示开启
@@ -21,25 +27,25 @@ systemctl status sshd
 ### 启动 SSH
 
 ```sh
-sudo systemctl start sshd 或者 sudo /etc/init.d/sshd start
+sudo systemctl start sshd 或者 sudo /etc/init.d/ssh start 或者 service sshd start
 ```
 
 ### 开机启动 SSH
 
 ```sh
-sudo systemctl enable sshd
+sudo systemctl enable sshd 或者 sudo systemctl enable ssh
 ```
 
 ### 停止 SSH
 
 ```sh
-sudo systemctl stop sshd
+sudo systemctl stop sshd 或者 sudo /etc/init.d/ssh stop 或者 service sshd stop
 ```
 
 ### 重启 SSH
 
 ```sh
-sudo systemctl restart sshd 或者 sudo /etc/init.d/sshd restart
+sudo systemctl restart sshd 或者 sudo /etc/init.d/ssh restart 或者 service sshd restart
 ```
 
 ### 允许 SSH 远程登陆
@@ -51,7 +57,7 @@ sudo vim /etc/ssh/sshd_config
 ```
 
 ```sh
-PermitRootLogin prohibit-password
+# PermitRootLogin prohibit-password
 ```
 
 改成
