@@ -151,7 +151,17 @@ flatpak install flathub org.freedesktop.Platform.openh264
 
 5、error: Unable to load summary from remote flathub: Server returned status 308: Unknown Error
 
-> 删除远程仓库，重新添加。
+- 换源报错
+
+```sh
+sudo flatpak remote-modify flathub --url=https://mirror.sjtu.edu.cn/flathub
+```
+
+#### 还原官方源
+
+```sh
+sudo flatpak remote-modify flathub --url=https://dl.flathub.org/repo/
+```
 
 ### 添加 Fedora
 
