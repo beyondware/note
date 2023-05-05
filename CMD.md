@@ -11,7 +11,7 @@ Ctrl+C：强制中止
 exit：退出
 ```
 
-### 开关机
+### shutdown 关机、重启、注销
 
 1、关机
 
@@ -53,15 +53,15 @@ cd..
 cd \
 ```
 
-4、切换盘符(如：E 盘)
+### 切换盘符
 
 ```sh
-e:
+e:  (如：E 盘)
 ```
 
 ### dir 目录
 
-dir：（directory）查看当前目录
+dir：（directory）目录
 
 ```sh
 mkdir 或者 md：（make directory）创建目录
