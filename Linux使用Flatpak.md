@@ -115,6 +115,10 @@ sudo flatpak remote-modify flathub --url=https://mirror.sjtu.edu.cn/flathub
 flatpak remote-add --if-not-exists sjtu  https://mirror.sjtu.edu.cn/flathub/flathub.flatpakrepo
 ```
 
+```sh
+sudo flatpak remote-modify sjtu --url=https://mirror.sjtu.edu.cn/flathub
+```
+
 ### 报错汇总
 
 1、"error: Unable to load summary from remote flathub: Can't fetch summary from disabled remote 'flathub,"
@@ -237,12 +241,6 @@ flatpak remotes --system -d
 
 ```sh
 flatpak remotes --user -d
-```
-
-## 禁用 Flatpak 存储库
-
-```sh
-flatpak remotes --show-disabled
 ```
 
 ## 删除 Flatpak 存储库
