@@ -1,13 +1,30 @@
 ## SSH
 
-> ssh 或者 sshd，具体情况而定。
+> sshd(Fedora) 或者 ssh(Debian)，具体情况而定。
 
 ### 安装 SSH
 
 > Unit sshd.service could not be found.
 
+#### Debian
+
 ```sh
 sudo apt install openssh-server
+```
+
+#### Fedora
+
+- 查看是否安装
+
+```sh
+rpm -qa | grep openssh-server
+```
+
+- 安装
+
+```sh
+sudo dnf install openssh-server
+
 ```
 
 - 查看版本
@@ -36,6 +53,12 @@ sudo systemctl start sshd 或者 sudo /etc/init.d/ssh start 或者 service sshd 
 
 ```sh
 sudo systemctl enable sshd 或者 sudo systemctl enable ssh
+```
+
+### 禁止开机启动 SSH
+
+```sh
+sudo systemctl disable sshd
 ```
 
 ### 停止 SSH
@@ -74,7 +97,7 @@ PermitRootLogin yes
 ps -e | grep ssh
 ```
 
-> 显示 00:00:00 sshd
+> 显示 00:00:00 sshd，ssh-server已经启动。
 
 ## 家目录
 
