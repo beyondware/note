@@ -1,3 +1,7 @@
+## 使用范围
+
+> 适合用于Fedora Silverblue、Fedora Kinoite、Fedora CoreOS系统
+
 ## 镜像源
 
 > https://mirrors.sjtug.sjtu.edu.cn/docs/fedora-ostree
