@@ -199,6 +199,10 @@ flatpak install kdeapps 应用程序ID
 ## 查看 Flatpak 存储库
 
 ```sh
+flatpak remotes
+```
+
+```sh
 flatpak remotes -d
 ```
 
