@@ -77,7 +77,7 @@ rmdir 或者 rd：（remove directory）删除目录
 del：删除文件
 ```
 
-### 复制
+### copy 复制
 
 ```sh
 copy：复制文件
@@ -135,7 +135,7 @@ taskkill /im 程序名
 start 程序名
 ```
 
-### 网络
+### ipconfig 网络
 
 1、显示 IP 地址信息
 
