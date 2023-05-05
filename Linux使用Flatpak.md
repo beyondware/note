@@ -66,6 +66,12 @@ sudo apt install flatpak-builder elfutils
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 ```
 
+- 如果失败，可以使用如下命令：
+
+```sh
+flatpak remote-add --if-not-exists flathub https://mirror.sjtu.edu.cn/flathub/flathub.flatpakrepo
+```
+
 2、添加 flathub-beta
 
 ```sh
@@ -90,6 +96,12 @@ sudo flatpak override 应用程序ID --filesystem=host
 
 ```sh
 sudo flatpak remote-modify flathub --url=https://mirror.sjtu.edu.cn/flathub
+```
+
+### 添加 sjtu 不会覆盖官方源
+
+```sh
+flatpak remote-add --if-not-exists sjtu  https://mirror.sjtu.edu.cn/flathub/flathub.flatpakrepo
 ```
 
 ### 报错汇总
@@ -184,10 +196,22 @@ flatpak remote-add --if-not-exists kdeapps --from https://distribute.kde.org/kde
 flatpak install kdeapps 应用程序ID
 ```
 
-## 列出 Flatpak 存储库
+## 查看 Flatpak 存储库
 
 ```sh
-flatpak remotes
+flatpak remotes -d
+```
+
+### 查看系统源
+
+```sh
+flatpak remotes --system -d
+```
+
+### 查看用户源
+
+```sh
+flatpak remotes --user -d
 ```
 
 ## 禁用 Flatpak 存储库
