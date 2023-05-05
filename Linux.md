@@ -1,5 +1,7 @@
 ## SSH
 
+> ssh 或者 sshd，具体情况而定。
+
 ### 安装 SSH
 
 > Unit sshd.service could not be found.
@@ -146,7 +148,7 @@ xdg-user-dirs-gtk-update
 快捷键：Ctrl+Alt+T
 ```
 
-## Linux内核版本
+## Linux 内核版本
 
 ```sh
 uname -a
@@ -155,6 +157,8 @@ uname -a
 ```sh
 hostnamectl | grep -i kernel
 ```
+
+- 显示的信息更详细
 
 ```sh
 cat /proc/version
