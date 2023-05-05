@@ -1,6 +1,6 @@
 ## SSH
 
-> sshd(Fedora) 或者 ssh(Debian)，具体情况而定。
+> sshd（Fedora）或者 ssh（Debian），具体情况而定。
 
 ### 安装 SSH
 
