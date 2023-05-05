@@ -4,17 +4,6 @@
 
 > https://docs.flatpak.org/en/latest/
 
-
-### Flatpak默认运行在系统级
-
-```sh
-flatpak --system（默认）
-```
-
-```sh
-flatpak --user 
-```
-
 ### Fedora（默认：已安装）
 
 ```sh
@@ -48,6 +37,29 @@ sudo pacman -Syyu
 ```sh
 sudo pacman -S flatpak
 ```
+
+## Flatpak 默认运行在系统级
+
+```sh
+flatpak --system（默认）
+```
+
+```sh
+flatpak --user 
+```
+
+## freedesktop-sdk
+
+> https://gitlab.com/freedesktop-sdk/freedesktop-sdk
+
+```sh
+ 1.     org.freedesktop.Platform.GL.default                            
+ 2.     org.freedesktop.Platform.GL.nvidia-390-154       
+ 3.     org.freedesktop.Platform.Locale                   
+ 4.     org.freedesktop.Platform.VAAPI.Intel              
+ 5.     org.freedesktop.Platform.openh264 
+ 6.     org.freedesktop.Platform
+```   
 
 ## 构建 Flatpak
 
