@@ -54,7 +54,7 @@ sudo apt update
 sudo apt install flatpak-builder elfutils
 ```
 
-## 添加远程仓库
+## 添加 Flatpak 存储库
 
 ### 添加 Flathub
 
@@ -110,7 +110,7 @@ XDG_DATA_DIRS=报错路径
 export XDG_DATA_DIRS
 ```
 
-重启系统，查看输出结果
+- 重启系统，查看输出结果。
 
 ```sh
 echo $XDG_DATA_DIRS
@@ -118,7 +118,7 @@ echo $XDG_DATA_DIRS
 
 3、error: Unable to load summary from remote flathub: Could not connect: 拒绝连接
 
-> 网络问题，需要多次安装尝试
+> 网络问题，需多次安装尝试。
 
 4、Warning: org.freedesktop.Platform.openh264 not installed
 
@@ -186,6 +186,12 @@ flatpak install kdeapps 应用程序ID
 flatpak remotes
 ```
 
+## 禁用 Flatpak 存储库
+
+```sh
+flatpak remotes --show-disabled
+```
+
 ## 删除 Flatpak 存储库
 
 ```sh
@@ -196,12 +202,6 @@ flatpak remote-delete 仓库名
 
 ```sh
 flatpak remote-delete flathub
-```
-
-### 查找系统中禁用的 Flatpak 存储库
-
-```sh
-flatpak remotes --show-disabled
 ```
 
 ## 常用命令
