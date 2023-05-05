@@ -4,6 +4,17 @@
 
 > https://docs.flatpak.org/en/latest/
 
+
+### Flatpak默认运行在系统级
+
+```sh
+flatpak --system（默认）
+```
+
+```sh
+flatpak --user 
+```
+
 ### Fedora（默认：已安装）
 
 ```sh
@@ -245,16 +256,6 @@ flatpak remote-delete flathub
 > ~/home/$USER/.local/share/flatpak
 
 ### 安装
-
-- Flatpak默认运行在系统级
-
-```sh
-flatpak --system（默认）
-```
-
-```sh
-flatpak --user 
-```
 
 #### 方案一
 
