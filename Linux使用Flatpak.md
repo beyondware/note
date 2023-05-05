@@ -109,16 +109,6 @@ sudo flatpak override 应用程序ID --filesystem=host
 sudo flatpak remote-modify flathub --url=https://mirror.sjtu.edu.cn/flathub
 ```
 
-### 添加 sjtu 不会覆盖官方源
-
-```sh
-flatpak remote-add --if-not-exists sjtu  https://mirror.sjtu.edu.cn/flathub/flathub.flatpakrepo
-```
-
-```sh
-sudo flatpak remote-modify sjtu --url=https://mirror.sjtu.edu.cn/flathub
-```
-
 ### 报错汇总
 
 1、"error: Unable to load summary from remote flathub: Can't fetch summary from disabled remote 'flathub,"
@@ -155,13 +145,7 @@ flatpak install flathub org.freedesktop.Platform.openh264
 
 5、error: Unable to load summary from remote flathub: Server returned status 308: Unknown Error
 
-- 换源报错
-
-```sh
-sudo flatpak remote-modify flathub --url=https://mirror.sjtu.edu.cn/flathub
-```
-
-#### 还原官方源
+#### 换源报错，还原官方源
 
 ```sh
 sudo flatpak remote-modify flathub --url=https://dl.flathub.org/repo/
