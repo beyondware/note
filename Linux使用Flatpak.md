@@ -126,6 +126,10 @@ echo $XDG_DATA_DIRS
 flatpak install flathub org.freedesktop.Platform.openh264
 ```
 
+5、error: Unable to load summary from remote flathub: Server returned status 308: Unknown Error
+
+> 删除远程仓库，重新添加。
+
 ### 添加 Fedora
 
 1、添加 fedora
