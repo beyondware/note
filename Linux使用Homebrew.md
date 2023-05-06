@@ -136,13 +136,13 @@ Homebrew/homebrew-cask (git revision 015649e0307; last commit 2022-05-08)
 > /home/linuxbrew/.linuxbrew/Homebrew
 
 ```sh
-"$(brew --repo)/Library/Taps/homebrew/homebrew-core"
+"$(brew --repo homebrew/core)"
 ```
 
 > /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core
 
 ```sh
-"$(brew --repo)/Library/Taps/homebrew/homebrew-cask"
+"$(brew --repo homebrew/cask)"
 ```
 
 > /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-cask
