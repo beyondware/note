@@ -281,10 +281,6 @@ brew update
 #### brew
 
 ```sh
-unset HOMEBREW_API_DOMAIN
-```
-
-```sh
 unset HOMEBREW_BREW_GIT_REMOTE
 ```
 
@@ -309,8 +305,6 @@ brew tap --custom-remote homebrew/core https://github.com/Homebrew/homebrew-core
 ```sh
 brew tap --custom-remote homebrew/command-not-found https://github.com/Homebrew/homebrew-command-not-found
 ```
-
-#### 更新
 
 ```sh
 brew update
@@ -348,7 +342,15 @@ export HOMEBREW_API_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottle
 export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git"
 ```
 
+```sh
+brew update
+```
+
 #### homebrew-core
+
+```sh
+export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git"
+```
 
 ```sh
 brew tap --custom-remote --force-auto-update homebrew/core https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git
@@ -357,8 +359,6 @@ brew tap --custom-remote --force-auto-update homebrew/core https://mirrors.tuna.
 ```sh
 brew tap --custom-remote --force-auto-update homebrew/command-not-found https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-command-not-found.git
 ```
-
-#### 更新
 
 ```sh
 brew update
