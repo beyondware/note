@@ -229,12 +229,10 @@ sudo apt install pciutils
 lspci
 ```
 
-```sh
-lspci | grep Network
-```
+过滤干扰信息
 
 ```sh
-lspci | grep -i net
+lspci | grep Network 或者 lspci | grep -i net
 ```
 
 5、USB 无线网卡
@@ -255,13 +253,13 @@ lsusb
 dmesg | grep brcm
 ```
 
-7、编译Linux网卡驱动
+7、编译网卡驱动
 
 ```sh
 sudo apt install linux-headers-$(uname -r)
 ```
 
-需要git、gcc、make、autoconf、build-essential等依赖
+编译需要 git、gcc、make、autoconf、build-essential 等依赖
 
 8、查看驱动加载报错信息
 
