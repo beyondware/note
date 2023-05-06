@@ -351,5 +351,5 @@ sudo chown -R $(whoami) /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebre
 6、如果安装过程有冲突，建议先删除**对应目录**再尝试重新安装。
 
 ```sh
-sudo rm -rf /home/linuxbrew/.linuxbrew/Homebrew
+sudo rm -rf /home/linuxbrew
 ```
