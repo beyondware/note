@@ -348,4 +348,8 @@ Error: Fetching /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebr
 sudo chown -R $(whoami) /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-cask
 ```
 
-6、如果安装过程有冲突，建议先删除对应目录再尝试重新安装。
+6、如果安装过程有冲突，建议先删除**对应目录**再尝试重新安装。
+
+```sh
+sudo rm -rf /home/linuxbrew/.linuxbrew/Homebrew
+```
