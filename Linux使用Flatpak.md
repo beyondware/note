@@ -306,7 +306,7 @@ flatpak update
 
 ### 卸载
 
-1、卸载指定软件
+#### 卸载指定软件
 
 ```sh
 flatpak uninstall 应用程序ID
@@ -314,25 +314,25 @@ flatpak uninstall 应用程序ID
 
 > Uninstall complete. //卸载完成
 
-#### 卸载指定软件和Flatpak相关数据
+卸载指定软件和Flatpak相关数据
 
 ```sh
 flatpak uninstall --delete-data 应用程序ID
 ```
 
-2、卸载所有
+#### 卸载所有
 
 ```sh
 flatpak uninstall --all
 ```
 
-#### 卸载所有和Flatpak相关数据
+卸载所有和Flatpak相关数据
 
 ```sh
 flatpak uninstall --all --delete-data
 ```
 
-3、卸载未使用
+#### 卸载未使用
 
 ```sh
 flatpak uninstall --unused 或者 flatpak remove --unused
