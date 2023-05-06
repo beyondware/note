@@ -94,7 +94,7 @@ export HOMEBREW_PIP_INDEX_URL="https://mirrors.cernet.edu.cn/pypi/web/simple"
 
 > https://mirrors.ustc.edu.cn/help/brew.git.html
 
-> ==> Tapping homebrew/core 可能会卡一段时间，耐心等待。。。
+> ==> Downloading and installing Homebrew... //可能会卡一段时间，耐心等待。。。
 
 2、将 Homebrew 添加到 PATH 中
 
@@ -133,8 +133,7 @@ brew --version
 - 输出结果
 
 ```sh
-Homebrew 3.4.10
-Homebrew/homebrew-core (git revision bbd7ae8672a; last commit 2022-05-08)
+Homebrew 4.0.16
 ```
 
 ## homebrew-cask（只适合 macOS）
