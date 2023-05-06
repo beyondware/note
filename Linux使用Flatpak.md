@@ -53,13 +53,14 @@ flatpak --user
 > https://gitlab.com/freedesktop-sdk/freedesktop-sdk
 
 ```sh
- 1.     org.freedesktop.Platform.GL.default                            
- 2.     org.freedesktop.Platform.GL.nvidia-390-154       
- 3.     org.freedesktop.Platform.Locale                   
- 4.     org.freedesktop.Platform.VAAPI.Intel              
- 5.     org.freedesktop.Platform.openh264 
- 6.     org.freedesktop.Platform
-```   
+Name                     Application ID                                 Version      Branch          Installation
+Freedesktop Platform     org.freedesktop.Platform                       22.08.11     22.08           system
+Mesa                     org.freedesktop.Platform.GL.default            23.0.2       22.08           system
+Mesa (Extra)             org.freedesktop.Platform.GL.default            23.0.2       22.08-extra     system
+nvidia-390-154           org.freedesktop.Platform.GL.nvidia-390-154                  1.4             system
+Intel                    org.freedesktop.Platform.VAAPI.Intel                        22.08           system
+openh264                 org.freedesktop.Platform.openh264              2.1.0        2.2.0           system
+```  
 
 ## 构建 Flatpak
 
@@ -79,9 +80,9 @@ sudo apt install flatpak-builder elfutils
 
 ## 添加 Flatpak 存储库
 
-### 添加 Flathub
-
 > error: No remote refs found similar to ‘flathub’ //未发现类似于 "flathub" 的远程
+
+## 添加 Flathub
 
 1、添加 flathub
 
