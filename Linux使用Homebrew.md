@@ -1,28 +1,24 @@
 ## 安装依赖（非root账号）
 
+### Fedora
+
 ```sh
 sudo dnf groupinstall "Development Tools"
 ```
 
-## 修改源
-
-### 临时
-
 ```sh
-export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.aliyun.com/homebrew/brew.git"
+sudo dnf install procps-ng curl file git
 ```
 
-```sh
-export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.aliyun.com/homebrew/homebrew-core.git"
-```
+### Debian
 
 ```sh
-export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.aliyun.com/homebrew/homebrew-bottles"
+sudo apt install build-essential procps curl file git
 ```
 
-### 永久（推荐）
+## 设置环境变量
 
-#### brew
+### brew
 
 ```sh
 echo 'export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.aliyun.com/homebrew/brew.git"' >> ~/.bash_profile
@@ -32,7 +28,7 @@ echo 'export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.aliyun.com/homebrew/brew.
 export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.aliyun.com/homebrew/brew.git"
 ```
 
-#### homebrew-core
+### homebrew-core
 
 ```sh
 echo 'export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.aliyun.com/homebrew/homebrew-core.git"' >> ~/.bash_profile
@@ -42,7 +38,7 @@ echo 'export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.aliyun.com/homebrew/homeb
 export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.aliyun.com/homebrew/homebrew-core.git"
 ```
 
-#### homebrew-bottles
+### homebrew-bottles
 
 ```sh
 echo 'export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.aliyun.com/homebrew/homebrew-bottles"' >> ~/.bash_profile
@@ -52,12 +48,40 @@ echo 'export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.aliyun.com/homebrew/homebre
 export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.aliyun.com/homebrew/homebrew-bottles"
 ```
 
+- Homebrew 4.0 开始变化
+
+```sh
+export HOMEBREW_INSTALL_FROM_API=1
+```
+
+```sh
+echo 'export HOMEBREW_API_DOMAIN="https://mirrors.cernet.edu.cn/homebrew-bottles/api"' >> ~/.bash_profile
+```
+
+```sh
+export HOMEBREW_API_DOMAIN="https://mirrors.cernet.edu.cn/homebrew-bottles/api"
+```
+
+- PyPI
+
+```sh
+export HOMEBREW_PIP_INDEX_URL="https://mirrors.cernet.edu.cn/pypi/web/simple"
+```
+
 ## brew
 
 1、安装
 
+### 官方源
+
 ```sh
 /bin/bash -c "$(curl -fsSL https://ghproxy.com/https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+### 中科大源
+
+```sh
+/bin/bash -c "$(curl -fsSL https://mirrors.ustc.edu.cn/misc/brew-install.sh)"
 ```
 
 > ==> Tapping homebrew/core 可能会卡一段时间，耐心等待。。。
@@ -259,19 +283,23 @@ brew install brew-cask-completion
 brew install --cask 软件名
 ```
 
-## 参考文档
+## 参考
 
 > https://github.com/Homebrew/install
+
+> https://docs.brew.sh/Installation
 
 > https://docs.brew.sh/Homebrew-on-Linux
 
 > https://docs.brew.sh/Manpage
 
-> https://formulae.brew.sh/formula/
-
-> https://formulae.brew.sh/cask/
+> https://formulae.brew.sh/
 
 > https://developer.aliyun.com/mirror/homebrew
+
+> https://mirrors.ustc.edu.cn/help/brew.git.html
+
+> https://help.mirrors.cernet.edu.cn/homebrew-bottles/
 
 ## 注意事项
 
