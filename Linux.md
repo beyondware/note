@@ -187,7 +187,43 @@ hostnamectl | grep -i kernel
 cat /proc/version
 ```
 
-## 查看无线网卡型号
+## WiFi 驱动
+
+1、判断网卡是否免驱
+
+```sh
+ifconfig -a
+```
+
+查看是否有wlan0、eth1、usb0开头的信息
+
+2、查看当前无线网卡信息
+
+```sh
+iwconfig
+```
+
+出现 iwconfig: command not found
+
+```sh
+sudo apt install wireless-tools
+```
+
+3、安装 USB 无线网卡固件
+
+```sh
+sudo apt install linux-firmware
+```
+
+通常情况下, WiFi芯片固件存放在/lib/firmware目录
+
+4、PCI 无线网卡
+
+```sh
+sudo apt install pciutils
+```
+
+查看网卡信息
 
 ```sh
 lspci
@@ -201,14 +237,54 @@ lspci | grep Network
 lspci | grep -i net
 ```
 
-## 查看 WiFi 是否打开
+5、USB 无线网卡
+
+```sh
+sudo apt install usbutils
+```
+
+查看网卡信息
+
+```sh
+lsusb
+```
+
+6、BCM 无线网卡
+
+```sh
+dmesg | grep brcm
+```
+
+7、编译Linux网卡驱动
+
+```sh
+sudo apt install linux-headers-$(uname -r)
+```
+
+需要git、gcc、make、autoconf、build-essential等依赖
+
+8、查看驱动加载报错信息
+
+```sh
+dmesg
+```
+
+## 查看 WiFi 状态
 
 ```sh
 nmcli radio
 ```
 
+### 开启 WiFi
+
 ```sh
 nmcli radio wifi on
+```
+
+### 关闭 WiFi
+
+```sh
+nmcli radio wifi off
 ```
 
 ## 解压缩
