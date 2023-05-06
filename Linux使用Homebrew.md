@@ -1,12 +1,12 @@
-## 安装依赖
+## 安装依赖（非root账号）
 
 ```sh
 sudo dnf groupinstall "Development Tools"
 ```
 
-> 不要使用 root 账号安装
+## 修改源
 
-- 修改源（临时，不推荐）
+### 临时
 
 ```sh
 export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.aliyun.com/homebrew/brew.git"
@@ -20,9 +20,9 @@ export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.aliyun.com/homebrew/homebrew-co
 export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.aliyun.com/homebrew/homebrew-bottles"
 ```
 
-- 修改源（永久，推荐）
+### 永久（推荐）
 
-- brew
+#### brew
 
 ```sh
 echo 'export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.aliyun.com/homebrew/brew.git"' >> ~/.bash_profile
@@ -32,7 +32,7 @@ echo 'export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.aliyun.com/homebrew/brew.
 export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.aliyun.com/homebrew/brew.git"
 ```
 
-- homebrew-core
+#### homebrew-core
 
 ```sh
 echo 'export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.aliyun.com/homebrew/homebrew-core.git"' >> ~/.bash_profile
@@ -42,7 +42,7 @@ echo 'export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.aliyun.com/homebrew/homeb
 export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.aliyun.com/homebrew/homebrew-core.git"
 ```
 
-- homebrew-bottles
+#### homebrew-bottles
 
 ```sh
 echo 'export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.aliyun.com/homebrew/homebrew-bottles"' >> ~/.bash_profile
@@ -84,16 +84,14 @@ brew doctor
 brew --version
 ```
 
-- 显示结果
+- 输出结果
 
 ```sh
 Homebrew 3.4.10
 Homebrew/homebrew-core (git revision bbd7ae8672a; last commit 2022-05-08)
 ```
 
-## homebrew-cask
-
-> 只适合 macOS，Linux 不需要安装
+## homebrew-cask（只适合 macOS）
 
 1、创建目录
 
@@ -121,7 +119,7 @@ sudo git clone https://mirrors.aliyun.com/homebrew/homebrew-cask.git /home/linux
 brew --version
 ```
 
-- 显示结果
+- 输出结果
 
 ```sh
 Homebrew 3.4.10
@@ -213,7 +211,7 @@ git -C "$(brew --repo homebrew/cask)" remote set-url origin https://mirrors.aliy
 brew update
 ```
 
-## brew 命令
+## brew --help
 
 ```sh
 Example usage:
@@ -243,19 +241,19 @@ Further help:
 
 ## brew 常用命令
 
-1、安装 gcc（安装不需要 sudo）
+1、安装 gcc（安装无需 sudo）
 
 ```sh
 brew install gcc
 ```
 
-2、安装 brew-cask-completion（补全 cask）
+2、安装 brew-cask-completion（macOS）
 
 ```sh
 brew install brew-cask-completion
 ```
 
-3、安装 cask 软件（只支持 macOS）
+3、安装 cask 软件（macOS）
 
 ```sh
 brew install --cask 软件名
@@ -277,7 +275,7 @@ brew install --cask 软件名
 
 ## 注意事项
 
-1、只支持 macOS (--cask)，好像 Linux 不能使用。
+1、只支持 macOS (--cask)
 
 ```sh
 Error: Installing casks is supported only on macOS
@@ -287,7 +285,7 @@ Error: Installing casks is supported only on macOS
 
 3、推荐使用**阿里源**，不建议使用**清华大学源**，好像有问题。
 
-4、没有提权的问题
+4、没有提权
 
 ```sh
 fatal: unsafe repository ('/home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-cask' is owned by someone else)
@@ -299,7 +297,7 @@ fatal: unsafe repository ('/home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/home
 git config --global --add safe.directory /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-cask
 ```
 
-5、需要提权操作
+5、提权操作
 
 ```sh
 error: cannot open .git/FETCH_HEAD: Permission denied
@@ -312,4 +310,4 @@ Error: Fetching /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebr
 sudo chown -R $(whoami) /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-cask
 ```
 
-6、如果安装过程有冲突，建议先删除对应目录再尝试重新安装
+6、如果安装过程有冲突，建议先删除对应目录再尝试重新安装。
