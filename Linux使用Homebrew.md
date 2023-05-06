@@ -136,7 +136,35 @@ brew --version
 Homebrew 4.0.16
 ```
 
-## homebrew-cask（只适合 macOS）
+## homebrew-core（4.0非必要）
+
+1、创建目录
+
+```sh
+sudo mkdir -p /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core
+```
+
+2、提高权限(必须提权，否则安装会出问题)
+
+```sh
+sudo chown -R $(whoami) /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core
+```
+
+3、克隆 homebrew-core
+
+```sh
+sudo git clone https://mirrors.aliyun.com/homebrew/homebrew-core.git /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/hhomebrew-core
+```
+
+> 可能会卡一会，请耐心等待。。。
+
+4、验证结果
+
+```sh
+brew --version
+```
+
+## homebrew-cask（只适合macOS，4.0非必要）
 
 1、创建目录
 
@@ -167,9 +195,37 @@ brew --version
 - 输出结果
 
 ```sh
-Homebrew 3.4.10
-Homebrew/homebrew-core (git revision bbd7ae8672a; last commit 2022-05-08)
-Homebrew/homebrew-cask (git revision 015649e0307; last commit 2022-05-08)
+Homebrew 4.0.16
+Homebrew/homebrew-cask (git revision 7f4566d8b8e; last commit 2023-05-05)
+```
+
+5、报错信息
+
+```sh
+error: cannot open .git/FETCH_HEAD: Permission denied
+Error: Fetching /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-cask failed!
+```
+
+- 解决方法
+
+```sh
+sudo chown -R $(whoami) /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-cask
+```
+------
+
+```sh
+fatal: detected dubious ownership in repository at '/home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-cask'
+To add an exception for this directory, call:
+
+	git config --global --add safe.directory /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-cask
+Homebrew/homebrew-cask (no Git repository)
+
+```
+
+- 解决方法
+
+```sh
+git config --global --add safe.directory /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-cask
 ```
 
 ## 查看安装路径
@@ -324,42 +380,9 @@ brew cleanup
 Error: Invalid `--cask` usage: Casks do not work on Linux
 ```
 
-2、brew 使用脚本安装，而脚本内很多地址指向 GitHub，国内安装大概率会失败，安装前需要替换源。
+2、推荐使用**阿里源**，不建议使用**清华大学源**，好像有问题。
 
-3、推荐使用**阿里源**，不建议使用**清华大学源**，好像有问题。
-
-4、没有提权
-
-```sh
-fatal: unsafe repository ('/home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-cask' is owned by someone else)
-```
-
-- 解决方法
-
-```sh
-git config --global --add safe.directory /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-cask
-```
-
-5、提权操作
-
-```sh
-error: cannot open .git/FETCH_HEAD: Permission denied
-Error: Fetching /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-cask failed!
-```
-
-- 解决方法
-
-```sh
-sudo chown -R $(whoami) /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-cask
-```
-
-6、如果安装过程有冲突，建议先删除**对应目录**再尝试重新安装。
-
-```sh
-sudo rm -rf /home/linuxbrew
-```
-
-7、报错信息
+3、报错信息
 
 ```sh
 Disable this behaviour by setting HOMEBREW_NO_INSTALL_CLEANUP.
@@ -372,3 +395,8 @@ Hide these hints with HOMEBREW_NO_ENV_HINTS (see `man brew`).
 export HOMEBREW_NO_INSTALL_CLEANUP=TRUE
 ```
 
+4、如果安装过程有冲突，建议先删除**对应目录**再尝试重新安装。
+
+```sh
+sudo rm -rf /home/linuxbrew
+```
