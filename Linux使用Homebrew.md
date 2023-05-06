@@ -250,23 +250,75 @@ git -C "$(brew --repo homebrew/cask)" remote -v
 
 ## 官方源
 
+### 旧版本
+
+#### brew
+
 ```sh
 git -C "$(brew --repo)" remote set-url origin https://github.com/Homebrew/brew.git
 ```
+
+#### homebrew-core
 
 ```sh
 git -C "$(brew --repo homebrew/core)" remote set-url origin https://github.com/Homebrew/homebrew-core.git
 ```
 
+#### homebrew-cask
+
 ```sh
 git -C "$(brew --repo homebrew/cask)" remote set-url origin https://github.com/Homebrew/homebrew-cask.git
 ```
+
+#### 更新
+
+```sh
+brew update
+```
+
+### 新版本
+
+#### brew
+
+```sh
+unset HOMEBREW_API_DOMAIN
+```
+
+```sh
+unset HOMEBREW_BREW_GIT_REMOTE
+```
+
+```sh
+git -C "$(brew --repo)" remote set-url origin https://github.com/Homebrew/brew
+```
+
+#### homebrew-core
+
+```sh
+unset HOMEBREW_API_DOMAIN
+```
+
+```sh
+unset HOMEBREW_CORE_GIT_REMOTE
+```
+
+```sh
+brew tap --custom-remote homebrew/core https://github.com/Homebrew/homebrew-core
+```
+
+```sh
+brew tap --custom-remote homebrew/command-not-found https://github.com/Homebrew/homebrew-command-not-found
+```
+
+#### 更新
 
 ```sh
 brew update
 ```
 
 ## 替换源
+
+### 旧版本
 
 ```sh
 git -C "$(brew --repo)" remote set-url origin https://mirrors.aliyun.com/homebrew/brew.git
@@ -279,6 +331,34 @@ git -C "$(brew --repo homebrew/core)" remote set-url origin https://mirrors.aliy
 ```sh
 git -C "$(brew --repo homebrew/cask)" remote set-url origin https://mirrors.aliyun.com/homebrew/homebrew-cask.git
 ```
+
+```sh
+brew update
+```
+
+### 新版本
+
+#### brew
+
+```sh
+export HOMEBREW_API_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/api"
+```
+
+```sh
+export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git"
+```
+
+#### homebrew-core
+
+```sh
+brew tap --custom-remote --force-auto-update homebrew/core https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git
+```
+
+```sh
+brew tap --custom-remote --force-auto-update homebrew/command-not-found https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-command-not-found.git
+```
+
+#### 更新
 
 ```sh
 brew update
