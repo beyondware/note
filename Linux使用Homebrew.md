@@ -284,9 +284,9 @@ Further help:
   https://docs.brew.sh
 ```
 
-## brew 安装软件
+## brew 常用命令
 
-1、安装 gcc（安装无需 sudo）
+1、安装 gcc（brew 安装无需 sudo）
 
 ```sh
 brew install gcc
@@ -304,6 +304,12 @@ brew install brew-cask-completion
 brew install --cask 软件名
 ```
 
+4、清除旧版本软件包
+
+```sh
+brew cleanup
+```
+
 ## 参考
 
 > https://docs.brew.sh/Manpage
@@ -315,7 +321,7 @@ brew install --cask 软件名
 1、只支持 macOS (--cask)
 
 ```sh
-Error: Installing casks is supported only on macOS
+Error: Invalid `--cask` usage: Casks do not work on Linux
 ```
 
 2、brew 使用脚本安装，而脚本内很多地址指向 GitHub，国内安装大概率会失败，安装前需要替换源。
@@ -352,3 +358,17 @@ sudo chown -R $(whoami) /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebre
 ```sh
 sudo rm -rf /home/linuxbrew
 ```
+
+7、报错信息
+
+```sh
+Disable this behaviour by setting HOMEBREW_NO_INSTALL_CLEANUP.
+Hide these hints with HOMEBREW_NO_ENV_HINTS (see `man brew`).
+```
+
+- 解决方法
+
+```sh
+export HOMEBREW_NO_INSTALL_CLEANUP=TRUE
+```
+
