@@ -136,34 +136,6 @@ brew --version
 Homebrew 4.0.16
 ```
 
-## homebrew-core（4.0非必要）
-
-1、创建目录
-
-```sh
-sudo mkdir -p /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core
-```
-
-2、提高权限(必须提权，否则安装会出问题)
-
-```sh
-sudo chown -R $(whoami) /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core
-```
-
-3、克隆 homebrew-core
-
-```sh
-sudo git clone https://mirrors.aliyun.com/homebrew/homebrew-core.git /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/hhomebrew-core
-```
-
-> 可能会卡一会，请耐心等待。。。
-
-4、验证结果
-
-```sh
-brew --version
-```
-
 ## homebrew-cask（4.0非必要，只适合 macOS）
 
 1、创建目录
