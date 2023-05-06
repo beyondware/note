@@ -1,4 +1,4 @@
-## 安装依赖（非root账号）
+## 安装依赖（非 root 账号）
 
 ### Fedora
 
@@ -48,7 +48,7 @@ echo 'export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.aliyun.com/homebrew/homebre
 export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.aliyun.com/homebrew/homebrew-bottles"
 ```
 
-- Homebrew 4.0 开始变化
+- Brew 4.0 版本后默认使用元数据 JSON API 获取仓库信息，因此在大部分情况下不再需要配置（包括：homebrew-core、homebrew-cask）
 
 ```sh
 export HOMEBREW_INSTALL_FROM_API=1
@@ -68,6 +68,12 @@ export HOMEBREW_API_DOMAIN="https://mirrors.cernet.edu.cn/homebrew-bottles/api"
 export HOMEBREW_PIP_INDEX_URL="https://mirrors.cernet.edu.cn/pypi/web/simple"
 ```
 
+> https://docs.brew.sh/Installation
+
+> https://developer.aliyun.com/mirror/homebrew
+
+> https://help.mirrors.cernet.edu.cn/homebrew-bottles/
+
 ## brew
 
 1、安装
@@ -78,11 +84,15 @@ export HOMEBREW_PIP_INDEX_URL="https://mirrors.cernet.edu.cn/pypi/web/simple"
 /bin/bash -c "$(curl -fsSL https://ghproxy.com/https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
+> https://github.com/Homebrew/install
+
 ### 中科大源
 
 ```sh
 /bin/bash -c "$(curl -fsSL https://mirrors.ustc.edu.cn/misc/brew-install.sh)"
 ```
+
+> https://mirrors.ustc.edu.cn/help/brew.git.html
 
 > ==> Tapping homebrew/core 可能会卡一段时间，耐心等待。。。
 
@@ -92,9 +102,21 @@ export HOMEBREW_PIP_INDEX_URL="https://mirrors.cernet.edu.cn/pypi/web/simple"
 echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> ~/.bash_profile
 ```
 
+- 或者
+
 ```sh
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 ```
+
+```sh
+test -r ~/.bash_profile && echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.bash_profile
+```
+
+```sh
+echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.profile
+```
+
+> https://docs.brew.sh/Homebrew-on-Linux
 
 3、验证结果
 
@@ -263,7 +285,7 @@ Further help:
   https://docs.brew.sh
 ```
 
-## brew 常用命令
+## brew 安装软件
 
 1、安装 gcc（安装无需 sudo）
 
@@ -285,21 +307,9 @@ brew install --cask 软件名
 
 ## 参考
 
-> https://github.com/Homebrew/install
-
-> https://docs.brew.sh/Installation
-
-> https://docs.brew.sh/Homebrew-on-Linux
-
 > https://docs.brew.sh/Manpage
 
 > https://formulae.brew.sh/
-
-> https://developer.aliyun.com/mirror/homebrew
-
-> https://mirrors.ustc.edu.cn/help/brew.git.html
-
-> https://help.mirrors.cernet.edu.cn/homebrew-bottles/
 
 ## 注意事项
 
