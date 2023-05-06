@@ -164,7 +164,7 @@ sudo git clone https://mirrors.aliyun.com/homebrew/homebrew-core.git /home/linux
 brew --version
 ```
 
-## homebrew-cask（只适合macOS，4.0非必要）
+## homebrew-cask（4.0非必要，只适合 macOS）
 
 1、创建目录
 
