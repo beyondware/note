@@ -1,7 +1,7 @@
-1、在/usr/share/fonts/目录下建立子目录，例如：chinese
+1、在/usr/share/fonts/目录下建立子目录，例如：wqy
 
 ```sh
-sudo mkdir /usr/share/fonts/chinese
+sudo mkdir /usr/share/fonts/wqy
 ```
 
 2、切换到下载字体目录下
@@ -10,16 +10,16 @@ sudo mkdir /usr/share/fonts/chinese
 cd Downloads/
 ```
 
-3、将字体文件复制到刚才创建的目录下，例如：/usr/share/fonts/chinese
+3、将字体文件复制到刚才创建的目录下（/usr/share/fonts/wqy）
 
 ```sh
-sudo cp wqy-zenhei.ttf /usr/share/fonts/chinese/
+sudo cp wqy-zenhei.ttf /usr/share/fonts/wqy/
 ```
 
 4、切换到复制字体目录（系统）
 
 ```sh
-cd /usr/share/fonts/chinese
+cd /usr/share/fonts/wqy
 ```
 
 5、建立字体索引信息（可选项）
