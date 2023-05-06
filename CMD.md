@@ -4,14 +4,41 @@
 不区分`大小写`
 help：帮助
 命令 /？：查询命令手册
-cls ：（CLear Screen）清屏
 Ctrl+C：强制中止
 按 Tab 键：自动补全
 历史命令：上/下方向键
 exit：退出
 ```
 
-### shutdown 关机、重启、注销
+### cls 清屏
+
+cls:（CLear Screen）清屏
+
+### Administrator
+
+1、开启
+
+```sh
+net user administrator /active:yes
+```
+
+2、关闭
+
+```sh
+net user administrator /active:no
+```
+
+### 管理员已阻止你运行此应用
+
+```sh
+sfc /scannow
+```
+
+```s
+gpedit.msc
+```
+
+### shutdown 关机、重启
 
 1、关机
 
@@ -33,7 +60,7 @@ shutdown -l 或者 logoff
 
 ### cd 目录
 
-cd：（change directory）切换目录
+cd:（change directory）切换目录
 
 1、当前目录
 
@@ -61,7 +88,7 @@ e:  (如：E 盘)
 
 ### dir 目录
 
-dir：（directory）目录
+dir:（directory）目录
 
 ```sh
 mkdir 或者 md：（make directory）创建目录
