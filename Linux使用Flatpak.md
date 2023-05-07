@@ -38,7 +38,7 @@ sudo pacman -Syyu
 sudo pacman -S flatpak
 ```
 
-## Flatpak 默认运行在系统级
+## Flatpak 运行等级
 
 ```sh
 flatpak --system（默认）
