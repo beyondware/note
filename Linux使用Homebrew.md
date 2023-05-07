@@ -133,9 +133,13 @@ Homebrew 4.0.16
 
 ### 替换源
 
+#### homebrew-bottles
+
 ```sh
 export HOMEBREW_API_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/api"
 ```
+
+#### brew
 
 ```sh
 export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git"
@@ -144,6 +148,8 @@ export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebr
 ```sh
 brew update
 ```
+
+#### homebrew-core
 
 ```sh
 export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git"
@@ -161,7 +167,29 @@ brew tap --custom-remote --force-auto-update homebrew/command-not-found https://
 brew update
 ```
 
+#### homebrew-cask
+
+```sh
+brew tap --custom-remote --force-auto-update homebrew/cask https://mirrors.ustc.edu.cn/homebrew-cask.git
+```
+
+```sh
+brew tap --custom-remote --force-auto-update homebrew/cask-versions https://mirrors.ustc.edu.cn/homebrew-cask-versions.git
+```
+
+```sh
+brew update
+```
+
 ### 恢复源
+
+#### homebrew-bottles
+
+```sh
+unset HOMEBREW_API_DOMAIN
+```
+
+#### brew
 
 ```sh
 unset HOMEBREW_BREW_GIT_REMOTE
@@ -171,9 +199,7 @@ unset HOMEBREW_BREW_GIT_REMOTE
 git -C "$(brew --repo)" remote set-url origin https://github.com/Homebrew/brew
 ```
 
-```sh
-unset HOMEBREW_API_DOMAIN
-```
+#### homebrew-core
 
 ```sh
 unset HOMEBREW_CORE_GIT_REMOTE
@@ -185,6 +211,20 @@ brew tap --custom-remote homebrew/core https://github.com/Homebrew/homebrew-core
 
 ```sh
 brew tap --custom-remote homebrew/command-not-found https://github.com/Homebrew/homebrew-command-not-found
+```
+
+```sh
+brew update
+```
+
+#### homebrew-cask
+
+```sh
+brew tap --custom-remote --force-auto-update homebrew/cask https://github.com/Homebrew/homebrew-cask
+```
+
+```sh
+brew tap --custom-remote --force-auto-update homebrew/cask-versions https://github.com/Homebrew/homebrew-cask-versions
 ```
 
 ```sh
