@@ -2,13 +2,21 @@
 
 ### Debian
 
-1、编辑
+1、遇到无法拉取 HTTPS 源
+
+```sh
+sudo apt install apt-transport-https ca-certificates
+```
+
+2、编辑
 
 ```sh
 sudo vim /etc/apt/sources.list
 ```
 
-2、官方源
+3、修改源
+
+#### debian
 
 ```sh
 http://deb.debian.org/debian
@@ -20,17 +28,29 @@ http://deb.debian.org/debian
 https://mirrors.cernet.edu.cn/debian/
 ```
 
-3、更新
+#### debian-security
+
+```sh
+http://security.debian.org/
+```
+
+修改为
+
+```sh
+https://mirrors.cernet.edu.cn/debian-security/
+```
+
+4、更新
 
 ```sh
 sudo apt update
 ```
 
-4、参考
+5、参考
 
 > https://help.mirrors.cernet.edu.cn/debian/
 
-> https://mirrors.tuna.tsinghua.edu.cn/help/debian/
+> https://help.mirrors.cernet.edu.cn/debian-security/
 
 ### Deepin
 
@@ -143,6 +163,10 @@ https://mirrors.sjtug.sjtu.edu.cn/parrot/
 sudo apt update
 ```
 
+4、参考
+
+> https://mirrors.sjtug.sjtu.edu.cn/docs/parrot
+
 ### Ubuntu
 
 1、编辑
@@ -187,7 +211,7 @@ sudo vim /etc/apt/sources.list.d/official-package-repositories.list
 
 2、修改
 
-#### Linux-Mint
+#### linuxmint
 
 ```sh
 http://packages.linuxmint.com/
@@ -199,7 +223,7 @@ http://packages.linuxmint.com/
 https://mirrors.cernet.edu.cn/linuxmint/
 ```
 
-#### Ubuntu
+#### ubuntu
 
 ```sh
 http://archive.ubuntu.com/ubuntu
@@ -225,7 +249,7 @@ https://help.mirrors.cernet.edu.cn/linuxmint/
 
 ### KDE neon
 
-#### Ubuntu
+#### ubuntu
 
 1、编辑
 
@@ -251,7 +275,7 @@ https://mirrors.cernet.edu.cn/ubuntu/
 sudo apt update
 ```
 
-#### KDE-neon
+#### neon
 
 1、编辑
 
@@ -333,7 +357,7 @@ sudo apt install ppa-purge
 sudo ppa-purge ppa:username/ppa-name
 ```
 
-## 将Ubuntu 22.04升级到Ubuntu 23.04
+## 将 Ubuntu 22.04 升级到 Ubuntu 23.04
 
 1、查看当前版本
 
@@ -377,7 +401,7 @@ sudo vim /etc/update-manager/release-upgrades
 sudo sed -i ‘s/jammy/lunar/g’ /etc/apt/sources.list
 ```
 
-注：jammy为22.04版本，lunar为23.04版本
+说明：jammy为22.04版本代号，lunar为23.04版本代号。
 
 6、更新并升级
 
