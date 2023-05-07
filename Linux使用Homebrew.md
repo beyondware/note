@@ -139,6 +139,14 @@ Homebrew 4.0.16
 export HOMEBREW_API_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/api"
 ```
 
+```sh
+export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.cernet.edu.cn/homebrew-bottles"
+```
+
+```sh
+brew update
+```
+
 #### brew
 
 ```sh
