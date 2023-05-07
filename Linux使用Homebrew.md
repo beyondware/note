@@ -133,20 +133,6 @@ Homebrew 4.0.16
 
 ### 替换源
 
-#### homebrew-bottles
-
-```sh
-export HOMEBREW_API_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/api"
-```
-
-```sh
-export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.cernet.edu.cn/homebrew-bottles"
-```
-
-```sh
-brew update
-```
-
 #### brew
 
 ```sh
@@ -175,14 +161,26 @@ brew tap --custom-remote --force-auto-update homebrew/command-not-found https://
 brew update
 ```
 
-#### homebrew-cask
+#### homebrew-cask（只适合 macOS）
 
 ```sh
-brew tap --custom-remote --force-auto-update homebrew/cask https://mirrors.ustc.edu.cn/homebrew-cask.git
+brew tap --custom-remote --force-auto-update homebrew/cask https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-cask.git
 ```
 
 ```sh
-brew tap --custom-remote --force-auto-update homebrew/cask-versions https://mirrors.ustc.edu.cn/homebrew-cask-versions.git
+brew tap --custom-remote --force-auto-update homebrew/cask-versions https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-cask-versions.git
+```
+
+```sh
+brew tap --custom-remote --force-auto-update homebrew/cask-fonts https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-cask-fonts.git
+```
+
+```sh
+brew tap --custom-remote --force-auto-update homebrew/cask-drivers https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-cask-drivers.git
+```
+
+```sh
+brew tap --custom-remote --force-auto-update homebrew/services https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-services.git
 ```
 
 ```sh
@@ -190,12 +188,6 @@ brew update
 ```
 
 ### 恢复源
-
-#### homebrew-bottles
-
-```sh
-unset HOMEBREW_API_DOMAIN
-```
 
 #### brew
 
@@ -225,7 +217,7 @@ brew tap --custom-remote homebrew/command-not-found https://github.com/Homebrew/
 brew update
 ```
 
-#### homebrew-cask
+#### homebrew-cask（只适合 macOS）
 
 ```sh
 brew tap --custom-remote --force-auto-update homebrew/cask https://github.com/Homebrew/homebrew-cask
@@ -233,6 +225,18 @@ brew tap --custom-remote --force-auto-update homebrew/cask https://github.com/Ho
 
 ```sh
 brew tap --custom-remote --force-auto-update homebrew/cask-versions https://github.com/Homebrew/homebrew-cask-versions
+```
+
+```sh
+brew tap --custom-remote --force-auto-update homebrew/cask-fonts https://github.com/Homebrew/homebrew-cask-fonts
+```
+
+```sh
+brew tap --custom-remote --force-auto-update homebrew/cask-drivers https://github.com/Homebrew/homebrew-cask-drivers
+```
+
+```sh
+brew tap --custom-remote --force-auto-update homebrew/services https://github.com/Homebrew/homebrew-services
 ```
 
 ```sh
