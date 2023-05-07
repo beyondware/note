@@ -187,6 +187,18 @@ brew tap --custom-remote --force-auto-update homebrew/services https://mirrors.t
 brew update
 ```
 
+#### 输出信息
+
+```sh
+brew --version
+```
+
+```sh
+Homebrew 4.0.16
+Homebrew/homebrew-core (git revision 456d5eec8dc; last commit 2023-05-07)
+Homebrew/homebrew-cask (git revision 2fac4c7af7; last commit 2023-05-07)
+```
+
 ### 恢复源
 
 #### brew
