@@ -201,6 +201,60 @@ sudo apt update
 
 > https://developer.aliyun.com/mirror/ubuntu
 
+### Linux Lite
+
+#### ubuntu
+
+1、编辑
+
+```sh
+sudo vim /etc/apt/sources.list
+```
+
+2、官方源
+
+```sh
+http://archive.ubuntu.com/ubuntu/
+```
+
+修改为
+
+```sh
+https://mirrors.cernet.edu.cn/ubuntu/
+```
+
+3、更新
+
+```sh
+sudo apt update
+```
+
+#### linuxlite
+
+1、编辑
+
+```sh
+sudo vim /etc/apt/sources.list.d/linuxlite.list
+```
+
+2、官方源
+
+```sh
+http://repo.linuxliteos.com/linuxlite/
+```
+
+修改为
+
+```sh
+https://mirrors.sjtug.sjtu.edu.cn/linuxliteos/
+```
+
+3、更新
+
+```sh
+sudo apt update
+```
+
 ### Linux Mint
 
 1、编辑
