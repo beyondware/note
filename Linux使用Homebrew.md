@@ -199,6 +199,24 @@ Homebrew/homebrew-core (git revision 456d5eec8dc; last commit 2023-05-07)
 Homebrew/homebrew-cask (git revision 2fac4c7af7; last commit 2023-05-07)
 ```
 
+#### 报错信息
+
+```sh
+Please note that these warnings are just used to help the Homebrew maintainers
+with debugging if you file an issue. If everything you use Homebrew for is
+working fine: please don't worry or file an issue; just ignore this. Thanks!
+
+Warning: You have an unnecessary local Cask tap.
+This can cause problems installing up-to-date casks.
+Please remove it by running:
+  brew untap homebrew/cask
+
+Warning: You have an unnecessary local Core tap!
+This can cause problems installing up-to-date formulae.
+Please remove it by running:
+ brew untap homebrew/core
+```
+
 ### 恢复源
 
 #### brew
@@ -255,21 +273,27 @@ brew tap --custom-remote --force-auto-update homebrew/services https://github.co
 brew update
 ```
 
-## 旧版
-
-### 查看源
+## 当前源
 
 ```sh
 git -C "$(brew --repo)" remote -v
 ```
 
+> /home/linuxbrew/.linuxbrew/Homebrew
+
 ```sh
 git -C "$(brew --repo homebrew/core)" remote -v
 ```
 
+> /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core
+
 ```sh
 git -C "$(brew --repo homebrew/cask)" remote -v
 ```
+
+> /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-cask
+
+## 旧版
 
 ### 替换源
 
