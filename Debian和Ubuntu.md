@@ -14,7 +14,7 @@ sudo apt install apt-transport-https ca-certificates
 sudo vim /etc/apt/sources.list
 ```
 
-3、修改源
+3、官方源
 
 #### debian
 
@@ -209,7 +209,7 @@ sudo apt update
 sudo vim /etc/apt/sources.list.d/official-package-repositories.list
 ```
 
-2、修改
+2、官方源
 
 #### linuxmint
 
