@@ -1,20 +1,22 @@
-## 安装字体（MesloLGL Nerd Font）
+## 下载 Meslo 字体（只安装 MesloLGL Nerd Font 即可）
 
 > https://ghproxy.com/https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.0/Meslo.zip
 
-## 安装 oh-my-posh（Windows）
+- PowerShell——外观——字体：（选择）MesloLGL Nerd Font
+
+## 安装 oh-my-posh（winget 安装）
 
 ```sh
 winget install JanDeDobbeleer.OhMyPosh -s winget
 ```
 
-### 创建配置文件
+## 创建配置文件
 
 ```sh
 New-Item -Path $PROFILE -Type File -Force
 ```
 
-### 编辑 PowerShell 配置文件脚本
+### 编辑 PowerShell 配置文件
 
 ```sh
 notepad $PROFILE
@@ -34,11 +36,20 @@ echo "hello! today's lucky theme is: $theme :)"
 oh-my-posh --init --shell pwsh --config $theme.FullName | Invoke-Expression
 ```
 
-### 重新加载配置文件
+### 重新加载，配置文件
 
 ```sh
 . $PROFILE
 ```
+
+### 报错信息
+
+```sh
+The term 'oh-my-posh' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+```
+
+- 关闭终端重新加载
 
 ## 安装文件图标库
 
@@ -46,29 +57,29 @@ oh-my-posh --init --shell pwsh --config $theme.FullName | Invoke-Expression
 Install-Module -Name Terminal-Icons -Repository PSGallery
 ```
 
-### 编辑配置文件脚本
+### 编辑配置文件
 
 ```sh
 notepad $PROFILE
 ```
 
-### 追加 $PROFILE 配置文件
+### 追加配置
 
 ```sh
 Import-Module -Name Terminal-Icons
 ```
 
-### 再次加载配置文件
+### 重新加载，配置文件
 
 ```sh
 . $PROFILE
 ```
 
-## VSCode终端显示
+## VSCode 终端显示
 
-- 将字体设置一样，即可显示（如：MesloLGL Nerd Font）
+- VSCode 字体设置与 PowerShell 字体一样（如：MesloLGL Nerd Font）
 
-## oh-my-posh 命令
+## oh-my-posh --help
 
 ```sh
 oh-my-posh is a cross platform tool to render your prompt.
@@ -85,17 +96,20 @@ Available Commands:
   completion  Generate the autocompletion script for the specified shell
   config      Interact with the config
   debug       Print the prompt in debug mode
+  disable     Disable a feature
+  enable      Enable a feature
   font        Manage fonts
   get         Get a value from oh-my-posh
   help        Help about any command
   init        Initialize your shell and config
+  notice      Print the upgrade notice when a new version is available.
   print       Print the prompt/context
   prompt      Set up the prompt for your shell (deprecated)
   toggle      Toggle a segment on/off
   version     Print the version
 
 Flags:
-  -c, --config string   config (required)
+  -c, --config string   config file path
   -h, --help            help for oh-my-posh
   -i, --init            init (deprecated)
   -s, --shell string    shell (deprecated)
@@ -104,6 +118,6 @@ Flags:
 Use "oh-my-posh [command] --help" for more information about a command.
 ```
 
-## 参考文档
+## 参考
 
 > https://ohmyposh.dev/docs/
