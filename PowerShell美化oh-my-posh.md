@@ -49,7 +49,14 @@ The term 'oh-my-posh' is not recognized as a name of a cmdlet, function, script 
 Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
 ```
 
-- 关闭终端重新加载
+1、将 oh-my-posh 安装路径加入到环境变量中
+
+
+```sh
+C:\Users\pc\AppData\Local\Programs\oh-my-posh\bin
+```
+
+2、关闭终端，重新加载。
 
 ## 安装文件图标库
 
