@@ -1,26 +1,34 @@
 ## 安装 winget
 
-1、先安装 App Installer（应用安装程序）
+### 在线安装 winget
+
+App Installer（应用安装程序）
 
 > https://apps.microsoft.com/store/detail/app-installer/9NBLGGH4NNS1
 
-2、再安装 winget
+### 离线包安装 winget
+
+- Windows 设置——隐私和安全性——开发者选项：（打开）开发者模式
 
 > https://github.com/microsoft/winget-cli
 
-3、winget 文档
+## 文档
+
+- winget 文档
 
 > https://docs.microsoft.com/zh-cn/windows/package-manager/winget/
 
-4、wingetcreate：使用 Windows 程序包管理器清单创建程序
+- wingetcreate：使用 Windows 程序包管理器清单创建程序
 
 > https://github.com/microsoft/winget-create
 
-5、winget-pkgs：Windows 程序包管理器社区存储库
+## 软件库
+
+- winget-pkgs：官方库
 
 > https://github.com/microsoft/winget-pkgs
 
-6、winstall：提供 winget 软件
+- winstall：第三方库
 
 > https://winstall.app/
 
