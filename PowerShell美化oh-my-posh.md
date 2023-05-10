@@ -8,6 +8,10 @@
 
 - PowerShell——外观——字体：（选择）MesloLGM Nerd Font
 
+##  Microsoft Store 商店在线安装
+
+> https://apps.microsoft.com/store/detail/ohmyposh/XP8K0HKJFRXGCK
+
 ## 安装 oh-my-posh（winget 安装）
 
 ```sh
