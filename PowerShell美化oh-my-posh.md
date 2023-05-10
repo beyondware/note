@@ -6,7 +6,7 @@
 
 > https://ghproxy.com/https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.0/Meslo.zip
 
-- PowerShell——外观——字体：（选择）MesloLGL Nerd Font
+- PowerShell——外观——字体：（选择）MesloLGM Nerd Font
 
 ## 安装 oh-my-posh（winget 安装）
 
@@ -90,6 +90,10 @@ Import-Module -Name Terminal-Icons
 
 - VSCode 字体设置与 PowerShell 字体一样（如：MesloLGM Nerd Font）
 
+## 参考
+
+> https://ohmyposh.dev/docs/
+
 ## oh-my-posh --help
 
 ```sh
@@ -128,7 +132,3 @@ Flags:
 
 Use "oh-my-posh [command] --help" for more information about a command.
 ```
-
-## 参考
-
-> https://ohmyposh.dev/docs/
