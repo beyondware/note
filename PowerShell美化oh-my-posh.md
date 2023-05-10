@@ -1,4 +1,8 @@
-## 下载 Meslo 字体（只安装 MesloLGL Nerd Font 即可）
+## 下载 Meslo 字体（只安装 MesloLGM Nerd Font 即可）
+
+- 最新版
+
+> https://ghproxy.com/https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Meslo.zip
 
 > https://ghproxy.com/https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.0/Meslo.zip
 
@@ -84,7 +88,7 @@ Import-Module -Name Terminal-Icons
 
 ## VSCode 终端显示
 
-- VSCode 字体设置与 PowerShell 字体一样（如：MesloLGL Nerd Font）
+- VSCode 字体设置与 PowerShell 字体一样（如：MesloLGM Nerd Font）
 
 ## oh-my-posh --help
 
