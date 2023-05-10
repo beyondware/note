@@ -32,7 +32,7 @@ sudo mkfontdir //生成fonts.dir
 6、更新字体缓存
 
 ```sh
-fc-cache
+fc-cache -vf
 ```
 
 7、查看已安装的字体
