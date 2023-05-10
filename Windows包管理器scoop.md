@@ -18,7 +18,7 @@ scoop --version
 scoop uninstall scoop //警告：包括scoop在内所有软件全部删除
 ```
 
-> Scoop has been uninstalled. //表示卸载成功
+> Scoop has been uninstalled. //Scoop已卸载
 
 ## 升级 scoop
 
