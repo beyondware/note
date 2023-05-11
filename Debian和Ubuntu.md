@@ -177,6 +177,8 @@ sudo vim /etc/apt/sources.list
 
 2、官方源
 
+#### ubuntu
+
 ```sh
 http://archive.ubuntu.com/ubuntu/
 ```
@@ -185,6 +187,18 @@ http://archive.ubuntu.com/ubuntu/
 
 ```sh
 https://mirrors.cernet.edu.cn/ubuntu/
+```
+
+#### ubuntu-ports
+
+```sh
+http://ports.ubuntu.com/
+```
+
+修改为
+
+```sh
+https://mirrors.cernet.edu.cn/ubuntu-ports/
 ```
 
 3、更新
@@ -197,9 +211,11 @@ sudo apt update
 
 > https://help.mirrors.cernet.edu.cn/ubuntu/
 
+> https://help.mirrors.cernet.edu.cn/ubuntu-ports/
+
 > https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/
 
-> https://developer.aliyun.com/mirror/ubuntu
+> https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu-ports/
 
 ### Linux Lite
 
