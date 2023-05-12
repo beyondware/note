@@ -20,22 +20,28 @@ sudo ./fastgithub
 http://127.0.0.1:38457/
 ```
 
+或者
+
+```sh
+export http_proxy=http://127.0.0.1:38457
+```
+
 ### 启动
 
 ```sh
 sudo ./fastgithub start
 ```
 
-### 重启
-
-```sh
-sudo ./fastgithub restart
-```
-
 ### 停止
 
 ```sh
 sudo ./fastgithub stop
+```
+
+### 重启
+
+```sh
+sudo ./fastgithub restart
 ```
 
 ### 开机启动
