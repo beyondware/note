@@ -56,6 +56,44 @@ sudo dnf makecache
 
 > https://mirrors.ustc.edu.cn/help/fedora.html
 
+## 系统版本升级
+
+1、更新 Fedora 系统
+
+```sh
+sudo dnf upgrade --refresh
+```
+
+- 注：不要跳过此步骤，重新启动计算机。
+
+2、安装 dnf-plugin-system-upgrade
+
+```sh
+sudo dnf install dnf-plugin-system-upgrade
+```
+
+3、下载最新 Fedora 更新包
+
+```sh
+sudo dnf system-upgrade download --releasever=38
+```
+
+4、开始升级
+
+```sh
+sudo dnf system-upgrade reboot
+```
+
+5、验证更新版本
+
+```sh
+cat /etc/fedora-release
+```
+
+6、参考
+
+> https://docs.fedoraproject.org/en-US/quick-docs/dnf-system-upgrade/
+
 ## 优化界面
 
 1、优化
