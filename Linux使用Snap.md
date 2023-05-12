@@ -167,7 +167,7 @@ sudo snap pack
 > cannot find signatures with metadata for snap
 
 - 解决方法
-
+ 
 > 任何未通过 Snap 商店分发的 Snap 包都必须使用 --dangerous 选项进行安装
 
 ```sh
@@ -179,3 +179,31 @@ sudo snap install 软件包.snap --dangerous
 > https://snapcraft.io/docs/installing-snapd
 
 > https://snapcraft.io/store
+
+### snap help
+
+```sh
+snap 命令允许您安装、配置、刷新和删除 snap。Snap 是跨许多不同 Linux 发行版工作的软件包（类型），可实现最新应用程序和实用程序的安全交付和操作。
+
+用法：snap <命令> [<选项>...]
+
+常用的命令可以分类如下：
+
+             基本信息: find, info, install, remove, list
+            ...更多: refresh, revert, switch, disable, enable, create-cohort
+               历史: changes, tasks, abort, watch
+             守护程序: services, start, stop, restart, logs
+               权限: connections, interface, connect, disconnect
+               配置: get, set, unset, wait
+             应用别名: alias, aliases, unalias, prefer
+               帐号: login, logout, whoami
+               快照: saved, save, check-snapshot, restore, forget
+               设备: model, reboot, recovery
+               开发: download, pack, run, try
+     Quota Groups: set-quota, remove-quota, quotas, quota
+  Validation Sets: validate
+        ... Other: warnings, okay, known, ack, version
+
+请运行 'snap help <命令>' 来获得该命令的更多信息。
+请运行 'snap help -all' 来获得所有命令的短摘要。
+```
