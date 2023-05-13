@@ -325,9 +325,7 @@ sudo apt update
 
 4、参考
 
-```sh
-https://help.mirrors.cernet.edu.cn/linuxmint/
-```
+> https://help.mirrors.cernet.edu.cn/linuxmint/
 
 ### KDE neon
 
