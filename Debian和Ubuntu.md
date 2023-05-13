@@ -189,6 +189,10 @@ http://archive.ubuntu.com/ubuntu/
 https://mirrors.cernet.edu.cn/ubuntu/
 ```
 
+> https://help.mirrors.cernet.edu.cn/ubuntu/
+
+> https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/
+
 #### ubuntu-ports
 
 ```sh
@@ -201,19 +205,7 @@ http://ports.ubuntu.com/
 https://mirrors.cernet.edu.cn/ubuntu-ports/
 ```
 
-3、更新
-
-```sh
-sudo apt update
-```
-
-4、参考
-
-> https://help.mirrors.cernet.edu.cn/ubuntu/
-
 > https://help.mirrors.cernet.edu.cn/ubuntu-ports/
-
-> https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/
 
 > https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu-ports/
 
@@ -229,15 +221,13 @@ https://old-releases.ubuntu.com/ubuntu/
 https://mirrors.cernet.edu.cn/ubuntu-old-releases/ubuntu/
 ```
 
+> https://help.mirrors.cernet.edu.cn/ubuntu-old-releases/
+
 3、更新
 
 ```sh
 sudo apt update
 ```
-
-4、参考
-
-> https://help.mirrors.cernet.edu.cn/ubuntu-old-releases/
 
 ### Linux Lite
 
