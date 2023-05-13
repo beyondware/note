@@ -1,13 +1,31 @@
 ## 安装
 
 ```sh
-sudo zypper install
+sudo zypper install 或者 sudo zypper in
 ```
 
 ## 移除
 
 ```sh
-sudo zypper remove
+sudo zypper remove 或者 sudo zypper rm
+```
+
+## 升级
+
+```sh
+sudo zypper update 或者 sudo zypper up
+```
+
+## 搜索
+
+```sh
+sudo zypper search 或者 sudo zypper se
+```
+
+## 详细信息
+
+```sh
+sudo zypper info 或者 sudo zypper if
 ```
 
 ## zypper --help
