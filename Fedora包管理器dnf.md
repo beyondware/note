@@ -19,38 +19,6 @@ fastestmirror=True  //配置最快的镜像
 sudo dnf upgrade --refresh
 ```
 
-## 版本升级
-
-1、升级
-
-```sh
-sudo dnf update
-```
-
-2、升级并刷新
-
-```sh
-sudo dnf upgrade --refresh
-```
-
-3、安装系统升级插件
-
-```sh
-sudo dnf install dnf-plugin-system-upgrade
-```
-
-4、具体版本号升级
-
-```sh
-sudo dnf system-upgrade download --releasever=38
-```
-
-5、系统升级并重启
-
-```sh
-sudo dnf system-upgrade reboot
-```
-
 ## 系统
 
 1、系统升级并刷新
