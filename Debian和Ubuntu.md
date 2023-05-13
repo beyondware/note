@@ -217,6 +217,28 @@ sudo apt update
 
 > https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu-ports/
 
+#### ubuntu-old-releases（旧版本）
+
+```sh
+https://old-releases.ubuntu.com/ubuntu/
+```
+
+修改为
+
+```sh
+https://mirrors.cernet.edu.cn/ubuntu-old-releases/ubuntu/
+```
+
+3、更新
+
+```sh
+sudo apt update
+```
+
+4、参考
+
+> https://help.mirrors.cernet.edu.cn/ubuntu-old-releases/
+
 ### Linux Lite
 
 #### ubuntu
