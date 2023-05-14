@@ -24,13 +24,49 @@
 
 > https://download.opensuse.org/repositories/M17N:/fonts/openSUSE_Tumbleweed/
 
-## 修改源
+## openSUSE Tumbleweed 修改源
+
+### 命令行修改
+
+1、列出当前源
+
+```sh
+zypper lr
+```
+
+2、禁用官方软件源
+
+```sh
+sudo zypper mr -da
+```
+
+3、添加源
+
+```sh
+sudo zypper ar -cfg 'https://mirrors.cernet.edu.cn/opensuse/tumbleweed/repo/oss/' mirror-oss
+```
+
+```sh
+sudo zypper ar -cfg 'https://mirrors.cernet.edu.cn/opensuse/tumbleweed/repo/non-oss/' mirror-non-oss
+```
+
+```sh
+sudo zypper ar -fcg 'https://mirrors.pku.edu.cn/opensuse/update/tumbleweed/' pku-mirror-update
+```
+
+4、刷新软件源
+
+```sh
+sudo zypper ref
+```
+
+### YaST 手动修改
 
 1、打开 YaST
 
 2、点击 Software (软件) 分组中的 Software Repositories（软件源）
 
-3、点击 Edit（编辑），替换**三个**官方源 oss、non-oss，update（部分源未更新）
+3、点击 Edit（编辑），替换**三个**官方源 oss、non-oss，update（部分镜像未提供）
 
 ```sh
 https://download.opensuse.org
@@ -42,7 +78,11 @@ https://download.opensuse.org
 https://mirrors.cernet.edu.cn/opensuse
 ```
 
+### 参考
+
 > https://help.mirrors.cernet.edu.cn/opensuse/
+
+> https://mirrors.pku.edu.cn/Help/openSUSE
 
 ## 软件源
 
