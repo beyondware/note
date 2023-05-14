@@ -1,3 +1,49 @@
+## 官方源
+
+1、主软件源（开源软件）
+
+> https://download.opensuse.org/opensuse/tumbleweed/repo/oss/
+
+2、主软件源（非开源软件）
+
+> https://download.opensuse.org/opensuse/tumbleweed/repo/non-oss/
+
+3、主更新源
+
+> https://download.opensuse.org/update/tumbleweed/
+
+4、主软件源（源代码）
+
+> https://download.opensuse.org/source/tumbleweed/repo/
+
+5、主调试源
+
+> https://download.opensuse.org/debug/tumbleweed/repo/
+
+6、字体
+
+> https://download.opensuse.org/repositories/M17N:/fonts/openSUSE_Tumbleweed/
+
+## 修改源
+
+1、打开 YaST
+
+2、点击 Software (软件) 分组中的 Software Repositories（软件源）
+
+3、点击 Edit（编辑），替换**三个**官方源 oss、non-oss，update（部分源未更新）
+
+```sh
+https://download.opensuse.org
+```
+
+修改为
+
+```sh
+https://mirrors.cernet.edu.cn/opensuse
+```
+
+> https://help.mirrors.cernet.edu.cn/opensuse/
+
 ## 安装
 
 ```sh
@@ -10,10 +56,16 @@ sudo zypper install 或者 sudo zypper in
 sudo zypper remove 或者 sudo zypper rm
 ```
 
-## 升级
+## 更新
 
 ```sh
 sudo zypper update 或者 sudo zypper up
+```
+
+## 刷新
+
+```sh
+sudo zypper refresh 或者 sudo zypper ref
 ```
 
 ## 搜索
@@ -22,10 +74,22 @@ sudo zypper update 或者 sudo zypper up
 sudo zypper search 或者 sudo zypper se
 ```
 
+### 查找本地安装程序
+
+```sh
+sudo zypper search --installed-only
+```
+
 ## 详细信息
 
 ```sh
 sudo zypper info 或者 sudo zypper if
+```
+
+## 清理本地包缓存
+
+```sh
+sudo zypper clean 或者 sudo zypper cc
 ```
 
 ## zypper --help
