@@ -74,10 +74,15 @@ sudo zypper refresh 或者 sudo zypper ref
 sudo zypper search 或者 sudo zypper se
 ```
 
-### 查找本地安装程序
+### 查找所有本地安装程序
 
 ```sh
 sudo zypper search --installed-only
+```
+### 列出与 xx 相关的本地安装软件
+
+```sh
+sudo zypper search --installed-only | grep xx
 ```
 
 ## 详细信息
