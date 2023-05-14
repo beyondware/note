@@ -1,3 +1,5 @@
+# openSUSE Tumbleweed
+
 ## 官方源
 
 1、主软件源（开源软件）
@@ -24,7 +26,7 @@
 
 > https://download.opensuse.org/repositories/M17N:/fonts/openSUSE_Tumbleweed/
 
-## openSUSE Tumbleweed 修改源
+## 修改源
 
 ### 命令行修改
 
@@ -84,43 +86,45 @@ https://mirrors.cernet.edu.cn/opensuse
 
 > https://mirrors.pku.edu.cn/Help/openSUSE
 
-## 软件源
+# 软件源
 
-### 列出源
+## 列出源
 
 ```sh
 zypper lr
 ```
 
-### 禁用源
+## 禁用源
 
 ```sh
 sudo zypper mr -da
 ```
 
-### 添加源
+## 添加源
 
 ```sh
 sudo zypper addrepo 或者 sudo zypper ar
 ```
 
-### 移除源
+## 移除源
 
 ```sh
 sudo zypper removerepo 或者 sudo zypper rr
 ```
 
-### 刷新源
+## 刷新源
 
 ```sh
 sudo zypper refresh 或者 sudo zypper ref
 ```
 
-### 清理本地缓存
+## 清理本地缓存
 
 ```sh
 sudo zypper clean 或者 sudo zypper cc
 ```
+
+# 常用命令
 
 ## 安装
 
@@ -170,7 +174,7 @@ sudo zypper search --installed-only | grep xx
 sudo zypper info 或者 sudo zypper if
 ```
 
-## zypper --help
+# zypper --help
 
 ```sh
 用法：
