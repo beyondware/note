@@ -566,3 +566,18 @@ sudo apt install google-chrome-stable_current_amd64.deb
 ```sh
 rm google-chrome-stable_current_amd64.deb
 ```
+
+## open-vm-tools
+
+1、安装
+
+```sh
+sudo apt install open-vm-tools open-vm-tools-desktop
+```
+
+2、无法复制和粘贴
+
+```sh
+vmware-user
+```
+
