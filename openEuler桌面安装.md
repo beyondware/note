@@ -1,4 +1,4 @@
-### 分区
+## 分区
 
 ```sh
 /boot/efi 500M 引导分区
@@ -6,7 +6,7 @@ swap 2GB 交换分区
 / 剩余 根目录
 ```
 
-### 联网
+## 联网
 
 ```sh
 vim /etc/sysconfig/network-scripts/ifcfg-ens33
@@ -14,23 +14,19 @@ vim /etc/sysconfig/network-scripts/ifcfg-ens33
 
 - ONBOOT=no 改成 yes（正常联网，不用管）
 
-### SSH 登陆
+## 镜像源
 
-```sh
-vim /etc/ssh/sshd_config
-```
-
-- PermitRootLogin no 改成 yes
-
-### 修改源
+1、编辑
 
 ```sh
 sudo vim /etc/yum.repos.d/openEuler.repo
 ```
 
+2、官方源
+
 > http://repo.openeuler.org/
 
-改成（可选）
+修改为
 
 > https://repo.huaweicloud.com/openeuler/
 
@@ -38,7 +34,13 @@ sudo vim /etc/yum.repos.d/openEuler.repo
 
 > https://mirrors.tuna.tsinghua.edu.cn/openeuler/
 
-### 安装 kiran-desktop
+## open-vm-tools
+
+```sh
+sudo dnf install open-vm-tools open-vm-tools-desktop
+```
+
+## kiran-desktop 桌面安装
 
 1、更新软件源
 
@@ -64,7 +66,7 @@ sudo systemctl set-default graphical.target
 sudo reboot
 ```
 
-### 知识拓展
+## 知识拓展
 
 1、查看服务运行状态
 
@@ -112,10 +114,4 @@ systemctl set-default multi-user.target
 
 ```sh
 systemctl isolate multi-user.target
-```
-
-### 安装 open-vm-tools
-
-```sh
-sudo dnf install open-vm-tools open-vm-tools-desktop
 ```
