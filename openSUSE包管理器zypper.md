@@ -100,6 +100,12 @@ sudo zypper remove 或者 sudo zypper rm
 sudo zypper update 或者 sudo zypper up
 ```
 
+## 升级
+
+```sh
+sudo zypper dist-upgrade 或者 sudo zypper dup
+```
+
 ## 搜索
 
 ```sh
@@ -111,6 +117,7 @@ sudo zypper search 或者 sudo zypper se
 ```sh
 sudo zypper search --installed-only
 ```
+
 ### 列出与 xx 相关的本地安装软件
 
 ```sh
