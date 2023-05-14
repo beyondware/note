@@ -195,7 +195,7 @@ cat /proc/version
 ifconfig -a
 ```
 
-查看是否有wlan0、eth1、usb0开头的信息
+> 查看是否有wlan0、eth1、usb0开头的信息
 
 2、查看当前无线网卡信息
 
@@ -203,7 +203,7 @@ ifconfig -a
 iwconfig
 ```
 
-出现 iwconfig: command not found
+- 出现 iwconfig: command not found
 
 ```sh
 sudo apt install wireless-tools
@@ -215,7 +215,7 @@ sudo apt install wireless-tools
 sudo apt install linux-firmware
 ```
 
-通常情况下, WiFi芯片固件存放在/lib/firmware目录
+> 通常情况下, WiFi芯片固件存放在/lib/firmware目录
 
 4、PCI 无线网卡
 
@@ -223,13 +223,13 @@ sudo apt install linux-firmware
 sudo apt install pciutils
 ```
 
-查看网卡信息
+- 查看网卡信息
 
 ```sh
 lspci
 ```
 
-过滤干扰信息
+- 过滤干扰信息
 
 ```sh
 lspci | grep Network 或者 lspci | grep -i net
@@ -241,7 +241,7 @@ lspci | grep Network 或者 lspci | grep -i net
 sudo apt install usbutils
 ```
 
-查看网卡信息
+- 查看网卡信息
 
 ```sh
 lsusb
@@ -259,7 +259,7 @@ dmesg | grep brcm
 sudo apt install linux-headers-$(uname -r)
 ```
 
-编译需要 git、gcc、make、autoconf、build-essential 等依赖
+> 编译需要 git、gcc、make、autoconf、build-essential 等依赖
 
 8、查看驱动加载报错信息
 
@@ -327,6 +327,8 @@ export QT_IM_MODULE=ibus
 ```sh
 source ~/.bashrc
 ```
+
+> 注：可能重启才会生效。
 
 5、ibus-setup
 
