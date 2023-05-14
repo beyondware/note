@@ -44,6 +44,44 @@ https://mirrors.cernet.edu.cn/opensuse
 
 > https://help.mirrors.cernet.edu.cn/opensuse/
 
+## 软件源
+
+### 列出源
+
+```sh
+zypper lr
+```
+
+### 禁用源
+
+```sh
+sudo zypper mr -da
+```
+
+### 添加源
+
+```sh
+sudo zypper addrepo 或者 sudo zypper ar
+```
+
+### 移除源
+
+```sh
+sudo zypper removerepo 或者 sudo zypper rr
+```
+
+### 刷新源
+
+```sh
+sudo zypper refresh 或者 sudo zypper ref
+```
+
+### 清理本地缓存
+
+```sh
+sudo zypper clean 或者 sudo zypper cc
+```
+
 ## 安装
 
 ```sh
@@ -60,12 +98,6 @@ sudo zypper remove 或者 sudo zypper rm
 
 ```sh
 sudo zypper update 或者 sudo zypper up
-```
-
-## 刷新
-
-```sh
-sudo zypper refresh 或者 sudo zypper ref
 ```
 
 ## 搜索
@@ -89,12 +121,6 @@ sudo zypper search --installed-only | grep xx
 
 ```sh
 sudo zypper info 或者 sudo zypper if
-```
-
-## 清理本地包缓存
-
-```sh
-sudo zypper clean 或者 sudo zypper cc
 ```
 
 ## zypper --help
