@@ -1,18 +1,18 @@
 ## SSH
 
-> sshd（Fedora）或者 ssh（Debian），具体情况而定。
-
-### 安装 SSH
+1、安装 SSH
 
 > Unit sshd.service could not be found.
 
-#### Debian
+> sshd（Fedora）或者 ssh（Debian），具体情况而定。
+
+### Debian
 
 ```sh
 sudo apt install openssh-server
 ```
 
-#### Fedora
+### Fedora
 
 - 查看是否安装
 
@@ -27,13 +27,13 @@ sudo dnf install openssh-server
 
 ```
 
-- 查看版本
+### 查看版本
 
 ```sh
 ssh -V
 ```
 
-### 查看 SSH
+2、查看 SSH
 
 ```sh
 systemctl status sshd 或者 sudo /etc/init.d/ssh status 或者 service sshd status
@@ -43,31 +43,31 @@ systemctl status sshd 或者 sudo /etc/init.d/ssh status 或者 service sshd sta
 
 > Active: inactive (dead) 表示关闭
 
-### 启动 SSH
+3、启动 SSH
 
 ```sh
 sudo systemctl start sshd 或者 sudo /etc/init.d/ssh start 或者 service sshd start
 ```
 
-### 开机启动 SSH
+4、开机启动 SSH
 
 ```sh
 sudo systemctl enable sshd 或者 sudo systemctl enable ssh
 ```
 
-### 禁止开机启动 SSH
+5、禁止开机启动 SSH
 
 ```sh
 sudo systemctl disable sshd
 ```
 
-### 停止 SSH
+6、停止 SSH
 
 ```sh
 sudo systemctl stop sshd 或者 sudo /etc/init.d/ssh stop 或者 service sshd stop
 ```
 
-### 重启 SSH
+7、重启 SSH
 
 ```sh
 sudo systemctl restart sshd 或者 sudo /etc/init.d/ssh restart 或者 service sshd restart
@@ -298,3 +298,38 @@ tar -jxvf 下载包.tar.bz2
 ```sh
 tar -Jxvf 下载包.tar.xz
 ```
+
+## 中文输入法
+
+### ibus
+
+1、安装
+
+```sh
+sudo apt install ibus ibus-libpinyin
+```
+2、编辑
+
+```sh
+sudo vim ~/.bashrc
+```
+
+3、添加
+
+```sh
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
+```
+
+4、刷新
+
+```sh
+source ~/.bashrc
+```
+
+5、ibus-setup
+
+选择 "Preferences"（首选项）-点击 "Input Methods"（输入法）-点击 "Add"（添加）
+
+> Chinese-Intelligent Pinyin
