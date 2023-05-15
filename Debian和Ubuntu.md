@@ -12,6 +12,12 @@ sudo apt install open-vm-tools open-vm-tools-desktop
 vmware-user
 ```
 
+3、警告
+
+```sh
+(vmware-user:2932): Gtk-WARNING **: 15:26:01.197: gtk_disable_setlocale() must be called before gtk_init()
+```
+
 ## 镜像源
 
 ### Debian
