@@ -115,3 +115,37 @@ Options:
 
 'apt' 和 'aptitude' 提供了更为便利的软件包管理。
 ```
+
+## gdebi
+
+> https://launchpad.net/gdebi
+
+1、安装 gdebi
+
+```sh
+sudo apt install gdebi
+```
+
+2、安装本地包
+
+```sh
+sudo gdebi 包.deb
+```
+
+3、gdebi --help
+
+```sh
+Usage: 用法：gdebi [选项] 文件名
+要使用图形化版本，可以运行 gdebi-gtk
+
+Options:
+  --version             show program's version number and exit
+  -h, --help            show this help message and exit
+  -n, --non-interactive
+                        以非交互式运行（危险！）  
+  -o APT_OPTS, --option=APT_OPTS
+                        设置一个 APT 配置选项  
+  -q, --quiet           不显示进度信息  
+  --apt-line            仅模拟执行并向标准错误（stderr）输出一行与 apt-get install 兼容的信息。  
+  --root=ROOTDIR        使用另外的 root 文件夹
+```
