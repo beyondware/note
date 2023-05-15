@@ -383,7 +383,7 @@ sudo vim /etc/apt/sources.list.d/neon.list
 http://archive.neon.kde.org/user
 ```
 
-修改为
+修改为（好像镜像有问题）
 
 ```sh
 https://mirrors.bfsu.edu.cn/kde-neon/user
