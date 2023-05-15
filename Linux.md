@@ -308,6 +308,7 @@ tar -Jxvf 下载包.tar.xz
 ```sh
 sudo apt install ibus ibus-libpinyin
 ```
+
 2、编辑
 
 ```sh
@@ -332,6 +333,35 @@ source ~/.bashrc
 
 5、ibus-setup
 
-选择 "Preferences"（首选项）-点击 "Input Methods"（输入法）-点击 "Add"（添加）
+默认 "General"（常规）-选择 "Preferences"（首选项）-点击 "Input Methods"（输入法）-点击 "Add"（添加）————Chinese-Intelligent Pinyin
 
-> Chinese-Intelligent Pinyin
+6、参考
+
+> https://github.com/ibus/ibus/wiki
+
+> https://wiki.archlinux.org/title/IBus
+
+#### 若 ibus 尚未启动
+
+1、编辑
+
+```sh
+sudo vim /etc/environment
+```
+
+2、添加
+
+```sh
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
+ibus-daemon -rxR
+```
+
+3、重启电脑
+
+4、若还是无法输入中文
+
+```sh
+sudo apt install ibus-clutter ibus-gtk ibus-qt im-config
+```
