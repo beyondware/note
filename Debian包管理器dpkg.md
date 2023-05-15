@@ -1,3 +1,35 @@
+## 常用命令
+
+1、安装
+
+```sh
+dpkg --install 包.deb 或者  dpkg -i 包.deb
+```
+
+2、移除
+
+```sh
+dpkg --remove 或者 dpkg -r
+```
+
+3、列出
+
+```sh
+dpkg --list 或者 dpkg -l
+```
+
+4、列出关联文件
+
+```sh
+dpkg -L | grpe 关键字
+```
+
+5、搜索
+
+```sh
+dpkg --search 或者 dpkg -S
+```
+
 ## dpkg --help
 
 ```sh
