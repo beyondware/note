@@ -329,3 +329,8 @@ sudo zypper info 或者 sudo zypper if
 
 输入 'zypper help <COMMAND>' 获取具体命令的帮助。
 ```
+
+# Zypper 用法参考
+
+> https://en.opensuse.org/SDB:Zypper_usage
+
