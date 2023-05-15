@@ -381,11 +381,11 @@ sudo vim /etc/bashrc
 sudo vim ~/.bashrc
 ```
 
-2、添加别名
+2、添加别名（注意：单引号）
 
+```sh
 alias ll='ls -alh'
-
-注意：单引号
+```
 
 3、刷新
 
