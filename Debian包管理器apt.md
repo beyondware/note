@@ -27,7 +27,7 @@ sudo apt install 包名
 ### 本地安装
 
 ```sh
-sudo apt install 包.deb 或者 sudo dpkg -i 包.deb
+sudo apt install 包.deb 或者 dpkg -i 包.deb
 ```
 
 - 报错的话，需要修复依赖项
@@ -39,7 +39,7 @@ sudo apt install -f
 ## 删除
 
 ```sh
-sudo apt remove 包名 或者 dpkg uninstall 包名
+sudo apt remove 包名 或者 dpkg -r 包名
 ```
 
 ### 自动删除
@@ -48,7 +48,7 @@ sudo apt remove 包名 或者 dpkg uninstall 包名
 sudo apt autoremove 包名
 ```
 
-- 删除包和依赖
+### 删除包和依赖
 
 ```sh
 sudo apt purge 包名
@@ -66,7 +66,7 @@ sudo apt autoremove --purge
 sudo apt upgrade 包名
 ```
 
-### 自动处理依赖项升级包
+### 自动处理依赖升级包
 
 ```sh
 sudo apt full-upgrade 包名
