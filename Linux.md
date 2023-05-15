@@ -370,9 +370,20 @@ sudo apt install ibus-clutter ibus-gtk ibus-qt im-config
 
 ### 全局用户
 
+1、查看 bash 配置文件
+
 ```sh
-sudo vim /etc/bashrc
+ls /etc | grep bash
 ```
+
+注：可能是bashrc，也可能是bash.bashrc文件。
+
+2、编辑 bash 配置文件
+
+```sh
+sudo vim /etc/bashrc 或者 sudo vim /etc/bash.bashrc（Debian）
+```
+
 ### 当前用户
 
 1、编辑
