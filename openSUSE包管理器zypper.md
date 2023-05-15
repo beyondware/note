@@ -45,11 +45,11 @@ sudo zypper mr -da
 3、添加源
 
 ```sh
-sudo zypper ar -cfg 'https://mirrors.cernet.edu.cn/opensuse/tumbleweed/repo/oss/' mirror-oss
+sudo zypper ar -cfg 'https://mirrors.pku.edu.cn/opensuse/tumbleweed/repo/oss/' pku-mirror-oss
 ```
 
 ```sh
-sudo zypper ar -cfg 'https://mirrors.cernet.edu.cn/opensuse/tumbleweed/repo/non-oss/' mirror-non-oss
+sudo zypper ar -cfg 'https://mirrors.pku.edu.cn/opensuse/tumbleweed/repo/non-oss/' pku-mirror-non-oss
 ```
 
 ```sh
@@ -85,6 +85,8 @@ https://mirrors.cernet.edu.cn/opensuse
 > https://help.mirrors.cernet.edu.cn/opensuse/
 
 > https://mirrors.pku.edu.cn/Help/openSUSE
+
+> https://mirrors.ustc.edu.cn/help/opensuse.html
 
 # 软件源
 
