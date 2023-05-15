@@ -48,6 +48,12 @@ https://mirrors.cernet.edu.cn/debian/
 http://security.debian.org/
 ```
 
+或者
+
+```sh
+http://security.debian.org/debian-security/
+```
+
 修改为
 
 ```sh
@@ -65,6 +71,12 @@ sudo apt update
 > https://help.mirrors.cernet.edu.cn/debian/
 
 > https://help.mirrors.cernet.edu.cn/debian-security/
+
+> https://mirrors.ustc.edu.cn/help/debian-security.html
+
+#### debian-ports（只适合 Debian riscv64）
+
+> https://mirror.sjtu.edu.cn/docs/debian-ports
 
 ### Deepin
 
@@ -236,6 +248,10 @@ https://mirrors.cernet.edu.cn/ubuntu-old-releases/ubuntu/
 ```
 
 > https://help.mirrors.cernet.edu.cn/ubuntu-old-releases/
+
+#### ubuntu-security（未提供镜像）
+
+> http://security.ubuntu.com/ubuntu/
 
 3、更新
 
