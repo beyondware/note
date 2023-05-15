@@ -365,3 +365,42 @@ ibus-daemon -rxR
 ```sh
 sudo apt install ibus-clutter ibus-gtk ibus-qt im-config
 ```
+
+## 别名
+
+### 全局用户
+
+```sh
+sudo vim /etc/bashrc
+```
+### 当前用户
+
+1、编辑
+
+```sh
+sudo vim ~/.bashrc
+```
+
+2、添加别名
+
+alias ll='ls -alh'
+
+注意：单引号
+
+3、刷新
+
+```sh
+source ~/.bashrc
+```
+
+4、查看别名
+
+```sh
+alias
+```
+
+5、删除全部别名
+
+```sh
+unalias -a
+```
