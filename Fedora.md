@@ -1,3 +1,55 @@
+# Rocky Linux
+
+## 镜像源
+
+1、替换
+
+```sh
+sudo sed -e 's|^mirrorlist=|#mirrorlist=|g' \
+         -e 's|^#baseurl=http://dl.rockylinux.org/$contentdir|baseurl=https://mirrors.cernet.edu.cn/rocky|g' \
+         -i.backup \
+         /etc/yum.repos.d/rocky-extras.repo \
+         /etc/yum.repos.d/rocky.repo
+```
+
+2、生成缓存
+
+```sh
+sudo dnf makecache
+```
+
+3、参考
+
+> https://help.mirrors.cernet.edu.cn/rocky/
+
+## 安装桌面环境
+
+1、组列出
+
+```sh
+dnf group list
+```
+
+2、组安装
+
+```sh
+dnf groupinstall "Server with GUI"
+```
+
+3、开启图形化
+
+```sh
+systemctl set-default graphical
+```
+
+4、组移除
+
+```sh
+dnf groupremove "Server with GUI"
+```
+
+# Fedora
+
 ## 镜像源
 
 ### 方案一（推荐）
@@ -94,7 +146,7 @@ cat /etc/fedora-release
 
 > https://docs.fedoraproject.org/en-US/quick-docs/dnf-system-upgrade/
 
-## 优化界面
+# 优化界面
 
 1、优化
 
@@ -114,7 +166,7 @@ sudo dnf install gnome-extensions-app
 sudo dnf install gnome-shell-extension-dash-to-dock
 ```
 
-## 特效扩展
+# 特效扩展
 
 - 扩展安装位置
 
@@ -134,9 +186,9 @@ cd ~/.local/share/gnome-shell/extensions
 
 > https://extensions.gnome.org/extension/97/coverflow-alt-tab/
 
-## 美化界面
+# 美化界面
 
-### 主题
+## 主题
 
 > https://github.com/vinceliuice/WhiteSur-gtk-theme
 
@@ -158,7 +210,7 @@ cd WhiteSur-gtk-theme/
 cd ~/.themes
 ```
 
-### 图标
+## 图标
 
 > https://github.com/vinceliuice/WhiteSur-icon-theme
 
@@ -180,7 +232,7 @@ cd WhiteSur-icon-theme/
 cd ~/.local/share/icons
 ```
 
-### 光标
+## 光标
 
 > https://github.com/vinceliuice/WhiteSur-cursors
 
@@ -202,7 +254,7 @@ cd WhiteSur-cursors/
  cd ~/.local/share/icons
 ```
 
-### 壁纸
+## 壁纸
 
 > https://github.com/vinceliuice/WhiteSur-wallpapers
 
@@ -214,8 +266,6 @@ git clone https://ghproxy.com/https://github.com/vinceliuice/WhiteSur-wallpapers
 cd WhiteSur-wallpapers/
 ```
 
-- 注意：需要权限
-
 ```sh
 sudo ./install-gnome-backgrounds.sh
 ```
@@ -226,7 +276,7 @@ sudo ./install-gnome-backgrounds.sh
 cd /usr/share/backgrounds
 ```
 
-## 编译报错汇总
+# 编译报错汇总
 
 1、configure: error: Cannot build a 32-bit program, you need to install 32-bit development libraries.
 
@@ -269,5 +319,4 @@ sudo dnf install freetype-devel
 ```sh
 sudo dnf install libXrandr-devel
 ```
-
 
