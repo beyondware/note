@@ -72,18 +72,6 @@ sudo apt purge 包名
 sudo apt autoremove --purge
 ```
 
-## 列出已安装
-
-```sh
-sudo apt list --installed | grep -i 关键字
-```
-
-或者
-
-```sh
-dpkg -L | grep 关键字
-```
-
 ## 升级
 
 ```sh
@@ -114,10 +102,16 @@ sudo apt install --only-upgrade 包名
 apt -s upgrade
 ```
 
+## 列出已安装
+
+```sh
+apt list --installed | grep 关键字 或者 dpkg -L | grep 关键字
+```
+
 ## 搜索
 
 ```sh
-apt search 包名
+apt search 关键字 或者 apt list | grep 关键字
 ```
 
 ## 详细信息
