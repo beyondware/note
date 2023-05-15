@@ -27,13 +27,7 @@ sudo apt install 包名
 ### 本地安装
 
 ```sh
-sudo apt install 包.deb
-```
-
-或者
-
-```sh
-sudo dpkg -i 包.deb
+sudo apt install 包.deb 或者 sudo dpkg -i 包.deb
 ```
 
 - 报错的话，需要修复依赖项
@@ -45,13 +39,7 @@ sudo apt install -f
 ## 删除
 
 ```sh
-sudo apt remove 包名
-```
-
-或者
-
-```sh
-dpkg uninstall 包名
+sudo apt remove 包名 或者 dpkg uninstall 包名
 ```
 
 ### 自动删除
