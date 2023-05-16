@@ -1,3 +1,17 @@
+## 优化桌面
+
+```sh
+sudo apt install gnome-tweaks
+```
+
+```sh
+sudo apt install gnome-shell-extensions
+```
+
+```sh
+sudo apt install gnome-shell-extension-dashtodock
+```
+
 ## open-vm-tools
 
 1、安装
