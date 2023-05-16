@@ -166,6 +166,8 @@ sudo dnf install gnome-extensions-app
 sudo dnf install gnome-shell-extension-dash-to-dock
 ```
 
+> https://extensions.gnome.org/extension/307/dash-to-dock/
+
 # 特效扩展
 
 - 扩展安装位置
