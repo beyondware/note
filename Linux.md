@@ -415,3 +415,9 @@ alias
 ```sh
 unalias -a
 ```
+
+专门设置别名的文件
+
+```sh
+~/.bash_aliases
+```
