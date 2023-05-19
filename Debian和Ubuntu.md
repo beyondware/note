@@ -32,6 +32,24 @@ vmware-user
 (vmware-user:2932): Gtk-WARNING **: 15:26:01.197: gtk_disable_setlocale() must be called before gtk_init()
 ```
 
+解决方法：
+
+```sh
+sudo vim /usr/share/gnome/autostart/vmware-user.desktop
+```
+
+添加
+
+```sh
+[Desktop Entry]
+Type=Application
+Name=VMware User Agent
+Exec=vmware-user
+Icon=system-run
+Comment=VMware User Agent
+X-GNOME-Autostart-enabled=true
+```
+
 ## 镜像源
 
 ### Debian
