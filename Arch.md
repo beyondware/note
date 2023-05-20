@@ -730,6 +730,20 @@ PermitRootLogin yes
 sudo systemctl restart sshd
 ```
 
+### 自定义内核
+
+```sh
+sudo pacman -S linux-lts linux-lts-headers
+```
+
+```sh
+sudo pacman -S linux-zen linux-zen-headers
+```
+
+```sh
+sudo pacman -S linux-hardened linux-hardened-headers
+```
+
 ### Xorg（包含：xorg-server）
 
 > https://wiki.archlinux.org/title/Xorg
@@ -870,6 +884,16 @@ sudo pacman -S cups libcups cups-filters cups-pk-helper system-config-printer
 sudo systemctl enable cups
 ```
 
+### 优化电源管理
+
+```sh
+sudo pacman -S powertop
+```
+
+```sh
+sudo powertop --auto-tune
+```
+
 ### 固态硬盘
 
 1、启动
@@ -938,7 +962,7 @@ sudo systemctl start gdm
 sudo systemctl enable gdm
 ```
 
-##### GNOME设置分辨率
+##### GNOME 设置分辨率
 
 > 显示（Displays）→分辨率（Resolution）
 
@@ -1007,7 +1031,8 @@ sudo pacman -S xfce4
 ##### lightdm
 
 ```sh
-sudo pacman -S lightdm lightdm-gtk-greeter
+sudo pacman -S lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
+
 ```
 
 ```sh
