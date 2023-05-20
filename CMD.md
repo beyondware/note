@@ -14,7 +14,7 @@ exit：退出
 
 cls:（CLear Screen）清屏
 
-### Administrator
+### Administrator 账号
 
 1、开启
 
@@ -26,6 +26,20 @@ net user administrator /active:yes
 
 ```sh
 net user administrator /active:no
+```
+
+### VBS 基于虚拟化的安全性
+
+1、关闭VBS（管理员身份）
+
+```sh
+bcdedit /set hypervisorlaunchtype off
+```
+
+2、开启VBS（管理员身份）
+
+```sh
+bcdedit /set hypervisorlaunchtype auto
 ```
 
 ### 管理员已阻止你运行此应用
