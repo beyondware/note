@@ -398,10 +398,10 @@ upgrade specific options:
 
 ### yay 安装（推荐安装）
 
-1、安装 pamac-aur
+1、安装
 
 ```sh
-yay -Syu pamac-aur
+yay -Syu pamac-aur libpamac-aur archlinux-appstream-data-pamac
 ```
 
 2、运行 pamac-manager
