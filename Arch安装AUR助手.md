@@ -412,26 +412,6 @@ pamac-manager
 
 ### 源码安装
 
-#### 安装 libpamac
-
-> https://gitlab.manjaro.org/applications/libpamac
-
-1、克隆 libpamac（推荐 libpamac-aur）
-
-```sh
-git clone https://aur.archlinux.org/libpamac-aur.git
-```
-
-2、编译
-
-```sh
-cd libpamac-aur
-```
-
-```sh
-makepkg -si
-```
-
 #### 安装 pamac
 
 > https://gitlab.manjaro.org/applications/pamac
@@ -452,7 +432,27 @@ cd pamac-aur
 makepkg -si
 ```
 
-3、运行
+#### 安装 libpamac
+
+> https://gitlab.manjaro.org/applications/libpamac
+
+1、克隆 libpamac（推荐 libpamac-aur）
+
+```sh
+git clone https://aur.archlinux.org/libpamac-aur.git
+```
+
+2、编译
+
+```sh
+cd libpamac-aur
+```
+
+```sh
+makepkg -si
+```
+
+#### 运行
 
 ```sh
 pamac-manager
