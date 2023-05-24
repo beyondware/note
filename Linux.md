@@ -1,3 +1,9 @@
+## 是否支持虚拟化
+
+```sh
+LC_ALL=C lscpu | grep Virtualization
+```
+
 ## SSH
 
 1、安装 SSH
