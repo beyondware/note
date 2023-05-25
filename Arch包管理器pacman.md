@@ -152,16 +152,16 @@ sudo pacman -Sg 组名
 pacman -Q
 ```
 
-2、列出所有已安装包，包括安装路径（-l：列表）
+2、列出所有已安装包，不显示版本号（-q：省略版本号）
 
 ```sh
-pacman -Ql 包名
+pacman -Qq
 ```
 
-3、列出已安装包的详细信息
+3、列出所有已安装包，包括安装路径（-l：列表）
 
 ```sh
-pacman -Qi 包名
+pacman -Ql
 ```
 
 4、搜索*关键字*匹配的已安装包
@@ -170,10 +170,10 @@ pacman -Qi 包名
 pacman -Qs 关键字
 ```
 
-5、列出所有已安装包，不显示版本号（-q：省略版本号）
+5、列出已安装包的详细信息
 
 ```sh
-pacman -Qq
+pacman -Qi 包名
 ```
 
 6、列出所有显式安装（-e：显式安装）
@@ -192,12 +192,6 @@ pacman -Qqd
 
 ```sh
 pacman -Qqdt
-```
-
-9、显示包的依赖树
-
-```sh
-pactree 包名
 ```
 
 ### pacman -h
@@ -463,4 +457,38 @@ pactree 包名
       --print-format <字符串>
                        指定如何打印目标
       --sysroot        在一个已挂载的 guest 系统操作（仅 root）
+```
+
+### 显示包的依赖树
+
+```sh
+pactree 包名
+```
+
+### pactree --help
+
+```sh
+pactree v1.9.0
+
+Package dependency tree viewer.
+
+Usage: pactree [options] <package>
+
+Options:
+  -a, --ascii             use ASCII characters for tree formatting
+  -c, --color             colorize output
+      --config <path>     set an alternate configuration file
+  -b, --dbpath <path>     set an alternate database location
+      --debug             display debug messages
+  -d, --depth <#>         limit the depth of recursion
+      --gpgdir <path>     set an alternate home directory for GnuPG
+  -g, --graph             generate output for graphviz's dot
+  -l, --linear            enable linear output
+  -o, --optional[=depth]  controls at which depth to stop printing optional deps
+                          (-1 for no limit)
+  -r, --reverse           list packages that depend on the named package
+  -s, --sync              search sync databases instead of local
+  -u, --unique            show dependencies with no duplicates (implies -l)
+  -h, --help              display this help message and exit
+  -V, --version           display version information and exit
 ```
