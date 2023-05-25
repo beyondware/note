@@ -16,16 +16,16 @@ sudo dnf install flatpak
 sudo apt install flatpak
 ```
 
-1、GNOME 提供 Flatpak 插件
+1、GNOME 提供插件
 
 ```sh
-sudo apt install gnome-software-plugin-flatpak
+sudo apt install gnome-software-plugin-flatpak gnome-software-plugin-snap
 ```
 
-2、KDE 提供 Flatpak 插件
+2、KDE 提供插件
 
 ```sh
-sudo apt install plasma-discover-backend-flatpak
+sudo apt install plasma-discover-backend-flatpak plasma-discover-backend-snap
 ```
 
 ### Arch
