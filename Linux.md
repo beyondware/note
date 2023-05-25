@@ -1,7 +1,35 @@
+## Linux 内核版本
+
+```sh
+uname -a
+```
+
+```sh
+hostnamectl | grep -i kernel
+```
+
+- 显示的信息更详细
+
+```sh
+cat /proc/version
+```
+
 ## 是否支持虚拟化
 
 ```sh
 LC_ALL=C lscpu | grep Virtualization
+```
+
+## 显示服务器
+
+```sh
+echo $XDG_SESSION_TYPE
+```
+
+## 显卡
+
+```sh
+lspci -v | grep -A1 -e VGA -e 3D
 ```
 
 ## SSH
@@ -33,7 +61,13 @@ sudo dnf install openssh-server
 
 ```
 
-### 查看版本
+### Arch
+
+```sh
+sudo pacman -S openssh
+```
+
+### 查看 SSH 版本
 
 ```sh
 ssh -V
@@ -175,22 +209,6 @@ xdg-user-dirs-gtk-update
 名称：open in terminal
 命令：/usr/bin/gnome-terminal
 快捷键：Ctrl+Alt+T
-```
-
-## Linux 内核版本
-
-```sh
-uname -a
-```
-
-```sh
-hostnamectl | grep -i kernel
-```
-
-- 显示的信息更详细
-
-```sh
-cat /proc/version
 ```
 
 ## WiFi 驱动
