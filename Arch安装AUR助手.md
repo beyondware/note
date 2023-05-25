@@ -401,7 +401,7 @@ upgrade specific options:
 1、安装
 
 ```sh
-yay -Syu pamac-aur libpamac-aur archlinux-appstream-data-pamac
+yay -Syu pamac-aur libpamac-aur archlinux-appstream-data
 ```
 
 2、运行 pamac-manager
