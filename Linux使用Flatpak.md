@@ -122,7 +122,7 @@ sudo flatpak override 应用程序ID --filesystem=host
 sudo flatpak remote-modify flathub --url=https://mirror.sjtu.edu.cn/flathub
 ```
 
-### 报错汇总
+#### 报错汇总
 
 1、"error: Unable to load summary from remote flathub: Can't fetch summary from disabled remote 'flathub,"
 
