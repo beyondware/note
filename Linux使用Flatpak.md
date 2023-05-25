@@ -38,16 +38,6 @@ sudo pacman -Syyu
 sudo pacman -S flatpak
 ```
 
-## Flatpak 运行等级
-
-```sh
-flatpak --system（默认）
-```
-
-```sh
-flatpak --user 
-```
-
 ## freedesktop-sdk
 
 > https://gitlab.com/freedesktop-sdk/freedesktop-sdk
@@ -76,6 +66,16 @@ sudo dnf install flatpak-builder
 sudo add-apt-repository ppa:alexlarsson/flatpak
 sudo apt update
 sudo apt install flatpak-builder elfutils
+```
+
+## Flatpak 运行等级
+
+```sh
+flatpak --system（默认）
+```
+
+```sh
+flatpak --user 
 ```
 
 ## 添加 Flatpak 存储库
