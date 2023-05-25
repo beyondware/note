@@ -114,7 +114,7 @@ flatpak install flathub 应用程序ID
 sudo flatpak override 应用程序ID --filesystem=host
 ```
 
-### 修改 flathub 镜像源
+### 修改镜像源
 
 > https://mirror.sjtu.edu.cn/docs/flathub
 
@@ -158,7 +158,7 @@ flatpak install flathub org.freedesktop.Platform.openh264
 
 5、error: Unable to load summary from remote flathub: Server returned status 308: Unknown Error
 
-#### 换源报错，还原官方源
+### 还原官方源
 
 ```sh
 sudo flatpak remote-modify flathub --url=https://dl.flathub.org/repo/
