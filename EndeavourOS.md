@@ -27,9 +27,11 @@ sudo pacman -Syyu
 sudo pacman -S archlinux-keyring
 ```
 
-## 修改 endeavouros 镜像源
+4、参考
 
-> https://github.com/endeavouros-team/repo
+> https://help.mirrors.cernet.edu.cn/archlinux/
+
+## 修改 endeavouros 镜像源
 
 1、修改
 
@@ -55,9 +57,11 @@ sudo pacman -Syyu
 sudo pacman -S endeavouros-keyring
 ```
 
-## 添加 archlinuxcn 镜像源
+4、参考
 
-> https://repo.archlinuxcn.org/
+> https://gitlab.com/endeavouros-filemirror/PKGBUILDS/-/tree/master/endeavouros-mirrorlist
+
+## 添加 archlinuxcn 镜像源
 
 1、添加
 
@@ -88,7 +92,11 @@ sudo pacman -Syyu
 sudo pacman -S archlinuxcn-keyring
 ```
 
-4、如果遇到一连串error
+4、参考
+
+> https://www.archlinuxcn.org/archlinux-cn-repo-and-mirror/
+
+5、如果遇到一连串error
 
 > https://www.archlinuxcn.org/gnupg-2-1-and-the-pacman-keyring/
 
@@ -121,6 +129,3 @@ pacman-key --populate archlinux
 ```sh
 pacman-key --populate archlinuxcn
 ```
-
-
-
