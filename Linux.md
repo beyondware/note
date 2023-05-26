@@ -1,3 +1,15 @@
+## 是 UEFI 还是 BIOS
+
+```sh
+ls /sys/firmware/efi/
+```
+
+## 是否支持虚拟化
+
+```sh
+LC_ALL=C lscpu | grep Virtualization
+```
+
 ## Linux 内核版本
 
 ```sh
@@ -8,16 +20,10 @@ uname -a
 hostnamectl | grep -i kernel
 ```
 
-- 显示的信息更详细
+- 显示详细信息
 
 ```sh
 cat /proc/version
-```
-
-## 是否支持虚拟化
-
-```sh
-LC_ALL=C lscpu | grep Virtualization
 ```
 
 ## 显示服务器
