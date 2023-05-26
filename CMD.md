@@ -10,6 +10,12 @@ Ctrl+C：强制中止
 exit：退出
 ```
 
+### 系统信息
+
+```sh
+msinfo32
+```
+
 ### cls 清屏
 
 cls:（CLear Screen）清屏
@@ -30,13 +36,13 @@ net user administrator /active:no
 
 ### VBS 基于虚拟化的安全性
 
-1、关闭VBS（管理员身份）
+1、关闭 VBS（管理员身份）
 
 ```sh
 bcdedit /set hypervisorlaunchtype off
 ```
 
-2、开启VBS（管理员身份）
+2、开启 VBS（管理员身份）
 
 ```sh
 bcdedit /set hypervisorlaunchtype auto
