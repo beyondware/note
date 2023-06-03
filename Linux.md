@@ -26,16 +26,20 @@ hostnamectl | grep -i kernel
 cat /proc/version
 ```
 
-## 显示服务器
+## Wayland 还是 X11
 
 ```sh
 echo $XDG_SESSION_TYPE
 ```
 
-## 显卡
+## 显卡类型
 
 ```sh
 lspci -v | grep -A1 -e VGA -e 3D
+```
+
+```sh
+lspci | grep -e VGA -e 3D
 ```
 
 ## SSH
