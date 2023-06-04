@@ -1227,3 +1227,13 @@ export LANGUAGE=zh_CN:en_US
 ```
 
 5、系统重启，才能生效。
+
+### invalid or corrupted package (PGP signature)
+
+```sh
+sudo pacman -S archlinux-keyring
+```
+
+```sh
+sudo pacman -Syu
+```
