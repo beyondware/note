@@ -35,10 +35,6 @@ echo $XDG_SESSION_TYPE
 ## 显卡类型
 
 ```sh
-lspci -v | grep -A1 -e VGA -e 3D
-```
-
-```sh
 lspci | grep -e VGA -e 3D
 ```
 
