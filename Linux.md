@@ -336,7 +336,7 @@ tar -Jxvf 下载包.tar.xz
 1、安装
 
 ```sh
-sudo pacman -S ibus ibus-libpinyin
+sudo pacman -S ibus ibus-libpinyin ibus-table-chinese ibus-typing-booster
 ```
 
 2、编辑
