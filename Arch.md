@@ -1042,9 +1042,7 @@ See "systemctl status lightdm.service" and "journalctl -xeu lightdm.service" for
 
 > 显示（Display）→分辨率（Resolution）
 
-### 中文输入法
-
-#### fcitx5 输入法
+### fcitx5 输入法
 
 > https://wiki.archlinux.org/title/Fcitx5
 
@@ -1071,74 +1069,6 @@ GLFW_IM_MODULE=ibus
 ```
 
 3、系统重启，才能生效。
-
-#### ibus 输入法
-
-> https://wiki.archlinux.org/title/IBus
-
-1、安装 ibus
-
-```sh
-sudo pacman -S ibus ibus-libpinyin ibus-libzhuyin ibus-table-chinese ibus-typing-booster
-```
-
-2、运行 ibus-setup 初始程序
-
-```sh
-ibus-setup
-```
-
-3、编辑
-
-```sh
-sudo vim ~/.bashrc
-```
-
-- 添加
-
-```sh
-export GTK_IM_MODULE=ibus
-export XMODIFIERS=@im=ibus
-export QT_IM_MODULE=ibus
-```
-
-4、如果 ibus 尚未启动
-
-```sh
-sudo vim ~/.xprofile
-```
-
-- 添加
-
-```sh
-export GTK_IM_MODULE=ibus
-export XMODIFIERS=@im=ibus
-export QT_IM_MODULE=ibus
-ibus-daemon -d -x
-```
-
-5、需 ibus 随 GNOME 启动
-
-```sh
-sudo vim ~/.profile
-```
-
-- 添加
-
-```sh
-export GTK_IM_MODULE=ibus
-export XMODIFIERS=@im=ibus
-export QT_IM_MODULE=ibus
-ibus-daemon -d -x
-```
-
-6、如果 ibus 在 KDE 程序中不工作
-
-```sh
-yay -S ibus-qt
-```
-
-7、系统重启，才能生效。
 
 ### 默认命令行编辑器
 
