@@ -345,7 +345,7 @@ sudo pacman -S ibus ibus-libpinyin
 sudo vim $HOME/.xprofile
 ```
 
-3、添加
+- 添加
 
 ```sh
 export GTK_IM_MODULE=ibus
@@ -354,17 +354,17 @@ export QT_IM_MODULE=ibus
 ibus-daemon -x -d
 ```
 
-4、刷新（重启生效）
+3、刷新（重启生效）
 
 ```sh
 source $HOME/.xprofile
 ```
 
-5、ibus-setup
+4、ibus-setup
 
 默认 "General"（常规）-选择 "Preferences"（首选项）-点击 "Input Methods"（输入法）-点击 "Add"（添加）————Chinese-Intelligent Pinyin
 
-6、参考
+5、参考
 
 > https://github.com/ibus/ibus/wiki
 
@@ -376,6 +376,10 @@ source $HOME/.xprofile
 
 ```sh
 sudo pacman -S fcitx5  fcitx5-qt fcitx5-gtk fcitx5-configtool fcitx5-chinese-addons fcitx5-pinyin-zhwiki fcitx5-material-color
+```
+
+```sh
+yay -S fcitx5-pinyin-moegirl
 ```
 
 2、编辑
@@ -394,7 +398,7 @@ SDL_IM_MODULE=fcitx
 GLFW_IM_MODULE=ibus
 ```
 
-3、系统重启，才能生效。
+3、重启系统生效
 
 4、参考
 
