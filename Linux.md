@@ -455,3 +455,23 @@ unalias -a
 ```sh
 ~/.bash_aliases
 ```
+
+## 时区
+
+1、显示当前时区
+
+```sh
+timedatectl
+```
+
+2、列出有效时区
+
+```sh
+timedatectl list-timezones
+```
+
+3、设置时区
+
+```sh
+sudo timedatectl set-timezone Asia/Shanghai
+```
