@@ -1042,34 +1042,6 @@ See "systemctl status lightdm.service" and "journalctl -xeu lightdm.service" for
 
 > 显示（Display）→分辨率（Resolution）
 
-### fcitx5 输入法
-
-> https://wiki.archlinux.org/title/Fcitx5
-
-1、安装 fcitx5
-
-```sh
-sudo pacman -S fcitx5  fcitx5-qt fcitx5-gtk fcitx5-configtool fcitx5-chinese-addons fcitx5-pinyin-zhwiki fcitx5-material-color
-```
-
-2、编辑
-
-```sh
-sudo vim /etc/environment
-```
-
-- 添加
-
-```sh
-GTK_IM_MODULE=fcitx
-QT_IM_MODULE=fcitx
-XMODIFIERS=@im=fcitx
-SDL_IM_MODULE=fcitx
-GLFW_IM_MODULE=ibus
-```
-
-3、系统重启，才能生效。
-
 ### 默认命令行编辑器
 
 ```sh
