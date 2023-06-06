@@ -23,7 +23,7 @@ http://127.0.0.1:38457/
 或者
 
 ```sh
-export http_proxy=http://127.0.0.1:38457 或者 export https_proxy=https://127.0.0.1:38457
+export http_proxy=http://127.0.0.1:38457
 ```
 
 ### 启动
