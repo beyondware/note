@@ -336,7 +336,7 @@ tar -Jxvf 下载包.tar.xz
 1、安装
 
 ```sh
-sudo pacman -S ibus ibus-libpinyin ibus-table-chinese ibus-typing-booster
+sudo pacman -S ibus ibus-libpinyin
 ```
 
 2、编辑
@@ -369,6 +369,36 @@ source $HOME/.xprofile
 > https://github.com/ibus/ibus/wiki
 
 > https://wiki.archlinux.org/title/IBus
+
+### fcitx5
+
+1、安装 fcitx5
+
+```sh
+sudo pacman -S fcitx5  fcitx5-qt fcitx5-gtk fcitx5-configtool fcitx5-chinese-addons fcitx5-pinyin-zhwiki fcitx5-material-color
+```
+
+2、编辑
+
+```sh
+sudo vim /etc/environment
+```
+
+- 添加
+
+```sh
+GTK_IM_MODULE=fcitx
+QT_IM_MODULE=fcitx
+XMODIFIERS=@im=fcitx
+SDL_IM_MODULE=fcitx
+GLFW_IM_MODULE=ibus
+```
+
+3、系统重启，才能生效。
+
+4、参考
+
+> https://wiki.archlinux.org/title/Fcitx5
 
 ## 别名
 
