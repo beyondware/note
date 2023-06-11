@@ -141,7 +141,9 @@ sudo nixos-rebuild switch --upgrade
 
 # Nix 配置
 
-## 启用 OpenSSH
+## 选项
+
+### 启用 OpenSSH
 
 1、编辑
 
@@ -161,7 +163,33 @@ services.openssh.enable = true;
 sudo nixos-rebuild switch
 ```
 
-## 使用 Nix 配置文件安装软件包
+### Flatpak
+
+1、编辑
+
+```sh
+sudo vim /etc/nixos/configuration.nix
+```
+
+2、添加
+
+```sh
+services.flatpak.enable = true;
+```
+
+3、重建配置文件并切换（配置生效）
+
+```sh
+sudo nixos-rebuild switch
+```
+
+4、添加 Flatpak存储库
+
+```sh
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+```
+
+## 配置安装包
 
 1、编辑
 
@@ -180,7 +208,7 @@ users.users.用户名 = {
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       包名1
-	包名2
+      包名2
     ];
   };
 ```
@@ -218,30 +246,4 @@ networking.hostName = "主机名";
 
 ```sh
 sudo nixos-rebuild switch
-```
-
-## Flatpak
-
-1、编辑
-
-```sh
-sudo vim /etc/nixos/configuration.nix
-```
-
-2、添加
-
-```sh
-services.flatpak.enable = true;
-```
-
-3、重建配置文件并切换（配置生效）
-
-```sh
-sudo nixos-rebuild switch
-```
-
-4、添加 Flatpak存储库
-
-```sh
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 ```
