@@ -19,7 +19,11 @@ sudo vim /etc/nixos/configuration.nix
 ```sh
 { config, lib, pkgs, ... }:
 {
-  nix.settings.substituters = [ "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store" ];
+  nix.settings.substituters = [ "https://mirrors.cernet.edu.cn/nix-channels/store" ];
+  environment.systemPackages = [
+    pkgs.vim
+    pkgs.open-vm-tools
+  ];
 }
 ```
 
@@ -31,13 +35,13 @@ sudo nixos-rebuild switch
 
 4、参考（推荐：清华大学）
 
+> https://help.mirrors.cernet.edu.cn/nix-channels/
+
 > https://mirrors.tuna.tsinghua.edu.cn/help/nix-channels/
 
 > https://mirrors.ustc.edu.cn/help/nix-channels.html
 
 > https://mirrors.sjtug.sjtu.edu.cn/docs/nix-channels/store
-
-> https://help.mirrors.cernet.edu.cn/nix-channels/
 
 > https://cache.nixos.org/
 
@@ -60,6 +64,10 @@ sudo nixos-rebuild switch
 > https://nixos.org/manual/nixpkgs/stable/
 
 > https://nixos.org/manual/nixos/stable/
+
+> https://nixos.wiki/
+
+> https://github.com/nix-community/wiki
 
 # 常用命令
 
@@ -89,6 +97,12 @@ nix-env -u 包名
 nix-env -u
 ```
 
+## 列出已安装的软件包
+
+```sh
+nix-env -q
+```
+
 ## 搜索
 
 ### 搜索关键字（获取：包名）
@@ -107,10 +121,10 @@ nix-env -qaP | grep 关键字
 nix-env -qa 包名
 ```
 
-## 列出已安装的软件包
+### 搜索软件包
 
 ```sh
-nix-env -q
+nix search nixpkgs 包名
 ```
 
 ## nix-channel
@@ -203,7 +217,7 @@ sudo nixos-rebuild switch
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 ```
 
-## 配置安装包
+## Nix 配置安装软件
 
 1、编辑
 
