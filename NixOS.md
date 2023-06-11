@@ -39,6 +39,8 @@ sudo nixos-rebuild switch
 
 > https://help.mirrors.cernet.edu.cn/nix-channels/
 
+> https://cache.nixos.org/
+
 # 搜索市场
 
 > https://search.nixos.org/packages
