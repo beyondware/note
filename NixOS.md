@@ -19,7 +19,7 @@ sudo vim /etc/nixos/configuration.nix
 ```sh
 { config, lib, pkgs, ... }:
 {
-  nix.settings.substituters = [ "https://mirrors.cernet.edu.cn/nix-channels/store" ];
+  nix.settings.substituters = [ "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store" ];
   environment.systemPackages = [
     pkgs.vim
     pkgs.open-vm-tools
