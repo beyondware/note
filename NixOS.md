@@ -47,6 +47,18 @@ sudo nixos-rebuild switch
 
 > https://search.nixos.org/flakes
 
+# 手册
+
+> https://nix.dev/
+
+> https://nixos.org/manual/nix/stable/
+
+> https://nixos.org/manual/nix/stable/command-ref/nix-env.html
+
+> https://nixos.org/manual/nixpkgs/stable/
+
+> https://nixos.org/manual/nixos/stable/
+
 # 常用命令
 
 ## 安装
@@ -143,7 +155,7 @@ sudo nixos-rebuild switch --upgrade
 
 ## 选项
 
-### 启用 OpenSSH
+### OpenSSH
 
 1、编辑
 
