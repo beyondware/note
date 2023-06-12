@@ -6,7 +6,7 @@
 
 > https://help.mirrors.cernet.edu.cn/nixos-images/
 
-# 安装 NixOS（先修改镜像源）
+# 安装 NixOS
 
 1、编辑
 
@@ -14,16 +14,12 @@
 sudo vim /etc/nixos/configuration.nix
 ```
 
-2、添加
+2、添加（修改镜像源）
 
 ```sh
 { config, lib, pkgs, ... }:
 {
   nix.settings.substituters = [ "https://mirror.sjtu.edu.cn/nix-channels/store" ];
-  environment.systemPackages = [
-    pkgs.vim
-    pkgs.open-vm-tools
-  ];
 }
 ```
 
@@ -53,7 +49,7 @@ sudo nixos-rebuild switch
 
 > https://search.nixos.org/flakes
 
-# Nix 配置
+# Nix 配置文件
 
 ## 选项
 
@@ -71,7 +67,7 @@ sudo vim /etc/nixos/configuration.nix
 services.openssh.enable = true;
 ```
 
-3、重建配置文件并切换（配置生效）
+3、配置生效
 
 ```sh
 sudo nixos-rebuild switch
@@ -91,7 +87,7 @@ sudo vim /etc/nixos/configuration.nix
 services.flatpak.enable = true;
 ```
 
-3、重建配置文件并切换（配置生效）
+3、配置生效
 
 ```sh
 sudo nixos-rebuild switch
@@ -103,7 +99,7 @@ sudo nixos-rebuild switch
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 ```
 
-## Nix 配置安装软件
+## 配置文件安装软件
 
 1、编辑
 
@@ -121,8 +117,8 @@ users.users.用户名 = {
     description = "用户名";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-      包名1
-      包名2
+      firefox
+      包名
     ];
   };
 ```
@@ -131,12 +127,12 @@ users.users.用户名 = {
 
 ```sh
 environment.systemPackages = with pkgs; [
-包名1
-包名2
+open-vm-tools
+包名
 ];
 ```
 
-3、重建配置文件并切换（配置生效）
+3、配置生效
 
 ```sh
 sudo nixos-rebuild switch
@@ -156,7 +152,7 @@ sudo vim /etc/nixos/configuration.nix
 networking.hostName = "主机名";
 ```
 
-3、重建配置文件并切换（配置生效）
+3、配置生效
 
 ```sh
 sudo nixos-rebuild switch
