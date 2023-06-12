@@ -19,7 +19,7 @@ sudo vim /etc/nixos/configuration.nix
 ```sh
 { config, lib, pkgs, ... }:
 {
-  nix.settings.substituters = [ "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store" ];
+  nix.settings.substituters = [ "https://mirror.sjtu.edu.cn/nix-channels/store" ];
   environment.systemPackages = [
     pkgs.vim
     pkgs.open-vm-tools
@@ -33,15 +33,15 @@ sudo vim /etc/nixos/configuration.nix
 sudo nixos-rebuild switch
 ```
 
-4、参考（推荐：清华大学）
+4、参考（推荐：上交大）
+
+> https://mirrors.sjtug.sjtu.edu.cn/docs/nix-channels/store
 
 > https://help.mirrors.cernet.edu.cn/nix-channels/
 
 > https://mirrors.tuna.tsinghua.edu.cn/help/nix-channels/
 
 > https://mirrors.ustc.edu.cn/help/nix-channels.html
-
-> https://mirrors.sjtug.sjtu.edu.cn/docs/nix-channels/store
 
 > https://cache.nixos.org/
 
