@@ -57,13 +57,13 @@ sudo nixos-rebuild switch
 
 > https://nix.dev/
 
+> https://nixos.org/manual/nixos/stable/
+
 > https://nixos.org/manual/nix/stable/
 
 > https://nixos.org/manual/nix/stable/command-ref/nix-env.html
 
 > https://nixos.org/manual/nixpkgs/stable/
-
-> https://nixos.org/manual/nixos/stable/
 
 > https://nixos.wiki/
 
@@ -75,6 +75,10 @@ sudo nixos-rebuild switch
 
 ```sh
 nix-env -i 包名 或者 nix-env --install 包名
+```
+
+```sh
+nix-env -iA nixos.包名（NixOS） 或者 nix-env -iA nixpkgs.包名（非NixOS）
 ```
 
 ## 删除
