@@ -1,4 +1,122 @@
-## nix --help
+# 手册
+
+> https://nix.dev/
+
+> https://nixos.org/manual/nixos/stable/
+
+> https://nixos.org/manual/nix/stable/
+
+> https://nixos.org/manual/nix/stable/command-ref/nix-env.html
+
+> https://nixos.org/manual/nixpkgs/stable/
+
+> https://nixos.wiki/
+
+> https://github.com/nix-community/wiki
+
+# 常用命令
+
+## 安装
+
+```sh
+nix-env -i 包名 或者 nix-env --install 包名
+```
+
+```sh
+nix-env -iA nixos.包名（NixOS） 或者 nix-env -iA nixpkgs.包名（非NixOS）
+```
+
+## 删除
+
+```sh
+nix-env -e 包名 或者 nix-env --uninstall 包名
+```
+
+## 更新
+
+### 更新包
+
+```sh
+nix-env -u 包名
+```
+
+### 更新系统
+
+```sh
+nix-env -u
+```
+
+## 列出已安装的软件包
+
+```sh
+nix-env -q
+```
+
+## 搜索
+
+### 搜索关键字（获取：包名）
+
+```sh
+nix-env -qaP --description 关键字
+```
+
+```sh
+nix-env -qaP | grep 关键字
+```
+
+### 搜索
+
+```sh
+nix-env -qa 包名
+```
+
+### 搜索软件包
+
+```sh
+nix search nixpkgs 包名
+```
+
+## nix-channel
+
+### 列出存储库
+
+```sh
+nix-channel --list
+```
+
+### 添加存储库
+
+```sh
+nix-channel --add 链接 名称
+```
+
+- 例如：
+
+```sh
+nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixpkgs
+```
+
+```sh
+nix-channel --update
+```
+
+### 删除存储库
+
+```sh
+nix-channel --remove 名称
+```
+
+### 更新存储库
+
+```sh
+nix-channel --update
+```
+
+```sh
+sudo nixos-rebuild switch --upgrade
+```
+
+# nix --help
 
 ```sh
       | Warning 
