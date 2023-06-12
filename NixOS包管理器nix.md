@@ -32,6 +32,26 @@ nix-env -iA nixos.包名（NixOS） 或者 nix-env -iA nixpkgs.包名（非NixOS
 nix-env -e 包名 或者 nix-env --uninstall 包名
 ```
 
+## 缓存
+
+### 清理缓存
+
+```sh
+nix-collect-garbage
+```
+
+### 垃圾回收
+
+```sh
+nix-store --gc
+```
+
+### 删除旧 profile 版本
+
+```sh
+nix-env --delete-generations
+```
+
 ## 更新
 
 ### 更新包
@@ -44,6 +64,26 @@ nix-env -u 包名
 
 ```sh
 nix-env -u
+```
+
+## 列出
+
+### 列出所有版本
+
+```sh
+nix-env --list-generations
+```
+
+### 滚回上一个版本
+
+```sh
+nix-env --rollback
+```
+
+### 切换到某一个版本
+
+```sh
+nix-env --switch-generation 版本号
 ```
 
 ## 列出已安装的软件包
@@ -87,13 +127,13 @@ nix-channel --list
 ### 添加存储库
 
 ```sh
-nix-channel --add 链接 名称
+nix-channel --add URL
 ```
 
 - 例如：
 
 ```sh
-nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixpkgs
+nix-channel --add https://nixos.org/channels/nixpkgs-unstable
 ```
 
 ```sh
@@ -112,8 +152,16 @@ nix-channel --remove 名称
 nix-channel --update
 ```
 
+- 升级所有
+
 ```sh
-sudo nixos-rebuild switch --upgrade
+sudo nixos-rebuild switch --upgrade-all
+```
+
+### 回滚到上一版本
+
+```sh
+sudo nixos-rebuild --rollback
 ```
 
 # nix --help
