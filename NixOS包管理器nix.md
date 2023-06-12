@@ -127,17 +127,43 @@ nix-channel --list
 ### 添加存储库
 
 ```sh
-nix-channel --add URL
+nix-channel --add URL 名称（可选项）
 ```
 
-- 例如：
+#### nixpkgs
+
+- 官方源
 
 ```sh
 nix-channel --add https://nixos.org/channels/nixpkgs-unstable
 ```
 
+- 镜像源
+
+```sh
+nix-channel --add https://mirrors.tuna.tsinghua.edu.cn/nix-channels/nixpkgs-unstable
+```
+
 ```sh
 nix-channel --update
+```
+
+#### nixos（root权限）
+
+- 官方源
+
+```sh
+sudo nix-channel --add https://nixos.org/channels/nixos-23.05 nixos
+```
+
+- 镜像源
+
+```sh
+sudo nix-channel --add https://mirrors.tuna.tsinghua.edu.cn/nix-channels/nixos-23.05 nixos
+```
+
+```sh
+sudo nix-channel --update
 ```
 
 ### 删除存储库
