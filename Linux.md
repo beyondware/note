@@ -38,6 +38,20 @@ echo $XDG_SESSION_TYPE
 lspci | grep -e VGA -e 3D
 ```
 
+## 切换到 root
+
+```sh
+sudo su
+```
+
+```sh
+sudo su root
+```
+
+```sh
+sudo -i 提示符为“#”，不需要每次输入密码
+```
+
 ## SSH
 
 1、安装 SSH
