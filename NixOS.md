@@ -64,7 +64,9 @@ sudo vim /etc/nixos/configuration.nix
 2、添加
 
 ```sh
-services.openssh.enable = true;
+  # List services that you want to enable:
+  # Enable the OpenSSH daemon.
+  services.openssh.enable = true;
 ```
 
 3、配置生效
@@ -84,7 +86,7 @@ sudo vim /etc/nixos/configuration.nix
 2、添加
 
 ```sh
-services.flatpak.enable = true;
+  services.flatpak.enable = true;
 ```
 
 3、配置生效
@@ -112,13 +114,14 @@ sudo vim /etc/nixos/configuration.nix
 ### 用户
 
 ```sh
-users.users.用户名 = {
+  # Define a user account. Don't forget to set a password with ‘passwd’.
+  users.users.用户名 = {
     isNormalUser = true;
     description = "用户名";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       firefox
-      包名
+    #  thunderbird
     ];
   };
 ```
@@ -126,10 +129,13 @@ users.users.用户名 = {
 ### 系统
 
 ```sh
-environment.systemPackages = with pkgs; [
-open-vm-tools
-包名
-];
+  # List packages installed in system profile. To search, run:
+  # $ nix search wget
+  environment.systemPackages = with pkgs; [
+  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    wget
+    open-vm-tools
+  ];
 ```
 
 3、配置生效
@@ -149,7 +155,7 @@ sudo vim /etc/nixos/configuration.nix
 2、修改
 
 ```sh
-networking.hostName = "主机名";
+  networking.hostName = "主机名";
 ```
 
 3、配置生效
