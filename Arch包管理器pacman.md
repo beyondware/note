@@ -86,31 +86,37 @@ sudo pacman -Rs 包名
 sudo pacman -Rsu 包名
 ```
 
-3、删除依赖和配置文件
+3、删除依赖、配置文件
 
 ```sh
 sudo pacman -Rsn 包名
 ```
 
-4、删除包和所有依赖（警告）
+4、删除包、依赖（警告）
 
 ```sh
 sudo pacman -Rsc 包名
 ```
 
-5、删除包，跳过检查
+5、删除包、依赖和配置文件
+
+```sh
+sudo pacman -Rscn 包名
+```
+
+6、删除包，跳过检查
 
 ```sh
 sudo pacman -Rd 包名
 ```
 
-6、强制删除，跳过所有检查（务必谨慎）
+7、强制删除，跳过所有检查（务必谨慎）
 
 ```sh
 sudo pacman -Rdd 包名
 ```
 
-### 清理
+### 清理缓存
 
 1、清理未安装包，位于/var/cache/pacman/pkg
 
