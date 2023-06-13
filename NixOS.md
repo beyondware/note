@@ -200,7 +200,7 @@ sudo nix-channel --add https://ghproxy.com/https://github.com/nix-community/home
 sudo nix-channel --update
 ```
 
-### 编辑 configuration.nix
+### 系统
 
 1、编辑
 
@@ -228,9 +228,29 @@ sudo vim /etc/nixos/configuration.nix
   };
 ```
 
-4、更新配置
+4、配置更新
 
 ```sh
 sudo nixos-rebuild switch
+```
+
+### 用户
+
+1、编辑
+
+```sh
+vim /home/$USER/.config/nixpkgs/home.nix
+```
+
+2、添加
+
+```sh
+home.packages = with pkgs; [htop];
+```
+
+3、配置更新
+
+```sh
+home-manager switch
 ```
 
