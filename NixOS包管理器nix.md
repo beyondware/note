@@ -54,13 +54,13 @@ nix-env --delete-generations
 
 ## 更新
 
-### 更新包
+### 更新某个包
 
 ```sh
 nix-env -u 包名
 ```
 
-### 更新系统
+### 更新所有包
 
 ```sh
 nix-env -u
