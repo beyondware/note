@@ -51,7 +51,7 @@ sudo nixos-rebuild switch
 
 # Nix 配置文件
 
-## 选项
+## NixOS options
 
 ### OpenSSH
 
@@ -233,7 +233,7 @@ sudo nixos-rebuild switch
 systemctl list-timers
 ```
 
-## 安装软件
+## Nix packages
 
 1、编辑
 
@@ -282,7 +282,9 @@ sudo nixos-rebuild switch
 
 > https://github.com/nix-community/home-manager
 
-### 添加 nix-channel
+### 系统
+
+1、添加 nix-channel
 
 ```sh
 sudo nix-channel --add https://ghproxy.com/https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
@@ -292,15 +294,13 @@ sudo nix-channel --add https://ghproxy.com/https://github.com/nix-community/home
 sudo nix-channel --update
 ```
 
-### 系统
-
-1、编辑
+2、编辑
 
 ```sh
 sudo vim /etc/nixos/configuration.nix
 ```
 
-2、添加 home-manager/nixos
+3、添加 home-manager/nixos
 
 ```sh
   imports =
@@ -310,7 +310,7 @@ sudo vim /etc/nixos/configuration.nix
     ];
 ```
 
-3、文尾继续添加（必须添加 home.stateVersion，否则报错）
+4、文尾继续添加（必须添加 home.stateVersion，否则报错）
 
 ```sh
   home-manager.users.用户名 = { pkgs, ... }: {
@@ -320,7 +320,7 @@ sudo vim /etc/nixos/configuration.nix
   };
 ```
 
-4、配置更新
+5、配置更新
 
 ```sh
 sudo nixos-rebuild switch
@@ -328,21 +328,62 @@ sudo nixos-rebuild switch
 
 ### 用户
 
-1、编辑
+1、添加 nix-channel
+
+```sh
+nix-channel --add https://ghproxy.com/https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
+```
+
+```sh
+nix-channel --update
+```
+
+2、安装 home-manager（报错，重启系统再试）
+
+```sh
+nix-shell '<home-manager>' -A install
+```
+
+3、编辑
 
 ```sh
 vim /home/$USER/.config/nixpkgs/home.nix
 ```
 
-2、添加
+4、添加
 
 ```sh
 home.packages = with pkgs; [htop];
 ```
 
-3、配置更新
+5、配置更新
 
 ```sh
 home-manager switch
 ```
 
+## 输入法
+
+### ibus（推荐）
+
+```sh
+  i18n.inputMethod = {
+    enabled = "ibus";
+    ibus.engines = with pkgs.ibus-engines; [libpinyin];
+  };
+```
+
+- 首次使用，需要执行
+
+```sh
+ibus-setup
+```
+
+### fcitx5
+
+```sh
+i18n.inputMethod = {
+  enabled = "fcitx5";
+  fcitx5.addons = with pkgs; [fcitx5-chinese-addons fcitx5-configtool fcitx5-gtk];
+};
+```
