@@ -418,11 +418,25 @@ home-manager switch
 
 ## ibus（推荐）
 
+1、编辑
+
+```sh
+sudo vim /etc/nixos/configuration.nix
+```
+
+2、添加
+
 ```sh
   i18n.inputMethod = {
     enabled = "ibus";
     ibus.engines = with pkgs.ibus-engines; [libpinyin];
   };
+```
+
+3、配置更新
+
+```sh
+sudo nixos-rebuild switch
 ```
 
 - 首次使用，需要执行
@@ -433,9 +447,23 @@ ibus-setup
 
 ## fcitx5
 
+1、编辑
+
+```sh
+sudo vim /etc/nixos/configuration.nix
+```
+
+2、添加
+
 ```sh
 i18n.inputMethod = {
   enabled = "fcitx5";
   fcitx5.addons = with pkgs; [fcitx5-chinese-addons fcitx5-configtool fcitx5-gtk];
 };
+```
+
+3、配置更新
+
+```sh
+sudo nixos-rebuild switch
 ```
