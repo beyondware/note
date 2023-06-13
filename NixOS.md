@@ -53,7 +53,102 @@ sudo nixos-rebuild switch
 
 ## NixOS options
 
-### OpenSSH
+### 更改主机名
+
+1、编辑
+
+```sh
+sudo vim /etc/nixos/configuration.nix
+```
+
+2、修改
+
+```sh
+  networking.hostName = "主机名"; # Define your hostname.
+```
+
+3、配置生效
+
+```sh
+sudo nixos-rebuild switch
+```
+
+### 网络
+
+1、编辑
+
+```sh
+sudo vim /etc/nixos/configuration.nix
+```
+
+2、修改
+
+```sh
+  # Enable networking
+  networking.networkmanager.enable = true;
+```
+
+3、配置生效
+
+```sh
+sudo nixos-rebuild switch
+```
+
+### 时区
+
+1、编辑
+
+```sh
+sudo vim /etc/nixos/configuration.nix
+```
+
+2、修改
+
+```sh
+  # Set your time zone.
+  time.timeZone = "Asia/Shanghai";
+```
+
+3、配置生效
+
+```sh
+sudo nixos-rebuild switch
+```
+
+### 中文设置
+
+1、编辑
+
+```sh
+sudo vim /etc/nixos/configuration.nix
+```
+
+2、修改
+
+```sh
+  # Select internationalisation properties.
+  i18n.defaultLocale = "zh_CN.UTF-8";
+
+  i18n.extraLocaleSettings = {
+    LC_ADDRESS = "zh_CN.UTF-8";
+    LC_IDENTIFICATION = "zh_CN.UTF-8";
+    LC_MEASUREMENT = "zh_CN.UTF-8";
+    LC_MONETARY = "zh_CN.UTF-8";
+    LC_NAME = "zh_CN.UTF-8";
+    LC_NUMERIC = "zh_CN.UTF-8";
+    LC_PAPER = "zh_CN.UTF-8";
+    LC_TELEPHONE = "zh_CN.UTF-8";
+    LC_TIME = "zh_CN.UTF-8";
+  };
+```
+
+3、配置生效
+
+```sh
+sudo nixos-rebuild switch
+```
+
+### 启用 OpenSSH
 
 1、编辑
 
@@ -94,51 +189,10 @@ sudo vim /etc/nixos/configuration.nix
 sudo nixos-rebuild switch
 ```
 
-4、添加 Flatpak存储库
+4、添加 Flatpak 存储库
 
 ```sh
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-```
-
-### 更改主机名
-
-1、编辑
-
-```sh
-sudo vim /etc/nixos/configuration.nix
-```
-
-2、修改
-
-```sh
-  networking.hostName = "主机名"; # Define your hostname.
-```
-
-3、配置生效
-
-```sh
-sudo nixos-rebuild switch
-```
-
-### 更改时区
-
-1、编辑
-
-```sh
-sudo vim /etc/nixos/configuration.nix
-```
-
-2、修改
-
-```sh
-  # Set your time zone.
-  time.timeZone = "Asia/Shanghai";
-```
-
-3、配置生效
-
-```sh
-sudo nixos-rebuild switch
 ```
 
 ### 减少交换
