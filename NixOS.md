@@ -49,11 +49,9 @@ sudo nixos-rebuild switch
 
 > https://search.nixos.org/flakes
 
-# Nix 配置文件
+# NixOS options
 
-## NixOS options
-
-### 更改主机名
+## 更改主机名
 
 1、编辑
 
@@ -73,7 +71,7 @@ sudo vim /etc/nixos/configuration.nix
 sudo nixos-rebuild switch
 ```
 
-### 网络
+## 网络
 
 1、编辑
 
@@ -94,7 +92,7 @@ sudo vim /etc/nixos/configuration.nix
 sudo nixos-rebuild switch
 ```
 
-### 时区
+## 时区
 
 1、编辑
 
@@ -115,7 +113,7 @@ sudo vim /etc/nixos/configuration.nix
 sudo nixos-rebuild switch
 ```
 
-### 中文设置
+## 中文设置
 
 1、编辑
 
@@ -148,7 +146,7 @@ sudo vim /etc/nixos/configuration.nix
 sudo nixos-rebuild switch
 ```
 
-### 启用 OpenSSH
+## 启用 OpenSSH
 
 1、编辑
 
@@ -169,7 +167,7 @@ sudo vim /etc/nixos/configuration.nix
 sudo nixos-rebuild switch
 ```
 
-### Flatpak
+## Flatpak
 
 1、编辑
 
@@ -195,7 +193,7 @@ sudo nixos-rebuild switch
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 ```
 
-### 减少交换
+## 减少交换
 
 1、检查系统的默认交换值
 
@@ -227,7 +225,7 @@ sudo nixos-rebuild switch
 cat /proc/sys/vm/swappiness
 ```
 
-### 垃圾回收
+## 垃圾回收
 
 1、编辑
 
@@ -258,7 +256,7 @@ sudo nixos-rebuild switch
 systemctl list-timers
 ```
 
-### 自动更新
+## 自动更新
 
 1、编辑
 
@@ -287,7 +285,7 @@ sudo nixos-rebuild switch
 systemctl list-timers
 ```
 
-## Nix packages
+# Nix packages
 
 1、编辑
 
@@ -297,7 +295,7 @@ sudo vim /etc/nixos/configuration.nix
 
 2、添加
 
-### 用户
+## 用户
 
 ```sh
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -312,7 +310,7 @@ sudo vim /etc/nixos/configuration.nix
   };
 ```
 
-### 系统
+## 系统
 
 ```sh
   # List packages installed in system profile. To search, run:
@@ -330,13 +328,13 @@ sudo vim /etc/nixos/configuration.nix
 sudo nixos-rebuild switch
 ```
 
-## home-manager
+# home-manager
 
 > https://nix-community.github.io/home-manager/
 
 > https://github.com/nix-community/home-manager
 
-### 系统
+## 系统
 
 1、添加 nix-channel
 
@@ -380,7 +378,7 @@ sudo vim /etc/nixos/configuration.nix
 sudo nixos-rebuild switch
 ```
 
-### 用户
+## 用户
 
 1、添加 nix-channel
 
@@ -416,9 +414,9 @@ home.packages = with pkgs; [htop];
 home-manager switch
 ```
 
-## 输入法
+# 输入法
 
-### ibus（推荐）
+## ibus（推荐）
 
 ```sh
   i18n.inputMethod = {
@@ -433,7 +431,7 @@ home-manager switch
 ibus-setup
 ```
 
-### fcitx5
+## fcitx5
 
 ```sh
 i18n.inputMethod = {
