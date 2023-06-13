@@ -141,6 +141,98 @@ sudo vim /etc/nixos/configuration.nix
 sudo nixos-rebuild switch
 ```
 
+### 减少交换
+
+1、检查系统的默认交换值
+
+```sh
+cat /proc/sys/vm/swappiness
+```
+
+2、编辑
+
+```sh
+sudo vim /etc/nixos/configuration.nix
+```
+
+3、添加（建议降低到 10）
+
+```sh
+boot.kernel.sysctl = { "vm.swappiness" = 10;};
+```
+
+4、配置生效
+
+```sh
+sudo nixos-rebuild switch
+```
+
+5、再次检查系统的交换值（确认更改成功）
+
+```sh
+cat /proc/sys/vm/swappiness
+```
+
+### 垃圾回收
+
+1、编辑
+
+```sh
+sudo vim /etc/nixos/configuration.nix
+```
+
+2、添加
+
+```sh
+# Automatic Garbage Collection
+nix.gc = {
+                automatic = true;
+                dates = "weekly";
+                options = "--delete-older-than 7d";
+        };
+```
+
+3、配置生效
+
+```sh
+sudo nixos-rebuild switch
+```
+
+4、列出活动计时器（nix-gc.timer，下一次清理的时间）
+
+```sh
+systemctl list-timers
+```
+
+### 自动更新
+
+1、编辑
+
+```sh
+sudo vim /etc/nixos/configuration.nix
+```
+
+2、添加
+
+```sh
+# Auto system update
+system.autoUpgrade = {
+      enable = true;
+};
+```
+
+3、配置生效
+
+```sh
+sudo nixos-rebuild switch
+```
+
+4、列出活动计时器（nixos-upgrade.timer，下一次升级的时间）
+
+```sh
+systemctl list-timers
+```
+
 ## 安装软件
 
 1、编辑
