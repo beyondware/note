@@ -64,7 +64,6 @@ sudo vim /etc/nixos/configuration.nix
 2、添加
 
 ```sh
-  # List services that you want to enable:
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 ```
@@ -101,7 +100,48 @@ sudo nixos-rebuild switch
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 ```
 
-## 配置文件安装软件
+### 更改主机名
+
+1、编辑
+
+```sh
+sudo vim /etc/nixos/configuration.nix
+```
+
+2、修改
+
+```sh
+  networking.hostName = "主机名"; # Define your hostname.
+```
+
+3、配置生效
+
+```sh
+sudo nixos-rebuild switch
+```
+
+### 更改时区
+
+1、编辑
+
+```sh
+sudo vim /etc/nixos/configuration.nix
+```
+
+2、修改
+
+```sh
+  # Set your time zone.
+  time.timeZone = "Asia/Shanghai";
+```
+
+3、配置生效
+
+```sh
+sudo nixos-rebuild switch
+```
+
+## 安装软件
 
 1、编辑
 
@@ -115,9 +155,9 @@ sudo vim /etc/nixos/configuration.nix
 
 ```sh
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.用户名 = {
+  users.users.pc = {
     isNormalUser = true;
-    description = "用户名";
+    description = "pc";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       firefox
@@ -133,7 +173,7 @@ sudo vim /etc/nixos/configuration.nix
   # $ nix search wget
   environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    wget
+  #  wget
     open-vm-tools
   ];
 ```
@@ -144,7 +184,19 @@ sudo vim /etc/nixos/configuration.nix
 sudo nixos-rebuild switch
 ```
 
-## 更改主机名
+## home-manager
+
+### 添加 nix-channel
+
+```sh
+sudo nix-channel --add https://ghproxy.com/https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
+```
+
+```sh
+sudo nix-channel --update
+```
+
+### 编辑 configuration.nix
 
 1、编辑
 
@@ -152,14 +204,29 @@ sudo nixos-rebuild switch
 sudo vim /etc/nixos/configuration.nix
 ```
 
-2、修改
+2、添加 home-manager/nixos
 
 ```sh
-  networking.hostName = "主机名";
+  imports =
+    [ # Include the results of the hardware scan.
+      ./hardware-configuration.nix
+      <home-manager/nixos>
+    ];
 ```
 
-3、配置生效
+3、文尾继续添加（必须添加 home.stateVersion，否则报错）
+
+```sh
+  home-manager.users.用户名 = { pkgs, ... }: {
+  home.stateVersion = "23.05";  
+  home.packages = with pkgs; [htop];
+  programs.bash.enable = true;
+  };
+```
+
+4、更新配置
 
 ```sh
 sudo nixos-rebuild switch
 ```
+
