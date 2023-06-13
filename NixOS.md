@@ -155,9 +155,9 @@ sudo vim /etc/nixos/configuration.nix
 
 ```sh
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.pc = {
+  users.users.用户名 = {
     isNormalUser = true;
-    description = "pc";
+    description = "用户名";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       firefox
@@ -185,6 +185,10 @@ sudo nixos-rebuild switch
 ```
 
 ## home-manager
+
+> https://nix-community.github.io/home-manager/
+
+> https://github.com/nix-community/home-manager
 
 ### 添加 nix-channel
 
