@@ -66,9 +66,11 @@ sudo apt install apt-transport-https ca-certificates
 sudo vim /etc/apt/sources.list
 ```
 
-3、官方源
+3、修改
 
 #### debian
+
+> https://help.mirrors.cernet.edu.cn/debian/
 
 ```sh
 http://deb.debian.org/debian
@@ -82,14 +84,12 @@ https://mirrors.cernet.edu.cn/debian/
 
 #### debian-security
 
-```sh
-http://security.debian.org/
-```
+> https://help.mirrors.cernet.edu.cn/debian-security/
 
-或者
+> https://mirrors.ustc.edu.cn/help/debian-security.html
 
 ```sh
-http://security.debian.org/debian-security/
+http://security.debian.org/ 或者 http://deb.debian.org/debian-security
 ```
 
 修改为
@@ -98,23 +98,33 @@ http://security.debian.org/debian-security/
 https://mirrors.cernet.edu.cn/debian-security/
 ```
 
+#### debian-ports（只适合 Debian riscv64）
+
+> https://mirror.sjtu.edu.cn/docs/debian-ports
+
+#### deb-multimedia
+
+> https://deb-multimedia.org/
+
+> https://help.mirrors.cernet.edu.cn/deb-multimedia/
+
+- 官方源
+
+```sh
+deb https://www.deb-multimedia.org bookworm main non-free
+```
+
+- 镜像源
+
+```sh
+deb https://mirrors.cernet.edu.cn/deb-multimedia/ bookworm main non-free
+```
+
 4、更新
 
 ```sh
 sudo apt update
 ```
-
-5、参考
-
-> https://help.mirrors.cernet.edu.cn/debian/
-
-> https://help.mirrors.cernet.edu.cn/debian-security/
-
-> https://mirrors.ustc.edu.cn/help/debian-security.html
-
-#### debian-ports（只适合 Debian riscv64）
-
-> https://mirror.sjtu.edu.cn/docs/debian-ports
 
 ### Deepin
 
