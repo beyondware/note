@@ -89,7 +89,7 @@ https://mirrors.cernet.edu.cn/debian/
 > https://mirrors.ustc.edu.cn/help/debian-security.html
 
 ```sh
-http://security.debian.org/ 或者 http://deb.debian.org/debian-security
+http://security.debian.org/debian-security 或者 http://deb.debian.org/debian-security
 ```
 
 修改为
