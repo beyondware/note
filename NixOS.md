@@ -179,6 +179,7 @@ sudo vim /etc/nixos/configuration.nix
 
 ```sh
   services.flatpak.enable = true;
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 ```
 
 3、配置生效
@@ -191,6 +192,10 @@ sudo nixos-rebuild switch
 
 ```sh
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+```
+
+```sh
+flatpak update
 ```
 
 ## 减少交换
