@@ -154,11 +154,31 @@ sudo nixos-rebuild switch
 sudo vim /etc/nixos/configuration.nix
 ```
 
-2、添加
+2、启用
 
 ```sh
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+```
+
+3、配置生效
+
+```sh
+sudo nixos-rebuild switch
+```
+
+## 启动 Wi-Fi
+
+1、编辑
+
+```sh
+sudo vim /etc/nixos/configuration.nix
+```
+
+2、启用
+
+```sh
+  networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 ```
 
 3、配置生效
@@ -322,7 +342,7 @@ sudo vim /etc/nixos/configuration.nix
   # $ nix search wget
   environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
+    wget
     open-vm-tools
   ];
 ```
@@ -444,7 +464,7 @@ sudo vim /etc/nixos/configuration.nix
 sudo nixos-rebuild switch
 ```
 
-- 首次使用，需要执行
+4、首次使用，需要执行
 
 ```sh
 ibus-setup
