@@ -196,7 +196,7 @@ pipx ensurepath
 pipx install 包名
 ```
 
-4、指定版本
+4、安装指定版本
 
 ```sh
 pipx install 包名==版本号
