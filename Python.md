@@ -1,4 +1,4 @@
-## Python 自定义安装
+## Python 自定义安装（Windows）
 
 1、选择“Customize installation”（自定义安装）
 
@@ -95,7 +95,7 @@ cat ~/.config/pip/pip.conf
 
 ## pip 升级
 
-### 升级指定程序包
+### 升级包
 
 ```sh
 pip install --upgrade 包名
@@ -164,6 +164,71 @@ General Options:
                               Silence deprecation warnings for upcoming unsupported Pythons.
   --use-feature <feature>     Enable new functionality, that may be backward incompatible.
   --use-deprecated <feature>  Enable deprecated functionality, that will be removed in the future.
+```
+
+## 安装 pipx
+
+> https://pypa.github.io/pipx/
+
+> https://pypi.org/project/pipx/
+
+1、安装 pipx
+
+```sh
+sudo apt update && sudo apt install pipx
+```
+
+或者
+
+```sh
+pip install pipx
+```
+
+2、将其添加到 $PATH
+
+```sh
+pipx ensurepath
+```
+
+3、安装
+
+```sh
+pipx install 包名
+```
+
+4、指定版本
+
+```sh
+pipx install 包名==版本号
+```
+
+5、pipx 没有搜索功能，需要安装 pypisearch
+
+```sh
+pipx install pypisearch
+```
+
+6、搜索
+
+```sh
+pypisearch 包名
+```
+
+7、升级所有包
+
+```sh
+pipx upgrade-all
+```
+8、升级指定包
+
+```sh
+pipx upgrade 包名
+```
+
+9、卸载
+
+```sh
+pipx uninstall 包名
 ```
 
 ## 安装 pipenv
