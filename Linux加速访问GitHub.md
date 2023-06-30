@@ -2,7 +2,7 @@
 
 > https://github.com/dotnetcore/FastGithub
 
-### 首次运行
+### 生成证书
 
 - 切换到 fastgithub 目录
 
@@ -10,21 +10,21 @@
 sudo ./fastgithub
 ```
 
-- 自动生成证书文件 cacert/fastgithub.cer
+- 自动向系统安装CA证书cacert/fastgithub.crt
 
-### 网络设置
-
-- 设置-网络-网络代理-自动-配置 URL
-
-```sh
-http://127.0.0.1:38457/
-```
-
-或者
+### 网络代理
 
 ```sh
 export http_proxy=http://127.0.0.1:38457
 ```
+
+### 查看状态
+
+```sh
+systemctl list-unit-files
+```
+
+- fastgithub.service 显示 enabled（启用）表示成功
 
 ### 启动
 
@@ -47,7 +47,7 @@ sudo ./fastgithub restart
 ### 开机启动
 
 ```sh
-vim /lib/systemd/system/fastgithub.service
+sudo vim /lib/systemd/system/fastgithub.service
 ```
 
 - 粘贴以下内容
@@ -72,24 +72,4 @@ WantedBy=multi-user.target
 
 ```sh
 systemctl enable fastgithub.service
-```
-
-### 重启系统
-
-```sh
-reboot
-```
-
-### 查看服务状态
-
-```sh
-systemctl list-unit-files
-```
-
-- fastgithub.service 显示 enabled（启用）表示成功
-
-### 手动启动
-
-```sh
-systemctl start fastgithub
 ```
