@@ -1,3 +1,19 @@
+## 清理 zsh 历史记录
+
+1、查看 history 文件地址
+
+```sh
+echo $HISTFILE
+```
+
+2、执行以下命令
+
+```sh
+echo > ~/.zsh_history
+```
+
+3、退出终端，历史记录就清除了。
+
 ## 是 UEFI 还是 BIOS
 
 ```sh
