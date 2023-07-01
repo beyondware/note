@@ -593,6 +593,18 @@ sudo reboot
 cat /etc/os-release
 ```
 
+## Zorin OS 系统升级
+
+```sh
+sudo apt install zorin-os-upgrader
+```
+
+- 如果没有任何升级选项，执行以下命令：
+
+```sh
+gsettings set com.zorin.desktop.upgrader show-test-upgrades true
+```
+
 ## 浏览器
 
 ### Firefox
