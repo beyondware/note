@@ -68,6 +68,36 @@ sudo su root
 sudo -i 提示符为“#”，不需要每次输入密码
 ```
 
+```sh
+su -
+```
+
+### 将用户添加到 SUDOERS 组
+
+- 方法一
+
+```sh
+usermod -aG sudo 用户名
+```
+
+- 方法二
+
+```sh
+vim /etc/sudoers
+```
+
+- 添加
+
+```sh
+用户名    ALL=(ALL:ALL) ALL
+```
+
+- 验证,是否添加成功。
+
+```sh
+sudo -l -U 用户名
+```
+
 ## SSH
 
 1、安装 SSH
