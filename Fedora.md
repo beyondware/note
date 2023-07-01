@@ -150,7 +150,11 @@ cat /etc/fedora-release
 
 > https://github.com/lxde/lxappearance
 
-- 更改主题、图标、鼠标的工具
+- lxappearance：更改主题、图标、鼠标的工具
+
+```sh
+sudo apt install lxappearance
+```
 
 1、优化
 
