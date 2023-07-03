@@ -748,13 +748,7 @@ sudo apt remove microsoft-edge-stable-dev
 microsoft-edge-dev --version
 ```
 
-5、删除 Microsoft Edge 存储库
-
-```sh
-sudo rm /etc/apt/sources.list.d/microsoft.*
-```
-
-- 删除 Microsoft Edge 所有来源
+5、删除 Microsoft Edge 所有存储库
 
 ```sh
 sudo rm /etc/apt/sources.list.d/microsoft*
