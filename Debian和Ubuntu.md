@@ -656,3 +656,112 @@ sudo apt install google-chrome-stable_current_amd64.deb
 ```sh
 rm google-chrome-stable_current_amd64.deb
 ```
+
+### Microsoft Edge
+
+1、更新系统
+
+```sh
+sudo apt update && sudo apt upgrade
+```
+
+2、安装所需的软件包
+
+```sh
+sudo apt install software-properties-common apt-transport-https curl ca-certificates -y
+```
+
+3、导入 Microsoft Edge APT 存储库
+
+- 下载 GPG 密钥以验证包的真实性
+
+```sh
+curl -fSsL https://packages.microsoft.com/keys/microsoft.asc | sudo gpg --dearmor | sudo tee /usr/share/keyrings/microsoft-edge.gpg > /dev/null
+```
+
+- 将 Microsoft Edge 存储库添加系统中
+
+```sh
+echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/microsoft-edge.gpg] https://packages.microsoft.com/repos/edge stable main' | sudo tee /etc/apt/sources.list.d/microsoft-edge.list
+```
+
+- 更新系统的存储库列表
+
+```sh
+sudo apt update
+```
+
+4、安装 Microsoft Edge 浏览器
+
+
+#### 稳定版
+
+```sh
+sudo apt install microsoft-edge-stable
+```
+
+```sh
+sudo apt upgrade microsoft-edge-stable
+```
+
+```sh
+sudo apt remove microsoft-edge-stable
+```
+
+```sh
+microsoft-edge -version
+```
+
+#### Beta 版
+
+```sh
+sudo apt install microsoft-edge-beta
+```
+
+```sh
+sudo apt upgrade microsoft-edge-beta
+```
+
+```sh
+sudo apt remove microsoft-edge-beta
+```
+
+```sh
+microsoft-edge-beta --version
+```
+
+#### Dev 版
+
+```sh
+sudo apt install microsoft-edge-dev
+```
+
+```sh
+sudo apt upgrade microsoft-edge-dev
+```
+
+```sh
+sudo apt remove microsoft-edge-stable-dev
+```
+
+```sh
+microsoft-edge-dev --version
+```
+
+5、删除 Microsoft Edge 存储库
+
+```sh
+sudo rm /etc/apt/sources.list.d/microsoft.*
+```
+
+- 删除 Microsoft Edge 所有来源
+
+```sh
+sudo rm /etc/apt/sources.list.d/microsoft*
+```
+
+6、删除 Microsoft Edge 密钥
+
+```sh
+sudo rm /usr/share/keyrings/microsoft*
+```
