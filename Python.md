@@ -166,7 +166,7 @@ General Options:
   --use-deprecated <feature>  Enable deprecated functionality, that will be removed in the future.
 ```
 
-## 安装 pipx
+## pipx
 
 > https://pypa.github.io/pipx/
 
@@ -231,17 +231,17 @@ pipx upgrade 包名
 pipx uninstall 包名
 ```
 
-## 安装 pipenv
-
-```sh
-pip install pipenv
-```
-
-### 参考
+## pipenv
 
 > https://pypi.org/project/pipenv/
 
 > https://pipenv.pypa.io/en/latest/index.html
+
+- 安装 pipenv
+
+```sh
+pip install pipenv
+```
 
 ## pipenv --help
 
