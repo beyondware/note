@@ -256,6 +256,92 @@ apt-get 的 'update' 命令来更新。如果距离上一次更新的时间太�
 关于安全方面的细节可以参考 apt-secure(8).
 ```
 
+## 安装 apt-fast
+
+1、将 APT-Fast 软件源添加到系统
+
+```sh
+sudo add-apt-repository ppa:apt-fast/stable
+```
+
+2、更新
+
+```sh
+sudo apt update
+```
+
+3、安装 apt-fast
+
+```sh
+sudo apt install apt-fast
+```
+
+4、选择软件包管理器
+
+推荐选择 apt
+
+5、最大连接数
+
+默认值为 5（可以设置10或者20）
+
+6、是否略过 APT-Fast 确认对话框
+
+7、配置 APT-Fast
+
+```sh
+sudo vim /etc/apt-fast.conf
+```
+
+- 最大连接数
+
+```sh
+_MAXNUM=10
+```
+
+- Aria2
+
+```sh
+_DOWNLOADER='aria2c --no-conf -c -j ${_MAXNUM} -x ${_MAXCONPERSRV} -s ${_SPLITCON} --min-split-size=${_MINSPLITSZ} --stream-piece-selector=${_PIECEALGO} -i ${DLLIST} --connect-timeout=600 --timeout=600 -m0 --header "Accept: */*"'
+```
+
+- Axel
+
+```sh
+_DOWNLOADER='axel -n ${_MAXNUM}'
+```
+
+- 镜像源
+
+```sh
+MIRRORS=( 'http://archive.ubuntu.com/ubuntu, https://mirrors.cloud.tencent.com/ubuntu, https://mirrors.aliyun.com/ubuntu' )
+```
+
+8、使用 APT-Fast
+
+- 安装
+
+```sh
+sudo apt-fast install 
+```
+
+- 更新
+
+```sh
+sudo apt-fast update
+```
+
+- 升级
+
+```sh
+sudo apt-fast upgrade
+```
+
+- 系统升级
+
+```sh
+sudo apt-fast dist-upgrade
+```
+
 ## apt-fast --help
 
 ```sh
@@ -303,6 +389,76 @@ Commands:
   update           - Download lists of new/upgradable packages
   upgrade          - Perform a safe upgrade
   version          - Show the installed version of a package
+```
+
+## 安装 nala
+
+1、添加「Volian Scar 源」
+
+```sh
+echo "deb [arch=amd64,arm64,armhf] http://deb.volian.org/volian/ scar main" | sudo tee /etc/apt/sources.list.d/volian-archive-scar-unstable.list
+```
+
+2、添加 GPG 密钥
+
+```sh
+wget -qO - https://deb.volian.org/volian/scar.key | sudo tee /etc/apt/trusted.gpg.d/volian-archive-scar-unstable.gpg > /dev/null
+```
+
+3、更新
+
+```sh
+sudo apt update
+```
+
+4、安装 nala
+
+```sh
+sudo apt install nala
+```
+
+5、nala 常用命令
+
+- 安装
+
+```sh
+sudo nala install 包名
+```
+
+- 删除
+
+```sh
+sudo nala remove 包名
+```
+
+- 更新
+
+```sh
+sudo nala update
+```
+
+- 升级
+
+```sh
+sudo nala upgrade
+```
+
+- 命令记录
+
+```sh
+nala history
+```
+
+- 自动测速软件源
+
+```sh
+sudo nala fetch
+```
+
+- 配置文件位置
+
+```sh
+sudo vim /etc/apt/sources.list.d/nala-sources.list
 ```
 
 ## nala
