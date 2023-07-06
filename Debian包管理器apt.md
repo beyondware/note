@@ -18,6 +18,50 @@ sudo apt dist-upgrade
 sudo apt full-upgrade
 ```
 
+4、一键纯净更新
+
+```sh
+sudo apt update -y && apt full-upgrade -y && apt autoremove -y && apt autoclean -y
+```
+
+5、删除不必要的 rc 包（配置文件）
+
+```sh
+sudo dpkg --purge $(dpkg -l | awk '/^rc/{print $2}')
+```
+
+## 内核
+
+1、查看当前的内核
+
+```sh
+uname -r
+```
+
+2、查看所有已安装的内核
+
+```sh
+dpkg --list | grep linux-image
+```
+
+3、自动删除未使用的旧版内核
+
+```sh
+sudo apt autoremove --purge
+```
+
+4、删除特定的内核
+
+```sh
+sudo apt-get purge linux-image-x.x.x-x-generic
+```
+
+5、更新 GRUB 引导加载程序
+
+```sh
+sudo update-grub
+```
+
 ## 安装
 
 ```sh
@@ -45,7 +89,7 @@ sudo apt remove 包名 或者 dpkg -r 包名
 ### 自动删除
 
 ```sh
-sudo apt autoremove 包名
+sudo apt autoremove 包名 --purge
 ```
 
 ### 删除包和依赖
@@ -210,4 +254,84 @@ apt-get 的 'update' 命令来更新。如果距离上一次更新的时间太�
 欲知如何配置软件源，请参阅 sources.list(5)。
 软件包及其版本偏好可以通过 apt_preferences(5) 来设置。
 关于安全方面的细节可以参考 apt-secure(8).
+```
+
+## apt-fast --help
+
+```sh
+apt
+Usage: apt command [options]
+       apt help command [options]
+
+Commands:
+  add-repository   - Add entries to apt sources.list
+  autoclean        - Erase old downloaded archive files
+  autopurge        - Remove packages with their configuration files and automatically remove all unused packages
+  autoremove       - Remove automatically all unused packages
+  build            - Build binary or source packages from sources
+  build-dep        - Configure build-dependencies for source packages
+  changelog        - View a package's changelog
+  check            - Verify that there are no broken dependencies
+  clean            - Erase downloaded archive files
+  contains         - List packages containing a file
+  content          - List files contained in a package
+  deb              - Install a .deb package
+  depends          - Show raw dependency information for a package
+  dist-upgrade     - Upgrade the system by removing/installing/upgrading packages
+  download         - Download the .deb file for a package
+  edit-sources     - Edit /etc/apt/sources.list with your preferred text editor
+  dselect-upgrade  - Follow dselect selections
+  full-upgrade     - Same as 'dist-upgrade'
+  held             - List all held packages
+  help             - Show help for a command
+  hold             - Hold a package
+  install          - Install/upgrade packages
+  list             - List packages based on package names
+  policy           - Show policy settings
+  purge            - Remove packages and their configuration files
+  recommends       - List missing recommended packages for a particular package
+  rdepends         - Show reverse dependency information for a package
+  reinstall        - Download and (possibly) reinstall a currently installed package
+  remove           - Remove packages
+  search           - Search for a package by name and/or expression
+  show             - Display detailed information about a package
+  showhold         - Same as 'held'
+  showsrc          - Display all the source package records that match the given package name
+  source           - Download source archives
+  sources          - Same as 'edit-sources'
+  unhold           - Unhold a package
+  update           - Download lists of new/upgradable packages
+  upgrade          - Perform a safe upgrade
+  version          - Show the installed version of a package
+```
+
+## nala
+
+```sh
+命令：
+
+install: 安装包
+remove: 删除包
+purge: 清除包
+update：更新包列表，升级系统
+upgrade: 更新别名
+fetch：获取快速镜像以加快下载速度
+show: 显示包详情
+history: 显示命令历史
+clean：清除检索到的包文件的本地存储库
+
+可选参数：
+
+-h, --help: 显示帮助信息并退出
+-y, --assume-yes: 假设所有提示为“是”并以非交互方式运行
+-d, --download-only: 包文件只被检索，不解包或安装
+-v, --verbose: 记录额外的调试信息
+--no-update: 跳过更新包列表
+--no-autoremove: 阻止 Nala 自动删除包
+--remove-essential：允许删除基本包
+--raw-dpkg: 跳过所有格式并获得原始dpkg输出
+--update：更新包列表
+--debug: 记录额外的调试信息
+--version: 显示程序的版本号并退出
+--license: 读取编译入软件的许可证，然后读取 GPLv3
 ```
