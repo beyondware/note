@@ -515,6 +515,20 @@ sudo apt install ppa-purge
 sudo ppa-purge ppa:username/ppa-name
 ```
 
+## Ubuntu 桌面显示「回收站」图标
+
+- 启用
+
+```sh
+gsettings set org.gnome.shell.extensions.ding show-trash true
+```
+
+- 禁用
+
+```sh
+gsettings set org.gnome.shell.extensions.ding show-trash false
+```
+
 ## 将 Ubuntu 22.04 升级到 Ubuntu 23.04
 
 1、查看当前版本
@@ -751,11 +765,12 @@ microsoft-edge-dev --version
 5、删除 Microsoft Edge 所有存储库
 
 ```sh
-sudo rm /etc/apt/sources.list.d/microsoft*
+sudo rm -rf /etc/apt/sources.list.d/microsoft*
 ```
 
 6、删除 Microsoft Edge 密钥
 
 ```sh
-sudo rm /usr/share/keyrings/microsoft*
+sudo rm -rf /etc/apt/trusted.gpg.d/microsoft*
+sudo rm -rf /usr/share/keyrings/microsoft*
 ```
