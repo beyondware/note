@@ -136,6 +136,12 @@ flatpak remote-modify --enable flathub
 XDG_DATA_DIRS=报错路径
 ```
 
+- 路径
+
+> /var/lib/flatpak/exports/share
+
+> /home/$USER/.local/share/flatpak/exports/share
+
 ```sh
 export XDG_DATA_DIRS
 ```
@@ -253,12 +259,6 @@ flatpak remote-delete flathub
 ```
 
 ## 常用命令
-
-### 安装位置
-
-> /var/lib/flatpak
-
-> ~/home/$USER/.local/share/flatpak
 
 ### 安装
 
