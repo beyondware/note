@@ -340,7 +340,7 @@ pacman -S grub
 2、grub-install（整块硬盘：sda）
 
 ```sh
-grub-install /dev/sda
+grub-install --target=i386-pc /dev/sda
 ```
 
 - 输出以下信息，表示成功。
