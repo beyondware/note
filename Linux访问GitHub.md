@@ -1,4 +1,16 @@
-### fastgithub
+## Watt Toolkit
+
+> https://steampp.net/
+
+> https://github.com/BeyondDimension/SteamTools
+
+导入证书 SteamTools.Certificate.cer
+
+> /home/$USER/.local/share/Steam++
+
+Microsoft Edge：设置-隐私、搜索和服务-安全性-管理证书-颁发机构
+
+## FastGithub
 
 > https://github.com/dotnetcore/FastGithub
 
