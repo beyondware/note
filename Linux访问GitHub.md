@@ -4,13 +4,33 @@
 
 > https://github.com/BeyondDimension/SteamTools
 
-### 证书位置
+### 程序无法监听 443 端口
+
+```sh
+sudo setcap cap_net_bind_service=+eip /usr/share/Steam++/Steam++
+```
+
+1、避免每次启动关闭加速需要输入密码
+
+```sh
+sudo chmod a+w /etc/hosts
+```
+
+2、还是提示无法hosts错误请尝试
+
+```sh
+sudo chmod a+r /etc/hosts
+```
+
+### 你的连接不是专用连接
+
+1、证书位置
 
 ```sh
 cd /home/$USER/.local/share/Steam++
 ```
 
-### 导入证书 SteamTools.Certificate.cer
+2、导入证书 SteamTools.Certificate.cer
 
 > Microsoft Edge：设置-隐私、搜索和服务-安全性-管理证书-颁发机构
 
