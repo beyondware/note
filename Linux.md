@@ -26,6 +26,12 @@ ls /sys/firmware/efi/
 LC_ALL=C lscpu | grep Virtualization
 ```
 
+## 是否 64 位操作系统
+
+```sh
+dpkg --print-architecture
+```
+
 ## Linux 内核版本
 
 ```sh
