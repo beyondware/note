@@ -4,11 +4,15 @@
 
 > https://github.com/BeyondDimension/SteamTools
 
-导入证书 SteamTools.Certificate.cer
+### 证书位置
 
-> /home/$USER/.local/share/Steam++
+```sh
+cd /home/$USER/.local/share/Steam++
+```
 
-Microsoft Edge：设置-隐私、搜索和服务-安全性-管理证书-颁发机构
+### 导入证书 SteamTools.Certificate.cer
+
+> Microsoft Edge：设置-隐私、搜索和服务-安全性-管理证书-颁发机构
 
 ## FastGithub
 
