@@ -1,4 +1,4 @@
-## 常用命令
+## dpkg
 
 1、安装
 
@@ -148,4 +148,12 @@ Options:
   -q, --quiet           不显示进度信息  
   --apt-line            仅模拟执行并向标准错误（stderr）输出一行与 apt-get install 兼容的信息。  
   --root=ROOTDIR        使用另外的 root 文件夹
+```
+
+## deepin-deb-installer
+
+> https://github.com/linuxdeepin/deepin-deb-installer
+
+```sh
+sudo apt install deepin-deb-installer
 ```
