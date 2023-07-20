@@ -13,6 +13,12 @@ sudo apt install gnome-tweaks
 ```
 
 ```sh
+sudo apt install gnome-shell-extension-manager
+```
+
+或者
+
+```sh
 sudo apt install gnome-shell-extensions
 ```
 
