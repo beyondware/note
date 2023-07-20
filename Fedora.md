@@ -148,14 +148,6 @@ cat /etc/fedora-release
 
 # 优化界面
 
-> https://github.com/lxde/lxappearance
-
-- lxappearance：更改主题、图标、鼠标的工具
-
-```sh
-sudo apt install lxappearance
-```
-
 1、优化
 
 ```sh
