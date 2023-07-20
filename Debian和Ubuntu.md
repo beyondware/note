@@ -1,5 +1,13 @@
 ## 优化桌面
 
+> https://github.com/lxde/lxappearance
+
+- lxappearance：更改主题、图标、鼠标的工具
+
+```sh
+sudo apt install lxappearance
+```
+
 ```sh
 sudo apt install gnome-tweaks
 ```
@@ -648,7 +656,7 @@ sudo mintupgrade
 1、查看
 
 ```sh
-dpkg -L | grep firefox
+apt list --installed | grep firefox
 ```
 
 - 三个关联包：firefox、firefox-locale-en、firefox-locale-zh-hans
@@ -694,6 +702,8 @@ rm google-chrome-stable_current_amd64.deb
 ```
 
 ### Microsoft Edge
+
+> https://packages.microsoft.com/repos/edge/pool/main/m/microsoft-edge-stable/
 
 1、更新系统
 
