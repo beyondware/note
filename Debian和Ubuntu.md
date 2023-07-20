@@ -1,16 +1,20 @@
-## 优化桌面
+## lxappearance
 
 > https://github.com/lxde/lxappearance
-
-- lxappearance：更改主题、图标、鼠标的工具
 
 ```sh
 sudo apt install lxappearance
 ```
 
+## gnome-tweaks
+
 ```sh
 sudo apt install gnome-tweaks
 ```
+
+## Extension Manager
+
+> https://github.com/mjakeman/extension-manager
 
 ```sh
 sudo apt install gnome-shell-extension-manager
@@ -21,6 +25,8 @@ sudo apt install gnome-shell-extension-manager
 ```sh
 sudo apt install gnome-shell-extensions
 ```
+
+## Dash to Dock
 
 ```sh
 sudo apt install gnome-shell-extension-dashtodock
