@@ -1,4 +1,94 @@
-## Wine
+## Ubuntu 安装 Wine
+
+1、添加 32 位架构
+
+```sh
+sudo dpkg --add-architecture i386
+```
+
+2、添加存储库密钥
+
+```sh
+sudo mkdir -pm755 /etc/apt/keyrings
+```
+
+```sh
+sudo wget -O /etc/apt/keyrings/winehq-archive.key https://dl.winehq.org/wine-builds/winehq.key
+```
+
+3、下载 WineHQ 源文件（以 Ubuntu 22.04 为例）
+
+```sh
+sudo wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/ubuntu/dists/jammy/winehq-jammy.sources
+```
+
+4、更新软件包和安装 Wine 稳定版
+
+```sh
+sudo apt install --install-recommends winehq-stable
+```
+
+5、初始化 Wine 配置
+
+```sh
+winecfg
+```
+
+6、找不到 “Open With Wine Windows Program Loader” 选项，修复、重启系统
+
+```sh
+sudo ln -s /usr/share/doc/wine/examples/wine.desktop /usr/share/applications/
+```
+
+7、Wine 卸载应用程序
+
+```sh
+wine uninstaller
+```
+
+8、移除已安装 wine-stable
+
+```sh
+sudo apt remove --purge wine-stable
+```
+
+9、更新软件包
+
+```sh
+sudo apt update
+```
+
+10、清理本地存储库
+
+```sh
+sudo apt autoclean
+```
+
+11、移除不需要的软件包
+
+```sh
+sudo apt autoremove
+```
+
+12、移除源文件
+
+```sh
+sudo rm /etc/apt/sources.list.d/winehq-jammy.sources
+```
+
+13、移除存储库密钥
+
+```sh
+sudo rm /etc/apt/keyrings/winehq-archive.key
+```
+
+14、更新软件包
+
+```sh
+sudo apt update
+```
+
+## Fedora 安装 Wine
 
 ### 方案一（推荐）
 
