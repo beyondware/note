@@ -1,3 +1,9 @@
+## tty2 - tty6 命令行终端
+
+```sh
+Ctrl+Alt+F2 - F6
+```
+
 ## 清理 zsh 历史记录
 
 1、查看 history 文件地址
