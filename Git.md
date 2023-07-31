@@ -16,6 +16,18 @@
 
 ### 常用命令
 
+#### 显示带中文的目录、文件
+
+```sh
+git config --global core.quotepath false
+```
+
+#### 带颜色输出
+
+```sh
+sudo git config --system color.ui auto
+```
+
 1、初始化（目录）
 
 ```sh
