@@ -679,6 +679,73 @@ apt list --installed | grep firefox
 sudo dpkg -P firefox firefox-locale-en firefox-locale-zh-hans
 ```
 
+### LibreWolf
+
+> https://librewolf.net/
+
+1、更新系统
+
+```sh
+sudo apt update && sudo apt upgrade -y
+```
+
+2、安装所需的软件包
+
+```sh
+sudo apt install curl gnupg lsb-release apt-transport-https ca-certificates -y
+```
+
+3、导入 LibreWolf 存储库
+
+```sh
+curl https://deb.librewolf.net/keyring.gpg | gpg --dearmor \
+    | sudo tee /usr/share/keyrings/librewolf.gpg >/dev/null
+```
+
+4、导入 GPG 密钥
+
+```sh
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/librewolf.gpg] \
+http://deb.librewolf.net $(lsb_release -sc) main" \
+    | sudo tee /etc/apt/sources.list.d/librewolf.list
+```
+
+5、更新包列表
+
+```sh
+sudo apt update
+```
+
+6、安装 LibreWolf
+
+```sh
+sudo apt install librewolf -y
+```
+
+7、启动 LibreWolf
+
+```sh
+librewolf
+```
+
+8、删除 LibreWolf
+
+```sh
+sudo apt remove librewolf
+```
+
+9、删除 LibreWolf 存储库
+
+```sh
+sudo rm /etc/apt/sources.list.d/librewolf.list
+```
+
+10、删除 GPG 密钥
+
+```sh
+sudo rm /usr/share/keyrings/librewolf.gpg
+```
+
 ### Chromium
 
 1、安装
