@@ -1,21 +1,21 @@
 ## 系统
 
-1、系统升级
+1、更新升级
 
 ```sh
 sudo apt update && sudo apt upgrade
 ```
 
-2、自动处理包依赖
+2、系统升级
 
 ```sh
-sudo apt dist-upgrade
+sudo apt update && sudo apt dist-upgrade
 ```
 
-3、整个系统升级
+3、系统升级（推荐）
 
 ```sh
-sudo apt full-upgrade
+sudo apt update && sudo apt full-upgrade
 ```
 
 4、一键纯净更新
@@ -68,6 +68,12 @@ sudo update-grub
 sudo apt install 包名
 ```
 
+- 安装依赖关系
+
+```sh
+sudo apt --fix-broken install
+```
+
 ### 本地安装
 
 ```sh
@@ -86,7 +92,7 @@ sudo apt install -f
 sudo apt remove 包名 或者 dpkg -r 包名
 ```
 
-### 自动删除
+### 自动删除和依赖（指定某软件）
 
 ```sh
 sudo apt autoremove 包名 --purge
@@ -110,13 +116,13 @@ sudo apt autoremove --purge
 sudo apt upgrade 包名
 ```
 
-### 自动处理依赖升级包
+### 升级（自动处理依赖关系）
 
 ```sh
 sudo apt full-upgrade 包名
 ```
 
-### 查看可升级的软件包
+### 列出可升级的软件
 
 ```sh
 apt list --upgradable
