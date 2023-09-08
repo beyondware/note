@@ -1,8 +1,12 @@
-## 直接安装
+## 官方存储库
 
 > https://nodejs.org/en/download/package-manager
 
 ### Ubuntu
+
+```sh
+sudo apt update && sudo apt upgrade
+```
 
 ```sh
 sudo apt install nodejs
@@ -14,51 +18,75 @@ sudo apt install nodejs
 sudo dnf install nodejs
 ```
 
-## nvm 安装
+## NodeSource 存储库
+
+1、导入 NodeSource 存储库
+
+### 每日构建版
+
+```sh
+curl -fsSL https://deb.nodesource.com/setup_current.x | sudo -E bash -
+```
+
+### 长期支持版
+
+```sh
+curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+```
+
+2、安装 Node.js
+
+```sh
+sudo apt install nodejs
+```
+
+3、检查版本
+
+```sh
+node --version
+```
+
+## nvm 版本管理器
 
 > https://github.com/nvm-sh/nvm
 
 1、安装 nvm
 
 ```sh
-wget -qO- https://ghproxy.com/https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+wget -qO- https://ghproxy.com/https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
 ```
 
-- 安装后，需退出终端，重新进入。
+2、重新启动终端或运行加载 nvm
 
-2、列出可安装 node 版本
+```sh
+source ~/.bashrc
+```
+
+3、列出可安装 Node.js 版本
 
 ```sh
 nvm ls-remote
 ```
 
-- 列出可安装 LTS 版本
+4、列出可安装 Node.js LTS 版本
 
 ```sh
 nvm ls-remote --lts
 ```
 
-3、安装 node
-
-- 最新 LTS 版本
-
-```sh
-nvm install --lts
-```
-
-- 指定版本
+5、安装 node 指定版本
 
 ```sh
 nvm install 版本号（例如：v16.16.0）
 ```
 
-4、删除 node
+6、删除 node
 
 ```sh
 nvm uninstall 版本号（例如：v16.16.0）
 ```
 
-5、查看 node 版本
+7、查看版本
 
 ```sh
 node --version
@@ -68,13 +96,13 @@ node --version
 npm --version
 ```
 
-6、列出已安装 node 版本
+8、列出已安装 node 版本
 
 ```sh
 nvm ls
 ```
 
-7、切换 node 版本
+9、切换 node 版本
 
 - 指定版本
 
@@ -88,11 +116,11 @@ nvm alias default 版本号
 nvm use 版本号
 ```
 
-## 源码安装（root 账号）
+## 源码安装
 
 > https://nodejs.org/zh-cn/download/
 
-1、root 账号，切换到
+1、切换到 root 账号
 
 ```sh
 cd /usr/local
