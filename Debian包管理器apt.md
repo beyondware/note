@@ -68,12 +68,6 @@ sudo update-grub
 sudo apt install 包名
 ```
 
-- 安装依赖关系
-
-```sh
-sudo apt --fix-broken install
-```
-
 ### 本地安装
 
 ```sh
@@ -83,7 +77,7 @@ sudo apt install 包.deb 或者 dpkg -i 包.deb
 - 报错的话，需要修复依赖项
 
 ```sh
-sudo apt install -f
+sudo apt --fix-broken install 或者 sudo apt install -f
 ```
 
 ## 删除
