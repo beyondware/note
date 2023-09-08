@@ -133,7 +133,7 @@ flatpak remote-modify --enable flathub
 2、XDG_DATA_DIRS is not set on fish shell. No desktop entry appears after install an app.
 
 ```sh
-XDG_DATA_DIRS=报错路径
+XDG_DATA_DIRS=报错路径1:路径2
 ```
 
 - 路径
@@ -314,7 +314,7 @@ flatpak uninstall 应用程序ID
 
 > Uninstall complete. //卸载完成
 
-卸载指定软件和Flatpak相关数据
+#### 卸载指定软件和Flatpak相关数据
 
 ```sh
 flatpak uninstall --delete-data 应用程序ID
@@ -326,7 +326,7 @@ flatpak uninstall --delete-data 应用程序ID
 flatpak uninstall --all
 ```
 
-卸载所有和Flatpak相关数据
+#### 卸载所有和Flatpak相关数据
 
 ```sh
 flatpak uninstall --all --delete-data
