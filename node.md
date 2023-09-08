@@ -62,31 +62,33 @@ wget -qO- https://ghproxy.com/https://raw.githubusercontent.com/nvm-sh/nvm/maste
 source ~/.bashrc
 ```
 
-3、列出可安装 Node.js 版本
+3、列出
+
+### 可安装 Node.js 版本
 
 ```sh
 nvm ls-remote
 ```
 
-4、列出可安装 Node.js LTS 版本
+###  Node.js LTS 版本
 
 ```sh
 nvm ls-remote --lts
 ```
 
-5、安装 node 指定版本
+4、安装
 
 ```sh
 nvm install 版本号（例如：v16.16.0）
 ```
 
-6、删除 node
+5、删除
 
 ```sh
 nvm uninstall 版本号（例如：v16.16.0）
 ```
 
-7、查看版本
+6、查看版本
 
 ```sh
 node --version
@@ -96,21 +98,21 @@ node --version
 npm --version
 ```
 
-8、列出已安装 node 版本
+7、列出已安装
 
 ```sh
 nvm ls
 ```
 
-9、切换 node 版本
+8、切换
 
-- 指定版本
+### 指定版本
 
 ```sh
 nvm alias default 版本号
 ```
 
-- 临时版本
+### 临时版本
 
 ```sh
 nvm use 版本号
