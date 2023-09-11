@@ -78,13 +78,11 @@ flatpak --system（默认）
 flatpak --user 
 ```
 
-## 添加 Flatpak 存储库
+## Flatpak 存储库
+
+### flathub
 
 > error: No remote refs found similar to ‘flathub’ //未发现类似于 "flathub" 的远程
-
-## 添加 Flathub
-
-1、添加 flathub
 
 ```sh
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
@@ -96,13 +94,13 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 flatpak remote-add --if-not-exists flathub https://mirror.sjtu.edu.cn/flathub/flathub.flatpakrepo
 ```
 
-2、添加 flathub-beta
+### flathub-beta
 
 ```sh
 flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
 ```
 
-3、安装
+#### 安装
 
 ```sh
 flatpak install flathub 应用程序ID
@@ -114,7 +112,7 @@ flatpak install flathub 应用程序ID
 sudo flatpak override 应用程序ID --filesystem=host
 ```
 
-### 修改镜像源
+#### 修改镜像源
 
 > https://mirror.sjtu.edu.cn/docs/flathub
 
@@ -164,61 +162,55 @@ flatpak install flathub org.freedesktop.Platform.openh264
 
 5、error: Unable to load summary from remote flathub: Server returned status 308: Unknown Error
 
-### 还原官方源
+#### 还原官方源
 
 ```sh
 sudo flatpak remote-modify flathub --url=https://dl.flathub.org/repo/
 ```
 
-### 添加 Fedora
-
-1、添加 fedora
+### fedora
 
 ```sh
 flatpak remote-add --if-not-exists fedora oci+https://registry.fedoraproject.org
 ```
 
-2、添加 fedora-testing
+### fedora-testing
 
 ```sh
 flatpak remote-add --if-not-exists fedora-testing oci+https://registry.fedoraproject.org#testing
 ```
 
-3、安装
+#### 安装
 
 ```sh
 flatpak install fedora 应用程序ID
 ```
 
-### 添加 GNOME Nightly
+### nome-nightly
 
 > https://wiki.gnome.org/Apps/Nightly
-
-1、添加 gnome-nightly
 
 ```sh
 flatpak remote-add --if-not-exists gnome-nightly https://nightly.gnome.org/gnome-nightly.flatpakrepo
 ```
 
-2、安装
+#### 安装
 
 ```sh
 flatpak install gnome-nightly 应用程序ID
 ```
 
-### 添加 KDE kdeapps
+### kdeapps
 
 > https://userbase.kde.org/Tutorials/Flatpak
 
 > https://develop.kde.org/docs/packaging/flatpak/
 
-1、添加 kdeapps
-
 ```sh
 flatpak remote-add --if-not-exists kdeapps --from https://distribute.kde.org/kdeapps.flatpakrepo
 ```
 
-2、安装
+#### 安装
 
 ```sh
 flatpak install kdeapps 应用程序ID
