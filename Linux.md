@@ -4,6 +4,12 @@
 Ctrl+Alt+F2 - F6
 ```
 
+## 重启系统，访问 BIOS
+
+```sh
+systemctl reboot --firmware-setup
+```
+
 ## 清理 zsh 历史记录
 
 1、查看 history 文件地址
