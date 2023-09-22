@@ -47,6 +47,13 @@ Error starting domain: Requested operation is not valid: network 'default' is no
 sudo virsh net-start default
 ```
 
+4
+
+```sh
+error: Failed to start network default
+error: Requested operation is not valid: network is already active
+```
+
 ## 分辨率
 
 Video Virtio > Model - Virtio
