@@ -331,3 +331,15 @@ flatpak run org.winehq.Wine --version
 flatpak run org.winehq.Wine winecfg
 ```
 
+## 解决微信
+
+1、在 Windows 系统复制 riched20.dll 和 riched32.dll 文件到
+
+```sh
+/root/.wine/drive_c/windows/system32/
+```
+
+2、执行 winecfg 标签“函数库”-“新增函数库顶替”选择添加
+
+riched20.dll和riched32.dll
+
