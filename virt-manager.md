@@ -41,13 +41,23 @@ sudo systemctl start libvirtd
 Error starting domain: Requested operation is not valid: network 'default' is not active
 ```
 
+确实是否处于非活动状态
+
+```sh
+sudo virsh net-list --all
+```
+
 启动虚拟网络
 
 ```sh
-sudo virsh net-start default
+sudo virsh net-start --network default
 ```
 
-4
+```sh
+sudo virsh net-autostart default
+```
+
+4、
 
 ```sh
 error: Failed to start network default
