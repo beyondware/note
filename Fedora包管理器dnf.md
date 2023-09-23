@@ -1,3 +1,17 @@
+## 撤回之前操作
+
+```sh
+dnf history
+```
+
+```sh
+dnf history info ID值
+```
+
+```sh
+dnf history undo ID值
+```
+
 ## 提高 DNF 速度
 
 1、配置 DNF 包管理器
