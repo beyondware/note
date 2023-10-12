@@ -42,21 +42,27 @@ snap list
 sudo snap remove 软件名
 ```
 
+#### 强制更新
+
+```sh
+sudo snap refresh
+```
+
 #### 更新
 
-- 先杀死进程
+1、先杀死进程
 
 ```sh
 sudo killall 软件名
 ```
 
-- 在更新软件
+2、再更新软件
 
 ```sh
 sudo snap refresh 软件名
 ```
 
-- 指定通道版本
+3、指定通道版本
 
 ```sh
 sudo snap refresh 软件名 channel=latest/stable
