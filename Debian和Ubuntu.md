@@ -535,18 +535,10 @@ sudo apt install ppa-purge
 sudo ppa-purge ppa:username/ppa-name
 ```
 
-## Ubuntu 桌面显示「回收站」图标
-
-- 启用
+4、查看已添加的 GPG 密钥
 
 ```sh
-gsettings set org.gnome.shell.extensions.ding show-trash true
-```
-
-- 禁用
-
-```sh
-gsettings set org.gnome.shell.extensions.ding show-trash false
+sudo apt-key list
 ```
 
 ## 将 Ubuntu 22.04 升级到 Ubuntu 23.04
