@@ -16,7 +16,7 @@ catastrophic damage to your system.
 1、安装依赖
 
 ```sh
-sudo pacman -S base-devel git
+sudo pacman -S --needed base-devel git
 ```
 
 2、克隆 yay（推荐 yay-bin）
@@ -94,6 +94,12 @@ yay -Ss
 
 ```sh
 yay -Scc
+```
+
+8、仅升级 AUR 包（a 将其限制为 AUR）
+
+```sh
+yay -Sua
 ```
 
 ### yay -h
