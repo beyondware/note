@@ -54,19 +54,37 @@ nix-env --delete-generations
 
 ## 更新
 
-### 更新某个包
+1、更新频道
+
+```sh
+nix-channel --update
+```
+
+2、列出过时的软件包
+
+```sh
+nix-env --upgrade --dry-run
+```
+
+3、更新单个包
 
 ```sh
 nix-env -u 包名
 ```
 
-### 更新所有包
+4、更新所有软件包
 
 ```sh
 nix-env -u
 ```
 
 ## 列出
+
+### 列出已安装的软件包
+
+```sh
+nix-env -q
+```
 
 ### 列出所有版本
 
@@ -84,12 +102,6 @@ nix-env --rollback
 
 ```sh
 nix-env --switch-generation 版本号
-```
-
-## 列出已安装的软件包
-
-```sh
-nix-env -q
 ```
 
 ## 搜索
