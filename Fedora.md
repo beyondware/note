@@ -146,6 +146,34 @@ cat /etc/fedora-release
 
 > https://docs.fedoraproject.org/en-US/quick-docs/dnf-system-upgrade/
 
+# 手册
+
+1、安装手册页
+
+```sh
+sudo dnf install man-db
+```
+
+2、构建手册页缓存
+
+```sh
+sudo mandb
+```
+
+# 启用最小化和最大化按钮
+
+1、右边按钮
+
+```sh
+gsettings set org.gnome.desktop.wm.preferences button-layout ":minimize,maximize,close"
+```
+
+2、左边按钮
+
+```sh
+gsettings set org.gnome.desktop.wm.preferences button-layout "close,minimize,maximize:"
+```
+
 # 优化界面
 
 1、优化
