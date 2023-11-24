@@ -1,3 +1,9 @@
+## 对应按键
+
+Windows：Windows 键
+Linux：Super 键 或者 Meta 键
+macOS:⌘（即：Command 键）
+
 ## tty2 - tty6 命令行终端
 
 ```sh
