@@ -1,3 +1,50 @@
+## Debian 启用 Contrib 和 Non-Free
+
+```sh
+sudo apt-add-repository contrib non-free-firmware
+```
+
+```sh
+sudo apt-add-repository contrib non-free
+```
+
+或者
+
+1、修改源列表
+
+```sh
+sudo vim /etc/apt/sources.list
+```
+
+2、追加
+
+```sh
+deb http://deb.debian.org/debian/ bookworm(版本代码) main contrib non-free-firmware
+deb http://deb.debian.org/debian/ bookworm(版本代码) main contrib non-free
+```
+
+3、更新
+
+```sh
+sudo apt update
+```
+
+4、验证添加 Contrib 和 Non-Free
+
+```sh
+grep -E "(contrib|non-free)" /etc/apt/sources.list
+```
+
+## 清理
+
+```sh
+sudo apt autoclean
+```
+
+```sh
+sudo apt autoremove
+```
+
 ## 系统
 
 1、更新升级
