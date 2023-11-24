@@ -174,7 +174,7 @@ gsettings set org.gnome.desktop.wm.preferences button-layout ":minimize,maximize
 gsettings set org.gnome.desktop.wm.preferences button-layout "close,minimize,maximize:"
 ```
 
-# 桌面显示「回收站」图标
+#「回收站」图标
 
 1、启用
 
@@ -186,6 +186,20 @@ gsettings set org.gnome.shell.extensions.ding show-trash true
 
 ```sh
 gsettings set org.gnome.shell.extensions.ding show-trash false
+```
+
+# 「主目录」文件夹图标
+
+1、显示
+
+```sh
+gsettings set org.gnome.shell.extensions.ding show-home true
+```
+
+2、隐藏
+
+```sh
+gsettings set org.gnome.shell.extensions.ding show-home false
 ```
 
 # 优化界面
