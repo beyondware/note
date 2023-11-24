@@ -1,6 +1,6 @@
-### 安装 snapd
+# 安装 snapd
 
-#### Ubuntu
+## Ubuntu
 
 ```sh
 sudo apt update
@@ -10,45 +10,75 @@ sudo apt update
 sudo apt install snapd
 ```
 
-#### Fedora
+## Fedora
 
 ```sh
 sudo dnf install shapd
 ```
 
-### 常用命令
+# 检查 snapd 的 systemctl 状态
 
-#### 安装
+```sh
+systemctl status snapd
+```
+
+## 如果服务尚未激活，系统自动启动
+
+```sh
+sudo systemctl enable --now snapd.socket
+```
+
+# 安装 Snap Core，运行 Snap 包的基本组件
+
+```sh
+sudo snap install core
+```
+
+# 创建软链接
+
+```sh
+sudo ln -s /var/lib/snapd/snap /snap
+```
+
+# 常用命令
+
+## 安装
 
 ```sh
 sudo snap install 软件名
 ```
 
-- 安装 snap-store（可选）
+### 安装 snap-store（可选）
 
 ```sh
 sudo snap install snap-store
 ```
 
-##### 列出已安装软件
+### 运行 snap-store
+
+```sh
+snap run snap-store
+```
+
+## 回滚到以前的版本
+
+```sh
+sudo snap revert 软件名
+```
+
+## 列出已安装 snap 软件包
 
 ```sh
 snap list
 ```
 
-#### 移除
+## 移除
 
 ```sh
 sudo snap remove 软件名
 ```
 
-#### 强制更新
-
-```sh
-sudo snap refresh
-```
-
-#### 更新
+## 更新
 
 1、先杀死进程
 
@@ -68,7 +98,13 @@ sudo snap refresh 软件名
 sudo snap refresh 软件名 channel=latest/stable
 ```
 
-#### 禁止更新
+### 强制更新
+
+```sh
+sudo snap refresh
+```
+
+### 禁止更新
 
 1、永久禁用 snap 软件包自动更新
 
@@ -82,55 +118,55 @@ snap refresh --hold
 snap refresh --hold=48h
 ```
 
-#### 运行
+## 运行
 
 ```sh
 snap run 软件名
 ```
 
-#### 启用 snap
+### 启用 snap
 
 ```sh
 sudo snap enable
 ```
 
-#### 禁用 snap
+### 禁用 snap
 
 ```sh
 sudo snap disable
 ```
 
-#### 帮助
+## 帮助
 
 ```sh
 snap help 命令
 ```
 
-#### 查找
+## 查找
 
 ```sh
 snap find 软件名
 ```
 
-#### 详细信息
+## 详细信息
 
 ```sh
 snap info 软件名
 ```
 
-#### 下载到本地
+## 下载到本地
 
 ```sh
 snap download 软件名
 ```
 
-#### 安装位置
+### 安装位置
 
 > /var/lib/snapd/snaps
 
-#### 删除所有旧版本的快照
+## 删除所有旧版本的快照
 
-- 清理 Snap 脚本，例如：clean_snap.sh
+1、清理 Snap 脚本，例如：clean_snap.sh
 
 ```sh
 #!/bin/bash
@@ -144,31 +180,31 @@ LANG=C snap list --all | awk '/disabled/{print $1, $3}' |
     done
 ```
 
-- 提权
+2、提权
 
 ```sh
 chmod +x clean_snap.sh
 ```
 
-- 运行
+3、运行
 
 ```sh
 sudo ./clean_snap.sh
 ```
 
-#### 清理缓存文件
+### 清理缓存文件
 
 ```sh
 sudo rm -rf /var/lib/snapd/cache/*
 ```
 
-#### 指定目录打包成 snap
+## 指定目录打包成 snap
 
 ```sh
 sudo snap pack
 ```
 
-### 报错信息
+# 报错信息
 
 > cannot find signatures with metadata for snap
 
@@ -180,13 +216,13 @@ sudo snap pack
 sudo snap install 软件包.snap --dangerous
 ```
 
-### 参考文档
+# 参考文档
 
 > https://snapcraft.io/docs/installing-snapd
 
 > https://snapcraft.io/store
 
-### snap help
+# snap help
 
 ```sh
 snap 命令允许您安装、配置、刷新和删除 snap。Snap 是跨许多不同 Linux 发行版工作的软件包（类型），可实现最新应用程序和实用程序的安全交付和操作。
