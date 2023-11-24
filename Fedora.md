@@ -174,7 +174,7 @@ gsettings set org.gnome.desktop.wm.preferences button-layout ":minimize,maximize
 gsettings set org.gnome.desktop.wm.preferences button-layout "close,minimize,maximize:"
 ```
 
-#「回收站」图标
+# 「回收站」图标
 
 1、启用
 
