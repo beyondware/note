@@ -1,3 +1,9 @@
+## 桌面右击无法打开终端
+
+```sh
+sudo apt install nautilus-open-terminal
+```
+
 ## lxappearance
 
 > https://github.com/lxde/lxappearance
