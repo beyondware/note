@@ -572,7 +572,7 @@ pacman -S networkmanager
 - 选装
 
 ```sh
-pacman -S network-manager-applet networkmanager-openvpn
+pacman -S network-connection-editor network-manager-applet networkmanager-openvpn
 ```
 
 ```sh
@@ -819,7 +819,7 @@ sudo pacman -S mesa mesa-utils xf86-video-vesa xf86-video-vmware
 #### pipewire（推荐）
 
 ```sh
-sudo pacman -S pipewire pipewire-alsa pipewire-jack pipewire-media-session
+sudo pacman -S pipewire pipewire-alsa pipewire-pulse pipewire-jack pipewire-media-session
 ```
 
 #### pulseaudio
@@ -838,8 +838,34 @@ sudo pacman -S bluez bluez-utils
 sudo pacman -S pulseaudio-bluetooth
 ```
 
+1、查看蓝牙服务是否正在运行
+
+```sh
+systemctl status bluetooth
+```
+
+2、启动蓝牙守护进程
+
+```sh
+sudo systemctl start bluetooth
+```
+
+3、系统启动时蓝牙服务自动运行
+
 ```sh
 sudo systemctl enable bluetooth
+```
+
+4、确保蓝牙未被阻止
+
+```sh
+rfkill list
+```
+
+5、取消阻止蓝牙
+
+```sh
+rfkill unblock bluetooth
 ```
 
 ### 鼠标
@@ -1138,4 +1164,18 @@ sudo pacman -S archlinux-keyring
 
 ```sh
 sudo pacman -Syu
+```
+
+### “error: target not found” （目标未发现）
+
+1、更新本地数据库
+
+```sh
+sudo pacman -Syu
+```
+
+2、强制更新所有包数据库
+
+```sh
+sudo pacman -Syyu
 ```
