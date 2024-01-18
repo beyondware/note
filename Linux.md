@@ -110,7 +110,27 @@ sudo -i 提示符为“#”，不需要每次输入密码
 su -
 ```
 
-### 将用户添加到 SUDOERS 组
+## visudo
+
+### 不输入密码使用 sudo
+
+```sh
+sudo visudo
+```
+
+追加
+
+```sh
+用户名 ALL=(ALL) NOPASSWD:ALL
+```
+
+### 用户拥有的 sudo 权限
+
+```sh
+sudo -l -U 用户名
+```
+
+### 将用户添加到 sudoers 组
 
 - 方法一
 
@@ -134,6 +154,24 @@ vim /etc/sudoers
 
 ```sh
 sudo -l -U 用户名
+```
+
+## 是否使用 systemd
+
+```sh
+stat /sbin/init
+```
+
+或者
+
+```sh
+readlink /sbin/init
+```
+
+或者
+
+```sh
+if [ -d /run/systemd/system ]; then echo "System is running systemd"; else echo "System is not running systemd"; fi
 ```
 
 ## SSH
