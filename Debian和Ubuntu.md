@@ -154,6 +154,10 @@ sudo apt update
 
 ### Deepin
 
+```sh
+sudo apt install deepin-unioncode
+```
+
 1、编辑
 
 ```sh
@@ -432,6 +436,14 @@ sudo apt update
 > https://help.mirrors.cernet.edu.cn/linuxmint/
 
 ### KDE neon
+
+```sh
+sudo apt update
+```
+
+```sh
+sudo pkcon update
+```
 
 #### ubuntu
 
