@@ -410,6 +410,10 @@ upgrade specific options:
 yay -Syu pamac-aur libpamac-aur archlinux-appstream-data
 ```
 
+```sh
+yay -Syu libpamac libpamac-flatpak-plugin libpamac-snap-plugin
+```
+
 2、运行 pamac-manager
 
 ```sh
