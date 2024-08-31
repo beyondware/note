@@ -90,13 +90,19 @@ systemctl status sshd
 
 - active (running) 表示开启
 
-4、设置 root 密码
+4、查看 ssh 进程
+
+```sh
+ps -e | grep sshd
+```
+
+5、设置 root 密码
 
 ```sh
 passwd root
 ```
 
-5、查看 IP 地址
+6、查看 IP 地址
 
 ```sh
 ip addr
@@ -649,6 +655,12 @@ systemctl enable sshd
 
 ```sh
 systemctl status sshd
+```
+
+5、查看 ssh 进程
+
+```sh
+ps -e | grep sshd
 ```
 
 ### 添加新用户
