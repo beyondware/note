@@ -30,6 +30,12 @@ Ctrl+Alt+F2 - F6
 systemctl reboot --firmware-setup
 ```
 
+## 删除 bash 历史记录并退出
+
+```sh
+cat /dev/null > ~/.bash_history && history -c && exit
+```
+
 ## 清理 zsh 历史记录
 
 1、查看 history 文件地址
@@ -64,7 +70,7 @@ LC_ALL=C lscpu | grep Virtualization
 dpkg --print-architecture
 ```
 
-## Linux 内核版本
+## 查看 Linux 内核版本
 
 ```sh
 uname -a
@@ -106,10 +112,6 @@ sudo su root
 sudo -i 提示符为“#”，不需要每次输入密码
 ```
 
-```sh
-su -
-```
-
 ## visudo
 
 ### 不输入密码使用 sudo
@@ -124,7 +126,7 @@ sudo visudo
 用户名 ALL=(ALL) NOPASSWD:ALL
 ```
 
-### 用户拥有的 sudo 权限
+### 用户拥有 sudo 权限
 
 ```sh
 sudo -l -U 用户名
@@ -156,22 +158,10 @@ vim /etc/sudoers
 sudo -l -U 用户名
 ```
 
-## 是否使用 systemd
+## 判断是 init 还是 systemd
 
 ```sh
-stat /sbin/init
-```
-
-或者
-
-```sh
-readlink /sbin/init
-```
-
-或者
-
-```sh
-if [ -d /run/systemd/system ]; then echo "System is running systemd"; else echo "System is not running systemd"; fi
+ps -p 1
 ```
 
 ## SSH
@@ -273,7 +263,7 @@ sudo vim /etc/ssh/sshd_config
 PermitRootLogin yes
 ```
 
-### 查看运行状态
+### 查看 ssh 进程
 
 ```sh
 ps -e | grep ssh
@@ -550,7 +540,7 @@ GLFW_IM_MODULE=ibus
 ls /etc | grep bash
 ```
 
-注：可能是bashrc，也可能是bash.bashrc文件。
+注：可能是 bashrc，也可能是 bash.bashrc 文件。
 
 2、编辑 bash 配置文件
 
