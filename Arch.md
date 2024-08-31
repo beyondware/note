@@ -68,7 +68,7 @@ station wlan0 connect 网络名称
 exit
 ```
 
-### ssh 登陆（默认：开启）
+### ssh（默认：开启）
 
 1、启动 ssh
 
@@ -631,7 +631,7 @@ reboot
 
 ## 进入全新系统
 
-### ssh 登陆
+### ssh 安装
 
 1、安装 openssh
 
@@ -740,6 +740,18 @@ PermitRootLogin yes
 
 ```sh
 sudo systemctl restart sshd
+```
+
+4、开机启动 ssh
+
+```sh
+sudo systemctl enable sshd
+```
+
+5、查看 ssh 进程
+
+```sh
+ps -e | grep sshd
 ```
 
 ### 自定义内核
