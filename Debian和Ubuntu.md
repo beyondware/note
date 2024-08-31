@@ -437,12 +437,30 @@ sudo apt update
 
 ### KDE neon
 
+#### KDE neon 更新
+
 ```sh
-sudo apt update
+sudo apt install packagekit-tools
+```
+
+```sh
+sudo pkcon refresh
 ```
 
 ```sh
 sudo pkcon update
+```
+
+或者
+
+```sh
+apt full-upgrade
+```
+
+或者
+
+```sh
+apt-get dist-upgrade
 ```
 
 #### ubuntu
@@ -497,6 +515,12 @@ https://mirror.iscas.ac.cn/kde-neon/user
 
 ```sh
 sudo apt update
+```
+
+#### plasma-discover 安装 
+
+```sh
+sudo apt install plasma-discover plasma-discover-backend-flatpak plasma-discover-backend-snap
 ```
 
 ### openKylin
