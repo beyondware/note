@@ -50,12 +50,30 @@ echo $HISTFILE
 echo > ~/.zsh_history
 ```
 
-3、退出终端，历史记录就清除了。
+3、退出终端，历史记录清除。
 
-## 是 UEFI 还是 BIOS
+## UEFI 还是 BIOS
 
 ```sh
 ls /sys/firmware/efi/
+```
+
+## Wayland 还是 X11
+
+```sh
+echo $XDG_SESSION_TYPE
+```
+
+## init 还是 systemd
+
+```sh
+ps -p 1
+```
+
+## 显卡类型
+
+```sh
+lspci | grep -e VGA -e 3D
 ```
 
 ## 是否支持虚拟化
@@ -80,32 +98,16 @@ uname -a
 hostnamectl | grep -i kernel
 ```
 
-- 显示详细信息
+- 详细信息
 
 ```sh
 cat /proc/version
 ```
 
-## Wayland 还是 X11
+## 切换到 root 账号
 
 ```sh
-echo $XDG_SESSION_TYPE
-```
-
-## 显卡类型
-
-```sh
-lspci | grep -e VGA -e 3D
-```
-
-## 切换到 root
-
-```sh
-sudo su
-```
-
-```sh
-sudo su root
+sudo su 或者 sudo su root
 ```
 
 ```sh
@@ -126,7 +128,9 @@ sudo visudo
 用户名 ALL=(ALL) NOPASSWD:ALL
 ```
 
-### 用户拥有 sudo 权限
+## 用户拥有 sudo 权限
+
+- 查看当前用户权限
 
 ```sh
 sudo -l -U 用户名
@@ -134,13 +138,13 @@ sudo -l -U 用户名
 
 ### 将用户添加到 sudoers 组
 
-- 方法一
+#### 方法一
 
 ```sh
 usermod -aG sudo 用户名
 ```
 
-- 方法二
+#### 方法二
 
 ```sh
 vim /etc/sudoers
@@ -152,16 +156,10 @@ vim /etc/sudoers
 用户名    ALL=(ALL:ALL) ALL
 ```
 
-- 验证,是否添加成功。
+### 验证,是否添加成功。
 
 ```sh
 sudo -l -U 用户名
-```
-
-## 判断是 init 还是 systemd
-
-```sh
-ps -p 1
 ```
 
 ## SSH
@@ -190,7 +188,6 @@ rpm -qa | grep openssh-server
 
 ```sh
 sudo dnf install openssh-server
-
 ```
 
 ### Arch
@@ -199,53 +196,53 @@ sudo dnf install openssh-server
 sudo pacman -S openssh
 ```
 
-### 查看 SSH 版本
+2、查看 SSH 版本
 
 ```sh
 ssh -V
 ```
 
-2、查看 SSH
+3、查看 SSH
 
 ```sh
-systemctl status sshd 或者 sudo /etc/init.d/ssh status 或者 service sshd status
+systemctl status ssh 或者 sudo /etc/init.d/ssh status 或者 service sshd status
 ```
 
 > Active: active (running) 表示开启
 
 > Active: inactive (dead) 表示关闭
 
-3、启动 SSH
+4、启动 SSH
 
 ```sh
-sudo systemctl start sshd 或者 sudo /etc/init.d/ssh start 或者 service sshd start
+sudo systemctl start ssh 或者 sudo /etc/init.d/ssh start 或者 service sshd start
 ```
 
-4、开机启动 SSH
+5、开机启动 SSH
 
 ```sh
-sudo systemctl enable sshd 或者 sudo systemctl enable ssh
+sudo systemctl enable ssh
 ```
 
-5、禁止开机启动 SSH
+6、禁止开机启动 SSH
 
 ```sh
-sudo systemctl disable sshd
+sudo systemctl disable ssh
 ```
 
-6、停止 SSH
+7、停止 SSH
 
 ```sh
-sudo systemctl stop sshd 或者 sudo /etc/init.d/ssh stop 或者 service sshd stop
+sudo systemctl stop ssh 或者 sudo /etc/init.d/ssh stop 或者 service sshd stop
 ```
 
-7、重启 SSH
+8、重启 SSH
 
 ```sh
-sudo systemctl restart sshd 或者 sudo /etc/init.d/ssh restart 或者 service sshd restart
+sudo systemctl restart ssh 或者 sudo /etc/init.d/ssh restart 或者 service sshd restart
 ```
 
-### 允许 SSH 远程登陆
+## 允许 SSH 远程登陆
 
 > Remote rejected opening a shell channel: Error: Not connected
 
@@ -440,95 +437,6 @@ nmcli radio wifi on
 ```sh
 nmcli radio wifi off
 ```
-
-## 解压缩
-
-```sh
-tar -zxvf 下载包.tar.gz
-```
-
-```sh
-tar -jxvf 下载包.tar.bz2
-```
-
-```sh
-tar -Jxvf 下载包.tar.xz
-```
-
-## 中文输入法
-
-### ibus
-
-1、安装
-
-```sh
-sudo pacman -S ibus ibus-libpinyin
-```
-
-2、编辑
-
-```sh
-sudo vim $HOME/.xprofile
-```
-
-- 添加
-
-```sh
-export GTK_IM_MODULE=ibus
-export XMODIFIERS=@im=ibus
-export QT_IM_MODULE=ibus
-ibus-daemon -x -d
-```
-
-3、刷新（重启生效）
-
-```sh
-source $HOME/.xprofile
-```
-
-4、ibus-setup
-
-默认 "General"（常规）-选择 "Preferences"（首选项）-点击 "Input Methods"（输入法）-点击 "Add"（添加）————Chinese-Intelligent Pinyin
-
-5、参考
-
-> https://github.com/ibus/ibus/wiki
-
-> https://wiki.archlinux.org/title/IBus
-
-### fcitx5
-
-1、安装 fcitx5
-
-```sh
-sudo pacman -S fcitx5  fcitx5-qt fcitx5-gtk fcitx5-configtool fcitx5-chinese-addons fcitx5-pinyin-zhwiki fcitx5-material-color
-```
-
-```sh
-yay -S fcitx5-pinyin-moegirl
-```
-
-2、编辑
-
-```sh
-sudo vim /etc/environment
-```
-
-- 添加
-
-```sh
-GTK_IM_MODULE=fcitx
-QT_IM_MODULE=fcitx
-XMODIFIERS=@im=fcitx
-SDL_IM_MODULE=fcitx
-GLFW_IM_MODULE=ibus
-```
-
-3、重启系统生效
-
-4、参考
-
-> https://wiki.archlinux.org/title/Fcitx5
 
 ## 别名
 
