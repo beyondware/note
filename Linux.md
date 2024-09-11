@@ -179,7 +179,7 @@ usermod -aG sudo 用户名
 #### 方法二
 
 ```sh
-vim /etc/sudoers
+sudo vim /etc/sudoers
 ```
 
 - 添加
@@ -188,7 +188,7 @@ vim /etc/sudoers
 用户名    ALL=(ALL:ALL) ALL
 ```
 
-### 验证,是否添加成功。
+### 验证结果
 
 ```sh
 sudo -l -U 用户名
