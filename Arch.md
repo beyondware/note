@@ -1092,20 +1092,6 @@ See "systemctl status lightdm.service" and "journalctl -xeu lightdm.service" for
 
 > 显示（Display）→分辨率（Resolution）
 
-## 解压缩
-
-```sh
-tar -zxvf 下载包.tar.gz
-```
-
-```sh
-tar -jxvf 下载包.tar.bz2
-```
-
-```sh
-tar -Jxvf 下载包.tar.xz
-```
-
 ## 中文输入法
 
 ### ibus
