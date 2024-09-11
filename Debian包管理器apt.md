@@ -118,7 +118,13 @@ sudo apt install 包名
 ### 本地安装
 
 ```sh
-sudo apt install 包.deb 或者 dpkg -i 包.deb
+sudo apt install 包.deb
+```
+
+或者
+
+```sh
+dpkg -i 包.deb
 ```
 
 - 报错的话，需要修复依赖项
@@ -129,23 +135,31 @@ sudo apt --fix-broken install 或者 sudo apt install -f
 
 ## 删除
 
-```sh
-sudo apt remove 包名 或者 dpkg -r 包名
-```
-
-### 自动删除和依赖（指定某软件）
+### 删除并保留相关的配置文件
 
 ```sh
-sudo apt autoremove 包名 --purge
+sudo apt remove 包名
 ```
 
-### 删除包和依赖
+或者
+
+```sh
+dpkg -r 包名
+```
+
+### 删除并清除相关的配置文件
 
 ```sh
 sudo apt purge 包名
 ```
 
-### 自动删除和依赖
+### 自动删除和任何依赖（指定某软件）
+
+```sh
+sudo apt autoremove 包名 --purge
+```
+
+### 自动删除和任何依赖
 
 ```sh
 sudo apt autoremove --purge
@@ -184,13 +198,25 @@ apt -s upgrade
 ## 列出已安装
 
 ```sh
-apt list --installed | grep 关键字 或者 dpkg -L | grep 关键字
+apt list --installed | grep 关键字
+```
+
+或者
+
+```sh
+dpkg -L | grep 关键字
 ```
 
 ## 搜索
 
 ```sh
-apt search 关键字 或者 apt list | grep 关键字
+apt search 关键字
+```
+
+或者
+
+```sh
+apt list | grep 关键字
 ```
 
 ## 详细信息
