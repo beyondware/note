@@ -1,3 +1,31 @@
+## 切换到 root 账号
+
+```sh
+sudo -i 提示符为“#”，不需要每次输入密码
+```
+
+```sh
+sudo su
+```
+
+或者
+
+```sh
+sudo su root
+```
+
+## 当前 shell
+
+```sh
+echo $0
+```
+
+或者
+
+```sh
+ps -p $$
+```
+
 ## 解压缩
 
 ```sh
@@ -116,16 +144,6 @@ hostnamectl | grep -i kernel
 
 ```sh
 cat /proc/version
-```
-
-## 切换到 root 账号
-
-```sh
-sudo su 或者 sudo su root
-```
-
-```sh
-sudo -i 提示符为“#”，不需要每次输入密码
 ```
 
 ## visudo
