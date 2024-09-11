@@ -192,13 +192,9 @@ sudo vim /etc/sudoers
 sudo -l -U 用户名
 ```
 
-## SSH
-
-1、安装 SSH
+## 安装 SSH
 
 > Unit sshd.service could not be found.
-
-> sshd（Fedora）或者 ssh（Debian），具体情况而定。
 
 ### Debian
 
@@ -226,13 +222,17 @@ sudo dnf install openssh-server
 sudo pacman -S openssh
 ```
 
-2、查看 SSH 版本
+## 查看 SSH 版本
 
 ```sh
 ssh -V
 ```
 
-3、查看 SSH
+## 运行 SSH
+
+- sshd（Fedora）或者 ssh（Debian），具体情况而定。
+
+1、当前 SSH 状态
 
 ```sh
 systemctl status ssh 或者 sudo /etc/init.d/ssh status 或者 service sshd status
@@ -242,10 +242,22 @@ systemctl status ssh 或者 sudo /etc/init.d/ssh status 或者 service sshd stat
 
 > Active: inactive (dead) 表示关闭
 
-4、启动 SSH
+2、启动 SSH
 
 ```sh
 sudo systemctl start ssh 或者 sudo /etc/init.d/ssh start 或者 service sshd start
+```
+
+3、停止 SSH
+
+```sh
+sudo systemctl stop ssh 或者 sudo /etc/init.d/ssh stop 或者 service sshd stop
+```
+
+4、重启 SSH
+
+```sh
+sudo systemctl restart ssh 或者 sudo /etc/init.d/ssh restart 或者 service sshd restart
 ```
 
 5、开机启动 SSH
@@ -260,19 +272,7 @@ sudo systemctl enable ssh
 sudo systemctl disable ssh
 ```
 
-7、停止 SSH
-
-```sh
-sudo systemctl stop ssh 或者 sudo /etc/init.d/ssh stop 或者 service sshd stop
-```
-
-8、重启 SSH
-
-```sh
-sudo systemctl restart ssh 或者 sudo /etc/init.d/ssh restart 或者 service sshd restart
-```
-
-## 允许 SSH 远程登陆
+## 远程登陆 SSH
 
 > Remote rejected opening a shell channel: Error: Not connected
 
@@ -296,7 +296,7 @@ PermitRootLogin yes
 ps -e | grep ssh
 ```
 
-> 显示 00:00:00 sshd，ssh-server已经启动。
+显示 00:00:00 sshd，ssh-server已经启动。
 
 ## 家目录
 
