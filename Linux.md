@@ -1,3 +1,17 @@
+## 解压缩
+
+```sh
+tar -zxvf 下载包.tar.gz
+```
+
+```sh
+tar -jxvf 下载包.tar.bz2
+```
+
+```sh
+tar -Jxvf 下载包.tar.xz
+```
+
 ## 对应按键
 
 1、Windows
