@@ -468,6 +468,44 @@ makepkg -si
 pamac-manager
 ```
 
+### pamac 常用命令
+
+1、安装软件包
+
+```
+pamac install 包名
+```
+
+2、删除包及不再需要的依赖项（孤立）
+
+```
+pamac remove --orphans 包名
+```
+
+3、数据库中搜索包
+
+```
+pamac search 包名
+```
+
+4、列出已安装的软件包
+
+```
+pamac list --installed
+```
+
+5、检查更新软件包
+
+```
+pamac checkupdates
+```
+
+6、升级所有软件包
+
+```
+pamac upgrade
+```
+
 ### pamac -h
 
 ```sh
