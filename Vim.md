@@ -155,7 +155,7 @@ Ctrl+ww 在“拆分”模式下，不同窗口之间跳转
 1、退出
 
 ```sh
-:q
+:q（quit：退出）
 ```
 
 2、强制退出（不会保存）
@@ -167,7 +167,7 @@ Ctrl+ww 在“拆分”模式下，不同窗口之间跳转
 3、保存
 
 ```sh
-:w
+:w（write：写入）
 ```
 
 4、保存并退出
@@ -182,32 +182,13 @@ Ctrl+ww 在“拆分”模式下，不同窗口之间跳转
 :wqa（:xa）
 ```
 
-## 常用操作
-
-```sh
-:w（write）保存
-:q（quit）退出
+## 撤销
 
 u（undo）撤销
+
 Ctrl+R 恢复撤销
 
-
-增
-i/I（insert）插入，I：行首；i：光标前
-a/A（append）追加，A：行尾；a：光标后
-o/O o：向下插一行；O：向上插一行
-
-
-删
-x 删除一个字符（包括空格）
-d（delete） 删除
-dd 删除一行
-3dd 删除三行
-dw（delet word）删除一个单词（包括空格）
-diw（delete inner word）删除内部内容
-daw（delete around word）
-d^ 删除到行首
-d$ 删除到行尾
+## 常用操作
 
 y（yank）复制
 yy 复制一行
@@ -220,14 +201,36 @@ p（paste）粘贴到后
 P（大写） 粘贴到前
 
 
-改
+1、增
+
+i/I（insert）插入，I：行首；i：光标前
+a/A（append）追加，A：行尾；a：光标后
+o/O o：向下插一行；O：向上插一行
+
+
+2、删
+
+x 删除一个字符（包括空格）
+d（delete） 删除
+dd 删除一行
+3dd 删除三行
+dw（delet word）删除一个单词（包括空格）
+diw（delete inner word）删除内部内容
+daw（delete around word）
+d^ 删除到行首
+d$ 删除到行尾
+
+
+3、改
+
 c（change） 改变
 ciw（change inner word）删除内部内容，并进入插入模式
 ct" 删除双引号里面的内容，并进入插入模式
 ct) 删除到右括号，并进入插入模式
 
 
-查（底线模式）
+4、查（底线模式）
+
 / 向后查找
 ? 向前查找
 
@@ -237,14 +240,16 @@ ct) 删除到右括号，并进入插入模式
 f 查找当前行
 
 
-替
+5、替
+
 :s/old/new 替换光标位置
 :s/old/new/g 替换当前行所有
 : 12,15 s/old/new/g 替换12到15行所有
 :%s/old/new/g 替换所有
 
 
-移动
+6、移动
+
 w（word）移动到下一个单词
 b（back word）移动到上一个单词
 
