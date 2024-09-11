@@ -146,15 +146,13 @@ hostnamectl | grep -i kernel
 cat /proc/version
 ```
 
-## visudo
-
-### 不输入密码使用 sudo
+## visudo（使用 sudo 不需要每次输密码）
 
 ```sh
 sudo visudo
 ```
 
-追加
+- 追加
 
 ```sh
 用户名 ALL=(ALL) NOPASSWD:ALL
