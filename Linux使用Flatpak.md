@@ -16,13 +16,13 @@ sudo dnf install flatpak
 sudo apt install flatpak
 ```
 
-1、GNOME 提供插件
+1、GNOME 插件
 
 ```sh
 sudo apt install gnome-software-plugin-flatpak gnome-software-plugin-snap
 ```
 
-2、KDE 提供插件
+2、KDE 插件
 
 ```sh
 sudo apt install plasma-discover-backend-flatpak plasma-discover-backend-snap
@@ -88,7 +88,7 @@ flatpak --user
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 ```
 
-- 如果失败，可以使用如下命令：
+- 如果失败，使用如下命令：
 
 ```sh
 flatpak remote-add --if-not-exists flathub https://mirror.sjtu.edu.cn/flathub/flathub.flatpakrepo
@@ -118,6 +118,12 @@ sudo flatpak override 应用程序ID --filesystem=host
 
 ```sh
 sudo flatpak remote-modify flathub --url=https://mirror.sjtu.edu.cn/flathub
+```
+
+#### 还原官方源
+
+```sh
+sudo flatpak remote-modify flathub --url=https://dl.flathub.org/repo/
 ```
 
 #### 报错汇总
@@ -162,31 +168,31 @@ flatpak install flathub org.freedesktop.Platform.openh264
 
 5、error: Unable to load summary from remote flathub: Server returned status 308: Unknown Error
 
-#### 还原官方源
+换回官方源试试
 
 ```sh
 sudo flatpak remote-modify flathub --url=https://dl.flathub.org/repo/
 ```
 
-### fedora
+## fedora
 
 ```sh
 flatpak remote-add --if-not-exists fedora oci+https://registry.fedoraproject.org
 ```
 
-### fedora-testing
+## fedora-testing
 
 ```sh
 flatpak remote-add --if-not-exists fedora-testing oci+https://registry.fedoraproject.org#testing
 ```
 
-#### 安装
+### 安装
 
 ```sh
 flatpak install fedora 应用程序ID
 ```
 
-### nome-nightly
+## gnome-nightly
 
 > https://wiki.gnome.org/Apps/Nightly
 
@@ -194,13 +200,13 @@ flatpak install fedora 应用程序ID
 flatpak remote-add --if-not-exists gnome-nightly https://nightly.gnome.org/gnome-nightly.flatpakrepo
 ```
 
-#### 安装
+### 安装
 
 ```sh
 flatpak install gnome-nightly 应用程序ID
 ```
 
-### kdeapps
+## kdeapps
 
 > https://userbase.kde.org/Tutorials/Flatpak
 
@@ -210,7 +216,7 @@ flatpak install gnome-nightly 应用程序ID
 flatpak remote-add --if-not-exists kdeapps --from https://distribute.kde.org/kdeapps.flatpakrepo
 ```
 
-#### 安装
+### 安装
 
 ```sh
 flatpak install kdeapps 应用程序ID
@@ -254,13 +260,13 @@ flatpak remote-delete flathub
 
 ### 安装
 
-#### 方案一
+#### 方法一
 
 ```sh
 flatpak install flathub com.github.tchx84.Flatseal
 ```
 
-#### 方案二
+#### 方法二
 
 ```sh
 flatpak install https://dl.flathub.org/repo/appstream/com.github.tchx84.Flatseal.flatpakref
@@ -270,7 +276,7 @@ flatpak install https://dl.flathub.org/repo/appstream/com.github.tchx84.Flatseal
 
 > 必须全部打勾 ✔ 才能安装成功
 
-### 降级
+#### 降级
 
 1、获取应用程序ID
 
@@ -324,7 +330,7 @@ flatpak uninstall --all
 flatpak uninstall --all --delete-data
 ```
 
-#### 卸载未使用
+### 卸载未使用
 
 ```sh
 flatpak uninstall --unused 或者 flatpak remove --unused
