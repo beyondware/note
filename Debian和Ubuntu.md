@@ -220,57 +220,6 @@ sudo apt update
 
 > https://mirrors.ustc.edu.cn/help/kali.html
 
-### Parrot
-
-#### 安装卡住91%报错
-
-> 命令 /usr/sbin/sources-media-unmount 未能在 600 秒内完成
-
-- 安装前，修改
-
-```sh
-sudo vim /usr/sbin/sources-media-unmount
-```
-
-- 注释掉
-
-```sh
-# rm $CHROOT/etc/apt/sources.list || true
-# mv $CHROOT/etc/apt/sources.list.orig $CHROOT/etc/apt/sources.list
-# mv $CHROOT/etc/apt/sources.list.parrot $CHROOT/etc/apt/sources.list.d/parrot.list
-```
-
-1、编辑
-
-```sh
-sudo vim /etc/apt/sources.list.d/parrot.list
-```
-
-2、官方源
-
-```sh
-https://deb.parrot.sh/parrot/
-```
-
-修改为
-
-```sh
-https://mirrors.aliyun.com/parrot/
-https://mirrors.ustc.edu.cn/parrot/
-https://mirrors.tuna.tsinghua.edu.cn/parrot/
-https://mirrors.sjtug.sjtu.edu.cn/parrot/
-```
-
-3、更新
-
-```sh
-sudo apt update
-```
-
-4、参考
-
-> https://mirrors.sjtug.sjtu.edu.cn/docs/parrot
-
 ### Ubuntu
 
 1、编辑
