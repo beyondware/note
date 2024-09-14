@@ -276,9 +276,7 @@ sudo systemctl disable ssh
 
 ### 报错
 
-```sh
-Remote rejected opening a shell channel: Error: Not connected
-```
+> Remote rejected opening a shell channel: Error: Not connected
 
 1、编辑
 
@@ -306,9 +304,7 @@ sudo systemctl restart ssh
 
 ### 报错
 
-```sh
-All configured authentication methods failed
-```
+> All configured authentication methods failed
 
 1、编辑
 
@@ -516,12 +512,16 @@ nmcli radio wifi off
 ls /etc | grep bash
 ```
 
-注：可能是 bashrc，也可能是 bash.bashrc 文件。
-
 2、编辑 bash 配置文件
 
 ```sh
-sudo vim /etc/bashrc 或者 sudo vim /etc/bash.bashrc（Debian）
+sudo vim /etc/bashrc
+```
+
+可能是 
+
+```sh
+sudo vim /etc/bash.bashrc
 ```
 
 ### 当前用户
