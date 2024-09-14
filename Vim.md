@@ -74,6 +74,18 @@ Ctrl+Q
 sudo vim ~/.vimrc
 ```
 
+1、显示行号
+
+```sh
+:set number 或者简化 :set nu
+```
+
+2、自动保存
+
+```sh
+:set autowrite
+```
+
 ## 打开
 
 1、打开多个文件
