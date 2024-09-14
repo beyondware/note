@@ -1,16 +1,16 @@
-## 安装依赖
-
-```sh
-sudo dnf install git wget
-```
-
 ## 查看当前 shell
 
 ```sh
-echo $SHELL
+echo $0
 ```
 
-## 查询已安装 shell
+或者
+
+```sh
+ps -p $$
+```
+
+## 列出已安装 shell
 
 ```sh
 cat /etc/shells
@@ -18,19 +18,25 @@ cat /etc/shells
 
 ## 安装 zsh
 
+安装依赖
+
+```sh
+sudo dnf install git wget
+```
+
 1、安装 zsh
 
 ```sh
 sudo dnf install zsh
 ```
 
-2、设置 zsh 为默认 shell（重开终端生效）
+2、设置 zsh 为默认 shell
 
 ```sh
 sudo chsh -s /usr/bin/zsh
 ```
 
-3、退出终端
+3、退出终端（重启终端才生效）
 
 ```sh
 exit
