@@ -274,11 +274,19 @@ sudo systemctl disable ssh
 
 ## 远程登陆 SSH
 
-> Remote rejected opening a shell channel: Error: Not connected
+### 报错
+
+```sh
+Remote rejected opening a shell channel: Error: Not connected
+```
+
+1、编辑
 
 ```sh
 sudo vim /etc/ssh/sshd_config
 ```
+
+2、修改
 
 ```sh
 # PermitRootLogin prohibit-password
@@ -290,7 +298,37 @@ sudo vim /etc/ssh/sshd_config
 PermitRootLogin yes
 ```
 
-### 查看 ssh 进程
+3、重启 ssh
+
+```sh
+sudo systemctl restart ssh
+```
+
+### 报错
+
+```sh
+All configured authentication methods failed
+```
+
+1、编辑
+
+```sh
+sudo vim /etc/ssh/sshd_config
+```
+
+2、修改
+
+```sh
+PasswordAuthentication yes（去掉前面#）
+```
+
+3、重启 ssh
+
+```sh
+sudo systemctl restart ssh
+```
+
+## 查看 ssh 进程
 
 ```sh
 ps -e | grep ssh
