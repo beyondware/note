@@ -183,15 +183,13 @@ b（back word） 移动到上一个单词
 0（数字零） 移动到行首（相当于按键【Home】）
 $          移动到行尾（相当于按键【End】）
 
-Ctrl+F（forward：向前）  翻到下一页（相当于按键【Page Down】）
+Ctrl+O（字母O）          返回到之前光标位置
 
-Ctrl+B（backward：向后） 返回上一页（相当于按键【Page Up】）
+Ctrl+F（forward：向前）  向下翻一页（相当于按键【Page Down】）
+Ctrl+B（backward：向后） 向上翻一页（相当于按键【Page Up】）
 
-Ctrl+U（upward）
-
-Ctrl+D
-
-Ctrl+O（字母O） 返回到之前位置
+Ctrl+D   向下翻半页
+Ctrl+U   向上翻半页
 ```
 
 ## 撤销
