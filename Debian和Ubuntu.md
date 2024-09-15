@@ -188,38 +188,6 @@ sudo apt update
 
 > https://developer.aliyun.com/mirror/deepin
 
-### Kali
-
-1、编辑
-
-```sh
-sudo vim /etc/apt/sources.list
-```
-
-2、官方源
-
-```sh
-http://http.kali.org/kali
-```
-
-修改为
-
-```sh
-https://mirrors.cernet.edu.cn/kali
-```
-
-3、更新
-
-```sh
-sudo apt update
-```
-
-4、参考
-
-> https://help.mirrors.cernet.edu.cn/kali/
-
-> https://mirrors.ustc.edu.cn/help/kali.html
-
 ### Ubuntu
 
 1、编辑
