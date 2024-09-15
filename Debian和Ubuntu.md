@@ -440,33 +440,6 @@ sudo apt update
 sudo apt install plasma-discover plasma-discover-backend-flatpak plasma-discover-backend-snap
 ```
 
-### openKylin
-
-1、编辑
-
-```sh
-sudo vim /etc/apt/sources.list
-```
-
-2、官方源
-
-```sh
-https://archive.openkylin.top/openkylin/
-```
-
-修改为
-
-```sh
-https://mirror.nju.edu.cn/openkylin/
-https://mirrors.lzu.edu.cn/openkylin/
-```
-
-3、更新
-
-```sh
-sudo apt update
-```
-
 ## PPA
 
 1、列出已安装 PPA
