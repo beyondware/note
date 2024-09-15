@@ -134,6 +134,8 @@ https://mirrors.cernet.edu.cn/debian-security/
 
 > https://help.mirrors.cernet.edu.cn/deb-multimedia/
 
+添加
+
 - 官方源
 
 ```sh
@@ -151,42 +153,6 @@ deb https://mirrors.cernet.edu.cn/deb-multimedia/ bookworm main non-free
 ```sh
 sudo apt update
 ```
-
-### Deepin
-
-```sh
-sudo apt install deepin-unioncode
-```
-
-1、编辑
-
-```sh
-sudo vim /etc/apt/sources.list
-```
-
-2、官方源
-
-```sh
-https://community-packages.deepin.com/deepin/
-```
-
-修改为
-
-```sh
-https://mirrors.nju.edu.cn/deepin/
-https://mirrors.aliyun.com/deepin/
-https://mirrors.tuna.tsinghua.edu.cn/deepin/
-```
-
-3、更新
-
-```sh
-sudo apt update
-```
-
-4、参考
-
-> https://developer.aliyun.com/mirror/deepin
 
 ### Ubuntu
 
