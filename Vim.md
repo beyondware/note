@@ -102,7 +102,7 @@ Ctrl+Q
 sudo vim ~/.vimrc
 ```
 
-1、显示行号
+### 显示行号
 
 ```sh
 :set number 或者简化 :set nu
@@ -112,13 +112,13 @@ sudo vim ~/.vimrc
 :set nonumber 或者简化 :set nonu
 ```
 
-2、自动保存
+### 自动保存
 
 ```sh
 :set autowrite
 ```
 
-3、粘贴模式（防止粘贴时乱码）
+### 粘贴模式（防止粘贴时乱码）
 
 ```sh
 :set paste
