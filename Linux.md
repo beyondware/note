@@ -404,7 +404,9 @@ xdg-user-dirs-gtk-update
 快捷键：Ctrl+Alt+T
 ```
 
-## WiFi 驱动
+## WiFi
+
+> nmcli、nmtui、wpa_supplicant
 
 1、判断网卡是否免驱
 
@@ -502,9 +504,9 @@ nmcli radio wifi on
 nmcli radio wifi off
 ```
 
-## 别名
+## 别名（alias）
 
-### 全局用户
+### 全局配置
 
 1、查看 bash 配置文件
 
@@ -524,7 +526,13 @@ sudo vim /etc/bashrc
 sudo vim /etc/bash.bashrc
 ```
 
-### 当前用户
+3、添加别名（注意：单引号）
+
+```sh
+alias ll='ls -alh'
+```
+
+### 用户配置
 
 1、编辑
 
@@ -544,19 +552,19 @@ alias ll='ls -alh'
 source ~/.bashrc
 ```
 
-4、查看别名
+## 查看别名
 
 ```sh
 alias
 ```
 
-5、删除全部别名
+## 删除全部别名
 
 ```sh
 unalias -a
 ```
 
-专门设置别名的文件
+### 专门设置别名的文件
 
 ```sh
 ~/.bash_aliases
