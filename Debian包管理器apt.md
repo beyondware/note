@@ -135,7 +135,7 @@ sudo apt --fix-broken install 或者 sudo apt install -f
 
 ## 删除
 
-### 删除并保留相关的配置文件
+### 删除并*保留*相关的配置文件
 
 ```sh
 sudo apt remove 包名
@@ -147,7 +147,7 @@ sudo apt remove 包名
 dpkg -r 包名
 ```
 
-### 删除并清除相关的配置文件
+### 删除并*清除*相关的配置文件
 
 ```sh
 sudo apt purge 包名
@@ -208,6 +208,10 @@ dpkg -L | grep 关键字
 ```
 
 ## 搜索
+
+```sh
+apt search --names-only 关键字  ##精准匹配
+```
 
 ```sh
 apt search 关键字
