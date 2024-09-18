@@ -222,12 +222,6 @@ sudo dnf install openssh-server
 sudo pacman -S openssh
 ```
 
-## 查看 SSH 版本
-
-```sh
-ssh -V
-```
-
 ## 运行 SSH
 
 - sshd（Fedora）或者 ssh（Debian），具体情况而定。
@@ -271,6 +265,14 @@ sudo systemctl enable ssh
 ```sh
 sudo systemctl disable ssh
 ```
+
+## 查看 SSH 进程
+
+```sh
+ps -e | grep ssh
+```
+
+显示 00:00:00 sshd，已经启动。
 
 ## 远程登陆 SSH
 
@@ -323,14 +325,6 @@ PasswordAuthentication yes（去掉前面#）
 ```sh
 sudo systemctl restart ssh
 ```
-
-## 查看 ssh 进程
-
-```sh
-ps -e | grep ssh
-```
-
-显示 00:00:00 sshd，ssh-server已经启动。
 
 ## 家目录
 
