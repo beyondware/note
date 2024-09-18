@@ -208,50 +208,6 @@ https://mirrors.sjtug.sjtu.edu.cn/linuxliteos/
 sudo apt update
 ```
 
-### Linux Mint
-
-1、编辑
-
-```sh
-sudo vim /etc/apt/sources.list.d/official-package-repositories.list
-```
-
-2、官方源
-
-#### linuxmint
-
-```sh
-http://packages.linuxmint.com/
-```
-
-修改为
-
-```sh
-https://mirrors.cernet.edu.cn/linuxmint/
-```
-
-#### ubuntu
-
-```sh
-http://archive.ubuntu.com/ubuntu
-```
-
-修改为
-
-```sh
-https://mirrors.cernet.edu.cn/ubuntu/
-```
-
-3、更新
-
-```sh
-sudo apt update
-```
-
-4、参考
-
-> https://help.mirrors.cernet.edu.cn/linuxmint/
-
 ## PPA
 
 1、列出已安装 PPA
