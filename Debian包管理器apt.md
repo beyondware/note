@@ -42,13 +42,13 @@ sudo dpkg --purge $(dpkg -l | awk '/^rc/{print $2}')
 
 ## 内核
 
-1、查看当前的内核
+1、查看当前内核
 
 ```sh
 uname -r
 ```
 
-2、查看所有已安装的内核
+2、查看已安装的内核
 
 ```sh
 dpkg --list | grep linux-image
@@ -98,7 +98,7 @@ sudo apt --fix-broken install 或者 sudo apt install -f
 
 ## 删除
 
-### 删除并*保留*相关的配置文件
+### 删除并**保留**相关的配置文件
 
 ```sh
 sudo apt remove 包名
@@ -110,7 +110,7 @@ sudo apt remove 包名
 dpkg -r 包名
 ```
 
-### 删除并*清除*相关的配置文件
+### 删除并**清除**相关的配置文件
 
 ```sh
 sudo apt purge 包名
