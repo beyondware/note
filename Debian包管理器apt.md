@@ -1,3 +1,93 @@
+## 桌面右击无法打开终端
+
+```sh
+sudo apt install nautilus-open-terminal
+```
+
+## lxappearance
+
+> https://github.com/lxde/lxappearance
+
+```sh
+sudo apt install lxappearance
+```
+
+## gnome-tweaks
+
+```sh
+sudo apt install gnome-tweaks
+```
+
+## Extension Manager
+
+> https://github.com/mjakeman/extension-manager
+
+```sh
+sudo apt install gnome-shell-extension-manager
+```
+
+或者
+
+```sh
+sudo apt install gnome-shell-extensions
+```
+
+## Dash to Dock
+
+```sh
+sudo apt install gnome-shell-extension-dashtodock
+```
+
+## open-vm-tools
+
+1、安装
+
+```sh
+sudo apt install open-vm-tools open-vm-tools-desktop
+```
+
+2、无法复制和粘贴
+
+```sh
+vmware-user
+```
+
+3、警告
+
+```sh
+(vmware-user:2932): Gtk-WARNING **: 15:26:01.197: gtk_disable_setlocale() must be called before gtk_init()
+```
+
+解决方法：
+
+```sh
+sudo vim /usr/share/gnome/autostart/vmware-user.desktop
+```
+
+添加
+
+```sh
+[Desktop Entry]
+Type=Application
+Name=VMware User Agent
+Exec=vmware-user
+Icon=system-run
+Comment=VMware User Agent
+X-GNOME-Autostart-enabled=true
+```
+
+## Zorin OS 系统升级
+
+```sh
+sudo apt install zorin-os-upgrader
+```
+
+- 如果没有任何升级选项，执行以下命令：
+
+```sh
+gsettings set com.zorin.desktop.upgrader show-test-upgrades true
+```
+
 ## 清理
 
 ```sh
