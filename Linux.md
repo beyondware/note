@@ -398,17 +398,87 @@ xdg-user-dirs-gtk-update
 快捷键：Ctrl+Alt+T
 ```
 
-## WiFi
-
-> nmcli、nmtui、wpa_supplicant
-
-1、判断网卡是否免驱
+## 查看 WiFi 状态
 
 ```sh
-ifconfig -a
+nmcli radio
 ```
 
-> 查看是否有wlan0、eth1、usb0开头的信息
+1、开启 WiFi
+
+```sh
+nmcli radio wifi on
+```
+
+2、关闭 WiFi
+
+```sh
+nmcli radio wifi off
+```
+
+## WiFi
+
+1、WiFi 登陆
+
+```sh
+sudo nmcli networking
+```
+
+> enabled  ##确认状态
+
+没有，启动
+
+```sh
+sudo nmcli networking on
+```
+
+### nmtui
+
+```sh 
+sudo nmtui
+```
+
+选择：Activate a connection（启用连接）
+
+### nmcli
+
+```sh
+nmcli
+```
+
+```sh
+sudo nmcli dev wifi list
+```
+
+```sh
+sudo nmcli --ask dev wifi con
+```
+
+输入SSID名称和SSID密码
+
+```sh
+nmcli  ## 确认状态
+```
+
+### wpa_supplicant
+
+```sh
+sudo iwlist wlan0 scan | grep SSID
+```
+
+```sh
+sudo wpa_passphrase SSID名称 SSID密码
+```
+
+写入到配置文件
+
+```sh
+sudo wpa_passphrase SSID名称 SSID密码 > /etc/wpa_supplicant.conf
+```
+
+```sh
+sudo vim /etc/wpa_supplicant.conf    ##删除掉带#psk这行
+```
 
 2、查看当前无线网卡信息
 
@@ -416,7 +486,7 @@ ifconfig -a
 iwconfig
 ```
 
-- 出现 iwconfig: command not found
+> iwconfig: command not found
 
 ```sh
 sudo apt install wireless-tools
@@ -428,7 +498,7 @@ sudo apt install wireless-tools
 sudo apt install linux-firmware
 ```
 
-> 通常情况下, WiFi芯片固件存放在/lib/firmware目录
+> 通常情况，WiFi 芯片固件存放在 /lib/firmware 目录下
 
 4、PCI 无线网卡
 
@@ -445,7 +515,7 @@ lspci
 - 过滤干扰信息
 
 ```sh
-lspci | grep Network 或者 lspci | grep -i net
+lspci | grep Network 或者简化 lspci | grep -i net
 ```
 
 5、USB 无线网卡
@@ -478,24 +548,6 @@ sudo apt install linux-headers-$(uname -r)
 
 ```sh
 dmesg
-```
-
-## 查看 WiFi 状态
-
-```sh
-nmcli radio
-```
-
-### 开启 WiFi
-
-```sh
-nmcli radio wifi on
-```
-
-### 关闭 WiFi
-
-```sh
-nmcli radio wifi off
 ```
 
 ## 别名（alias）
