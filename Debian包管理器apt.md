@@ -10,31 +10,31 @@ sudo apt autoremove
 
 ## 系统
 
-1、更新升级
+1、更新、升级
 
 ```sh
 sudo apt update && sudo apt upgrade
 ```
 
-2、系统升级
-
-```sh
-sudo apt update && sudo apt dist-upgrade
-```
-
-3、系统升级（推荐）
+2、系统升级（推荐）
 
 ```sh
 sudo apt update && sudo apt full-upgrade
 ```
 
-4、一键纯净更新
+或者
+
+```sh
+sudo apt update && sudo apt dist-upgrade
+```
+
+3、一键纯净更新
 
 ```sh
 sudo apt update -y && apt full-upgrade -y && apt autoremove -y && apt autoclean -y
 ```
 
-5、删除不必要的 rc 包（配置文件）
+4、删除不必要的 rc 包（配置文件）
 
 ```sh
 sudo dpkg --purge $(dpkg -l | awk '/^rc/{print $2}')
@@ -98,7 +98,7 @@ sudo apt --fix-broken install 或者 sudo apt install -f
 
 ## 删除
 
-### 删除并**保留**相关的配置文件
+### 删除并保留相关的配置文件
 
 ```sh
 sudo apt remove 包名
@@ -110,7 +110,7 @@ sudo apt remove 包名
 dpkg -r 包名
 ```
 
-### 删除并**清除**相关的配置文件
+### 删除并清除相关的配置文件
 
 ```sh
 sudo apt purge 包名
