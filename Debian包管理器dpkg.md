@@ -1,4 +1,4 @@
-## dpkg
+# dpkg
 
 1、安装
 
@@ -6,10 +6,24 @@
 dpkg --install 包.deb 或者  dpkg -i 包.deb
 ```
 
+安装后，依赖项报错；执行：
+
+```sh
+sudo apt install -f
+```
+
 2、移除
+
+删除、保留配置文件
 
 ```sh
 dpkg --remove 或者 dpkg -r
+```
+
+删除、一同删除配置文件
+
+```sh
+dpkg --purge 或者 dpkg -P
 ```
 
 3、列出
@@ -30,7 +44,7 @@ dpkg -L | grpe 关键字
 dpkg --search 或者 dpkg -S
 ```
 
-## dpkg --help
+# dpkg --help
 
 ```sh
 用法：dpkg [<选项>...] <命令>
@@ -116,9 +130,7 @@ Options:
 'apt' 和 'aptitude' 提供了更为便利的软件包管理。
 ```
 
-## gdebi
-
-> https://launchpad.net/gdebi
+# gdebi
 
 1、安装 gdebi
 
@@ -150,10 +162,18 @@ Options:
   --root=ROOTDIR        使用另外的 root 文件夹
 ```
 
-## deepin-deb-installer
+4、参考
 
-> https://github.com/linuxdeepin/deepin-deb-installer
+> https://launchpad.net/gdebi
+
+# deepin-deb-installer
+
+1、安装
 
 ```sh
 sudo apt install deepin-deb-installer
 ```
+
+2、参考
+
+> https://github.com/linuxdeepin/deepin-deb-installer
