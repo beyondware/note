@@ -1,137 +1,4 @@
-## 撤回之前操作
-
-```sh
-dnf history
-```
-
-```sh
-dnf history info ID值
-```
-
-```sh
-dnf history undo ID值
-```
-
-## 提高 DNF 速度
-
-1、配置 DNF 包管理器
-
-```sh
-sudo vim /etc/dnf/dnf.conf
-```
-
-2、将添加到`/etc/dnf/dnf.conf`文件底部
-
-```sh
-max_parallel_downloads=10  //同时下载的最大包数
-fastestmirror=True  //配置最快的镜像
-```
-
-3、系统升级并刷新
-
-```sh
-sudo dnf upgrade --refresh
-```
-
-## 系统
-
-1、系统升级并刷新
-
-```sh
-sudo dnf upgrade --refresh
-```
-
-2、系统更新
-
-```sh
-sudo dnf update
-```
-
-3、删除旧内核
-
-```sh
-sudo dnf remove --oldinstallonly
-```
-
-4、列出已安装最新版本
-
-```sh
-sudo dnf distro-sync
-```
-
-5、检查可升级
-
-```sh
-dnf check-update
-```
-
-## 用户
-
-### 切换用户
-
-1、切换到 root 账号
-
-```sh
-sudo su
-```
-
-2、修改 root 密码
-
-```sh
-passwd root
-```
-
-### 添加用户
-
-1、添加用户
-
-```sh
-useradd -m -g users -G wheel -s /bin/bash 用户名
-```
-
-2、修改用户密码
-
-```sh
-passwd 用户名
-```
-
-3、增加权限
-
-```sh
-vi /etc/sudoers
-```
-
-去掉`%wheel ALL=(ALL) ALL`前面的注释
-
-### 修改用户组
-
-```sh
-usermod -g root 用户名
-```
-
-### 删除用户
-
-- 删除用户主目录及其任何文件
-
-```sh
-userdel -rf 用户名
-```
-
-### 登陆用户
-
-1、查看当前所有登录用户
-
-```sh
-who
-```
-
-2、查询当前登录的用户名
-
-```sh
-whoami
-```
-
-## 常用命令
+## dnf
 
 ### 安装
 
@@ -147,7 +14,7 @@ sudo dnf install 包名
 sudo dnf localinstall xxx.rpm
 ```
 
-3、列出所有已安装
+### 列出所有已安装
 
 ```sh
 dnf list installed
@@ -179,9 +46,9 @@ dnf clean all
 dnf clean packages
 ```
 
-5、关键匹配删除
+### 关键匹配删除
 
-① 列出与`关键字`匹配的已安装软件
+1、列出与`关键字`匹配的已安装软件
 
 ```sh
 dnf list installed | grep 关键字
@@ -193,7 +60,7 @@ dnf list installed | grep 关键字
 rpm -qa | grep 关键字
 ```
 
-② 删除相关（完整包名）
+2、删除相关（完整包名）
 
 ```sh
 sudo dnf remove 完整的包名
@@ -283,7 +150,7 @@ which
 find
 ```
 
-### 组
+## 组
 
 1、组列出
 
@@ -297,7 +164,7 @@ dnf grouplist
 sudo dnf groupinstall
 ```
 
-#### 组安装 "Development tools"
+### 组安装 "Development tools"
 
 ```sh
 sudo dnf groupinstall "Development tools"
