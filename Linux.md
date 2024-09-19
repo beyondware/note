@@ -28,13 +28,39 @@ useradd -m -g users -G wheel -s /bin/bash 用户名
 passwd 用户名
 ```
 
-3、增加权限
+### 用户添加 sudo 权限
+
+1、查看当前用户权限
 
 ```sh
-vi /etc/sudoers
+sudo -l -U 用户名
 ```
 
-去掉`%wheel ALL=(ALL) ALL`前面的注释
+2、将用户添加到 sudoers 组
+
+#### 方法一
+
+```sh
+usermod -aG sudo 用户名
+```
+
+#### 方法二
+
+```sh
+sudo vim /etc/sudoers
+```
+
+添加
+
+```sh
+用户名    ALL=(ALL:ALL) ALL
+```
+
+3、验证结果
+
+```sh
+sudo -l -U 用户名
+```
 
 ### 修改用户组
 
@@ -42,9 +68,7 @@ vi /etc/sudoers
 usermod -g root 用户名
 ```
 
-### 删除用户
-
-- 删除用户主目录及其任何文件
+### 删除用户（主目录及其文件）
 
 ```sh
 userdel -rf 用户名
@@ -58,7 +82,7 @@ userdel -rf 用户名
 who
 ```
 
-2、查询当前登录的用户名
+2、查询当前登录的用户
 
 ```sh
 whoami
@@ -78,6 +102,18 @@ sudo su
 
 ```sh
 sudo su root
+```
+
+## visudo（使用 sudo 不需要每次输密码）
+
+```sh
+sudo visudo
+```
+
+- 追加
+
+```sh
+用户名 ALL=(ALL) NOPASSWD:ALL
 ```
 
 ## 当前 shell
@@ -210,52 +246,6 @@ hostnamectl | grep -i kernel
 
 ```sh
 cat /proc/version
-```
-
-## visudo（使用 sudo 不需要每次输密码）
-
-```sh
-sudo visudo
-```
-
-- 追加
-
-```sh
-用户名 ALL=(ALL) NOPASSWD:ALL
-```
-
-## 用户拥有 sudo 权限
-
-- 查看当前用户权限
-
-```sh
-sudo -l -U 用户名
-```
-
-### 将用户添加到 sudoers 组
-
-#### 方法一
-
-```sh
-usermod -aG sudo 用户名
-```
-
-#### 方法二
-
-```sh
-sudo vim /etc/sudoers
-```
-
-- 添加
-
-```sh
-用户名    ALL=(ALL:ALL) ALL
-```
-
-### 验证结果
-
-```sh
-sudo -l -U 用户名
 ```
 
 ## 安装 SSH
