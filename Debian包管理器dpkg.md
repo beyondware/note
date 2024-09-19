@@ -9,7 +9,7 @@ dpkg --install 包.deb 或者  dpkg -i 包.deb
 安装后，依赖项报错；执行：
 
 ```sh
-sudo apt install -f
+sudo apt --fix-broken install 或者 sudo apt install -f
 ```
 
 2、移除
