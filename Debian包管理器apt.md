@@ -10,13 +10,7 @@ sudo apt install 包名
 sudo apt install 包.deb
 ```
 
-或者
-
-```sh
-dpkg -i 包.deb
-```
-
-- 报错的话，需要修复依赖项
+报错的话，需要修复依赖项
 
 ```sh
 sudo apt --fix-broken install 或者 sudo apt install -f
@@ -24,19 +18,13 @@ sudo apt --fix-broken install 或者 sudo apt install -f
 
 ## 删除
 
-### 删除并保留相关的配置文件
+### 删除、保留相关的配置文件
 
 ```sh
 sudo apt remove 包名
 ```
 
-或者
-
-```sh
-dpkg -r 包名
-```
-
-### 删除并清除相关的配置文件
+### 删除、清除相关的配置文件
 
 ```sh
 sudo apt purge 包名
@@ -88,12 +76,6 @@ apt -s upgrade
 
 ```sh
 apt list --installed | grep 关键字
-```
-
-或者
-
-```sh
-dpkg -L | grep 关键字
 ```
 
 ## 搜索
