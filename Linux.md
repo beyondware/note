@@ -154,7 +154,7 @@ sudo vim ~/.zshrc
 
 ```sh
 #历史纪录文件
-HISTFILE=~/.zhistory
+HISTFILE=~/.zsh_history
 
 #历史纪录条数
 HISTSIZE=10000
