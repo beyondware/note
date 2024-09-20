@@ -8,12 +8,6 @@
 
 > 编辑虚拟机设置→选项-高级-固件类型，改成：UEFI
 
-### 判断是否为 UEFI
-
-```sh
-ls /sys/firmware/efi/efivars
-```
-
 ### 设置终端字体大小
 
 ```sh
@@ -130,7 +124,7 @@ cfdisk /dev/sda
 
 ```sh
 /dev/sda1 1M BIOS boot
-/dev/sda2 1G Linux swap
+/dev/sda2 2G Linux swap
 /dev/sda3 剩余 Linux filesystem
 ```
 
@@ -162,7 +156,7 @@ swapon /dev/sda2
 mkfs.ext4 /dev/sda3
 ```
 
-- *必须*先挂载根目录
+必须先挂载根目录
 
 ```sh
 mount /dev/sda3 /mnt
@@ -207,13 +201,7 @@ fdisk -l
 2、EFI 分区
 
 ```sh
-mkfs.fat -F32 /dev/sda1
-```
-
-或者
-
-```sh
-mkfs.vfat /dev/sda1
+mkfs.fat -F32 /dev/sda1  或者  mkfs.vfat /dev/sda1
 ```
 
 3、swap 分区
@@ -232,13 +220,11 @@ swapon /dev/sda2
 mkfs.ext4 /dev/sda3
 ```
 
-- 支持大文件
-
 ```sh
-mkfs.xfs /dev/sda3
+mkfs.xfs /dev/sda3  ##支持大文件
 ```
 
-- **必须**先挂载根目录
+必须先挂载根目录
 
 ```sh
 mount /dev/sda3 /mnt
@@ -262,7 +248,7 @@ timedatectl status
 reflector --country China --age 72 --sort rate --protocol https --save /etc/pacman.d/mirrorlist
 ```
 
-#### 手动添加
+#### 手动修改
 
 1、编辑
 
@@ -274,7 +260,6 @@ vim /etc/pacman.d/mirrorlist
 
 ```sh
 ## China
-Server = https://mirrors.cernet.edu.cn/archlinux/$repo/os/$arch
 Server = https://mirror.nju.edu.cn/archlinux/$repo/os/$arch
 Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch
 Server = https://mirrors.ustc.edu.cn/archlinux/$repo/os/$arch
@@ -322,8 +307,7 @@ genfstab -U /mnt >> /mnt/etc/fstab
 ```sh
 cat /mnt/etc/fstab
 ```
-
----
+------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## 进入 chroot 环境
 
@@ -505,10 +489,8 @@ hwclock --systohc
 vim /etc/locale.gen
 ```
 
-- 去掉前面#
-
 ```sh
-en_US.UTF-8 UTF-8
+en_US.UTF-8 UTF-8   ##去掉前面#
 ```
 
 2、生成 locale 信息
@@ -626,8 +608,7 @@ lsblk -l
 ```sh
 reboot
 ```
-
----
+------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## 进入全新系统
 
@@ -862,19 +843,19 @@ sudo pacman -S bluez bluez-utils
 sudo pacman -S pulseaudio-bluetooth
 ```
 
-1、查看蓝牙服务是否正在运行
+1、查看蓝牙状态
 
 ```sh
 systemctl status bluetooth
 ```
 
-2、启动蓝牙守护进程
+2、启动蓝牙
 
 ```sh
 sudo systemctl start bluetooth
 ```
 
-3、系统启动时蓝牙服务自动运行
+3、开机自启动蓝牙
 
 ```sh
 sudo systemctl enable bluetooth
@@ -946,16 +927,16 @@ sudo systemctl start fstrim.service
 sudo systemctl enable fstrim.timer
 ```
 
-### 中文字体
-
-```sh
-sudo pacman -S wqy-microhei wqy-zenhei noto-fonts-cjk noto-fonts-emoji
-```
-
-### 安装 open-vm-tools，重启系统
+### open-vm-tools
 
 ```sh
 sudo pacman -S open-vm-tools open-vm-tools-desktop
+```
+
+### 中文字体
+
+```sh
+sudo pacman -S noto-fonts-cjk noto-fonts-extra
 ```
 
 ### 桌面环境（先装xorg）
@@ -1020,13 +1001,7 @@ sudo pacman -S plasma
 sudo pacman -S plasma-desktop kscreen konsole
 ```
 
-- 文件管理器（推荐）
-
-```sh
-sudo pacman -S ranger
-```
-
-- 文件管理器（选装）
+文件管理器（选装）
 
 ```sh
 sudo pacman -S dolphin
@@ -1167,18 +1142,6 @@ GLFW_IM_MODULE=ibus
 
 > https://wiki.archlinux.org/title/Fcitx5
 
-## 默认命令行编辑器
-
-```sh
-sudo vim /etc/profile
-```
-
-- 添加
-
-```sh
-export EDITOR='vim'
-```
-
 ## 其他
 
 ### 无法启动 gnome-terminal、vim
@@ -1206,7 +1169,7 @@ sudo localectl set-locale LANG=zh_CN.UTF-8
 ### 系统中文改回英文
 
 ```sh
-vim /etc/default/locale
+sudo vim /etc/default/locale
 ```
 
 ```sh
