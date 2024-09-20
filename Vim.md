@@ -1,6 +1,6 @@
 ## 模式
 
-### 正常模式（按 Esc 键）
+### 退回正常模式（按【Esc】键 或者 Ctrl + C）
 
 > Normal
 
@@ -118,6 +118,12 @@ sudo vim ~/.vimrc
 :set nonumber 或者简化 :set nonu
 ```
 
+### 搜索高亮显示
+
+```sh
+:set hlsearch
+```
+
 ### 自动保存
 
 ```sh
@@ -132,6 +138,12 @@ sudo vim ~/.vimrc
 
 ```sh
 :set nopaste
+```
+
+### 替换前，需确认
+
+```sh
+:set confirm
 ```
 
 ### 忽略大小写（默认区分大小写）
@@ -231,6 +243,12 @@ Ctrl+W 在“拆分”模式下，不同窗口之间跳转
 :wqa（:xa）
 ```
 
+## 清空内容
+
+```sh
+:%d
+```
+
 ## 移动
 
 ```sh
@@ -271,6 +289,10 @@ t（till：直达）
 u（undo）              撤销
 
 Ctrl+R（redo：恢复）   恢复撤销
+
+## 剪切
+
+d：效果同一样，都用d
 
 ## 复制（openrator + motion = action）
 
