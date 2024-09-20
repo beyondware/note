@@ -98,33 +98,27 @@ sudo apt autoclean
 sudo apt autoremove
 ```
 
-## 系统
+## 系统升级
 
-1、更新、升级
-
-```sh
-sudo apt update && sudo apt upgrade
-```
-
-2、系统升级（推荐）
+1、系统升级（推荐）
 
 ```sh
 sudo apt update && sudo apt full-upgrade
 ```
 
-或者
+或者（覆盖软件配置）
 
 ```sh
 sudo apt update && sudo apt dist-upgrade
 ```
 
-3、一键纯净更新
+2、一键纯净更新
 
 ```sh
 sudo apt update -y && apt full-upgrade -y && apt autoremove -y && apt autoclean -y
 ```
 
-4、删除不必要的 rc 包（配置文件）
+3、删除不必要的 rc 包（配置文件）
 
 ```sh
 sudo dpkg --purge $(dpkg -l | awk '/^rc/{print $2}')
@@ -162,87 +156,77 @@ sudo apt-get purge linux-image-x.x.x-x-generic
 sudo update-grub
 ```
 
-## 安装 apt-fast
+## apt-fast
 
-1、将 APT-Fast 软件源添加到系统
+1、安装 apt-fast
 
 ```sh
 sudo add-apt-repository ppa:apt-fast/stable
-```
-
-2、更新
-
-```sh
 sudo apt update
-```
-
-3、安装 apt-fast
-
-```sh
 sudo apt install apt-fast
 ```
 
-4、选择软件包管理器
+2、选择软件包管理器
 
 推荐选择 apt
 
-5、最大连接数
+3、最大连接数
 
 默认值为 5（可以设置10或者20）
 
-6、是否略过 APT-Fast 确认对话框
+4、是否略过 APT-Fast 确认对话框
 
-7、配置 APT-Fast
+5、配置 APT-Fast
 
 ```sh
 sudo vim /etc/apt-fast.conf
 ```
 
-- 最大连接数
+最大连接数
 
 ```sh
 _MAXNUM=10
 ```
 
-- Aria2
+### Aria2
 
 ```sh
 _DOWNLOADER='aria2c --no-conf -c -j ${_MAXNUM} -x ${_MAXCONPERSRV} -s ${_SPLITCON} --min-split-size=${_MINSPLITSZ} --stream-piece-selector=${_PIECEALGO} -i ${DLLIST} --connect-timeout=600 --timeout=600 -m0 --header "Accept: */*"'
 ```
 
-- Axel
+### Axel
 
 ```sh
 _DOWNLOADER='axel -n ${_MAXNUM}'
 ```
 
-- 镜像源
+### 镜像源
 
 ```sh
 MIRRORS=( 'http://archive.ubuntu.com/ubuntu, https://mirrors.cloud.tencent.com/ubuntu, https://mirrors.aliyun.com/ubuntu' )
 ```
 
-8、使用 APT-Fast
+## 使用 APT-Fast
 
-- 安装
+1、安装
 
 ```sh
 sudo apt-fast install 
 ```
 
-- 更新
+2、更新
 
 ```sh
 sudo apt-fast update
 ```
 
-- 升级
+3、升级
 
 ```sh
 sudo apt-fast upgrade
 ```
 
-- 系统升级
+4、系统升级
 
 ```sh
 sudo apt-fast dist-upgrade
