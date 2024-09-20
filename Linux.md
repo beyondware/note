@@ -136,6 +136,48 @@ echo $0
 ps -p $$
 ```
 
+## 删除 bash 历史记录
+
+```sh
+cat /dev/null > ~/.bash_history && history -c && exit
+```
+
+## 删除 zsh 历史记录
+
+1、编辑用户配置文件
+
+```sh
+sudo vim ~/.zshrc
+```
+
+2、修改
+
+```sh
+#历史纪录文件
+HISTFILE=~/.zhistory
+
+#历史纪录条数
+HISTSIZE=10000
+
+#终端退出后，保存的历史纪录条数（改成0）
+SAVEHIST=0
+
+## 每个终端，共享历史记录
+setopt SHARE_HISTORY
+```
+
+3、刷新
+
+```sh
+source ~/.zshrc
+```
+
+## UEFI 还是 BIOS
+
+```sh
+ls /sys/firmware/efi/
+```
+
 ## 解压缩
 
 ```sh
@@ -180,34 +222,6 @@ Ctrl+Alt+F2 - F6
 
 ```sh
 systemctl reboot --firmware-setup
-```
-
-## 删除 bash 历史记录并退出
-
-```sh
-cat /dev/null > ~/.bash_history && history -c && exit
-```
-
-## 清理 zsh 历史记录
-
-1、查看 history 文件地址
-
-```sh
-echo $HISTFILE
-```
-
-2、执行以下命令
-
-```sh
-echo > ~/.zsh_history
-```
-
-3、退出终端，历史记录清除。
-
-## UEFI 还是 BIOS
-
-```sh
-ls /sys/firmware/efi/
 ```
 
 ## Wayland 还是 X11
