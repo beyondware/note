@@ -163,7 +163,7 @@ HISTSIZE=10000
 SAVEHIST=0
 
 ## 每个终端，共享历史记录
-setopt SHARE_HISTORY
+setopt share_history
 ```
 
 3、刷新
