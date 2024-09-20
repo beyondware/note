@@ -4,6 +4,13 @@
 sudo apt install 包名
 ```
 
+软件包无法下载时，可以试试
+
+```sh
+sudo apt update
+sudo apt install --fix-missing
+```
+
 ### 本地安装
 
 ```sh
