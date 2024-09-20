@@ -528,22 +528,22 @@ alias ll='ls -alh'
 source ~/.bashrc
 ```
 
-## 查看别名
+### 查看别名
 
 ```sh
 alias
 ```
 
-## 删除全部别名
+### 删除全部别名
 
 ```sh
 unalias -a
 ```
 
-### 专门设置别名的文件
+### 设置专门的别名文件
 
 ```sh
-~/.bash_aliases
+sudo vim ~/.bash_aliases
 ```
 
 ## 时区
