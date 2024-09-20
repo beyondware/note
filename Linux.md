@@ -1,6 +1,4 @@
-## 用户
-
-### root
+## root 修改密码
 
 1、切换到 root 账号
 
@@ -13,6 +11,44 @@ sudo su
 ```sh
 passwd root
 ```
+
+## 免输密码
+
+1、切换到 root 账号
+
+```sh
+sudo -i 提示符为“#”，不需要每次输入密码
+```
+
+```sh
+sudo su
+```
+
+或者
+
+```sh
+sudo su root
+```
+
+2、编辑 visudo
+
+```sh
+visudo
+```
+
+3、修改
+
+```sh
+%sudo ALL=(ALL:ALL) ALL
+```
+
+修改为
+
+```sh
+%sudo ALL=(ALL:ALL) NOPASSWD:ALL
+```
+
+## 用户
 
 ### 添加用户
 
@@ -53,7 +89,7 @@ sudo vim /etc/sudoers
 添加
 
 ```sh
-用户名    ALL=(ALL:ALL) ALL
+用户名   ALL=(ALL:ALL) ALL
 ```
 
 3、验证结果
@@ -86,34 +122,6 @@ who
 
 ```sh
 whoami
-```
-
-## 切换到 root 账号
-
-```sh
-sudo -i 提示符为“#”，不需要每次输入密码
-```
-
-```sh
-sudo su
-```
-
-或者
-
-```sh
-sudo su root
-```
-
-## visudo（使用 sudo 不需要每次输密码）
-
-```sh
-sudo visudo
-```
-
-- 追加
-
-```sh
-用户名 ALL=(ALL) NOPASSWD:ALL
 ```
 
 ## 当前 shell
