@@ -163,7 +163,7 @@ fastestmirror=True          //配置最快的镜像
 sudo dnf upgrade --refresh
 ```
 
-# 启用最小化和最大化按钮
+# 启用「最小化」和「最大化」按钮
 
 1、右边按钮
 
