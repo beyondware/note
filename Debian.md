@@ -206,7 +206,7 @@ _DOWNLOADER='axel -n ${_MAXNUM}'
 MIRRORS=( 'http://archive.ubuntu.com/ubuntu, https://mirrors.cloud.tencent.com/ubuntu, https://mirrors.aliyun.com/ubuntu' )
 ```
 
-## 使用 APT-Fast
+## apt-fast 常用命令
 
 1、安装
 
