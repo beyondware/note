@@ -1,16 +1,20 @@
-### 解锁 unlocker
+## Unlocker
 
-- 需要终止所有 VMware 进程
+1、需要终止所有 VMware 进程
 
-> https://github.com/DrDonk/unlocker
+2、下载 Auto-Unlocker 解锁补丁工具
 
-### 修改.vmx 文件
+> https://github.com/paolo-projects/auto-unlocker
 
-> 右键选择 → 打开虚拟机目录 → 找到.vmx 文件
+3、右击「以管理员身份运行」Unlocker.exe
 
-### 添加代码
+4、点击「Path」安装补丁
 
-Intel 处理器
+## 修改.vmx 文件
+
+> 右键选择 → 打开虚拟机目录 → 找到.vmx 文件，添加如下内容
+
+### Intel 处理器
 
 ```sh
 smc.version = "0"
@@ -25,7 +29,7 @@ cpuid.1.edx = "0000:1111:1010:1011:1111:1011:1111:1111"
 featureCompat.enable = "FALSE"
 ```
 
-AMD 处理器
+### AMD 处理器
 
 ```sh
 smc.version = "0"
@@ -40,10 +44,10 @@ cpuid.1.ecx = "1000:0010:1001:1000:0010:0010:0000:0011"
 cpuid.1.edx = "0000:0111:1000:1011:1111:1011:1111:1111"
 ```
 
-### 虚拟机提示无网络
+## 屏幕分辨率不适配
+
+darwin.iso 安装 VMware Tools
+
+## 虚拟机提示无网络
 
 > 右键选择 → 设置 → 网络选配器 → 自定义：特点虚拟网络 → 自动桥接
-
-### 屏幕分辨率不适配
-
-> darwin.iso 安装 VMware Tools
