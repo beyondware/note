@@ -18,7 +18,7 @@ sudo apt install lxappearance
 sudo apt install gnome-tweaks
 ```
 
-## Extension Manager
+## extension-manager
 
 > https://github.com/mjakeman/extension-manager
 
@@ -32,7 +32,7 @@ sudo apt install gnome-shell-extension-manager
 sudo apt install gnome-shell-extensions
 ```
 
-## Dash to Dock
+## dash-to-dock
 
 ```sh
 sudo apt install gnome-shell-extension-dashtodock
@@ -164,9 +164,9 @@ sudo apt install apt-fast
 
 默认值为 5（可以设置10或者20）
 
-4、是否略过 APT-Fast 确认对话框
+4、是否略过 apt-fast 确认对话框
 
-5、配置 APT-Fast
+5、配置 apt-fast
 
 ```sh
 sudo vim /etc/apt-fast.conf
