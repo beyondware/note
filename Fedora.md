@@ -219,7 +219,7 @@ sudo dnf install gnome-tweaks
 sudo dnf install gnome-extensions-app
 ```
 
-## Dock（重启生效）
+## dash-to-dock（重启生效）
 
 ```sh
 sudo dnf install gnome-shell-extension-dash-to-dock
