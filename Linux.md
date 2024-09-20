@@ -328,7 +328,9 @@ xdg-user-dirs-gtk-update
 快捷键：Ctrl+Alt+T
 ```
 
-## 查看 WiFi 状态
+## WiFi
+
+### 查看 WiFi 状态
 
 ```sh
 nmcli radio
@@ -346,9 +348,7 @@ nmcli radio wifi on
 nmcli radio wifi off
 ```
 
-## WiFi
-
-1、WiFi 登陆
+### WiFi 网络状态
 
 ```sh
 sudo nmcli networking
@@ -356,10 +356,8 @@ sudo nmcli networking
 
 > enabled  ##确认状态
 
-没有，启动
-
 ```sh
-sudo nmcli networking on
+sudo nmcli networking on  ##开启
 ```
 
 ### nmtui
@@ -384,7 +382,7 @@ sudo nmcli dev wifi list
 sudo nmcli --ask dev wifi con
 ```
 
-输入SSID名称和SSID密码
+输入 SSID名称 和 SSID密码
 
 ```sh
 nmcli  ## 确认状态
