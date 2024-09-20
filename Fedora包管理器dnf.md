@@ -164,7 +164,7 @@ dnf grouplist
 sudo dnf groupinstall
 ```
 
-### 组安装 "Development tools"
+组安装 "Development tools"
 
 ```sh
 sudo dnf groupinstall "Development tools"
@@ -180,6 +180,40 @@ sudo dnf groupremove
 
 ```sh
 sudo dnf groupupdate
+```
+
+## 系统
+
+1、删除旧内核
+
+```sh
+sudo dnf remove --oldinstallonly
+```
+
+2、列出已安装最新版本
+
+```sh
+sudo dnf distro-sync
+```
+
+3、检查可升级
+
+```sh
+dnf check-update
+```
+
+## 手册
+
+1、安装手册页
+
+```sh
+sudo dnf install man-db
+```
+
+2、构建手册页缓存
+
+```sh
+sudo mandb
 ```
 
 ## dnf --help
