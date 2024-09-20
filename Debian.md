@@ -4,7 +4,7 @@
 sudo apt install nautilus-open-terminal
 ```
 
-## lxappearance
+## lxappearance（GTK+ 主题更换工具）
 
 > https://github.com/lxde/lxappearance
 
@@ -88,16 +88,6 @@ sudo apt install zorin-os-upgrader
 gsettings set com.zorin.desktop.upgrader show-test-upgrades true
 ```
 
-## 清理
-
-```sh
-sudo apt autoclean
-```
-
-```sh
-sudo apt autoremove
-```
-
 ## 系统升级
 
 1、系统升级（推荐）
@@ -106,7 +96,7 @@ sudo apt autoremove
 sudo apt update && sudo apt full-upgrade
 ```
 
-或者（覆盖软件配置）
+或者（覆盖配置文件）
 
 ```sh
 sudo apt update && sudo apt dist-upgrade
@@ -281,7 +271,7 @@ Commands:
   version          - Show the installed version of a package
 ```
 
-## 安装 nala
+## nala
 
 1、添加「Volian Scar 源」
 
@@ -307,51 +297,51 @@ sudo apt update
 sudo apt install nala
 ```
 
-5、nala 常用命令
+## nala 常用命令
 
-- 安装
+1、安装
 
 ```sh
 sudo nala install 包名
 ```
 
-- 删除
+2、删除
 
 ```sh
 sudo nala remove 包名
 ```
 
-- 更新
+3、更新
 
 ```sh
 sudo nala update
 ```
 
-- 升级
+4、升级
 
 ```sh
 sudo nala upgrade
 ```
 
-- 命令记录
+5、命令记录
 
 ```sh
 nala history
 ```
 
-- 自动测速软件源
+6、自动测速软件源
 
 ```sh
 sudo nala fetch
 ```
 
-- 配置文件位置
+7、配置文件位置
 
 ```sh
 sudo vim /etc/apt/sources.list.d/nala-sources.list
 ```
 
-## nala
+## nala --help
 
 ```sh
 命令：
