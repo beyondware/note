@@ -1,6 +1,6 @@
 # Rocky Linux
 
-## 镜像源
+## 换源
 
 1、替换
 
@@ -36,21 +36,21 @@ dnf group list
 dnf groupinstall "Server with GUI"
 ```
 
+组移除
+
+```sh
+dnf groupremove "Server with GUI"
+```
+
 3、开启图形化
 
 ```sh
 systemctl set-default graphical
 ```
 
-4、组移除
-
-```sh
-dnf groupremove "Server with GUI"
-```
-
 # Fedora
 
-## 镜像源
+## 换源
 
 ### 方案一（推荐）
 
@@ -102,21 +102,17 @@ sudo dnf makecache
 
 > https://developer.aliyun.com/mirror/fedora
 
-> https://mirrors.cloud.tencent.com/help/fedora.html
-
-> https://mirrors.tuna.tsinghua.edu.cn/help/fedora/
-
-> https://mirrors.ustc.edu.cn/help/fedora.html
+> https://help.mirrors.cernet.edu.cn/fedora/
 
 ## 系统版本升级
 
-1、更新 Fedora 系统
+1、刷新
 
 ```sh
 sudo dnf upgrade --refresh
 ```
 
-- 注：不要跳过此步骤，重新启动计算机。
+- 注：不要跳过此步骤，重启系统。
 
 2、安装 dnf-plugin-system-upgrade
 
@@ -127,10 +123,10 @@ sudo dnf install dnf-plugin-system-upgrade
 3、下载最新 Fedora 更新包
 
 ```sh
-sudo dnf system-upgrade download --releasever=38
+sudo dnf system-upgrade download --releasever=38  ##版本号38，具体情况而论
 ```
 
-4、开始升级
+4、升级并重启
 
 ```sh
 sudo dnf system-upgrade reboot
@@ -146,85 +142,25 @@ cat /etc/fedora-release
 
 > https://docs.fedoraproject.org/en-US/quick-docs/dnf-system-upgrade/
 
-## 撤回之前操作
+## 提高 dnf 速度
 
-```sh
-dnf history
-```
-
-```sh
-dnf history info ID值
-```
-
-```sh
-dnf history undo ID值
-```
-
-## 提高 DNF 速度
-
-1、配置 DNF 包管理器
+1、dnf 配置文件
 
 ```sh
 sudo vim /etc/dnf/dnf.conf
 ```
 
-2、将添加到`/etc/dnf/dnf.conf`文件底部
+2、文件底部追加
 
 ```sh
-max_parallel_downloads=10  //同时下载的最大包数
-fastestmirror=True  //配置最快的镜像
+max_parallel_downloads=10   //同时下载的最大包数
+fastestmirror=True          //配置最快的镜像
 ```
 
-3、系统升级并刷新
+3、刷新
 
 ```sh
 sudo dnf upgrade --refresh
-```
-
-## 系统
-
-1、系统升级并刷新
-
-```sh
-sudo dnf upgrade --refresh
-```
-
-2、系统更新
-
-```sh
-sudo dnf update
-```
-
-3、删除旧内核
-
-```sh
-sudo dnf remove --oldinstallonly
-```
-
-4、列出已安装最新版本
-
-```sh
-sudo dnf distro-sync
-```
-
-5、检查可升级
-
-```sh
-dnf check-update
-```
-
-# 手册
-
-1、安装手册页
-
-```sh
-sudo dnf install man-db
-```
-
-2、构建手册页缓存
-
-```sh
-sudo mandb
 ```
 
 # 启用最小化和最大化按钮
@@ -269,21 +205,21 @@ gsettings set org.gnome.shell.extensions.ding show-home true
 gsettings set org.gnome.shell.extensions.ding show-home false
 ```
 
-# 优化界面
+# 优化
 
-1、优化
+## gnome-tweaks
 
 ```sh
 sudo dnf install gnome-tweaks
 ```
 
-2、扩展
+## gnome-extensions-app
 
 ```sh
 sudo dnf install gnome-extensions-app
 ```
 
-3、Dock（重启生效）
+## Dock（重启生效）
 
 ```sh
 sudo dnf install gnome-shell-extension-dash-to-dock
@@ -291,27 +227,27 @@ sudo dnf install gnome-shell-extension-dash-to-dock
 
 > https://extensions.gnome.org/extension/307/dash-to-dock/
 
-# 特效扩展
+# 特效
 
-- 扩展安装位置
+扩展安装位置
 
 ```sh
 cd ~/.local/share/gnome-shell/extensions
 ```
 
-1、Compiz windows effect：晃动效果
+## Compiz windows effect（晃动效果）
 
 > https://extensions.gnome.org/extension/3210/compiz-windows-effect/
 
-2、Compiz alike magic lamp effect：魔术灯效果
+## Compiz alike magic lamp effect（魔术灯效果）
 
 > https://extensions.gnome.org/extension/3740/compiz-alike-magic-lamp-effect/
 
-3、Coverflow Alt-Tab：组合键“Alt+Tab”切换效果
+## Coverflow Alt-Tab（组合键【Alt】+【Tab】切换效果）
 
 > https://extensions.gnome.org/extension/97/coverflow-alt-tab/
 
-# 美化界面
+# 美化
 
 ## 主题
 
@@ -329,7 +265,7 @@ cd WhiteSur-gtk-theme/
 ./install.sh
 ```
 
-- 主题默认位置
+主题默认位置
 
 ```sh
 cd ~/.themes
@@ -351,7 +287,7 @@ cd WhiteSur-icon-theme/
 ./install.sh
 ```
 
-- 图标默认位置
+图标默认位置
 
 ```sh
 cd ~/.local/share/icons
@@ -373,7 +309,7 @@ cd WhiteSur-cursors/
 ./install.sh
 ```
 
-- 光标默认位置
+光标默认位置
 
 ```sh
  cd ~/.local/share/icons
@@ -395,7 +331,7 @@ cd WhiteSur-wallpapers/
 sudo ./install-gnome-backgrounds.sh
 ```
 
-- 壁纸默认位置
+壁纸默认位置
 
 ```sh
 cd /usr/share/backgrounds
@@ -444,4 +380,3 @@ sudo dnf install freetype-devel
 ```sh
 sudo dnf install libXrandr-devel
 ```
-
