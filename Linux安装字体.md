@@ -13,16 +13,16 @@ cd Downloads/
 3、将字体文件复制到刚才创建的目录下（/usr/share/fonts/wqy）
 
 ```sh
-sudo cp wqy-zenhei.ttf /usr/share/fonts/wqy/
+sudo cp wqy-zenhei.ttf /usr/share/fonts/wqy
 ```
 
-4、切换到复制字体目录（系统）
+4、切换到复制的字体目录
 
 ```sh
 cd /usr/share/fonts/wqy
 ```
 
-5、建立字体索引信息（可选项）
+5、建立字体索引信息（可选）
 
 ```sh
 sudo mkfontscale  //生成fonts.scale
@@ -38,11 +38,5 @@ fc-cache -vf
 7、查看已安装的字体
 
 ```sh
-fc-list
-```
-
-8、查看已安装的中文字体
-
-```sh
-fc-list :lang=zh
+fc-list | grep wqy-zenhei
 ```
