@@ -1,3 +1,10 @@
+## tty
+
+```sh
+Ctrl+Alt+F2   ##命令行
+Ctrl+Alt+F7   ##图形界面
+```
+
 ## cd 切换目录
 
 1、切换到根目录
@@ -240,12 +247,6 @@ Super 键 或者 Meta 键
 
 ```sh
 ⌘（即：Command 键）
-```
-
-## tty2 - tty6 命令行终端
-
-```sh
-Ctrl+Alt+F2 - F6
 ```
 
 ## 重启系统，访问 BIOS
