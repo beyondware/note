@@ -1,4 +1,4 @@
-## yay
+## yay（不能使用root安装）
 
 > https://github.com/Jguer/yay
 
@@ -8,8 +8,6 @@
 ==> ERROR: Running makepkg as root is not allowed as it can cause permanent,
 catastrophic damage to your system.
 ```
-
-- 不能使用 root 账号安装
 
 ### yay 安装
 
@@ -66,13 +64,13 @@ yay -S 包名
 yay -R 包名
 ```
 
-3、系统升级
+3、升级
 
 ```sh
 yay -Syu
 ```
 
-4、更新软件库
+4、更新
 
 ```sh
 yay -Syy
@@ -96,7 +94,7 @@ yay -Ss
 yay -Scc
 ```
 
-8、仅升级 AUR 包（a 将其限制为 AUR）
+8、仅升级 AUR 包（-a：将其限制为 AUR）
 
 ```sh
 yay -Sua
@@ -263,25 +261,19 @@ makepkg -si
 paru 包名
 ```
 
-2、系统升级
+2、升级
 
 ```sh
 paru -Syu
 ```
 
-或者
-
-```sh
-paru -
-```
-
-3、仅升级 AUR 包
+3、仅升级 AUR 包（-a：将其限制为 AUR）
 
 ```sh
 paru -Sua
 ```
 
-4、可更新 AUR 包
+4、可更新 AUR 包（-a：将其限制为 AUR）
 
 ```sh
 paru -Qua
@@ -295,11 +287,11 @@ sudo vim /etc/pacman.conf
 
 1、启用颜色
 
-- 取消 Color 注释
+取消 Color 注释
 
 2、反转搜索顺序
 
-- 取消 BottomUp 注释
+取消 BottomUp 注释
 
 ### paru -h
 
@@ -402,7 +394,7 @@ upgrade specific options:
 
 ## pamac
 
-### yay 安装（推荐安装）
+### yay 安装（推荐）
 
 1、安装
 
@@ -410,11 +402,13 @@ upgrade specific options:
 yay -Syu pamac-aur libpamac-aur archlinux-appstream-data
 ```
 
+选装
+
 ```sh
 yay -Syu libpamac libpamac-flatpak-plugin libpamac-snap-plugin
 ```
 
-2、运行 pamac-manager
+2、运行 pamac-manager（图形界面）
 
 ```sh
 pamac-manager
@@ -462,7 +456,7 @@ cd libpamac-aur
 makepkg -si
 ```
 
-#### 运行
+#### 运行 pamac-manager（图形界面）
 
 ```sh
 pamac-manager
@@ -476,16 +470,22 @@ pamac-manager
 pamac install 包名
 ```
 
-2、删除包及不再需要的依赖项（孤立）
+2、移除软件包
+
+```
+pamac remove 包名
+```
+
+移除包及不再需要的依赖项（孤立）
 
 ```
 pamac remove --orphans 包名
 ```
 
-3、数据库中搜索包
+3、搜索
 
 ```
-pamac search 包名
+pamac search 关键字
 ```
 
 4、列出已安装的软件包
@@ -494,13 +494,13 @@ pamac search 包名
 pamac list --installed
 ```
 
-5、检查更新软件包
+5、检查更新
 
 ```
 pamac checkupdates
 ```
 
-6、升级所有软件包
+6、升级所有
 
 ```
 pamac upgrade
