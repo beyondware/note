@@ -215,20 +215,6 @@ source ~/.zshrc
 ls /sys/firmware/efi/
 ```
 
-## 解压缩
-
-```sh
-tar -zxvf 下载包.tar.gz
-```
-
-```sh
-tar -jxvf 下载包.tar.bz2
-```
-
-```sh
-tar -Jxvf 下载包.tar.xz
-```
-
 ## 对应按键
 
 1、Windows
@@ -548,7 +534,7 @@ sudo vim /etc/bash.bashrc
 3、添加别名（注意：单引号）
 
 ```sh
-alias ll='ls -alh'
+alias la='ls -alh'
 ```
 
 ### 用户配置
@@ -562,7 +548,7 @@ sudo vim ~/.bashrc
 2、添加别名（注意：单引号）
 
 ```sh
-alias ll='ls -alh'
+alias la='ls -alh'
 ```
 
 3、刷新
