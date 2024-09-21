@@ -64,6 +64,10 @@ winget uninstall
 winget upgrade
 ```
 
+```sh
+winget upgrade winget  ##升级winget
+```
+
 4、搜索
 
 ```sh
