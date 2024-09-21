@@ -1,49 +1,37 @@
-## 安装 winget
+# winget 安装
 
-### 在线安装
+1、打开开发者模式
 
-App Installer（应用安装程序）
+> 设置→系统→开发者选项→开发者模式（打开）
 
-> https://apps.microsoft.com/store/detail/app-installer/9NBLGGH4NNS1
-
-### 离线包安装
-
-- Windows 设置——隐私和安全性——开发者选项：（打开）开发者模式
+2、参考
 
 > https://github.com/microsoft/winget-cli
 
-## 文档
-
-- winget 文档
-
 > https://docs.microsoft.com/zh-cn/windows/package-manager/winget/
 
-- wingetcreate：使用 Windows 程序包管理器清单创建程序
+# 软件库
 
-> https://github.com/microsoft/winget-create
-
-## 软件库
-
-- winget-pkgs：官方库
+1、winget-pkgs：官方库
 
 > https://github.com/microsoft/winget-pkgs
 
-- winstall：第三方库
+2、winstall：第三方库
 
 > https://winstall.app/
 
 > https://github.com/MehediH/winstall
 
-## 镜像源
+# 换源
 
-1、更换源（以管理员身份运行终端）
+1、更换源（以管理员身份运行）
 
 ```sh
 winget source remove winget
 ```
 
 ```sh
-winget source add winget https://mirrors.ustc.edu.cn/winget-source
+winget source add winget https://mirror.nju.edu.cn/winget-source --trust-level trusted
 ```
 
 2、重置为官方源
@@ -54,17 +42,55 @@ winget source reset winget
 
 3、参考
 
-> https://unicom.mirrors.ustc.edu.cn/help/winget-source.html
+> https://help.mirrors.cernet.edu.cn/winget-source/
 
-## winget --help
+# 常用命令
+
+1、安装
 
 ```sh
-Windows 程序包管理器 v1.4.10173
+winget install
+```
+
+2、卸载
+
+```sh
+winget uninstall
+```
+
+3、升级
+
+```sh
+winget upgrade
+```
+
+4、搜索
+
+```sh
+winget search
+```
+
+5、详细信息
+
+```sh
+winget show
+```
+
+6、列出当前源
+
+```sh
+winget source list
+```
+
+# winget --help
+
+```sh
+Windows 程序包管理器 v1.8.1911
 版权所有 (C) Microsoft Corporation。保留所有权利。
 
 WinGet 命令行实用工具可从命令行安装应用程序和其他程序包。
 
-使用情况: winget [<命令>] [<选项>]
+使用情况: winget  [<命令>] [<选项>]
 
 下列命令有效:
   install    安装给定的程序包
@@ -80,16 +106,24 @@ WinGet 命令行实用工具可从命令行安装应用程序和其他程序包�
   features   显示实验性功能的状态
   export     导出已安装程序包的列表
   import     安装文件中的所有程序包
+  pin        管理包钉
+  configure  将系统配置为所需状态
+  download   从给定的程序包下载安装程序
+  repair     修复所选包
 
 如需特定命令的更多详细信息，请向其传递帮助参数。 [-?]
 
 下列选项可用：
-  -v,--version              显示工具的版本
-  --info                    显示工具的常规信息
-  -?,--help                 显示选定命令的帮助信息
-  --wait                    提示用户在退出前按任意键
-  --verbose,--verbose-logs  启用 WinGet 的详细日志记录
-  --disable-interactivity   禁用交互式提示
+  -v,--version                显示工具的版本
+  --info                      显示工具的常规信息
+  -?,--help                   显示选定命令的帮助信息
+  --wait                      提示用户在退出前按任意键
+  --logs,--open-logs          打开默认日志位置
+  --verbose,--verbose-logs    启用 WinGet 的详细日志记录
+  --nowarn,--ignore-warnings  禁止显示警告输出
+  --disable-interactivity     禁用交互式提示
+  --proxy                     设置要用于此执行的代理
+  --no-proxy                  禁止对此执行使用代理
 
 可在此找到更多帮助: "https://aka.ms/winget-command-help"
 ```
