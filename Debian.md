@@ -196,6 +196,12 @@ _DOWNLOADER='axel -n ${_MAXNUM}'
 MIRRORS=( 'http://archive.ubuntu.com/ubuntu, https://mirrors.cloud.tencent.com/ubuntu, https://mirrors.aliyun.com/ubuntu' )
 ```
 
+### 参考
+
+> https://github.com/ilikenwf/apt-fast
+
+> https://launchpad.net/~apt-fast/+archive/ubuntu/stable
+
 ## apt-fast 常用命令
 
 1、安装
