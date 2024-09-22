@@ -1,4 +1,4 @@
-### 安装 vim-plug
+### vim-plug 安装
 
 > https://github.com/junegunn/vim-plug
 
@@ -17,7 +17,7 @@ cd  ~/.vim/autoload
 3、下载 vim-plug
 
 ```sh
-wget https://ghproxy.com/https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+wget https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 
 4、创建 vimrc
@@ -53,16 +53,16 @@ call plug#end()
 :PlugClean
 ```
 
-3、更新 vim-plug
-
-```sh
-:PlugUpgrade
-```
-
-4、查看插件状态
+3、查看插件状态
 
 ```sh
 :PlugStatus
+```
+
+4、更新 vim-plug
+
+```sh
+:PlugUpgrade
 ```
 
 5、更新所有已安装插件
@@ -92,40 +92,14 @@ Plug 'mhinz/vim-startify'
 call plug#end()
 ```
 
-### 解决 github 无法链接
-
-在`vim ~/.vim/autoload/plug.vim`修改两处
-
-```sh
-let fmt = get(g:, 'plug_url_format', 'https://git::@github.com/%s.git')
-```
-
-改成
-
-```sh
-let fmt = get(g:, 'plug_url_format', 'https://git::@hub.fastgit.xyz/%s.git')
-```
-
-```sh
-\ '^https://git::@github\.com', 'https://github.com', '')
-```
-
-改成
-
-```sh
-\ '^https://git::@hub.fastgit\.xyz', 'https://hub.fastgit.xyz', '')
-```
-
 ### vim 配置
 
 ```sh
 " 显示行号
 set number
 
-
 " 语法高亮
 syntax on
-
 
 " 自动对齐
 set autoindent
