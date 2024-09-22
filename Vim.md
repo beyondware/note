@@ -148,6 +148,12 @@ source ~/.vimrc
 :set incsearh
 ```
 
+### 高亮显示匹配对应的括号
+
+```sh
+:set showmatch
+```
+
 ### 自动保存
 
 ```sh
