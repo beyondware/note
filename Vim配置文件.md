@@ -10,6 +10,8 @@ sudo vim ~/.vimrc
 source ~/.vimrc
 ```
 
+## 正常
+
 ### 显示行号
 
 ```sh
@@ -20,28 +22,10 @@ source ~/.vimrc
 :set nonumber 或者简化 :set nonu
 ```
 
-### 设置 hybird 主题
-
-```sh
-:colorscheme hybird
-```
-
-### 显示语法高亮
-
-```sh
-:syntax on
-```
-
 ### 搜索高亮显示
 
 ```sh
 :set hlsearch
-```
-
-### 输入关键字，一起高亮显示
-
-```sh
-:set incsearh
 ```
 
 ### 高亮显示匹配对应的括号
@@ -60,12 +44,6 @@ source ~/.vimrc
 
 ```sh
 :set clipboard=unnamed
-```
-
-### 按 F2 进入粘贴模式（映射）
-
-```sh
-:set pastetoggle=<F2>
 ```
 
 ### 粘贴模式（防止粘贴时乱码）
@@ -93,5 +71,57 @@ source ~/.vimrc
 ### 忽略大小写（默认区分大小写）
 
 ```sh
-:set  ignorecase
+:set ignorecase
 ```
+
+### 智能对齐
+
+```sh
+:set smartindent
+```
+
+### Tab键的宽度
+
+```sh
+:set tabstop=4
+```
+
+### 统一缩进为4
+
+```sh
+:set softtabstop=4
+:set shiftwidth=4
+```
+
+### 历史纪录数
+
+```sh
+set history=50
+```
+
+## 报错
+
+### 设置 hybird 主题
+
+```sh
+:colorscheme hybird
+```
+
+### 显示语法高亮
+
+```sh
+:syntax on
+```
+
+### 输入关键字，一起高亮显示
+
+```sh
+:set incsearh
+```
+
+### 按 F2 进入粘贴模式（映射）
+
+```sh
+:set pastetoggle=<F2>
+```
+
