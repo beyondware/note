@@ -37,7 +37,7 @@ sudo dnf install gcc make ncurses-devel
 2、克隆 vim 源码
 
 ```sh
-git clone https://ghproxy.com/https://github.com/vim/vim.git
+git clone https://github.com/vim/vim.git
 ```
 
 3、切换到 vim/src 目录
