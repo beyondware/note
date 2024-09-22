@@ -1,6 +1,6 @@
 ## 模式
 
-### 退回正常模式（按【Esc】键 或者 Ctrl + C）
+### 退回普通模式（按【Esc】键 或者 Ctrl + C）
 
 > Normal
 
@@ -108,6 +108,12 @@ Ctrl+Q
 sudo vim ~/.vimrc
 ```
 
+## 配置生效
+
+```sh
+source ~/.vimrc
+```
+
 ### 显示行号
 
 ```sh
@@ -116,6 +122,18 @@ sudo vim ~/.vimrc
 
 ```sh
 :set nonumber 或者简化 :set nonu
+```
+
+### 设置 hybird 主题
+
+```sh
+:colorscheme hybird
+```
+
+### 显示语法高亮
+
+```sh
+:syntax on
 ```
 
 ### 搜索高亮显示
@@ -130,6 +148,18 @@ sudo vim ~/.vimrc
 :set autowrite
 ```
 
+### vim 与系统剪贴板之间来回复制粘贴
+
+```sh
+:set clipboard=unnamed
+```
+
+### 按 F2 进入粘贴模式（映射）
+
+```sh
+:set pastetoggle=<F2>
+```
+
 ### 粘贴模式（防止粘贴时乱码）
 
 ```sh
@@ -138,6 +168,12 @@ sudo vim ~/.vimrc
 
 ```sh
 :set nopaste
+```
+
+### 自动缩进
+
+```sh
+:set autoindent
 ```
 
 ### 替换前，需确认
@@ -389,7 +425,7 @@ ct)   删除到右括号，并进入插入模式
 
 ## 全选复制
 
-1、为确保当前处于正常模式，可以按一下`Esc键`。
+1、为确保当前处于普通模式，可以按一下`Esc键`。
 
 2、使用 ggVG 选择整个文件内容
 
@@ -406,3 +442,31 @@ G：  将移动光标文件结尾
 ## 参考
 
 > https://vim80.readthedocs.io/zh/latest/index.html
+
+## 寄存器
+
+"register 指定寄存器，不指定默认为无名寄存器
+
+```sh
+"a+yy            ##复制一行到 a 寄存器
+"b+dd            ##删除一行到 b 寄存器
+
+:reg a           ##查看寄存器 a 里面的内容
+:reg b           ##查看寄存器 b 里面的内容
+
+"a+p             ##调用寄存器 a，按 p 在粘贴
+```
+
+### 专用寄存器
+
+```sh
+"0+y              ##按 y 复制文本，同时会复制到寄存器0
+```
+
+### 系统剪贴板
+
+```sh
+"+                  ##按 y 复制到系统剪贴板
+                    ##在系统复制好后，"+p 粘贴到 vim，不会格式乱码
+```
+
