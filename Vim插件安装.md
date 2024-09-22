@@ -1,4 +1,4 @@
-### vim-plug 安装
+# vim-plug 安装
 
 > https://github.com/junegunn/vim-plug
 
@@ -26,20 +26,30 @@ wget https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 vim ~/.vimrc
 ```
 
-5、粘贴以下内容
+5、添加插件、配置到文件
 
 ```sh
 call plug#begin('~/.vim/plugged')
+
+" 开屏效果
+Plug 'mhinz/vim-startify'
+
 call plug#end()
 ```
 
-6、刷新生效
+6、配置生效
 
 ```sh
 :source ~/.vimrc
 ```
 
-### Plug 命令
+7、安装插件
+
+```sh
+:PlugInstall
+```
+
+# vim-plug 常用命令
 
 1、安装插件
 
@@ -69,55 +79,4 @@ call plug#end()
 
 ```sh
 :PlugUpdate
-```
-
-### vimrc 配置
-
-```sh
-" github镜像
-let g:plug_url_format = 'https://git::@hub.fastgit.xyz/%s.git'
-
-" 彩虹插件配置生效
-let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
-
-
-call plug#begin('~/.vim/plugged')
-
-" 彩虹括号
-Plug 'luochen1990/rainbow'
-
-" 历史记录
-Plug 'mhinz/vim-startify'
-
-call plug#end()
-```
-
-### vim 配置
-
-```sh
-" 显示行号
-set number
-
-" 语法高亮
-syntax on
-
-" 自动对齐
-set autoindent
-
-" 智能对齐
-set smartindent
-
-" Tab键的宽度
-set tabstop=4
-
-"  统一缩进为4
-set softtabstop=4
-set shiftwidth=4
-
-
-" 历史纪录数
-set history=50
-
-" 高亮显示对应的括号
-set showmatch
 ```
