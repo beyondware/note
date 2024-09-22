@@ -356,7 +356,7 @@ a/A（append）追加
 A：行尾；a：光标后
 
 
-o/O（open a line below：另起一行）
+o/O（open a line：另起一行）
 o：                             另起一行，向下插一行；
 O（大写字母O）：                 另起一行，向上插一行。
 ```
