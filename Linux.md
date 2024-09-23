@@ -10,7 +10,7 @@ Ctrl+Alt+F7   ##图形界面
 1、切换到 root 账号
 
 ```sh
-sudo su
+sudo su 或者 sudo su root
 ```
 
 2、修改 root 密码
@@ -25,16 +25,6 @@ passwd root
 
 ```sh
 sudo -i 提示符为“#”，不需要每次输入密码
-```
-
-```sh
-sudo su
-```
-
-或者
-
-```sh
-sudo su root
 ```
 
 2、编辑 visudo
@@ -90,7 +80,7 @@ HISTFILE=~/.zsh_history
 #历史纪录条数
 HISTSIZE=10000
 
-#终端退出后，保存的历史纪录条数（改成0）
+#终端退出后，保存的历史纪录条数（改成0，退出终端zsh历史记录清除）
 SAVEHIST=0
 
 ## 每个终端，共享历史记录
@@ -145,7 +135,7 @@ LC_ALL=C lscpu | grep Virtualization
 dpkg --print-architecture
 ```
 
-## 查看 Linux 内核版本
+## 查看 Linux 内核
 
 ```sh
 uname -a
@@ -155,7 +145,7 @@ uname -a
 hostnamectl | grep -i kernel
 ```
 
-- 详细信息
+显示详细信息
 
 ```sh
 cat /proc/version
@@ -225,7 +215,7 @@ xdg-user-dirs-gtk-update
 
 ## 快捷键打开 gnome-terminal
 
-- 设置-键盘-自定义快捷键
+设置-键盘-自定义快捷键
 
 ```sh
 名称：open in terminal
@@ -265,7 +255,7 @@ sudo nmcli networking
 sudo nmcli networking on  ##开启
 ```
 
-### nmtui
+### nmtui（登陆 WiFi）
 
 ```sh 
 sudo nmtui
@@ -339,13 +329,13 @@ sudo apt install linux-firmware
 sudo apt install pciutils
 ```
 
-- 查看网卡信息
+查看 PCI 网卡信息
 
 ```sh
 lspci
 ```
 
-- 过滤干扰信息
+过滤干扰信息
 
 ```sh
 lspci | grep Network 或者简化 lspci | grep -i net
@@ -357,7 +347,7 @@ lspci | grep Network 或者简化 lspci | grep -i net
 sudo apt install usbutils
 ```
 
-- 查看网卡信息
+查看 USB 网卡信息
 
 ```sh
 lsusb
@@ -383,7 +373,7 @@ sudo apt install linux-headers-$(uname -r)
 dmesg
 ```
 
-## 时区
+## timedatectl 时区
 
 1、显示当前时区
 
