@@ -24,6 +24,12 @@ source ~/.vimrc
 set nocompatible
 ```
 
+### 自动保存
+
+```sh
+set autowrite
+```
+
 ### 显示行号
 
 ```sh
@@ -34,30 +40,6 @@ set number 或者简化 set nu
 
 ```sh
 set nonumber 或者简化 set nonu
-```
-
-### 暗黑模式
-
-```sh
-set background=dark
-```
-
-### 搜索高亮显示
-
-```sh
-set hlsearch
-```
-
-### 高亮显示匹配对应的括号
-
-```sh
-set showmatch
-```
-
-### 自动保存
-
-```sh
-set autowrite
 ```
 
 ### vim 与系统剪贴板之间来回复制粘贴
@@ -76,6 +58,24 @@ set paste
 
 ```sh
 set nopaste
+```
+
+### 暗黑模式
+
+```sh
+set background=dark
+```
+
+### 搜索高亮显示
+
+```sh
+set hlsearch
+```
+
+### 高亮匹配对应的括号
+
+```sh
+set showmatch
 ```
 
 ### 智能对齐
