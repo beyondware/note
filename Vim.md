@@ -449,13 +449,13 @@ G：  将移动光标文件结尾
 
 4、移动到粘贴位置，按 p 粘贴
 
-## 参考
-
-> https://vim80.readthedocs.io/zh/latest/index.html
-
 ## 寄存器
 
 "register 指定寄存器，不指定默认为无名寄存器
+
+```sh
+:reg             ##查看寄存器里面的内容
+```
 
 ```sh
 "a+yy            ##复制一行到 a 寄存器
