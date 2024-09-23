@@ -20,7 +20,7 @@ sudo apt install 包.deb
 报错的话，需要修复依赖项
 
 ```sh
-sudo apt --fix-broken install 或者 sudo apt install -f
+sudo apt --fix-broken install 或者简化 sudo apt install -f
 ```
 
 ## 删除
@@ -40,13 +40,19 @@ sudo apt purge 包名
 ### 自动删除和任何依赖（指定某软件）
 
 ```sh
-sudo apt autoremove 包名 --purge
+sudo apt autoremove --purge 包名
 ```
 
 ### 自动删除和任何依赖
 
 ```sh
 sudo apt autoremove --purge
+```
+
+## 更新
+
+```sh
+sudo apt update          ##后面不能跟任何东西
 ```
 
 ## 升级
@@ -61,13 +67,7 @@ sudo apt upgrade 包名
 sudo apt full-upgrade 包名
 ```
 
-### 列出可升级的软件
-
-```sh
-apt list --upgradable
-```
-
-### 仅升级指定的软件包
+### 仅升级指定的软件
 
 ```sh
 sudo apt install --only-upgrade 包名
@@ -85,20 +85,22 @@ apt -s upgrade
 apt list --installed | grep 关键字
 ```
 
+## 列出可升级的软件
+
+```sh
+apt list --upgradable
+```
+
 ## 搜索
 
 ```sh
-apt search --names-only 关键字  ##精准匹配
+apt search 关键字  或者  apt list | grep 关键字
 ```
 
-```sh
-apt search 关键字
-```
-
-或者
+### 精准匹配
 
 ```sh
-apt list | grep 关键字
+apt search --names-only 关键字
 ```
 
 ## 详细信息
