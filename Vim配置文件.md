@@ -36,13 +36,7 @@ set number 或者简化 set nu
 set nonumber 或者简化 set nonu
 ```
 
-### 智能对齐
-
-```sh
-set smartindent
-```
-
-### 暗色背景
+### 暗黑模式
 
 ```sh
 set background=dark
@@ -82,6 +76,12 @@ set paste
 
 ```sh
 set nopaste
+```
+
+### 智能对齐
+
+```sh
+set smartindent
 ```
 
 ### 自动缩进
