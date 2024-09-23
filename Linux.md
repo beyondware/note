@@ -5,36 +5,6 @@ Ctrl+Alt+F2   ##命令行
 Ctrl+Alt+F7   ##图形界面
 ```
 
-## cd 切换目录
-
-1、切换到根目录
-
-```sh
-cd /
-```
-
-2、切换到家目录
-
-```sh
-cd ~
-```
-
-3、返回到上一次目录
-
-```sh
-cd -
-```
-
-4、返回到上一级目录（多次）
-
-```sh
-cd ..
-```
-
-```sh
-cd ../..
-```
-
 ## root 修改密码
 
 1、切换到 root 账号
@@ -83,82 +53,6 @@ visudo
 
 ```sh
 %sudo ALL=(ALL:ALL) NOPASSWD:ALL
-```
-
-## 用户
-
-### 添加用户
-
-1、添加用户
-
-```sh
-useradd -m -g users -G wheel -s /bin/bash 用户名
-```
-
-2、修改用户密码
-
-```sh
-passwd 用户名
-```
-
-### 用户添加 sudo 权限
-
-1、查看当前用户权限
-
-```sh
-sudo -l -U 用户名
-```
-
-2、将用户添加到 sudoers 组
-
-#### 方法一
-
-```sh
-usermod -aG sudo 用户名
-```
-
-#### 方法二
-
-```sh
-sudo vim /etc/sudoers
-```
-
-添加
-
-```sh
-用户名   ALL=(ALL:ALL) ALL
-```
-
-3、验证结果
-
-```sh
-sudo -l -U 用户名
-```
-
-### 修改用户组
-
-```sh
-usermod -g root 用户名
-```
-
-### 删除用户（主目录及其文件）
-
-```sh
-userdel -rf 用户名
-```
-
-## 登陆用户
-
-1、查看当前所有登录用户
-
-```sh
-who
-```
-
-2、查询当前登录的用户
-
-```sh
-whoami
 ```
 
 ## 当前 shell
@@ -213,26 +107,6 @@ source ~/.zshrc
 
 ```sh
 ls /sys/firmware/efi/
-```
-
-## 对应按键
-
-1、Windows
-
-```sh
-Windows 键
-```
-
-2、Linux
-
-```sh
-Super 键 或者 Meta 键
-```
-
-3、macOS
-
-```sh
-⌘（即：Command 键）
 ```
 
 ## 重启系统，访问 BIOS
@@ -507,72 +381,6 @@ sudo apt install linux-headers-$(uname -r)
 
 ```sh
 dmesg
-```
-
-## 别名（alias）
-
-### 全局配置
-
-1、查看 bash 配置文件
-
-```sh
-ls /etc | grep bash
-```
-
-2、编辑 bash 配置文件
-
-```sh
-sudo vim /etc/bashrc
-```
-
-可能是 
-
-```sh
-sudo vim /etc/bash.bashrc
-```
-
-3、添加别名（注意：单引号）
-
-```sh
-alias la='ls -alh'
-```
-
-### 用户配置
-
-1、编辑
-
-```sh
-sudo vim ~/.bashrc
-```
-
-2、添加别名（注意：单引号）
-
-```sh
-alias la='ls -alh'
-```
-
-3、刷新
-
-```sh
-source ~/.bashrc
-```
-
-### 查看别名
-
-```sh
-alias
-```
-
-### 删除全部别名
-
-```sh
-unalias -a
-```
-
-### 设置专门的别名文件
-
-```sh
-sudo vim ~/.bash_aliases
 ```
 
 ## 时区
