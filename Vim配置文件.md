@@ -157,7 +157,7 @@ set wildmode=longest:list,full
 ### 设置 hybird 主题
 
 ```sh
-colorscheme hybird
+colorscheme 主题                ##例如：hybird
 ```
 
 ### 显示语法高亮
