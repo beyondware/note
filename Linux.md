@@ -93,6 +93,14 @@ setopt share_history
 source ~/.zshrc
 ```
 
+## 设置默认编辑器
+
+```sh
+sudo update-alternatives --config editor
+```
+
+选择 vim.basic
+
 ## UEFI 还是 BIOS
 
 ```sh
