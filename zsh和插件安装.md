@@ -42,6 +42,12 @@ sudo chsh -s /usr/bin/zsh
 exit
 ```
 
+## zsh 全局配置文件
+
+```sh
+/etc/zsh/zprofile
+```
+
 ## 安装 oh-my-zsh
 
 ```sh
