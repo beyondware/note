@@ -1,3 +1,31 @@
+## YouTube
+
+1、下载最佳视频和音频，并自动合并
+
+```sh
+yt-dlp -f "bv*+ba/b" [视频链接]
+```
+
+2、合并视频
+
+```sh
+ffmpeg -i 视频.mp4 -i 音频.mp3 -c:v copy -c:a copy 合并视频.mp4
+```
+
+3、1440p 或者 2160p 视频
+
+```sh
+ffmpeg -i video.webm -i audio.m4a -c:v copy -c:a copy output.mkv
+```
+
+```sh
+ffmpeg -i video.webm -i audio.m4a -c:v libx264 -c:a copy out.mp4
+```
+
+```sh
+ffmpeg -i video.m4a -ab 128000 -vn music.mp3
+```
+
 ## 安装 FFmpeg
 
 ### Fedora
