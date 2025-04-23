@@ -19,6 +19,10 @@ setfont ter-132n
 #### 有线网络
 
 ```sh
+pacman -S dhcpcd
+```
+
+```sh
 dhcpcd
 ```
 
@@ -1230,14 +1234,20 @@ sudo pacman -Syu
 
 ### “error: target not found” （目标未发现）
 
-1、更新本地数据库
+1、更新缓存
 
 ```sh
 sudo pacman -Syu
 ```
 
-2、强制更新所有包数据库
+2、强制更新
 
 ```sh
 sudo pacman -Syyu
+```
+
+3、强制更新并降级包
+
+```sh
+sudo pacman -Syyuu
 ```
