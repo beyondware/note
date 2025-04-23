@@ -36,8 +36,10 @@ sudo vim /etc/libvirt/libvirtd.conf
 
 取消注释#
 
+```sh
 unix_sock_group = 'libvirt'
 unix_sock_rw_perms = '0770'
+```
 
 6、将用户名添加到 libvirt 组
 
@@ -111,8 +113,10 @@ sudo vim /etc/libvirt/libvirtd.conf
 
 取消注释#
 
+```sh
 unix_sock_group = 'libvirt'
 unix_sock_rw_perms = '0770'
+```
 
 6、将用户名添加到 libvirt 组
 
