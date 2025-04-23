@@ -153,14 +153,16 @@ sudo vim /etc/dnf/dnf.conf
 2、文件底部追加
 
 ```sh
-max_parallel_downloads=10   //同时下载的最大包数
-fastestmirror=True          //配置最快的镜像
+[main]
+fastestmirror=true             ## 选择最快镜像源
+deltarpm=true                  ## 增量下载
+max_parellel_downloads=10      ## 最大并行下载数量
 ```
 
 3、刷新
 
 ```sh
-sudo dnf upgrade --refresh
+sudo dnf upgrade --refresh 或者 sudo dnf makecache
 ```
 
 # 启用「最小化」和「最大化」按钮
