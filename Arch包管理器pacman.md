@@ -16,16 +16,22 @@ sudo vim /etc/pacman.conf
 sudo pacman -Syu
 ```
 
-2、强制更新（软件包数据库）
+2、强制更新（本地数据库）
 
 ```sh
 sudo pacman -Syy
 ```
 
-3、全部强制升级
+3、强制升级
 
 ```sh
 sudo pacman -Syyu
+```
+
+4、强制更新并降级包
+
+```sh
+sudo pacman -Syyuu
 ```
 
 ### 安装
@@ -36,16 +42,22 @@ sudo pacman -Syyu
 sudo pacman -S 包1 包2
 ```
 
+安装 Linux 内核
+
+```sh
+sudo pacman -S linux
+```
+
 2、更新（包数据库）
 
 ```sh
-sudo pacman -Sy 包名
+sudo pacman -Sy 包
 ```
 
 3、安装过程，显示执行信息
 
 ```sh
-sudo pacman -Sv 包名
+sudo pacman -Sv 包
 ```
 
 4、安装本地包，扩展名：pkg.tar.gz 或 pkg.tar.xz
@@ -63,7 +75,13 @@ sudo pacman -U 软件包URL
 6、只下载，不安装
 
 ```sh
-sudo pacman -Sw 包名
+sudo pacman -Sw 包
+```
+
+7、避免重新安装，已安装过的包
+
+```sh
+sudo pacman -S --needed
 ```
 
 ### 删除
@@ -71,49 +89,49 @@ sudo pacman -Sw 包名
 1、删除，保留依赖
 
 ```sh
-sudo pacman -R 包名
+sudo pacman -R 包
 ```
 
 2、删除不需要的依赖
 
 ```sh
-sudo pacman -Rs 包名
+sudo pacman -Rs 包
 ```
 
 > pacman -Rs 被拒，可以尝试
 
 ```sh
-sudo pacman -Rsu 包名
+sudo pacman -Rsu 包
 ```
 
 3、删除依赖、配置文件
 
 ```sh
-sudo pacman -Rsn 包名
+sudo pacman -Rsn 包
 ```
 
 4、删除包、依赖（警告）
 
 ```sh
-sudo pacman -Rsc 包名
+sudo pacman -Rsc 包
 ```
 
 5、删除包、依赖和配置文件
 
 ```sh
-sudo pacman -Rscn 包名
+sudo pacman -Rscn 包
 ```
 
 6、删除包，跳过检查
 
 ```sh
-sudo pacman -Rd 包名
+sudo pacman -Rd 包
 ```
 
 7、强制删除，跳过所有检查（务必谨慎）
 
 ```sh
-sudo pacman -Rdd 包名
+sudo pacman -Rdd 包
 ```
 
 ### 清理缓存
@@ -179,7 +197,7 @@ pacman -Qs 关键字
 5、列出已安装包的详细信息
 
 ```sh
-pacman -Qi 包名
+pacman -Qi 包
 ```
 
 6、列出所有显式安装（-e：显式安装）
