@@ -131,10 +131,62 @@ ps -p 1
 lspci | grep -e VGA -e 3D
 ```
 
-## 是否支持虚拟化
+## 是否虚拟化
+
+### lscpu
 
 ```sh
 LC_ALL=C lscpu | grep Virtualization
+```
+
+输出结果
+
+```sh
+Virtualization:        VT-x
+```
+
+### egrep
+
+```sh
+egrep "(svm|vmx)" /proc/cpuinfo
+```
+
+输出结果
+
+```sh
+vmx（Intel-VT）或 svm（AMD-V）
+```
+
+### virt-host-validate
+
+```sh
+sudo dnf install libvirt-client
+sudo virt-host-validate
+```
+
+```sh
+sudo apt install libvirt-clients
+sudo virt-host-validate
+```
+
+输出结果
+
+```sh
+QEMU: Checking for hardware virtualization        : PASS
+```
+
+### cpu-checker
+
+```sh
+sudo apt install cpu-checker
+sudo kvm-ok
+```
+
+输出结果
+
+```sh
+INFO: /dev/kvm exists
+KVM acceleration can be used
 ```
 
 ## 是否 64 位操作系统
