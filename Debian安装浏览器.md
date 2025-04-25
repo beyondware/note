@@ -1,4 +1,4 @@
-### Firefox
+# Firefox
 
 1、查看
 
@@ -6,7 +6,7 @@
 apt list --installed | grep firefox
 ```
 
-- 三个关联包：firefox、firefox-locale-en、firefox-locale-zh-hans
+三个关联包：firefox、firefox-locale-en、firefox-locale-zh-hans
 
 2、删除
 
@@ -14,17 +14,16 @@ apt list --installed | grep firefox
 sudo dpkg -P firefox firefox-locale-en firefox-locale-zh-hans
 ```
 
-### LibreWolf
+# LibreWolf
 
-> https://librewolf.net/
-
-1、更新系统
+1、更新并升级系统
 
 ```sh
-sudo apt update && sudo apt upgrade -y
+sudo apt update
+sudo apt upgrade
 ```
 
-2、安装所需的软件包
+2、安装所需的依赖
 
 ```sh
 sudo apt install curl gnupg lsb-release apt-transport-https ca-certificates -y
@@ -45,7 +44,7 @@ http://deb.librewolf.net $(lsb_release -sc) main" \
     | sudo tee /etc/apt/sources.list.d/librewolf.list
 ```
 
-5、更新包列表
+5、更新
 
 ```sh
 sudo apt update
@@ -81,7 +80,11 @@ sudo rm /etc/apt/sources.list.d/librewolf.list
 sudo rm /usr/share/keyrings/librewolf.gpg
 ```
 
-### Chromium
+11、参考
+
+> https://librewolf.net/installation/debian/
+
+# Chromium
 
 1、安装
 
@@ -95,7 +98,7 @@ sudo apt install chromium-browser
 sudo apt remove chromium-browser
 ```
 
-### Chrome
+# Chrome
 
 1、下载
 
@@ -115,17 +118,16 @@ sudo apt install google-chrome-stable_current_amd64.deb
 rm google-chrome-stable_current_amd64.deb
 ```
 
-### Microsoft Edge
+# Microsoft Edge
 
-> https://packages.microsoft.com/repos/edge/pool/main/m/microsoft-edge-stable/
-
-1、更新系统
+1、更新并升级系统
 
 ```sh
-sudo apt update && sudo apt upgrade
+sudo apt update
+sudo apt upgrade
 ```
 
-2、安装所需的软件包
+2、安装所需的依赖
 
 ```sh
 sudo apt install software-properties-common apt-transport-https curl ca-certificates -y
@@ -145,16 +147,16 @@ curl -fSsL https://packages.microsoft.com/keys/microsoft.asc | sudo gpg --dearmo
 echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/microsoft-edge.gpg] https://packages.microsoft.com/repos/edge stable main' | sudo tee /etc/apt/sources.list.d/microsoft-edge.list
 ```
 
-- 更新系统的存储库列表
+4、更新
 
 ```sh
 sudo apt update
 ```
 
-4、安装 Microsoft Edge 浏览器
+5、安装 Microsoft Edge 浏览器
 
 
-#### 稳定版
+## 稳定版
 
 ```sh
 sudo apt install microsoft-edge-stable
@@ -172,7 +174,7 @@ sudo apt remove microsoft-edge-stable
 microsoft-edge -version
 ```
 
-#### Beta 版
+## Beta 版
 
 ```sh
 sudo apt install microsoft-edge-beta
@@ -190,7 +192,7 @@ sudo apt remove microsoft-edge-beta
 microsoft-edge-beta --version
 ```
 
-#### Dev 版
+## Dev 版
 
 ```sh
 sudo apt install microsoft-edge-dev
@@ -208,16 +210,19 @@ sudo apt remove microsoft-edge-stable-dev
 microsoft-edge-dev --version
 ```
 
-5、删除 Microsoft Edge 所有存储库
+6、删除 Microsoft Edge 所有存储库
 
 ```sh
 sudo rm -rf /etc/apt/sources.list.d/microsoft*
 ```
 
-6、删除 Microsoft Edge 密钥
+7、删除 Microsoft Edge 密钥
 
 ```sh
 sudo rm -rf /etc/apt/trusted.gpg.d/microsoft*
 sudo rm -rf /usr/share/keyrings/microsoft*
 ```
 
+8、包存放位置
+
+> https://packages.microsoft.com/repos/edge/pool/main/m/microsoft-edge-stable/
