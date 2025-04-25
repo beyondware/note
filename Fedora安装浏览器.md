@@ -1,4 +1,4 @@
-## Firefox
+# Firefox
 
 1、查看安装情况
 
@@ -11,7 +11,8 @@ dnf list installed | grep firefox
 ```sh
 sudo dnf autoremove firefox
 ```
-## Chromium
+
+# Chromium
 
 1、安装
 
@@ -25,9 +26,9 @@ sudo dnf install chromium
 sudo dnf autoremove chromium
 ```
 
-## Google Chrome
+# Google Chrome
 
-### 稳定版（推荐）
+## 稳定版（推荐）
 
 1、下载
 
@@ -91,7 +92,7 @@ cd /etc/yum.repos.d
 sudo rm google-chrome.repo
 ```
 
-### 测试版
+## 测试版
 
 1、下载
 
@@ -123,7 +124,7 @@ sudo dnf config-manager --set-disabled google-chrome-beta
 sudo dnf config-manager --set-enabled google-chrome-beta
 ```
 
-### 不稳定版
+## 不稳定版
 
 1、下载
 
@@ -155,7 +156,7 @@ sudo dnf config-manager --set-disabled google-chrome-unstable
 sudo dnf config-manager --set-enabled google-chrome-unstable
 ```
 
-## Microsoft Edge
+# Microsoft Edge
 
 1、导入GPG密钥
 
@@ -171,7 +172,7 @@ sudo dnf config-manager --add-repo https://packages.microsoft.com/yumrepos/edge
 
 3、正式开始
 
-### 稳定版（推荐）
+## 稳定版（推荐）
 
 ① 安装
 
@@ -191,7 +192,7 @@ microsoft-edge
 sudo dnf autoremove microsoft-edge
 ```
 
-### 测试版
+## 测试版
 
 ① 安装
 
@@ -210,7 +211,7 @@ microsoft-edge-beta
 sudo dnf autoremove microsoft-edge-beta
 ```
 
-### 开发版
+## 开发版
 
 ① 安装
 
@@ -243,7 +244,11 @@ cd /etc/yum.repos.d
 sudo rm packages.microsoft.com_yumrepos_edge.repo microsoft-edge.repo
 ```
 
-## LibreWolf
+5、包存放位置
+
+> https://packages.microsoft.com/yumrepos/edge/Packages/m/
+
+# LibreWolf
 
 1、添加存储库
 
@@ -283,7 +288,6 @@ cd /etc/yum.repos.d
 sudo rm librewolf-repo.repo
 ```
 
-6、参考网站
+6、参考
 
 > https://librewolf.net/installation/fedora/
-
