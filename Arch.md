@@ -1146,7 +1146,7 @@ GLFW_IM_MODULE=ibus
 
 > https://wiki.archlinux.org/title/Fcitx5
 
-## 其他
+## 报错
 
 ### 无法启动 gnome-terminal、vim
 
@@ -1234,20 +1234,8 @@ sudo pacman -Syu
 
 ### “error: target not found” （目标未发现）
 
-1、更新缓存
+升级数据库
 
 ```sh
 sudo pacman -Syu
-```
-
-2、强制更新
-
-```sh
-sudo pacman -Syyu
-```
-
-3、强制更新并降级包
-
-```sh
-sudo pacman -Syyuu
 ```
