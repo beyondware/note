@@ -192,6 +192,17 @@ Running hypervisor: QEMU 8.2.2
 virt-manager
 ```
 
+9、宿主机和虚拟机之间共享粘贴板
+
+```sh
+sudo dnf install spice-vdagent
+```
+
+```sh
+sudo systemctl start spice-vdagent
+sudo systemctl enable --now spice-vdagent
+```
+
 # Ubuntu
 
 1、是否虚拟化
@@ -258,17 +269,6 @@ lsmod | grep -i kvm
 
 ```sh
 virt-manager
-```
-
-# 宿主机和虚拟机之间共享粘贴板
-
-```sh
-sudo dnf install spice-vdagent
-```
-
-```sh
-sudo systemctl start spice-vdagent
-sudo systemctl enable --now spice-vdagent
 ```
 
 # 报错
