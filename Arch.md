@@ -42,7 +42,7 @@ iwctl
 device list
 ```
 
-3、扫描网络（wlan0：无线网卡号）
+3、扫描网络（wlan0：无线网卡）
 
 ```sh
 station wlan0 scan
@@ -57,7 +57,7 @@ station wlan0 get-networks
 5、连接无线网络
 
 ```sh
-station wlan0 connect 网络名称
+station wlan0 connect WiFi-ID
 ```
 
 6、退出 iwd 环境
@@ -98,12 +98,6 @@ ps -e | grep sshd
 
 ```sh
 passwd root
-```
-
-6、查看 IP 地址
-
-```sh
-ip addr
 ```
 
 ### 分区
@@ -270,7 +264,7 @@ Server = https://mirrors.ustc.edu.cn/archlinux/$repo/os/$arch
 Server = https://mirrors.sjtug.sjtu.edu.cn/archlinux/$repo/os/$arch
 ```
 
-3、更新软件包缓存
+3、更新缓存
 
 ```sh
 pacman -Syyu
