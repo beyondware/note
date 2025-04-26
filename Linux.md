@@ -273,16 +273,6 @@ export LANG=zh_CN.UTF-8
 xdg-user-dirs-gtk-update
 ```
 
-## 快捷键打开 gnome-terminal
-
-设置-键盘-自定义快捷键
-
-```sh
-名称：open in terminal
-命令：/usr/bin/gnome-terminal
-快捷键：Ctrl+Alt+T
-```
-
 ## WiFi
 
 ### 查看 WiFi 状态
