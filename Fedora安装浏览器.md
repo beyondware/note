@@ -56,6 +56,8 @@ sudo rm librewolf-repo.repo
 
 > https://librewolf.net/installation/fedora/
 
+> https://rpm.librewolf.net/
+
 # Chromium
 
 1、安装
