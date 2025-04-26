@@ -136,7 +136,7 @@ lspci | grep -e VGA -e 3D
 ### lscpu
 
 ```sh
-LC_ALL=C lscpu | grep Virtualization
+LC_ALL=C.UTF-8 lscpu | grep Virtualization
 ```
 
 输出结果
@@ -148,7 +148,7 @@ Virtualization:        VT-x
 ### egrep
 
 ```sh
-egrep "(svm|vmx)" /proc/cpuinfo
+grep -E --color=auto 'vmx|svm|0xc0f' /proc/cpuinfo
 ```
 
 输出结果
