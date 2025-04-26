@@ -83,10 +83,10 @@ virsh version
 输出结果
 
 ```sh
-Compiled against library: libvirt 10.0.0
-Using library: libvirt 10.0.0
-Using API: QEMU 10.0.0
-Running hypervisor: QEMU 8.2.2
+根据库编译：libvirt 11.2.0
+使用库：libvirt 11.2.0
+使用的 API: QEMU 11.2.0
+运行管理程序: QEMU 9.2.3
 ```
 
 9、运行
