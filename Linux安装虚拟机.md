@@ -89,7 +89,7 @@ virsh version
 运行管理程序: QEMU 9.2.3
 ```
 
-9、运行
+9、运行 virt-manager
 
 ```sh
 virt-manager
@@ -186,7 +186,7 @@ Using API: QEMU 10.0.0
 Running hypervisor: QEMU 8.2.2
 ```
 
-8、运行
+8、运行 virt-manager
 
 ```sh
 virt-manager
@@ -259,13 +259,13 @@ sudo usermod -aG kvm $USER
 id $USER
 ```
 
-7、检查 KVM
+7、检查内核模块
 
 ```sh
-lsmod | grep -i kvm
+lsmod | grep kvm
 ```
 
-8、运行
+9、运行 virt-manager
 
 ```sh
 virt-manager
