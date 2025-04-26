@@ -354,7 +354,7 @@ CPUs：4（最小值）
 
 勾选：Customize configuration before install（安装前自定义配置）
 
-Overview（概述）
+3、Overview（概述）
 
 Chipset=Q35
 
@@ -367,3 +367,13 @@ Model=TIS
 Backend=Emulated device
 
 Version=2.0
+
+显示协议 Spice
+
+Spice 服务器→类型=Spice 服务器
+
+添加硬件→通道（2个）
+
+通道：名称选择 com.redhat.spice.0
+
+通道：名称选择 org.qemu.guest_agent.0
