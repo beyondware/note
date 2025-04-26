@@ -165,6 +165,16 @@ max_parellel_downloads=10      ## 最大并行下载数量
 sudo dnf upgrade --refresh 或者 sudo dnf makecache
 ```
 
+# 快捷键打开 gnome-terminal
+
+设置-键盘-自定义快捷键
+
+```sh
+名称：open in terminal
+命令：/usr/bin/gnome-terminal
+快捷键：Ctrl+Alt+T
+```
+
 # 启用「最小化」和「最大化」按钮
 
 1、右边按钮
