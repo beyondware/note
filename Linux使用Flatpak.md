@@ -1,34 +1,30 @@
-## 安装 Flatpak
+# Flatpak 安装
 
-> https://flatpak.org/setup/
-
-> https://docs.flatpak.org/en/latest/
-
-### Fedora（默认：已安装）
-
-```sh
-sudo dnf install flatpak
-```
-
-### Ubuntu
+## Debian
 
 ```sh
 sudo apt install flatpak
 ```
 
-1、GNOME 插件
+### 安装 GNOME 插件
 
 ```sh
-sudo apt install gnome-software-plugin-flatpak gnome-software-plugin-snap
+sudo apt install gnome-software-plugin-flatpak
 ```
 
-2、KDE 插件
+### 安装 KDE 插件
 
 ```sh
-sudo apt install plasma-discover-backend-flatpak plasma-discover-backend-snap
+sudo apt install plasma-discover-backend-flatpak
 ```
 
-### Arch
+## Fedora
+
+```sh
+sudo dnf install flatpak
+```
+
+## Arch
 
 ```sh
 sudo pacman -Syyu
@@ -38,29 +34,29 @@ sudo pacman -Syyu
 sudo pacman -S flatpak
 ```
 
-## freedesktop-sdk
+## 参考
+
+> https://docs.flatpak.org/en/latest/
+
+> https://flatpak.org/setup/
+
+# freedesktop-sdk
+
+## 参考
+
+> https://flathub.org/apps/org.freedesktop.Platform
 
 > https://gitlab.com/freedesktop-sdk/freedesktop-sdk
 
-```sh
-Name                     Application ID                                 Version      Branch          Installation
-Freedesktop Platform     org.freedesktop.Platform                       22.08.11     22.08           system
-Mesa                     org.freedesktop.Platform.GL.default            23.0.2       22.08           system
-Mesa (Extra)             org.freedesktop.Platform.GL.default            23.0.2       22.08-extra     system
-nvidia-390-154           org.freedesktop.Platform.GL.nvidia-390-154                  1.4             system
-Intel                    org.freedesktop.Platform.VAAPI.Intel                        22.08           system
-openh264                 org.freedesktop.Platform.openh264              2.1.0        2.2.0           system
-```  
+# Flatpak 构建
 
-## 构建 Flatpak
-
-### Fedora
+## Fedora
 
 ```sh
 sudo dnf install flatpak-builder
 ```
 
-### Ubuntu
+## Ubuntu
 
 ```sh
 sudo add-apt-repository ppa:alexlarsson/flatpak
@@ -68,65 +64,35 @@ sudo apt update
 sudo apt install flatpak-builder elfutils
 ```
 
-## Flatpak 运行等级
+# Flatpak 运行等级
+
+## 系统
 
 ```sh
 flatpak --system（默认）
 ```
 
+## 用户
+
 ```sh
 flatpak --user 
 ```
 
-## Flatpak 存储库
+# 添加存储库
 
-### flathub
-
-> error: No remote refs found similar to ‘flathub’ //未发现类似于 "flathub" 的远程
+## 添加 Flathub 存储库
 
 ```sh
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 ```
 
-- 如果失败，使用如下命令：
+如果添加失败，使用如下命令：
 
 ```sh
-flatpak remote-add --if-not-exists flathub https://mirror.sjtu.edu.cn/flathub/flathub.flatpakrepo
+sudo flatpak remote-modify flathub --url=https://mirrors.ustc.edu.cn/flathub
 ```
 
-### flathub-beta
-
-```sh
-flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
-```
-
-#### 安装
-
-```sh
-flatpak install flathub 应用程序ID
-```
-
-- 访问系统文件（慎用）
-
-```sh
-sudo flatpak override 应用程序ID --filesystem=host
-```
-
-#### 修改镜像源
-
-> https://mirror.sjtu.edu.cn/docs/flathub
-
-```sh
-sudo flatpak remote-modify flathub --url=https://mirror.sjtu.edu.cn/flathub
-```
-
-#### 还原官方源
-
-```sh
-sudo flatpak remote-modify flathub --url=https://dl.flathub.org/repo/
-```
-
-#### 报错汇总
+### 报错汇总
 
 1、"error: Unable to load summary from remote flathub: Can't fetch summary from disabled remote 'flathub,"
 
@@ -158,7 +124,7 @@ echo $XDG_DATA_DIRS
 
 3、error: Unable to load summary from remote flathub: Could not connect: 拒绝连接
 
-> 网络问题，需多次安装尝试。
+网络问题，需多次安装尝试。
 
 4、Warning: org.freedesktop.Platform.openh264 not installed
 
@@ -174,16 +140,22 @@ flatpak install flathub org.freedesktop.Platform.openh264
 sudo flatpak remote-modify flathub --url=https://dl.flathub.org/repo/
 ```
 
-## fedora
+### 参考
+
+> https://mirror.sjtu.edu.cn/docs/flathub
+
+> https://mirrors.ustc.edu.cn/help/flathub.html
+
+## 添加 flathub-beta 存储库
+
+```sh
+flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
+```
+
+## 添加 fedora 存储库
 
 ```sh
 flatpak remote-add --if-not-exists fedora oci+https://registry.fedoraproject.org
-```
-
-## fedora-testing
-
-```sh
-flatpak remote-add --if-not-exists fedora-testing oci+https://registry.fedoraproject.org#testing
 ```
 
 ### 安装
@@ -192,9 +164,13 @@ flatpak remote-add --if-not-exists fedora-testing oci+https://registry.fedorapro
 flatpak install fedora 应用程序ID
 ```
 
-## gnome-nightly
+## 添加 fedora-testing 存储库
 
-> https://wiki.gnome.org/Apps/Nightly
+```sh
+flatpak remote-add --if-not-exists fedora-testing oci+https://registry.fedoraproject.org#testing
+```
+
+## 添加 gnome-nightly 存储库
 
 ```sh
 flatpak remote-add --if-not-exists gnome-nightly https://nightly.gnome.org/gnome-nightly.flatpakrepo
@@ -206,23 +182,19 @@ flatpak remote-add --if-not-exists gnome-nightly https://nightly.gnome.org/gnome
 flatpak install gnome-nightly 应用程序ID
 ```
 
-## kdeapps
+### 参考
+
+> https://wiki.gnome.org/Apps/Nightly
+
+## 添加 Nightly KDE apps 存储库
+
+### 参考
 
 > https://userbase.kde.org/Tutorials/Flatpak
 
-> https://develop.kde.org/docs/packaging/flatpak/
+> https://cdn.kde.org/flatpak/
 
-```sh
-flatpak remote-add --if-not-exists kdeapps --from https://distribute.kde.org/kdeapps.flatpakrepo
-```
-
-### 安装
-
-```sh
-flatpak install kdeapps 应用程序ID
-```
-
-## 查看 Flatpak 存储库
+# 查看 Flatpak 存储库
 
 ```sh
 flatpak remotes
@@ -232,19 +204,19 @@ flatpak remotes
 flatpak remotes -d
 ```
 
-### 查看系统源
+## 参看系统源
 
 ```sh
 flatpak remotes --system -d
 ```
 
-### 查看用户源
+## 查看用户源
 
 ```sh
 flatpak remotes --user -d
 ```
 
-## 删除 Flatpak 存储库
+# 删除 Flatpak 存储库
 
 ```sh
 flatpak remote-delete 仓库名
@@ -256,17 +228,17 @@ flatpak remote-delete 仓库名
 flatpak remote-delete flathub
 ```
 
-## 常用命令
+# flatpak 常用命令
 
-### 安装
+## 安装
 
-#### 方法一
+### 方法一
 
 ```sh
 flatpak install flathub com.github.tchx84.Flatseal
 ```
 
-#### 方法二
+### 方法二
 
 ```sh
 flatpak install https://dl.flathub.org/repo/appstream/com.github.tchx84.Flatseal.flatpakref
@@ -276,7 +248,7 @@ flatpak install https://dl.flathub.org/repo/appstream/com.github.tchx84.Flatseal
 
 > 必须全部打勾 ✔ 才能安装成功
 
-#### 降级
+## 安装包降级
 
 1、获取应用程序ID
 
@@ -302,9 +274,9 @@ sudo flatpak update --commit=<Commit值> 应用程序ID
 flatpak update
 ```
 
-### 卸载
+## 卸载
 
-#### 卸载指定软件
+### 卸载指定软件
 
 ```sh
 flatpak uninstall 应用程序ID
@@ -312,19 +284,13 @@ flatpak uninstall 应用程序ID
 
 > Uninstall complete. //卸载完成
 
-#### 卸载指定软件和 Flatpak 相关数据
+### 卸载指定软件和 Flatpak 相关数据
 
 ```sh
 flatpak uninstall --delete-data 应用程序ID
 ```
 
-#### 卸载所有
-
-```sh
-flatpak uninstall --all
-```
-
-#### 卸载所有和 Flatpak 相关数据
+### 卸载所有和 Flatpak 相关数据
 
 ```sh
 flatpak uninstall --all --delete-data
@@ -333,68 +299,70 @@ flatpak uninstall --all --delete-data
 ### 卸载未使用的运行时和 Flatpak 软件包
 
 ```sh
-flatpak uninstall --unused 或者 flatpak remove --unused
+flatpak uninstall --unused
+或者
+flatpak remove --unused
 ```
 
-#### 删除缓存文件
-
-```sh
-sudo rm -rf /var/tmp/flatpak-cache-*
-```
-
-### 运行
+## 运行 flatpak
 
 ```sh
 flatpak run 应用程序ID
 ```
 
-### 更新
+## 更新
 
-1、更新所有
+### 更新所有
 
 ```sh
 flatpak update
 ```
 
-2、更新指定软件
+### 更新指定软件
 
 ```sh
 flatpak update --app 应用程序ID
 ```
 
-### 搜索
+## 搜索
 
 ```sh
 flatpak search 关键字
 ```
 
-### 列出
+## 列出
 
-1、列出所有
+### 列出所有
 
 ```sh
 flatpak list
 ```
 
-2、列出已安装
+### 列出已安装
 
 ```sh
 flatpak list --app
 ```
 
-3、列出所有已安装 flatpak，包括安装类型、大小和应用程序 ID
+### 列出所有已安装 flatpak，包括安装类型、大小和应用程序 ID
 
 ```sh
 flatpak --columns=app,name,size,installation list
 ```
 
-### 详细信息
+## 详细信息
 
 ```sh
 flatpak info 应用程序ID
 ```
 
-## flatpak --help
+## 删除缓存文件
+
+```sh
+sudo rm -rf /var/tmp/flatpak-cache-*
+```
+
+# flatpak --help
 
 ```sh
 用法：
