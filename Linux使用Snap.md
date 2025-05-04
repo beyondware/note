@@ -1,4 +1,4 @@
-# 安装 snapd
+# snap 安装
 
 ## Ubuntu
 
@@ -10,13 +10,27 @@ sudo apt update
 sudo apt install snapd
 ```
 
+## 安装商店插件
+
+### GNOME
+
+```sh
+sudo apt install gnome-software-plugin-snap
+```
+
+### KDE
+
+```sh
+sudo apt install plasma-discover-backend-snap
+```
+
 ## Fedora
 
 ```sh
 sudo dnf install shapd
 ```
 
-# 检查 snapd 的 systemctl 状态
+# 检查 snapd 运行状态
 
 ```sh
 systemctl status snapd
@@ -40,12 +54,18 @@ sudo snap install core
 sudo ln -s /var/lib/snapd/snap /snap
 ```
 
-# 常用命令
+# snap 常用命令
+
+## 回滚到以前的版本
+
+```sh
+sudo snap revert 软件名ID
+```
 
 ## 安装
 
 ```sh
-sudo snap install 软件名
+sudo snap install 软件名ID
 ```
 
 ### 安装 snap-store（可选）
@@ -60,12 +80,6 @@ sudo snap install snap-store
 snap run snap-store
 ```
 
-## 回滚到以前的版本
-
-```sh
-sudo snap revert 软件名
-```
-
 ## 列出已安装 snap 软件包
 
 ```sh
@@ -75,7 +89,7 @@ snap list
 ## 移除
 
 ```sh
-sudo snap remove 软件名
+sudo snap remove 软件名ID
 ```
 
 ## 更新
@@ -83,13 +97,13 @@ sudo snap remove 软件名
 1、先杀死进程
 
 ```sh
-sudo killall 软件名
+sudo killall 软件名ID
 ```
 
 2、再更新软件
 
 ```sh
-sudo snap refresh 软件名
+sudo snap refresh 软件名ID
 ```
 
 3、指定通道版本
@@ -121,25 +135,19 @@ snap refresh --hold=48h
 ## 运行
 
 ```sh
-snap run 软件名
+snap run 软件名ID
 ```
 
-### 启用 snap
+## 启用 snap
 
 ```sh
 sudo snap enable
 ```
 
-### 禁用 snap
+## 禁用 snap
 
 ```sh
 sudo snap disable
-```
-
-## 帮助
-
-```sh
-snap help 命令
 ```
 
 ## 查找
@@ -154,17 +162,25 @@ snap find 软件名
 snap info 软件名
 ```
 
+## 帮助
+
+```sh
+snap help 命令
+```
+
 ## 下载到本地
 
 ```sh
 snap download 软件名
 ```
 
-### 安装位置
+## 安装位置
 
-> /var/lib/snapd/snaps
+```sh
+/var/lib/snapd/snaps
+```
 
-## 删除所有旧版本的快照
+# 删除所有旧版本的快照
 
 1、清理 Snap 脚本，例如：clean_snap.sh
 
@@ -192,7 +208,7 @@ chmod +x clean_snap.sh
 sudo ./clean_snap.sh
 ```
 
-### 清理缓存文件
+## 清理缓存文件
 
 ```sh
 sudo rm -rf /var/lib/snapd/cache/*
@@ -204,23 +220,27 @@ sudo rm -rf /var/lib/snapd/cache/*
 sudo snap pack
 ```
 
-# 报错信息
+# 报错汇总
 
-> cannot find signatures with metadata for snap
+## cannot find signatures with metadata for snap
 
-- 解决方法
- 
-> 任何未通过 Snap 商店分发的 Snap 包都必须使用 --dangerous 选项进行安装
+任何未通过 Snap 商店分发的 Snap 包都必须使用 --dangerous 选项进行安装
 
 ```sh
 sudo snap install 软件包.snap --dangerous
 ```
 
-# 参考文档
+## 修复 flatpak 安装失败
 
-> https://snapcraft.io/docs/installing-snapd
+```sh
+sudo flatpak repair
+```
 
-> https://snapcraft.io/store
+再重新启动 flatpak 服务
+
+```sh
+sudo systemctl restart flatpak-system-helper.service
+```
 
 # snap help
 
@@ -249,3 +269,9 @@ snap 命令允许您安装、配置、刷新和删除 snap。Snap 是跨许多�
 请运行 'snap help <命令>' 来获得该命令的更多信息。
 请运行 'snap help -all' 来获得所有命令的短摘要。
 ```
+
+# 参考
+
+> https://snapcraft.io/docs/installing-snapd
+
+> https://snapcraft.io/store
