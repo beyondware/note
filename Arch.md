@@ -880,7 +880,7 @@ sudo pacman -S  xf86-input-vmmouse
 ### 触摸板
 
 ```sh
-sudo pacman -S xf86-input-synaptics
+sudo pacman -S xf86-input-synaptics xf86-input-libinput
 ```
 
 ### 数位板
@@ -928,7 +928,7 @@ sudo systemctl enable fstrim.timer
 ### open-vm-tools
 
 ```sh
-sudo pacman -S open-vm-tools open-vm-tools-desktop
+sudo pacman -S open-vm-tools
 ```
 
 ### 中文字体
