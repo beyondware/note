@@ -290,6 +290,6 @@ cd /etc/yum.repos.d
 sudo rm packages.microsoft.com_yumrepos_edge.repo microsoft-edge.repo
 ```
 
-5、包存放位置
+## 存储库
 
 > https://packages.microsoft.com/yumrepos/edge/Packages/m/
