@@ -1,4 +1,4 @@
-## powerline
+# powerline
 
 1、安装依赖
 
@@ -8,33 +8,27 @@ sudo pacman -S python-pip git
 
 2、安装 powerline
 
-### 方案一，警告：安装powerline-status，而不是powerline
+## pip 安装
 
 ```sh
 pip install powerline-status
 ```
 
-### 方案二，网络环境原因（官方，不推荐）
+## 源码安装
 
 ```sh
-pip install git+git://github.com/powerline/powerline
+pip install --user git+git://github.com/powerline/powerline
 ```
 
-### 方案三，github地址代理（推荐）
-
-```sh
-pip install git+https://ghproxy.com/https://github.com/powerline/powerline.git
-```
-
-### 方案四，离线安装
+## 离线安装
 
 ① 克隆到本地
 
 ```sh
-git clone https://ghproxy.com/https://github.com/powerline/powerline.git
+git clone https://github.com/powerline/powerline.git
 ```
 
-② 切换到powerline目录
+② 切换到 powerline 目录
 
 ```sh
 cd powerline/
@@ -44,22 +38,20 @@ cd powerline/
 
 ```sh
 pip install .
-```
 
 或者
 
-```sh
 python setup.py install
 ```
 
 3、下载系统字体及字体配置文件
 
 ```sh
-wget https://ghproxy.com/https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf
+wget https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf
 ```
 
 ```sh
-wget https://ghproxy.com/https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf
+wget https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf
 ```
 
 4、将系统字体移到字体目录
@@ -67,7 +59,8 @@ wget https://ghproxy.com/https://github.com/powerline/powerline/raw/develop/font
 ```sh
 sudo mv PowerlineSymbols.otf /usr/share/fonts/
 ```
-5、更新系统的字体缓存
+
+5、更新字体缓存
 
 ```sh
 fc-cache -vf /usr/share/fonts/
@@ -91,27 +84,27 @@ vim ~/.bashrc
 export TERM="screen-256color"
 ```
 
-8、bash 默认打开 powerline 配置
+## bash 默认打开 powerline 配置
 
-- 先获取powerline安装路径
+1、先获取 powerline 安装路径
 
 ```sh
 pip show powerline-status
 ```
 
-- 获取地址（后面会用到，每个人安装路径不一样）
+获取地址（后面会用到，每个人安装路径不一样）
 
 ```sh
 /usr/lib/python3.10/site-packages
 ```
 
-- 编辑
+2、编辑配置文件
 
 ```sh
 vim ~/.bashrc
 ```
 
-- 添加
+添加
 
 ```sh
 powerline-daemon -q
@@ -120,29 +113,29 @@ POWERLINE_BASH_SELECT=1
 . /usr/lib/python3.10/site-packages/powerline/bindings/bash/powerline.sh
 ```
 
-9、刷新
+3、刷新
 
 ```sh
 source ~/.bashrc
 ```
 
-10、退出终端，重新打开生效。
+4、退出终端，重新打开终端生效。
 
-11、参考
+## 参考
 
 > https://wiki.archlinux.org/title/Powerline
 
-> https://powerline.readthedocs.io/en/latest/index.html
+> https://powerline.readthedocs.io/en/stable/
 
 > https://github.com/powerline/powerline
 
-### vim 配置 powerline
+## vim 配置 powerline
 
 ```sh
 vim ~/.vimrc
 ```
 
-- 添加
+添加
 
 ```sh
 set rtp+=/usr/lib/python3.10/site-packages/powerline/bindings/vim/
@@ -150,9 +143,9 @@ set laststatus=2
 set t_Co=256
 ```
 
-## Parrot 风格
+# Parrot 风格
 
-### 全局
+## 全局
 
 1、查看配置文件
 
@@ -178,13 +171,13 @@ sudo vim /etc/bash.bashrc
     PS1="\[\033[0;31m\]\342\224\214\342\224\200\$([[ \$? != 0 ]] && echo \"[\[\033[0;37m\]\342\234\227\[\033[0;31m\]]\342\224\200\")[$(if [[ ${EUID} == 0 ]]; then echo '\[\033[01;31m\]root\[\033[01;33m\]@\[\033[01;96m\]\h'; else echo '\[\033[0;39m\]\u\[\033[01;33m\]@\[\033[01;96m\]\h'; fi)\[\033[0;31m\]]\342\224\200[\[\033[0;32m\]\w\[\033[0;31m\]]\n\[\033[0;31m\]\342\224\224\342\224\200\342\224\200\342\225\274 \[\033[0m\]\[\e[01;33m\]\\$\[\e[0m\]"
 ```
 
-4、退出终端重启，查看配置结果。
+4、退出终端，重新打开终端查看配置结果。
 
 ```sh
 echo "$PS1" 
 ```
 
-### 用户
+## 用户
 
 1、编辑
 
