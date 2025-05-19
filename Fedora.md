@@ -72,10 +72,6 @@ sudo sed -e 's|^metalink=|#metalink=|g' \
 sudo dnf makecache
 ```
 
-3、参考
-
-> https://help.mirrors.cernet.edu.cn/fedora/
-
 ### 方案二
 
 1、切换目录
@@ -98,7 +94,7 @@ sudo wget -O /etc/yum.repos.d/fedora-updates.repo http://mirrors.aliyun.com/repo
 sudo dnf makecache
 ```
 
-3、参考
+### 参考
 
 > https://developer.aliyun.com/mirror/fedora
 
@@ -123,7 +119,7 @@ sudo dnf install dnf-plugin-system-upgrade
 3、下载最新 Fedora 更新包
 
 ```sh
-sudo dnf system-upgrade download --releasever=38  ##版本号38，具体情况而论
+sudo dnf system-upgrade download --releasever=42  说明：42 为版本号
 ```
 
 4、升级并重启
@@ -162,7 +158,11 @@ max_parellel_downloads=10      ## 最大并行下载数量
 3、刷新
 
 ```sh
-sudo dnf upgrade --refresh 或者 sudo dnf makecache
+sudo dnf upgrade --refresh
+
+或者
+
+sudo dnf makecache
 ```
 
 # 快捷键打开 gnome-terminal
@@ -269,10 +269,8 @@ cd ~/.local/share/gnome-shell/extensions
 
 ## 主题
 
-> https://github.com/vinceliuice/WhiteSur-gtk-theme
-
 ```sh
-git clone https://ghproxy.com/https://github.com/vinceliuice/WhiteSur-gtk-theme.git
+git clone https://github.com/vinceliuice/WhiteSur-gtk-theme.git
 ```
 
 ```sh
@@ -291,10 +289,8 @@ cd ~/.themes
 
 ## 图标
 
-> https://github.com/vinceliuice/WhiteSur-icon-theme
-
 ```sh
-git clone https://ghproxy.com/https://github.com/vinceliuice/WhiteSur-icon-theme.git
+git clone https://github.com/vinceliuice/WhiteSur-icon-theme.git
 ```
 
 ```sh
@@ -313,10 +309,8 @@ cd ~/.local/share/icons
 
 ## 光标
 
-> https://github.com/vinceliuice/WhiteSur-cursors
-
 ```sh
-git clone https://ghproxy.com/https://github.com/vinceliuice/WhiteSur-cursors.git
+git clone https://github.com/vinceliuice/WhiteSur-cursors.git
 ```
 
 ```sh
@@ -335,10 +329,8 @@ cd WhiteSur-cursors/
 
 ## 壁纸
 
-> https://github.com/vinceliuice/WhiteSur-wallpapers
-
 ```sh
-git clone https://ghproxy.com/https://github.com/vinceliuice/WhiteSur-wallpapers.git
+git clone https://github.com/vinceliuice/WhiteSur-wallpapers.git
 ```
 
 ```sh
