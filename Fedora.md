@@ -217,7 +217,13 @@ gsettings set org.gnome.shell.extensions.ding show-home true
 gsettings set org.gnome.shell.extensions.ding show-home false
 ```
 
-# 优化
+# 选装
+
+## open-vm-tools
+
+```sh
+sudo dnf install open-vm-tools open-vm-tools-desktop
+```
 
 ## gnome-tweaks
 
@@ -225,7 +231,7 @@ gsettings set org.gnome.shell.extensions.ding show-home false
 sudo dnf install gnome-tweaks
 ```
 
-## gnome-extensions-app
+## gnome-extensions
 
 ```sh
 sudo dnf install gnome-extensions-app
