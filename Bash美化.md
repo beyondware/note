@@ -119,16 +119,6 @@ POWERLINE_BASH_SELECT=1
 source ~/.bashrc
 ```
 
-4、退出终端，重新打开终端生效。
-
-## 参考
-
-> https://wiki.archlinux.org/title/Powerline
-
-> https://powerline.readthedocs.io/en/stable/
-
-> https://github.com/powerline/powerline
-
 ## vim 配置 powerline
 
 ```sh
@@ -142,6 +132,14 @@ set rtp+=/usr/lib/python3.10/site-packages/powerline/bindings/vim/
 set laststatus=2
 set t_Co=256
 ```
+
+## 参考
+
+> https://wiki.archlinux.org/title/Powerline
+
+> https://powerline.readthedocs.io/en/stable/
+
+> https://github.com/powerline/powerline
 
 # Parrot 风格
 
