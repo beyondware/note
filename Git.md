@@ -298,7 +298,7 @@ git commit -m 'Clean up the warehouse'
 git push origin master
 ```
 
-### 使用https://来替换git://
+### 使用 https:// 来替换 git://
 
 ```sh
 git config --global url."https://".insteadOf git://
