@@ -51,7 +51,7 @@ exit
 ## 安装 oh-my-zsh
 
 ```sh
-sh -c "$(wget https://ghproxy.com/https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
 ```
 
 ### powerlevel10k（主题）
@@ -65,7 +65,7 @@ cd ~/.oh-my-zsh/custom/themes/
 1、安装 powerlevel10k 主题
 
 ```sh
-git clone --depth=1 https://ghproxy.com/https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 ```
 
 2、编辑
@@ -103,7 +103,7 @@ cd ~/.oh-my-zsh/custom/plugins/
 1、安装 zsh-autosuggestions
 
 ```sh
-git clone https://ghproxy.com/https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 ```
 
 2、编辑
@@ -141,7 +141,7 @@ cd ~/.oh-my-zsh/custom/plugins/
 1、安装 zsh-syntax-highlighting
 
 ```sh
-git clone https://ghproxy.com/https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 ```
 
 2、编辑
