@@ -53,7 +53,7 @@ node --version
 1、安装 nvm
 
 ```sh
-wget -qO- https://ghproxy.com/https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
 ```
 
 2、重新启动终端或运行加载 nvm
