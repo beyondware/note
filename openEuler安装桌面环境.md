@@ -14,7 +14,7 @@ vim /etc/sysconfig/network-scripts/ifcfg-ens33
 
 - ONBOOT=no 改成 yes（正常联网，不用管）
 
-## 镜像源
+## 换源
 
 1、编辑
 
@@ -22,17 +22,25 @@ vim /etc/sysconfig/network-scripts/ifcfg-ens33
 sudo vim /etc/yum.repos.d/openEuler.repo
 ```
 
-2、官方源
+2、修改
+
+### 官方源
 
 > http://repo.openeuler.org/
 
-修改为
+### 镜像源
 
 > https://repo.huaweicloud.com/openeuler/
 
 > https://mirrors.nju.edu.cn/openeuler/
 
 > https://mirrors.tuna.tsinghua.edu.cn/openeuler/
+
+3、生成缓存
+
+```sh
+sudo dnf makecache
+```
 
 ## open-vm-tools
 
