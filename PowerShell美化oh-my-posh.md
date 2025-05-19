@@ -1,10 +1,6 @@
-## 下载 Meslo 字体（只安装 MesloLGM Nerd Font 即可）
+## 下载 Meslo 字体（安装 MesloLGM Nerd Font 即可）
 
-- 最新版
-
-> https://ghproxy.com/https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Meslo.zip
-
-> https://ghproxy.com/https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.0/Meslo.zip
+> https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Meslo.zip
 
 - PowerShell——外观——字体：（选择）MesloLGM Nerd Font
 
