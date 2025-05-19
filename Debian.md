@@ -1,3 +1,5 @@
+# 选装
+
 ## 桌面右击无法打开终端
 
 ```sh
@@ -6,11 +8,11 @@ sudo apt install nautilus-open-terminal
 
 ## lxappearance（GTK+ 主题更换工具）
 
-> https://github.com/lxde/lxappearance
-
 ```sh
 sudo apt install lxappearance
 ```
+
+> https://github.com/lxde/lxappearance
 
 ## gnome-tweaks
 
@@ -18,13 +20,13 @@ sudo apt install lxappearance
 sudo apt install gnome-tweaks
 ```
 
-## extension-manager
-
-> https://github.com/mjakeman/extension-manager
+## 扩展管理
 
 ```sh
 sudo apt install gnome-shell-extension-manager
 ```
+
+> https://github.com/mjakeman/extension-manager
 
 或者
 
@@ -76,7 +78,7 @@ Comment=VMware User Agent
 X-GNOME-Autostart-enabled=true
 ```
 
-## Zorin OS 系统升级
+# Zorin OS 系统升级
 
 ```sh
 sudo apt install zorin-os-upgrader
@@ -88,7 +90,7 @@ sudo apt install zorin-os-upgrader
 gsettings set com.zorin.desktop.upgrader show-test-upgrades true
 ```
 
-## 系统升级
+# 系统升级
 
 1、系统升级（推荐）
 
@@ -114,7 +116,7 @@ sudo apt update -y && apt full-upgrade -y && apt autoremove -y && apt autoclean 
 sudo dpkg --purge $(dpkg -l | awk '/^rc/{print $2}')
 ```
 
-## 内核
+# 内核
 
 1、查看当前内核
 
@@ -146,7 +148,7 @@ sudo apt-get purge linux-image-x.x.x-x-generic
 sudo update-grub
 ```
 
-## apt-fast
+# apt-fast
 
 1、安装 apt-fast
 
@@ -178,25 +180,25 @@ sudo vim /etc/apt-fast.conf
 _MAXNUM=10
 ```
 
-### Aria2
+## Aria2
 
 ```sh
 _DOWNLOADER='aria2c --no-conf -c -j ${_MAXNUM} -x ${_MAXCONPERSRV} -s ${_SPLITCON} --min-split-size=${_MINSPLITSZ} --stream-piece-selector=${_PIECEALGO} -i ${DLLIST} --connect-timeout=600 --timeout=600 -m0 --header "Accept: */*"'
 ```
 
-### Axel
+## Axel
 
 ```sh
 _DOWNLOADER='axel -n ${_MAXNUM}'
 ```
 
-### 镜像源
+## 镜像源
 
 ```sh
 MIRRORS=( 'http://archive.ubuntu.com/ubuntu, https://mirrors.cloud.tencent.com/ubuntu, https://mirrors.aliyun.com/ubuntu' )
 ```
 
-### 参考
+## 参考
 
 > https://github.com/ilikenwf/apt-fast
 
@@ -277,7 +279,7 @@ Commands:
   version          - Show the installed version of a package
 ```
 
-## nala
+# nala
 
 1、添加「Volian Scar 源」
 
