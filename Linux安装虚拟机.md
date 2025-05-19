@@ -130,7 +130,7 @@ LC_ALL=C lscpu | grep Virtualization
 2、安装
 
 ```sh
-sudo dnf install qemu-kvm virt-manager libvirt virt-viewer virt-install
+sudo dnf install qemu-kvm virt-manager libvirt virt-viewer virt-install swtpm swtpm-tools
 ```
 
 3、启动 libvirtd 服务
@@ -218,7 +218,7 @@ LC_ALL=C lscpu | grep Virtualization
 2、安装
 
 ```sh
-sudo apt install virt-manager qemu-system qemu-utils libvirt-daemon-system libvirt-clients bridge-utils 
+sudo apt install virt-manager qemu-system qemu-utils libvirt-daemon-system libvirt-clients bridge-utils swtpm swtpm-tools 
 ```
 
 3、启动 libvirtd 服务
@@ -377,3 +377,9 @@ Spice 服务器→类型=Spice 服务器
 通道：名称选择 com.redhat.spice.0
 
 通道：名称选择 org.qemu.guest_agent.0
+
+显示虚拟硬件详细信息 -> 添加硬件 -> 存储 ，然后添加 VirtIO 驱动程序 ISO 文件
+
+Show virtual hardware details -> Add Hardware -> Storage
+
+> https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso
