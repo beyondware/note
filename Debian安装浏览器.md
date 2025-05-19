@@ -223,6 +223,6 @@ sudo rm -rf /etc/apt/trusted.gpg.d/microsoft*
 sudo rm -rf /usr/share/keyrings/microsoft*
 ```
 
-8、包存放位置
+## 存储库
 
-> https://packages.microsoft.com/repos/edge/pool/main/m/microsoft-edge-stable/
+> https://packages.microsoft.com/repos/edge/pool/main/m/
