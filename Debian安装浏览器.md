@@ -156,7 +156,7 @@ sudo apt update
 5、安装 Microsoft Edge 浏览器
 
 
-## 稳定版
+## 稳定版（推荐）
 
 ```sh
 sudo apt install microsoft-edge-stable
