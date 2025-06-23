@@ -64,18 +64,6 @@ fc-cache -vf /usr/share/fonts/
 sudo mv 10-powerline-symbols.conf /etc/fonts/conf.d/
 ```
 
-## bash 配置 powerline
-
-```sh
-vim ~/.bashrc
-```
-
-- 添加
-
-```sh
-export TERM="screen-256color"
-```
-
 ## bash 默认打开 powerline 配置
 
 1、先获取 powerline 安装路径
