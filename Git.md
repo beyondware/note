@@ -1,4 +1,4 @@
-### git 流程
+# git 流程
 
 1、新建远程仓库
 
@@ -14,15 +14,15 @@
 
 > 添加-提交（选中已添加的内容）-推送
 
-### 常用命令
+# 常用命令
 
-#### 显示带中文的目录、文件
+## 显示带中文的目录、文件
 
 ```sh
 git config --global core.quotepath false
 ```
 
-#### 带颜色输出
+## 带颜色输出
 
 ```sh
 sudo git config --system color.ui auto
@@ -74,7 +74,7 @@ git reflog
 git reset –hard 版本唯一索引值
 ```
 
-### 标签（版本号）
+# 标签（版本号）
 
 1、查看
 
@@ -106,7 +106,7 @@ git tag -d 版本号
 git push origin 版本号
 ```
 
-### 分支管理
+# 分支管理
 
 1、创建分支
 
@@ -152,7 +152,7 @@ git merge 分支名
 git branch -d 分支名
 ```
 
-### 关联账号
+# 关联账号
 
 1、查询
 
@@ -216,7 +216,7 @@ ssh -T git@github.com
 
 > 显示 successfully 表示成功
 
-### 推送到远程仓库
+# 推送到远程仓库
 
 1、添加（远程仓库）
 
@@ -230,7 +230,7 @@ git remote add origin 远程仓库地址
 git push -u origin master(主分支)
 ```
 
-### 克隆到本地
+# 克隆到本地
 
 1、克隆
 
@@ -250,7 +250,7 @@ git pull 远程仓库名 分支名
 git pull origin master
 ```
 
-### TortoiseGit
+# TortoiseGit
 
 1、创建一个文件夹
 
@@ -270,7 +270,7 @@ git pull origin master
 
 TortoiseGit-->显示日志-->还原此版本做出的更改
 
-### github 不删除仅清空仓库
+# github 不删除仅清空仓库
 
 1、远程仓库克隆
 
@@ -298,7 +298,7 @@ git commit -m 'Clean up the warehouse'
 git push origin master
 ```
 
-### 使用 https:// 来替换 git://
+# 使用 https:// 来替换 git://
 
 ```sh
 git config --global url."https://".insteadOf git://
@@ -311,3 +311,22 @@ cat ~/.gitconfig 会多出一行参数
     insteadOf = git://
 ```
 
+# 报错
+
+```sh
+server verification failed: certificate signer not trusted. (CAfile: /etc/ssl/certs/ca-certificates.crt CRLfile: none)
+```
+
+git clone 时关闭 ssl 验证流程
+
+```sh
+git config --global http.sslverify false
+```
+
+```sh
+git config --global https.sslverify false
+```
+
+```sh
+export GIT_SSL_NO_VERIFY=1
+```
