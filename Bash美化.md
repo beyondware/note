@@ -1,6 +1,6 @@
 # powerline 安装
 
-安装依赖
+## 安装依赖
 
 ```sh
 sudo pacman -S python-pip git
@@ -12,7 +12,7 @@ sudo pacman -S python-pip git
 pip install powerline-status
 ```
 
-## 源码安装
+## powerline 源码安装
 
 1、克隆到本地
 
