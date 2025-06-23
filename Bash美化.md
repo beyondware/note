@@ -30,9 +30,7 @@ cd powerline/
 
 ```sh
 pip install .
-
 或者
-
 python setup.py install
 ```
 
