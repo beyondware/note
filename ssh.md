@@ -1,26 +1,28 @@
-## 安装 SSH
+# SSH
+
+## 报错
 
 > Unit sshd.service could not be found.
 
-### Debian
+## Debian
 
 ```sh
 sudo apt install openssh-server
 ```
 
-### Fedora
+## Fedora
 
 ```sh
 sudo dnf install openssh-server
 ```
 
-### Arch
+## Arch
 
 ```sh
 sudo pacman -S openssh
 ```
 
-## 运行 SSH
+# 运行 SSH
 
 sshd（Fedora）或者 ssh（Debian），具体情况而定。
 
@@ -64,7 +66,7 @@ sudo systemctl enable ssh
 sudo systemctl disable ssh
 ```
 
-## 查看 SSH 进程
+# 查看 SSH 进程
 
 ```sh
 ps -e | grep ssh
@@ -72,9 +74,9 @@ ps -e | grep ssh
 
 显示 00:00:00 sshd，已经启动。
 
-## 登陆 SSH
+# 登陆 SSH
 
-### 报错一
+## 报错一
 
 > Remote rejected opening a shell channel: Error: Not connected
 
@@ -102,7 +104,7 @@ PermitRootLogin yes
 sudo systemctl restart ssh
 ```
 
-### 报错二
+## 报错二
 
 > All configured authentication methods failed
 
