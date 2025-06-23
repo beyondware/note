@@ -6,6 +6,12 @@
 start ms-cxh:localonly
 ```
 
+# Windows 关闭端口扫描防护筛选器的日志写入功能（管理员权限执行）
+
+```sh
+netsh wfp set options netevents=off
+```
+
 # 右键菜单
 
 ## 经典右键菜单
