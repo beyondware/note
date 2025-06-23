@@ -1,6 +1,6 @@
 ## Ubuntu 安装 Wine
 
-1、添加 32 位架构
+1、启用 32 位架构
 
 ```sh
 sudo dpkg --add-architecture i386
@@ -92,14 +92,10 @@ sudo apt update
 
 ### 方案一（推荐）
 
-1、安装与删除
+1、安装
 
 ```sh
 sudo dnf install wine wine.i686
-```
-
-```sh
-sudo dnf autoremove wine wine.i686
 ```
 
 2、确认版本
