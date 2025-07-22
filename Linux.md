@@ -5,12 +5,42 @@ Ctrl+Alt+F2   ##命令行
 Ctrl+Alt+F7   ##图形界面
 ```
 
-## root 修改密码
+## 切换到 root
+
+```sh
+sudo -i
+或者
+sudo su
+或者
+sudo su root
+或者
+su
+或者
+su -
+或者
+su root
+```
+
+### 切换到 root 失败
+
+```sh
+su root
+```
+
+su: 身份验证失败
+
+```sh
+sudo passwd root
+```
+
+安装系统时，root 密码未设置，所以需要设置 root 密码。
+
+### 修改 root 密码
 
 1、切换到 root 账号
 
 ```sh
-sudo su 或者 sudo su root
+sudo -i
 ```
 
 2、修改 root 密码
@@ -24,7 +54,7 @@ passwd root
 1、切换到 root 账号
 
 ```sh
-sudo -i 提示符为“#”，不需要每次输入密码
+sudo -i  //提示符为“#”，不需要每次输入密码
 ```
 
 2、编辑 visudo
@@ -33,7 +63,7 @@ sudo -i 提示符为“#”，不需要每次输入密码
 visudo
 ```
 
-3、修改
+将
 
 ```sh
 %sudo ALL=(ALL:ALL) ALL
@@ -45,17 +75,31 @@ visudo
 %sudo ALL=(ALL:ALL) NOPASSWD:ALL
 ```
 
-## 当前 shell
+## 查看当前 shell
 
 ```sh
-echo $0
-```
-
+echo $SHELL
 或者
-
-```sh
+echo $0
+或者
 ps -p $$
 ```
+
+### 修改 shell
+
+1、查看系统中所有可用的 shell
+
+```sh
+cat /etc/shells
+```
+
+2、更改默认 shell
+
+```sh
+chsh -s /bin/bash
+```
+
+3、重启系统才会生效。
 
 ## 删除 bash 历史记录
 
@@ -125,12 +169,6 @@ echo $XDG_SESSION_TYPE
 ps -p 1
 ```
 
-## 显卡类型
-
-```sh
-lspci | grep -e VGA -e 3D
-```
-
 ## 是否虚拟化
 
 ### lscpu
@@ -189,10 +227,10 @@ INFO: /dev/kvm exists
 KVM acceleration can be used
 ```
 
-## 是否 64 位操作系统
+## 显卡类型
 
 ```sh
-dpkg --print-architecture
+lspci | grep -e VGA -e 3D
 ```
 
 ## 查看 Linux 内核
@@ -219,6 +257,32 @@ lsb_release -a
 
 ```sh
 lscpu
+```
+
+## 是否 64 位操作系统
+
+```sh
+dpkg --print-architecture
+```
+
+## timedatectl 时区
+
+1、显示当前时区
+
+```sh
+timedatectl
+```
+
+2、列出有效时区
+
+```sh
+timedatectl list-timezones
+```
+
+3、设置时区
+
+```sh
+sudo timedatectl set-timezone Asia/Shanghai
 ```
 
 ## 家目录
@@ -431,24 +495,4 @@ sudo apt install linux-headers-$(uname -r)
 
 ```sh
 dmesg
-```
-
-## timedatectl 时区
-
-1、显示当前时区
-
-```sh
-timedatectl
-```
-
-2、列出有效时区
-
-```sh
-timedatectl list-timezones
-```
-
-3、设置时区
-
-```sh
-sudo timedatectl set-timezone Asia/Shanghai
 ```
