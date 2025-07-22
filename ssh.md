@@ -24,7 +24,7 @@ sudo pacman -S openssh
 
 # 运行 SSH
 
-sshd（Fedora）或者 ssh（Debian），具体情况而定。
+sshd（Arch、Fedora）或者 ssh（Debian），具体情况而定。
 
 1、当前 SSH 状态
 
@@ -92,7 +92,7 @@ sudo vim /etc/ssh/sshd_config
 # PermitRootLogin prohibit-password
 ```
 
-改成
+修改成
 
 ```sh
 PermitRootLogin yes
@@ -124,4 +124,12 @@ PasswordAuthentication yes（去掉前面#）
 
 ```sh
 sudo systemctl restart ssh
+```
+
+## 如果仍然无法远程连接
+
+允许 ssh 通过防火墙
+
+```sh
+sudo ufw allow ssh
 ```
