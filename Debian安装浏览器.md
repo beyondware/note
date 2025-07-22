@@ -14,76 +14,6 @@ apt list --installed | grep firefox
 sudo dpkg -P firefox firefox-locale-en firefox-locale-zh-hans
 ```
 
-# LibreWolf
-
-1、更新并升级系统
-
-```sh
-sudo apt update
-sudo apt upgrade
-```
-
-2、安装所需的依赖
-
-```sh
-sudo apt install curl gnupg lsb-release apt-transport-https ca-certificates -y
-```
-
-3、导入 LibreWolf 存储库
-
-```sh
-curl https://deb.librewolf.net/keyring.gpg | gpg --dearmor \
-    | sudo tee /usr/share/keyrings/librewolf.gpg >/dev/null
-```
-
-4、导入 GPG 密钥
-
-```sh
-echo "deb [arch=amd64 signed-by=/usr/share/keyrings/librewolf.gpg] \
-http://deb.librewolf.net $(lsb_release -sc) main" \
-    | sudo tee /etc/apt/sources.list.d/librewolf.list
-```
-
-5、更新
-
-```sh
-sudo apt update
-```
-
-6、安装 LibreWolf
-
-```sh
-sudo apt install librewolf -y
-```
-
-7、启动 LibreWolf
-
-```sh
-librewolf
-```
-
-8、删除 LibreWolf
-
-```sh
-sudo apt remove librewolf
-```
-
-9、删除 LibreWolf 存储库
-
-```sh
-sudo rm /etc/apt/sources.list.d/librewolf.list
-```
-
-10、删除 GPG 密钥
-
-```sh
-sudo rm /usr/share/keyrings/librewolf.gpg
-```
-
-11、参考
-
-> https://librewolf.net/installation/debian/
-
 # Chromium
 
 1、安装
@@ -120,7 +50,7 @@ rm google-chrome-stable_current_amd64.deb
 
 # Microsoft Edge
 
-1、更新并升级系统
+1、更新并升级
 
 ```sh
 sudo apt update
@@ -158,17 +88,25 @@ sudo apt update
 
 ## 稳定版（推荐）
 
+安装
+
 ```sh
 sudo apt install microsoft-edge-stable
 ```
+
+删除
+
+```sh
+sudo apt remove microsoft-edge-stable
+```
+
+升级
 
 ```sh
 sudo apt upgrade microsoft-edge-stable
 ```
 
-```sh
-sudo apt remove microsoft-edge-stable
-```
+版本
 
 ```sh
 microsoft-edge -version
@@ -181,11 +119,11 @@ sudo apt install microsoft-edge-beta
 ```
 
 ```sh
-sudo apt upgrade microsoft-edge-beta
+sudo apt remove microsoft-edge-beta
 ```
 
 ```sh
-sudo apt remove microsoft-edge-beta
+sudo apt upgrade microsoft-edge-beta
 ```
 
 ```sh
@@ -199,11 +137,11 @@ sudo apt install microsoft-edge-dev
 ```
 
 ```sh
-sudo apt upgrade microsoft-edge-dev
+sudo apt remove microsoft-edge-stable-dev
 ```
 
 ```sh
-sudo apt remove microsoft-edge-stable-dev
+sudo apt upgrade microsoft-edge-dev
 ```
 
 ```sh
