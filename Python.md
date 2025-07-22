@@ -24,7 +24,7 @@ pip --version
 
 ## 报错汇总
 
-1、解决 Python 没有安装 pip 的问题
+### 解决 Python 没有安装 pip 的问题
 
 ```sh
 Failed to find python3-pip;21.3.1-2.fc36;noarch;fedora
@@ -40,7 +40,7 @@ python -m ensurepip --upgrade
 python -m pip install --upgrade pip
 ```
 
-2、未加入 PATH 路径
+### 未加入 PATH 路径
 
 ```sh
 WARNING: The scripts pip, pip3 and pip3.10 are installed in '/home/pc/.local/bin' which is not on PATH.
@@ -61,6 +61,46 @@ source ~/.bashrc
 
 ```sh
 pip --version
+```
+
+### error: externally-managed-environment
+
+#### 删除
+
+```sh
+sudo rm -rf /usr/lib/python3.x/EXTERNALLY-MANAGED
+```
+
+#### 强制安装
+
+```sh
+pip install --break-system-packages 包名
+```
+
+--break-system-packages：强制安装，可能会导致一些依赖关系丢失或破坏，谨慎使用。
+
+#### 创建虚拟环境
+
+```sh
+python3 -m venv myenv
+```
+
+激活虚拟环境
+
+```sh
+source ~/myenv/bin/activate
+```
+
+#### 安装 pipx
+
+```sh
+sudo apt install pipx
+```
+
+添加到 PATH
+
+```sh
+pipx ensurepath
 ```
 
 ## pip 换镜像源
