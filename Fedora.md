@@ -100,6 +100,45 @@ sudo dnf makecache
 
 > https://help.mirrors.cernet.edu.cn/fedora/
 
+## dnf-automatic
+
+1、安装 dnf-automatic
+
+```sh
+sudo dnf install dnf-automatic
+```
+
+2、编辑
+
+```sh
+sudo vim /etc/dnf/automatic.conf
+```
+
+3、修改为
+
+```sh
+[commands]
+apply_updates = yes
+
+[emitters]
+emit_via = motd
+
+[base]
+debuglevel = 1
+```
+
+4、升级
+
+```sh
+sudo dnf upgrade
+```
+
+5、开机自启动
+
+```sh
+sudo systemctl enable --now dnf-automatic.timer
+```
+
 ## 系统版本升级
 
 1、刷新
