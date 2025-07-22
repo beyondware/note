@@ -248,6 +248,12 @@ flatpak install https://dl.flathub.org/repo/appstream/com.github.tchx84.Flatseal
 
 > 必须全部打勾 ✔ 才能安装成功
 
+## 修复与本地安装的不一致问题
+
+```sh
+flatpak repair
+```
+
 ## 安装包降级
 
 1、获取应用程序ID
@@ -296,7 +302,7 @@ flatpak uninstall --delete-data 应用程序ID
 flatpak uninstall --all --delete-data
 ```
 
-### 卸载未使用的运行时和 Flatpak 软件包
+### 删除已安装应用程序未使用的运行时和扩展
 
 ```sh
 flatpak uninstall --unused
@@ -332,13 +338,13 @@ flatpak search 关键字
 
 ## 列出
 
-### 列出所有
+### 列出已安装的应用程序和运行时
 
 ```sh
 flatpak list
 ```
 
-### 列出已安装
+### 仅列出已安装的应用程序
 
 ```sh
 flatpak list --app
