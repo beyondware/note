@@ -133,11 +133,7 @@ ls /etc | grep bash
 
 ```sh
 sudo vim /etc/bashrc
-```
-
-可能是
-
-```sh
+或者
 sudo vim /etc/bash.bashrc
 ```
 
