@@ -233,36 +233,46 @@ KVM acceleration can be used
 lspci | grep -e VGA -e 3D
 ```
 
-## 查看 Linux 内核
+## 系统架构
+
+### 显示操作系统架构类型
 
 ```sh
-uname -a
+arch
 ```
+
+### 直接显示 Linux 系统架构
 
 ```sh
-hostnamectl | grep -i kernel
+uname -m
 ```
-
-显示详细信息
-
-```sh
-cat /proc/version
-```
-
-系统架构
 
 ```sh
 lsb_release -a
 ```
 
+### 提供更详细的 CPU 信息
+
 ```sh
 lscpu
 ```
 
-## 是否 64 位操作系统
+### 查询 Linux 内核版本
+
+```sh
+hostnamectl | grep -i kernel
+```
+
+### 是否 64 位操作系统
 
 ```sh
 dpkg --print-architecture
+```
+
+### 显示详细信息
+
+```sh
+cat /proc/version
 ```
 
 ## timedatectl 时区
