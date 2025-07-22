@@ -37,3 +37,9 @@ reg.exe delete "HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a
 ```sh
 taskkill /f /im explorer.exe & start explorer.exe
 ```
+
+# 删除桌面右键 UWTSettings
+
+```sh
+REG DELETE "HKEY_CLASSES_ROOT\DesktopBackground\Shell\UWTSettings" /f
+```
