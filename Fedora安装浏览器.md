@@ -85,7 +85,7 @@ wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
 2、安装
 
 ```sh
-sudo dnf install google-chrome-stable_current_x86_64.rpm
+sudo dnf localinstall google-chrome-stable_current_x86_64.rpm
 ```
 
 3、启动
@@ -94,7 +94,7 @@ sudo dnf install google-chrome-stable_current_x86_64.rpm
 google-chrome
 ```
 
-4、删除本地下载包
+4、删除本地包
 
 ```sh
 rm google-chrome-stable_current_x86_64.rpm
@@ -149,7 +149,7 @@ wget https://dl.google.com/linux/direct/google-chrome-beta_current_x86_64.rpm
 2、安装
 
 ```sh
-sudo dnf install google-chrome-beta_current_x86_64.rpm
+sudo dnf localinstall google-chrome-beta_current_x86_64.rpm
 ```
 
 3、删除
@@ -181,7 +181,7 @@ wget https://dl.google.com/linux/direct/google-chrome-unstable_current_x86_64.rp
 2、安装
 
 ```sh
-sudo dnf install google-chrome-unstable_current_x86_64.rpm
+sudo dnf localinstall google-chrome-unstable_current_x86_64.rpm
 ```
 
 3、删除
