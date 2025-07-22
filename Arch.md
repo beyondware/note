@@ -94,12 +94,6 @@ systemctl status sshd
 ps -e | grep sshd
 ```
 
-5、设置 root 密码
-
-```sh
-passwd root
-```
-
 ### 分区
 
 #### 传统 BIOS
@@ -305,6 +299,13 @@ genfstab -U /mnt >> /mnt/etc/fstab
 ```sh
 cat /mnt/etc/fstab
 ```
+
+### 设置 root 密码
+
+```sh
+passwd root
+```
+
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## 进入 chroot 环境
@@ -575,13 +576,15 @@ pacman -S dhcpcd
 systemctl enable dhcpcd
 ```
 
-### 设置 root 密码
-
-- 警告：必须先设置，不然新系统无法登陆
+# 设置 root 密码
 
 ```sh
 passwd root
 ```
+
+警告：必须先设置，不然新系统无法登陆
+
+——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 ### 退出 chroot 环境
 
@@ -724,7 +727,7 @@ sudo systemctl restart sshd
 4、开机启动 ssh
 
 ```sh
-sudo systemctl enable sshd
+sudo systemctl enable --now sshd
 ```
 
 5、查看 ssh 进程
