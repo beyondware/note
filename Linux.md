@@ -211,10 +211,14 @@ hostnamectl | grep -i kernel
 cat /proc/version
 ```
 
-显示所有 lsb 信息
+系统架构
 
 ```sh
 lsb_release -a
+```
+
+```sh
+lscpu
 ```
 
 ## 家目录
