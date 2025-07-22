@@ -4,6 +4,12 @@
 
 > Unit sshd.service could not be found.
 
+## 验证是否已安装 SSH 服务
+
+```sh
+ls /etc | grep ssh
+```
+
 ## Debian
 
 ```sh
@@ -57,8 +63,10 @@ sudo systemctl restart ssh 或者 sudo /etc/init.d/ssh restart 或者 service ss
 5、开机启动 SSH
 
 ```sh
-sudo systemctl enable ssh
+sudo systemctl enable --now sshd
 ```
+
+--now：立即执行
 
 6、禁止开机启动 SSH
 
