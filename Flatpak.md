@@ -248,10 +248,16 @@ flatpak install https://dl.flathub.org/repo/appstream/com.github.tchx84.Flatseal
 
 > 必须全部打勾 ✔ 才能安装成功
 
-## 修复与本地安装的不一致问题
+## 修复 flatpak 安装失败，与本地安装的不一致问题
 
 ```sh
-flatpak repair
+sudo flatpak repair
+```
+
+再重新启动 flatpak 服务
+
+```sh
+sudo systemctl restart flatpak-system-helper.service
 ```
 
 ## 安装包降级
