@@ -227,18 +227,6 @@ sudo snap pack
 sudo snap install 软件包.snap --dangerous
 ```
 
-## 修复 flatpak 安装失败
-
-```sh
-sudo flatpak repair
-```
-
-再重新启动 flatpak 服务
-
-```sh
-sudo systemctl restart flatpak-system-helper.service
-```
-
 # snap help
 
 ```sh
