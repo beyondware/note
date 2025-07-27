@@ -10,15 +10,19 @@ Ctrl+Alt+F7   ##图形界面
 ```sh
 sudo -i
 或者
+su -
+
+PS：切换到 root，切换到路径 /root
+
+su
+或者
+su root
+或者
 sudo su
 或者
 sudo su root
-或者
-su
-或者
-su -
-或者
-su root
+
+PS：切换到 root，切换路径不变。
 ```
 
 ### 切换到 root 失败
@@ -235,44 +239,45 @@ lspci | grep -e VGA -e 3D
 
 ## 系统架构
 
-### 显示操作系统架构类型
+### 显示系统架构
 
-```sh
-arch
-```
-
-### 直接显示 Linux 系统架构
 
 ```sh
 uname -m
 ```
 
 ```sh
+arch
+```
+
+### 是否 64 位操作系统（适用于 Debian）
+
+```sh
+dpkg --print-architecture
+```
+
+### 显示 Linux 内核版本
+
+```sh
+hostnamectl | grep -i kernel
+```
+
+### 显示 Linux 发行版信息
+
+```sh
 lsb_release -a
+```
+
+### 显示更多详情
+
+```sh
+cat /proc/version
 ```
 
 ### 提供更详细的 CPU 信息
 
 ```sh
 lscpu
-```
-
-### 查询 Linux 内核版本
-
-```sh
-hostnamectl | grep -i kernel
-```
-
-### 是否 64 位操作系统
-
-```sh
-dpkg --print-architecture
-```
-
-### 显示详细信息
-
-```sh
-cat /proc/version
 ```
 
 ## timedatectl 时区
