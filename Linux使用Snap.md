@@ -56,13 +56,13 @@ sudo ln -s /var/lib/snapd/snap /snap
 ## 回滚到以前的版本
 
 ```sh
-sudo snap revert 软件名ID
+sudo snap revert appid  //App ID（应用程序标识）
 ```
 
 ## 安装
 
 ```sh
-sudo snap install 软件名ID
+sudo snap install appid
 ```
 
 ### 安装 snap-store（可选）
@@ -86,7 +86,7 @@ snap list
 ## 移除
 
 ```sh
-sudo snap remove 软件名ID
+sudo snap remove appid
 ```
 
 ## 更新
@@ -94,19 +94,19 @@ sudo snap remove 软件名ID
 1、先杀死进程
 
 ```sh
-sudo killall 软件名ID
+sudo killall appid
 ```
 
 2、再更新软件
 
 ```sh
-sudo snap refresh 软件名ID
+sudo snap refresh appid
 ```
 
 3、指定通道版本
 
 ```sh
-sudo snap refresh 软件名 channel=latest/stable
+sudo snap refresh appid channel=latest/stable
 ```
 
 ### 强制更新
@@ -132,7 +132,7 @@ snap refresh --hold=48h
 ## 运行
 
 ```sh
-snap run 软件名ID
+snap run appid
 ```
 
 ## 启用 snap
@@ -217,14 +217,14 @@ sudo rm -rf /var/lib/snapd/cache/*
 sudo snap pack
 ```
 
-# 报错汇总
+# 报错
 
 ## cannot find signatures with metadata for snap
 
 任何未通过 Snap 商店分发的 Snap 包都必须使用 --dangerous 选项进行安装
 
 ```sh
-sudo snap install 软件包.snap --dangerous
+sudo snap install appid.snap --dangerous
 ```
 
 # snap help
