@@ -14,6 +14,14 @@ for more information
 
 解决方法
 
+## Arch
+
 ```sh
 sudo pacman -S fuse2
+```
+
+## Ubuntu
+
+```sh
+sudo apt install libfuse2
 ```
