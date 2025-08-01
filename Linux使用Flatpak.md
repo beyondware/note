@@ -40,14 +40,6 @@ sudo pacman -S flatpak
 
 > https://flatpak.org/setup/
 
-# freedesktop-sdk
-
-## 参考
-
-> https://flathub.org/apps/org.freedesktop.Platform
-
-> https://gitlab.com/freedesktop-sdk/freedesktop-sdk
-
 # Flatpak 构建
 
 ## Fedora
@@ -64,29 +56,15 @@ sudo apt update
 sudo apt install flatpak-builder elfutils
 ```
 
-# Flatpak 运行等级
-
-## 系统
-
-```sh
-flatpak --system（默认）
-```
-
-## 用户
-
-```sh
-flatpak --user 
-```
-
 # 添加存储库
 
-## 添加 Flathub 存储库
+## Flathub 存储库
 
 ```sh
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 ```
 
-如果添加失败，使用如下命令：
+添加失败，使用如下命令：
 
 ```sh
 sudo flatpak remote-modify flathub --url=https://mirrors.ustc.edu.cn/flathub
@@ -102,24 +80,41 @@ flatpak remote-modify --enable flathub
 
 2、XDG_DATA_DIRS is not set on fish shell. No desktop entry appears after install an app.
 
-```sh
-XDG_DATA_DIRS=报错路径1:路径2
-```
-
-- 路径
-
-> /var/lib/flatpak/exports/share
-
-> /home/$USER/.local/share/flatpak/exports/share
+目录不在由 XDG_DATA_DIRS 环境变量设置的搜索路径中，因此通过 Flatpak
+安装的应用在会话重启前可能不会出现在您的桌面。
 
 ```sh
-export XDG_DATA_DIRS
+sudo vim /etc/profile.d/flatpak.sh
 ```
 
-- 重启系统，查看输出结果。
+添加到最后一行
+
+```sh
+export XDG_DATA_DIRS="/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share:$XDG_DATA_DIRS"
+```
+
+刷新
+
+```sh
+source /etc/profile.d/flatpak.sh
+```
+
+重启系统，查看输出结果
 
 ```sh
 echo $XDG_DATA_DIRS
+```
+
+将用户添加到 flatpak 组
+
+```sh
+sudo usermod -aG flatpak $USER
+```
+
+查看是否添加成功
+
+```sh
+id $USER
 ```
 
 3、error: Unable to load summary from remote flathub: Could not connect: 拒绝连接
@@ -146,13 +141,7 @@ sudo flatpak remote-modify flathub --url=https://dl.flathub.org/repo/
 
 > https://mirrors.ustc.edu.cn/help/flathub.html
 
-## 添加 flathub-beta 存储库
-
-```sh
-flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
-```
-
-## 添加 fedora 存储库
+## fedora 存储库
 
 ```sh
 flatpak remote-add --if-not-exists fedora oci+https://registry.fedoraproject.org
@@ -164,13 +153,7 @@ flatpak remote-add --if-not-exists fedora oci+https://registry.fedoraproject.org
 flatpak install fedora 应用程序ID
 ```
 
-## 添加 fedora-testing 存储库
-
-```sh
-flatpak remote-add --if-not-exists fedora-testing oci+https://registry.fedoraproject.org#testing
-```
-
-## 添加 gnome-nightly 存储库
+## gnome-nightly 存储库
 
 ```sh
 flatpak remote-add --if-not-exists gnome-nightly https://nightly.gnome.org/gnome-nightly.flatpakrepo
@@ -186,34 +169,18 @@ flatpak install gnome-nightly 应用程序ID
 
 > https://wiki.gnome.org/Apps/Nightly
 
-## 添加 Nightly KDE apps 存储库
+## KDE apps 存储库
 
-### 参考
+直接从仓库下载
 
 > https://userbase.kde.org/Tutorials/Flatpak
 
 > https://cdn.kde.org/flatpak/
 
-# 查看 Flatpak 存储库
+# 列出 Flatpak 存储库
 
 ```sh
 flatpak remotes
-```
-
-```sh
-flatpak remotes -d
-```
-
-## 参看系统源
-
-```sh
-flatpak remotes --system -d
-```
-
-## 查看用户源
-
-```sh
-flatpak remotes --user -d
 ```
 
 # 删除 Flatpak 存储库
@@ -222,7 +189,7 @@ flatpak remotes --user -d
 flatpak remote-delete 仓库名
 ```
 
-- 例如：删除 flathub
+例如：删除 flathub
 
 ```sh
 flatpak remote-delete flathub
