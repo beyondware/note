@@ -100,6 +100,31 @@ sudo dnf makecache
 
 > https://help.mirrors.cernet.edu.cn/fedora/
 
+## 提高 dnf 速度
+
+1、dnf 配置文件
+
+```sh
+sudo vim /etc/dnf/dnf.conf
+```
+
+2、文件底部追加
+
+```sh
+[main]
+fastestmirror=true             ## 选择最快镜像源
+deltarpm=true                  ## 增量下载
+max_parellel_downloads=10      ## 最大并行下载数量
+```
+
+3、刷新
+
+```sh
+sudo dnf upgrade --refresh
+或者
+sudo dnf makecache
+```
+
 ## dnf-automatic
 
 1、安装 dnf-automatic
@@ -176,33 +201,6 @@ cat /etc/fedora-release
 6、参考
 
 > https://docs.fedoraproject.org/en-US/quick-docs/dnf-system-upgrade/
-
-## 提高 dnf 速度
-
-1、dnf 配置文件
-
-```sh
-sudo vim /etc/dnf/dnf.conf
-```
-
-2、文件底部追加
-
-```sh
-[main]
-fastestmirror=true             ## 选择最快镜像源
-deltarpm=true                  ## 增量下载
-max_parellel_downloads=10      ## 最大并行下载数量
-```
-
-3、刷新
-
-```sh
-sudo dnf upgrade --refresh
-
-或者
-
-sudo dnf makecache
-```
 
 # 家目录
 
