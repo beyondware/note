@@ -28,7 +28,7 @@ openbsd-netcat：用于网络调试和数据传输的工具，支持 TCP 和 UDP
 vde2：一种虚拟交换机，可以将多个虚拟机（本地和远程）连接在一起
 ```
 
-### 选装
+## 选装
 
 ```sh
 sudo pacman -S swtpm ebtables spice-vdagent qemu-guest-agent
