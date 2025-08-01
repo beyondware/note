@@ -1,12 +1,10 @@
+# shell
+
 ## 查看当前 shell
 
 ```sh
 echo $0
-```
-
 或者
-
-```sh
 ps -p $$
 ```
 
@@ -16,36 +14,40 @@ ps -p $$
 cat /etc/shells
 ```
 
+## 设置 zsh 为默认 shell
+
+```sh
+sudo chsh -s /bin/zsh
+```
+
+退出终端，重开才能生效。
+
+# zsh
+
 ## 安装 zsh
 
-安装依赖
+所需依赖
 
 ```sh
 sudo dnf install git wget
 ```
 
-1、安装 zsh
-
 ```sh
 sudo dnf install zsh
 ```
 
-2、设置 zsh 为默认 shell
+## 配置文件
+
+### 全局配置
 
 ```sh
-sudo chsh -s /usr/bin/zsh
+sudo vim /etc/zsh/zprofile
 ```
 
-3、退出终端（重启终端才生效）
+### 用户配置
 
 ```sh
-exit
-```
-
-## zsh 全局配置文件
-
-```sh
-/etc/zsh/zprofile
+sudo vim ~/.zshrc
 ```
 
 ## 安装 oh-my-zsh
