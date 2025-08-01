@@ -1,7 +1,21 @@
-# 删除 bash 历史记录
+# 历史记录
+
+## 删除 bash 历史记录
 
 ```sh
 cat /dev/null > ~/.bash_history && history -c && exit
+```
+
+## 擦拭历史记录
+
+```sh
+sudo pacman -S wipe
+```
+
+执行
+
+```sh
+wipe ~/.bash_history
 ```
 
 # powerline 安装
