@@ -103,10 +103,8 @@ sudo systemctl restart sshd
 ## 开机启动 SSH
 
 ```sh
-sudo systemctl enable --now ssh
+sudo systemctl enable ssh
 ```
-
---now：立即执行
 
 ### 报错
 
@@ -115,8 +113,10 @@ Failed to enable unit: Unit ssh.service does not exist
 ```
 
 ```sh
-sudo systemctl enable sshd
+sudo systemctl enable --now sshd
 ```
+
+--now：立即执行
 
 ## 禁止开机启动 SSH
 
@@ -156,10 +156,10 @@ sudo vim /etc/ssh/sshd_config
 PermitRootLogin yes
 ```
 
-3、重启 ssh
+3、立即自启动 ssh
 
 ```sh
-sudo systemctl restart ssh
+sudo systemctl enable --now ssh
 ```
 
 ## 报错二
@@ -178,10 +178,10 @@ sudo vim /etc/ssh/sshd_config
 PasswordAuthentication yes（去掉前面#）
 ```
 
-3、重启 ssh
+3、立即自启动 ssh
 
 ```sh
-sudo systemctl restart ssh
+sudo systemctl enable --now ssh
 ```
 
 ## 如果仍然无法远程连接
