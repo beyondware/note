@@ -1,3 +1,9 @@
+# 删除 bash 历史记录
+
+```sh
+cat /dev/null > ~/.bash_history && history -c && exit
+```
+
 # powerline 安装
 
 ## 安装依赖
