@@ -165,11 +165,17 @@ flatpak remote-add --if-not-exists gnome-nightly https://nightly.gnome.org/gnome
 flatpak install gnome-nightly 应用程序ID
 ```
 
+### 列出所有
+
+```sh
+flatpak remote-ls --app gnome-nightly
+```
+
 ### 参考
 
 > https://wiki.gnome.org/Apps/Nightly
 
-## KDE apps 存储库
+## KDE 存储库
 
 直接从仓库下载
 
@@ -215,10 +221,10 @@ flatpak install https://dl.flathub.org/repo/appstream/com.github.tchx84.Flatseal
 
 > 必须全部打勾 ✔ 才能安装成功
 
-## 修复 flatpak 安装失败，与本地安装的不一致问题
+## 安装失败，修复与本地安装不一致问题
 
 ```sh
-sudo flatpak repair
+flatpak repair
 ```
 
 再重新启动 flatpak 服务
@@ -229,7 +235,7 @@ sudo systemctl restart flatpak-system-helper.service
 
 ## 安装包降级
 
-1、获取应用程序ID
+1、获取appid
 
 ```sh
 flatpak list --app
@@ -255,7 +261,7 @@ flatpak update
 
 ## 卸载
 
-### 卸载指定软件
+### 卸载软件
 
 ```sh
 flatpak uninstall 应用程序ID
@@ -263,7 +269,7 @@ flatpak uninstall 应用程序ID
 
 > Uninstall complete. //卸载完成
 
-### 卸载指定软件和 Flatpak 相关数据
+### 卸载软件和 Flatpak 相关数据
 
 ```sh
 flatpak uninstall --delete-data 应用程序ID
@@ -275,7 +281,7 @@ flatpak uninstall --delete-data 应用程序ID
 flatpak uninstall --all --delete-data
 ```
 
-### 删除已安装应用程序未使用的运行时和扩展
+### 删除已安装但未使用的应用程序运行时和扩展
 
 ```sh
 flatpak uninstall --unused
@@ -297,7 +303,7 @@ flatpak run 应用程序ID
 flatpak update
 ```
 
-### 更新指定软件
+### 更新软件
 
 ```sh
 flatpak update --app 应用程序ID
@@ -329,13 +335,13 @@ flatpak list --app
 flatpak --columns=app,name,size,installation list
 ```
 
-## 详细信息
+## 查看详细信息
 
 ```sh
 flatpak info 应用程序ID
 ```
 
-## 删除缓存文件
+## 删除缓存
 
 ```sh
 sudo rm -rf /var/tmp/flatpak-cache-*
