@@ -79,38 +79,6 @@ visudo
 %sudo ALL=(ALL:ALL) NOPASSWD:ALL
 ```
 
-## 查看当前 shell
-
-```sh
-echo $SHELL
-或者
-echo $0
-或者
-ps -p $$
-```
-
-### 修改 shell
-
-1、查看系统中所有可用的 shell
-
-```sh
-cat /etc/shells
-```
-
-2、更改默认 shell
-
-```sh
-chsh -s /bin/bash
-```
-
-3、重启系统才会生效。
-
-## 删除 bash 历史记录
-
-```sh
-cat /dev/null > ~/.bash_history && history -c && exit
-```
-
 ## 删除 zsh 历史记录
 
 1、编辑用户配置文件
