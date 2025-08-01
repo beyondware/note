@@ -1,6 +1,4 @@
-# Arch
-
-1、是否虚拟化
+# 是否虚拟化
 
 ```sh
 LC_ALL=C lscpu | grep Virtualization
@@ -10,10 +8,12 @@ LC_ALL=C lscpu | grep Virtualization
 
 > Virtualization:     VT-x
 
-2、安装
+# Arch
+
+## 安装
 
 ```sh
-sudo pacman -S qemu-full libvirt virt-manager virt-install virt-viewer bridge-utils dnsmasq openbsd-netcat
+sudo pacman -S qemu-full qemu-emulators-full libvirt virt-manager virt-install virt-viewer bridge-utils dnsmasq openbsd-netcat vde2
 ```
 
 ```sh
@@ -25,23 +25,25 @@ virt-viewer：轻量级的远程查看工具
 bridge-utils：提供桥接网络的管理工具
 dnsmasq：为虚拟机提供 NAT 网络连接
 openbsd-netcat：用于网络调试和数据传输的工具，支持 TCP 和 UDP 协议
+vde2：一种虚拟交换机，可以将多个虚拟机（本地和远程）连接在一起
 ```
 
-3、选装
+### 选装
 
 ```sh
-sudo pacman -S swtpm vde2 ebtables spice-vdagent qemu-guest-agent
+sudo pacman -S swtpm ebtables spice-vdagent qemu-guest-agent
 ```
 
 ```sh
 swtpm：允许虚拟机使用 TPM 功能而不需要物理硬件支持，例如：安装 Windows 11
-vde2：高级虚拟网络配置
 ebtables：用户空间工具，用于管理 Linux 内核的网桥过滤表
 spice-vdagent：提供剪贴板共享、文件拖放等功能
 qemu-guest-agent：提供虚拟机与宿主机之间的管理和通信能力
 ```
 
-4、启动 libvirtd 服务
+## libvirt
+
+### 启动 libvirtd 服务
 
 ```sh
 sudo systemctl start libvirtd
@@ -49,13 +51,13 @@ sudo systemctl start libvirtd
 sudo service libvirtd start
 ```
 
-5、开机自启动 libvirtd 服务
+### 开机自启动 libvirtd 服务
 
 ```sh
 sudo systemctl enable --now libvirtd
 ```
 
-6、编辑
+### 编辑
 
 ```sh
 sudo vim /etc/libvirt/libvirtd.conf
@@ -68,13 +70,7 @@ unix_sock_group = 'libvirt'
 unix_sock_rw_perms = '0770'
 ```
 
-7、将用户名添加到 libvirt 组
-
-```sh
-sudo usermod $USER -aG libvirt,kvm
-```
-
-8、验证 libvirt
+### 验证 libvirt
 
 ```sh
 virsh version
@@ -89,13 +85,15 @@ virsh version
 运行管理程序: QEMU 9.2.3
 ```
 
-9、运行 virt-manager
+### 将用户名添加到 libvirt 和 kvm 组
 
 ```sh
-virt-manager
+sudo usermod $USER -aG libvirt,kvm
 ```
 
-10、启动虚拟网络
+## virsh
+
+### 启动虚拟网络
 
 ```sh
 pacman -Ql libvirt | grep networks
@@ -109,43 +107,65 @@ sudo virsh net-define /etc/libvirt/qemu/networks/default.xml
 
 > 从 default定义网络/etc/libvirt/qemu/networks/default.xml
 
-11、开机自启动
+### 默认虚拟网络设置
+
+```sh
+sudo EDITOR=vim virsh net-edit default
+```
+
+### 重启 libvirtd 使网络配置生效
+
+```sh
+sudo systemctl restart libvirtd
+```
+
+### 启动默认虚拟网络
+
+```sh
+sudo virsh net-start default
+```
+
+### 默认虚拟网络开机自启动
 
 ```sh
 sudo virsh net-autostart default
 ```
 
-# Fedora
-
-1、是否虚拟化
+### 查看所有虚拟网络状态（包括 default 网络）
 
 ```sh
-LC_ALL=C lscpu | grep Virtualization
+sudo virsh net-list --all
 ```
 
-输出结果
+## 运行 virt-manager
 
-> Virtualization:     VT-x
+```sh
+virt-manager
+```
 
-2、安装
+# Fedora
+
+## 安装
 
 ```sh
 sudo dnf install qemu-kvm virt-manager libvirt virt-viewer virt-install swtpm swtpm-tools
 ```
 
-3、启动 libvirtd 服务
+## libvirt
+
+### 启动 libvirtd 服务
 
 ```sh
 sudo systemctl start libvirtd
 ```
 
-4、开机自启动 libvirtd 服务
+### 开机自启动 libvirtd 服务
 
 ```sh
 sudo systemctl enable --now libvirtd
 ```
 
-5、编辑
+### 编辑
 
 ```sh
 sudo vim /etc/libvirt/libvirtd.conf
@@ -158,7 +178,7 @@ unix_sock_group = 'libvirt'
 unix_sock_rw_perms = '0770'
 ```
 
-6、将用户名添加到 libvirt 组
+### 将用户名添加到 libvirt 和 kvm 组
 
 ```sh
 sudo usermod -aG libvirt $USER
@@ -171,7 +191,7 @@ sudo usermod -aG kvm $USER
 id $USER
 ```
 
-7、验证 libvirt
+### 验证 libvirt
 
 ```sh
 virsh version
@@ -186,54 +206,55 @@ Using API: QEMU 10.0.0
 Running hypervisor: QEMU 8.2.2
 ```
 
-8、运行 virt-manager
+## 运行 virt-manager
 
 ```sh
 virt-manager
 ```
 
-9、宿主机和虚拟机之间共享粘贴板
+## 宿主机和虚拟机之间共享粘贴板
+
+### 安装 spice-vdagent
 
 ```sh
 sudo dnf install spice-vdagent
 ```
 
+### 启动
+
 ```sh
 sudo systemctl start spice-vdagent
+```
+
+### 开机自启动
+
+```sh
 sudo systemctl enable --now spice-vdagent
 ```
 
 # Ubuntu
 
-1、是否虚拟化
-
-```sh
-LC_ALL=C lscpu | grep Virtualization
-```
-
-输出结果
-
-> Virtualization:     VT-x
-
-2、安装
+## 安装
 
 ```sh
 sudo apt install virt-manager qemu-system qemu-utils libvirt-daemon-system libvirt-clients bridge-utils swtpm swtpm-tools 
 ```
 
-3、启动 libvirtd 服务
+## libvirt
+
+### 启动 libvirtd 服务
 
 ```sh
 sudo systemctl start libvirtd
 ```
 
-4、开机自启动 libvirtd 服务
+### 开机自启动 libvirtd 服务
 
 ```sh
 sudo systemctl enable --now libvirtd
 ```
 
-5、编辑
+### 编辑
 
 ```sh
 sudo vim /etc/libvirt/libvirtd.conf
@@ -246,7 +267,7 @@ unix_sock_group = 'libvirt'
 unix_sock_rw_perms = '0770'
 ```
 
-6、将用户名添加到 libvirt 组
+### 将用户名添加到 libvirt 和 kvm 组
 
 ```sh
 sudo usermod -aG libvirt $USER
@@ -259,13 +280,13 @@ sudo usermod -aG kvm $USER
 id $USER
 ```
 
-7、检查内核模块
+## 检查内核模块
 
 ```sh
 lsmod | grep kvm
 ```
 
-9、运行 virt-manager
+## 运行 virt-manager
 
 ```sh
 virt-manager
@@ -300,6 +321,16 @@ WARNING : KVM 不可用。这可能是因为没有安装 KVM 软件包，或者�
 ```
 
 解决方法：开启虚拟化
+
+是否虚拟化
+
+```sh
+LC_ALL=C lscpu | grep Virtualization
+```
+
+输出结果
+
+> Virtualization:     VT-x
 
 ## 报错3
 
