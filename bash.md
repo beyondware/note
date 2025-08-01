@@ -1,3 +1,27 @@
+# shell
+
+## 查看当前 shell
+
+```sh
+echo $0
+或者
+ps -p $$
+```
+
+## 列出已安装 shell
+
+```sh
+cat /etc/shells
+```
+
+## 设置 bash 为默认 shell
+
+```sh
+sudo chsh -s /bin/bash
+```
+
+退出终端，重开才能生效。
+
 # 历史记录
 
 ## 删除 bash 历史记录
