@@ -20,6 +20,36 @@ sudo chsh -s /bin/zsh
 
 退出终端，重开才能生效。
 
+# 删除 zsh 历史记录
+
+1、编辑用户配置文件
+
+```sh
+sudo vim ~/.zshrc
+```
+
+2、修改
+
+```sh
+#历史纪录文件
+HISTFILE=~/.zsh_history
+
+#历史纪录条数
+HISTSIZE=10000
+
+#终端退出后，保存的历史纪录条数（改成0，退出终端zsh历史记录清除）
+SAVEHIST=0
+
+## 每个终端，共享历史记录
+setopt share_history
+```
+
+3、刷新
+
+```sh
+source ~/.zshrc
+```
+
 # zsh
 
 ## 安装 zsh
