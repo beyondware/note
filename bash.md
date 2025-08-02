@@ -3,6 +3,8 @@
 ## 查看当前 shell
 
 ```sh
+echo $SHELL
+或者
 echo $0
 或者
 ps -p $$
@@ -21,6 +23,12 @@ sudo chsh -s /bin/bash
 ```
 
 退出终端，重开才能生效。
+
+## 如果执行不生效
+
+```sh
+sudo usermod -s /bin/bash $USER
+```
 
 # 历史记录
 
