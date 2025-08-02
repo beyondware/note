@@ -3,9 +3,7 @@
 ## 查看当前 shell
 
 ```sh
-echo $0
-或者
-ps -p $$
+echo $SHELL
 ```
 
 ## 列出已安装 shell
