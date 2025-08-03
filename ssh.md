@@ -26,7 +26,7 @@ ls /etc | grep ssh
 
 # 运行 ssh
 
-> sshd（Arch、Fedora）或者 ssh（Debian），具体情况而定。
+> 提醒：sshd（Arch、Fedora）或者 ssh（Debian），具体情况而定。
 
 ## 当前 ssh 状态
 
