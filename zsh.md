@@ -50,33 +50,27 @@ setopt share_history
 source ~/.zshrc
 ```
 
-# zsh
-
-## 安装 zsh
-
-所需依赖
+# 安装 zsh
 
 ```sh
-sudo dnf install git wget
+sudo pacman -S zsh
 ```
 
-```sh
-sudo dnf install zsh
-```
+# 配置文件
 
-## 配置文件
-
-### 全局配置
+## 全局配置
 
 ```sh
 sudo vim /etc/zsh/zprofile
 ```
 
-### 用户配置
+## 用户配置
 
 ```sh
 sudo vim ~/.zshrc
 ```
+
+# 插件
 
 ## 安装 oh-my-zsh
 
@@ -203,7 +197,7 @@ zsh-syntax-highlighting
 )
 ```
 
-### incr（自动补全、可选）
+### incr（自动补全）
 
 1、新建
 
