@@ -118,7 +118,7 @@ sudo systemctl enable --now sshd
 sudo systemctl disable ssh
 ```
 
-## 查看 SSH 进程
+# 查看 ssh 进程
 
 ```sh
 ps -e | grep ssh
