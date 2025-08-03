@@ -217,14 +217,14 @@ passwd -d $USER
 ## 检查用户是否为空密码
 
 ```sh
-paddwd -S $USER
+passwd -S $USER
 ```
 
 输入结果：Empty password，表示空密码。
 
-## 系统所有空密码的用户
+## 所有空密码的用户
 
 ```sh
-awk -F ':' '{if($2=="") print $0 }' /etc/shadow
+sudo awk -F ':' '{if($2=="") print $0 }' /etc/shadow
 ```
 
