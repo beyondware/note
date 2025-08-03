@@ -32,9 +32,11 @@ sudo pacman -S flatpak
 
 ## 参考
 
-> https://docs.flatpak.org/en/latest/
+https://docs.flatpak.org/en/latest/
 
-> https://flatpak.org/setup/
+https://flatpak.org/setup/
+
+https://wiki.archlinux.org/title/Flatpak
 
 # 添加存储库
 
