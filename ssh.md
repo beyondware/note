@@ -192,7 +192,7 @@ PasswordAuthentication yes（去掉前面#）
 sudo systemctl enable --now sshd
 ```
 
-# ssh 配置
+# ssh 配置文件
 
 ```sh
 sudo vim /etc/ssh/sshd_config
