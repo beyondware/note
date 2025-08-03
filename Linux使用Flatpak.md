@@ -38,13 +38,7 @@ https://flatpak.org/setup/
 
 https://wiki.archlinux.org/title/Flatpak
 
-# 添加存储库
-
-## Flathub 存储库
-
-```sh
-flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-```
+# 第三方存储库
 
 ## fedora 存储库
 
