@@ -27,10 +27,6 @@ sudo dnf install flatpak
 ## Arch
 
 ```sh
-sudo pacman -Syyu
-```
-
-```sh
 sudo pacman -S flatpak
 ```
 
@@ -40,22 +36,6 @@ sudo pacman -S flatpak
 
 > https://flatpak.org/setup/
 
-# Flatpak 构建
-
-## Fedora
-
-```sh
-sudo dnf install flatpak-builder
-```
-
-## Ubuntu
-
-```sh
-sudo add-apt-repository ppa:alexlarsson/flatpak
-sudo apt update
-sudo apt install flatpak-builder elfutils
-```
-
 # 添加存储库
 
 ## Flathub 存储库
@@ -63,83 +43,6 @@ sudo apt install flatpak-builder elfutils
 ```sh
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 ```
-
-添加失败，使用如下命令：
-
-```sh
-sudo flatpak remote-modify flathub --url=https://mirrors.ustc.edu.cn/flathub
-```
-
-### 报错汇总
-
-1、"error: Unable to load summary from remote flathub: Can't fetch summary from disabled remote 'flathub,"
-
-```sh
-flatpak remote-modify --enable flathub
-```
-
-2、XDG_DATA_DIRS is not set on fish shell. No desktop entry appears after install an app.
-
-目录不在由 XDG_DATA_DIRS 环境变量设置的搜索路径中，因此通过 Flatpak
-安装的应用在会话重启前可能不会出现在您的桌面。
-
-```sh
-sudo vim /etc/profile.d/flatpak.sh
-```
-
-添加到最后一行
-
-```sh
-export XDG_DATA_DIRS="/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share:$XDG_DATA_DIRS"
-```
-
-刷新
-
-```sh
-source /etc/profile.d/flatpak.sh
-```
-
-重启系统，查看输出结果
-
-```sh
-echo $XDG_DATA_DIRS
-```
-
-将用户添加到 flatpak 组
-
-```sh
-sudo usermod -aG flatpak $USER
-```
-
-查看是否添加成功
-
-```sh
-id $USER
-```
-
-3、error: Unable to load summary from remote flathub: Could not connect: 拒绝连接
-
-网络问题，需多次安装尝试。
-
-4、Warning: org.freedesktop.Platform.openh264 not installed
-
-```sh
-flatpak install flathub org.freedesktop.Platform.openh264
-```
-
-5、error: Unable to load summary from remote flathub: Server returned status 308: Unknown Error
-
-换回官方源试试
-
-```sh
-sudo flatpak remote-modify flathub --url=https://dl.flathub.org/repo/
-```
-
-### 参考
-
-> https://mirror.sjtu.edu.cn/docs/flathub
-
-> https://mirrors.ustc.edu.cn/help/flathub.html
 
 ## fedora 存储库
 
@@ -292,7 +195,7 @@ flatpak remove --unused
 ## 运行 flatpak
 
 ```sh
-flatpak run 应用程序ID
+flatpak run appid
 ```
 
 ## 更新
