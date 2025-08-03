@@ -92,19 +92,15 @@ flatpak remote-ls --app gnome-nightly
 flatpak remotes
 ```
 
-# 删除 Flatpak 存储库
-
-```sh
-flatpak remote-delete 仓库名
-```
-
-例如：删除 flathub
-
-```sh
-flatpak remote-delete flathub
-```
-
 # flatpak 常用命令
+
+## 列出已配置的 Flatpak 仓库中的可用软件包
+
+```sh
+flatpak remote-ls
+```
+
+--updates：只显示有更新的内容
 
 ## 安装
 
@@ -136,9 +132,9 @@ flatpak repair
 sudo systemctl restart flatpak-system-helper.service
 ```
 
-## 安装包降级
+## 降级
 
-1、获取appid
+1、获取 appid
 
 ```sh
 flatpak list --app
@@ -147,16 +143,16 @@ flatpak list --app
 2、列出以前的版本并获取对应<Commit值>
 
 ```sh
-flatpak remote-info --log flathub 应用程序ID
+flatpak remote-info --log flathub appid
 ```
 
-3、降级 Flatpack 包
+3、降级包
 
 ```sh
-sudo flatpak update --commit=<Commit值> 应用程序ID
+sudo flatpak update --commit=<Commit值> appid
 ```
 
-4、检查是否降级软件包
+4、检查是否降级成功
 
 ```sh
 flatpak update
@@ -167,15 +163,15 @@ flatpak update
 ### 卸载软件
 
 ```sh
-flatpak uninstall 应用程序ID
+flatpak uninstall appid
 ```
 
 > Uninstall complete. //卸载完成
 
-### 卸载软件和 Flatpak 相关数据
+### 卸载软件和 Flatpak 相关数据（推荐）
 
 ```sh
-flatpak uninstall --delete-data 应用程序ID
+flatpak uninstall --delete-data appid
 ```
 
 ### 卸载所有和 Flatpak 相关数据
@@ -209,7 +205,7 @@ flatpak update
 ### 更新软件
 
 ```sh
-flatpak update --app 应用程序ID
+flatpak update --app appid
 ```
 
 ## 搜索
@@ -241,7 +237,7 @@ flatpak --columns=app,name,size,installation list
 ## 查看详细信息
 
 ```sh
-flatpak info 应用程序ID
+flatpak info appid
 ```
 
 ## 删除缓存
