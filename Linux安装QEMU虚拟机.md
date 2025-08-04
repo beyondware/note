@@ -276,33 +276,40 @@ virt-manager
 
 # 报错
 
-## 报错1
+## libvirtd 守护进程未运行
 
 ```sh
 Unable to connect to libvirt qemu:///system
-Verify that the 'libvirtd' daemon is running.
-请验证 'libvirtd' 守护进程是否正在运行。
+Verify that the 'libvirtd' daemon is running.  ##请验证 'libvirtd' 守护进程是否正在运行。
 ```
 
-1、启动 libvirtd 服务
+1、查看 libvirtd 当前状态
+
+```sh
+sudo systemctl status libvirtd
+```
+
+2、如果未运行，启动 libvirtd 服务
 
 ```sh
 sudo systemctl start libvirtd
 ```
 
-2、启动 libvirtd 服务后，仍报错，需提权
+3、开机自启动
+
+```sh
+sudo systemctl enable --now libvirtd
+```
+
+4、启动 libvirtd 服务后，仍报错，需提权
 
 ```sh
 sudo chmod 777  /var/run/libvirt/libvirt-sock
 ```
 
-## 报错2
+## 系统虚拟化未开启
 
-```sh
-WARNING : KVM 不可用。这可能是因为没有安装 KVM 软件包，或者没有载入 KVM 内核模块。您的虚拟机可能性很差。
-```
-
-解决方法：开启虚拟化
+> WARNING : KVM 不可用。这可能是因为没有安装 KVM 软件包，或者没有载入 KVM 内核模块。您的虚拟机可能性很差。
 
 是否虚拟化
 
@@ -314,14 +321,11 @@ LC_ALL=C lscpu | grep Virtualization
 
 > Virtualization:     VT-x
 
-## 报错3
+## 网络未激活
 
-```sh
-Error starting domain: Requested operation is not valid: network 'default' is not active
-启动域时出错: 所需操作无效：网络 ‘default’ 未激活
-```
+> Error starting domain: Requested operation is not valid: network 'default' is not active   ##启动域时出错: 所需操作无效：网络 ‘default’ 未激活
 
-1、确实是否处于非活动状态
+1、是否处于非活动状态
 
 ```sh
 sudo virsh net-list --all
