@@ -248,7 +248,7 @@ sudo systemctl start spice-vdagent
 sudo systemctl enable --now spice-vdagent
 ```
 
-# Ubuntu
+# Debian
 
 ## 安装
 
