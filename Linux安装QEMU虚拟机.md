@@ -341,6 +341,28 @@ sudo virsh net-start --network default
 sudo virsh net-autostart default
 ```
 
+## 未连接到 hypervisor
+
+> error: failed to connect to the hypervisor  ##错误：未连接到 hypervisor
+
+1、查看 libvirtd 当前状态
+
+```sh
+sudo systemctl status libvirtd
+```
+
+2、如果未运行，启动 libvirtd 服务
+
+```sh
+sudo systemctl start libvirtd
+```
+
+3、开机自启动
+
+```sh
+sudo systemctl enable --now libvirtd
+```
+
 # 分辨率
 
 Video Virtio > Model - Virtio
