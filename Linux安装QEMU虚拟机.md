@@ -307,6 +307,43 @@ id $USER
 ```sh
 virt-manager
 ```
+## VirGL——半虚拟化 3D 图形加速技术
+
+1、安装 virglrenderer
+
+```sh
+sudo apt install libvirglrenderer-dev libvirglrenderer1 virgl-server
+```
+
+参考
+
+https://tracker.debian.org/pkg/virglrenderer
+
+2、编辑 xml 配置文件
+
+```sh
+sudo EDITOR=vim virsh net-edit default
+```
+
+去掉所有 <video></video> 与 <graphics></graphics> 的区块，替换为
+
+```xml
+<graphics type="spice" autoport="yes">
+  <listen type="address"/>
+</graphics>
+<graphics type="egl-headless">
+  <gl rendernode="/dev/dri/renderD128"/>
+</graphics>
+
+<video>
+  <model type="virtio" heads="1" primary="yes">
+    <acceleration accel3d="yes"/>
+  </model>
+  <address type="pci" domain="0x0000" bus="0x00" slot="0x01" function="0x0"/>
+</video>
+```
+
+3、启动虚拟机，在虚拟机内部使用 glxinfo | grep OpenGL 确认 VirGL 是否成功启用。
 
 # 报错
 
