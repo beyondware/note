@@ -12,7 +12,7 @@ sudo dnf upgrade --refresh
 dnf repolist | grep rpmfusion
 ```
 
-3、查看存储库列表
+3、列出所有存储库
 
 ```sh
 dnf repolist
