@@ -1,4 +1,4 @@
-## 系统
+# 系统
 
 1、升级
 
@@ -18,29 +18,37 @@ dnf repolist | grep rpmfusion
 dnf repolist
 ```
 
-## Fedora
+# Fedora
+
+## free
 
 ```sh
 sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
 ```
 
+## nonfree
+
 ```sh
 sudo dnf install https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 ```
 
-## Silverblue、Kinoite、CoreOS
+# Silverblue、Kinoite、CoreOS
+
+## free
 
 ```sh
 sudo rpm-ostree install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
 ```
 
+## nonfree
+
 ```sh
 sudo rpm-ostree install https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 ```
 
-## Rocky、CentOS Stream
+# Rocky、CentOS
 
-### EPEL
+## EPEL
 
 1、启用 CRB 存储库
 
@@ -54,15 +62,13 @@ sudo dnf config-manager --set-enabled crb
 sudo dnf install --nogpgcheck https://dl.fedoraproject.org/pub/epel/epel-release-latest-$(rpm -E %rhel).noarch.rpm
 ```
 
-- CentOS Stream 需要添加，Rocky 不需要
+CentOS 额外添加，Rocky 不需要
 
 ```
 sudo dnf install --nogpgcheck https://dl.fedoraproject.org/pub/epel/epel-next-release-latest-$(rpm -E %rhel).noarch.rpm
 ```
 
-### RPM Fusion
-
-1、安装
+## RPM Fusion
 
 ```sh
 sudo dnf install --nogpgcheck https://mirrors.rpmfusion.org/free/el/rpmfusion-free-release-$(rpm -E %rhel).noarch.rpm
@@ -90,66 +96,9 @@ sudo dnf groupupdate multimedia --setop="install_weak_deps=False" --exclude=Pack
 sudo dnf groupupdate sound-and-video
 ```
 
-2、删除
+# 参考
 
-```sh
-rpm -qa 'rpmfusion*'
-```
+https://docs.fedoraproject.org/en-US/epel/
 
-```sh
-sudo dnf remove rpmfusion-free-release
-```
+https://rpmfusion.org/Configuration
 
-```sh
-sudo dnf remove rpmfusion-nonfree-release
-```
-
-### RPM Fusion Testing Updates
-
-1、启用
-
-```sh
-sudo dnf config-manager --set-enabled rpmfusion-free-updates-testing
-```
-
-```sh
-sudo dnf config-manager --set-enabled rpmfusion-nonfree-updates-testing
-```
-
-2、禁用
-
-```sh
-sudo dnf config-manager --set-disabled rpmfusion-free-updates-testing
-```
-
-```sh
-sudo dnf config-manager --set-disabled rpmfusion-nonfree-updates-testing
-```
-
-### RPM Fusion Tainted
-
-1、安装
-
-```sh
-sudo dnf install rpmfusion-free-release-tainted
-```
-
-```sh
-sudo dnf install rpmfusion-nonfree-release-tainted
-```
-
-2、删除
-
-```sh
-sudo dnf remove rpmfusion-free-release-tainted
-```
-
-```sh
-sudo dnf remove rpmfusion-nonfree-release-tainted
-```
-
-## 参考
-
-> https://docs.fedoraproject.org/en-US/epel/
-
-> https://rpmfusion.org/Configuration
