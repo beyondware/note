@@ -13,32 +13,23 @@ LC_ALL=C lscpu | grep Virtualization
 ## 安装
 
 ```sh
-sudo pacman -S qemu-full qemu-emulators-full libvirt virt-manager virt-install virt-viewer bridge-utils dnsmasq openbsd-netcat vde2
+sudo pacman -S qemu-full qemu-emulators-full qemu-guest-agent libvirt virt-install virt-viewer virt-manager dnsmasq vde2 bridge-utils openbsd-netcat swtpm ebtables spice-vdagent 
 ```
 
 ```sh
-qemu-full 或者 qemu-base：通用硬件模拟器和虚拟机管理器
+qemu-full（包含 qemu-emulators-full、qemu-base、qemu-desktop）：通用硬件模拟器和虚拟机管理器
+qemu-guest-agent：提供虚拟机与宿主机之间的管理和通信能力
 libvirt：管理虚拟化平台工具
-virt-manager：图形化的虚拟机管理工具
 virt-install：命令行工具，用于创建虚拟机
 virt-viewer：轻量级的远程查看工具
-bridge-utils：提供桥接网络的管理工具
+virt-manager：图形化的虚拟机管理工具
 dnsmasq：为虚拟机提供 NAT 网络连接
-openbsd-netcat：用于网络调试和数据传输的工具，支持 TCP 和 UDP 协议
 vde2：一种虚拟交换机，可以将多个虚拟机（本地和远程）连接在一起
-```
-
-## 选装
-
-```sh
-sudo pacman -S swtpm ebtables spice-vdagent qemu-guest-agent
-```
-
-```sh
+bridge-utils：提供桥接网络的管理工具
+openbsd-netcat：用于网络调试和数据传输的工具，支持 TCP 和 UDP 协议
 swtpm：允许虚拟机使用 TPM 功能而不需要物理硬件支持，例如：安装 Windows 11
 ebtables：用户空间工具，用于管理 Linux 内核的网桥过滤表
 spice-vdagent：提供剪贴板共享、文件拖放等功能
-qemu-guest-agent：提供虚拟机与宿主机之间的管理和通信能力
 ```
 
 ## libvirt
