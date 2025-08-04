@@ -70,27 +70,31 @@ sudo dnf install --nogpgcheck https://dl.fedoraproject.org/pub/epel/epel-next-re
 
 ## RPM Fusion
 
+### free
+
 ```sh
 sudo dnf install --nogpgcheck https://mirrors.rpmfusion.org/free/el/rpmfusion-free-release-$(rpm -E %rhel).noarch.rpm
 ```
+
+### nonfree
 
 ```sh
 sudo dnf install --nogpgcheck https://mirrors.rpmfusion.org/nonfree/el/rpmfusion-nonfree-release-$(rpm -E %rhel).noarch.rpm
 ```
 
-- 安装 RPM Fusion AppStream 元数据，为 GNOME 和 KDE Discover 提供软件包
+安装 RPM Fusion AppStream 元数据，为 GNOME 和 KDE Discover 提供软件包
 
 ```sh
 sudo dnf groupupdate core
 ```
 
-- 启用 GStreamer 的应用程序安装多媒体包
+启用 GStreamer 的应用程序安装多媒体包
 
 ```sh
 sudo dnf groupupdate multimedia --setop="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin
 ```
 
-- 安装某些应用程序所需的声音和视频包
+安装某些应用程序所需的声音和视频包
 
 ```sh
 sudo dnf groupupdate sound-and-video
