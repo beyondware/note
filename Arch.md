@@ -584,7 +584,7 @@ passwd root
 
 警告：必须先设置，不然新系统无法登陆
 
-——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+———————————————————————————————————————————————————————————————————————————————————————————————
 
 ### 退出 chroot 环境
 
@@ -691,49 +691,6 @@ sudo vim /etc/sudoers
 
 ```sh
 :wq!
-```
-
-### ssh 登陆
-
-1、报错信息，禁止远程登陆
-
-```sh
-All configured authentication methods failed
-Remote rejected opening a shell channel: Error: Not connected
-```
-
-2、编辑
-
-```sh
-sudo vim /etc/ssh/sshd_config
-```
-
-```sh
-PermitRootLogin prohibit-password
-```
-
-改成
-
-```sh
-PermitRootLogin yes
-```
-
-3、重新启动 ssh
-
-```sh
-sudo systemctl restart sshd
-```
-
-4、开机启动 ssh
-
-```sh
-sudo systemctl enable --now sshd
-```
-
-5、查看 ssh 进程
-
-```sh
-ps -e | grep sshd
 ```
 
 ### 自定义内核
@@ -946,20 +903,6 @@ sudo pacman -S noto-fonts-cjk noto-fonts-extra
 
 > https://wiki.archlinux.org/title/Display_manager
 
-- 报错信息
-
-```sh
-warning: failed to retrieve some files
-error: failed to commit transaction (failed to retrieve some files)
-Errors occurred, no packages were upgraded.
-```
-
-- 数据同步
-
-```sh
-sudo pacman -Syy
-```
-
 #### GNOME
 
 > https://wiki.archlinux.org/title/GNOME
@@ -1056,92 +999,6 @@ sudo systemctl start lightdm
 ```sh
 sudo systemctl enable lightdm
 ```
-
-##### XFCE 报错信息
-
-```sh
-Job for lightdm.service failed because the control process exited with error code.
-See "systemctl status lightdm.service" and "journalctl -xeu lightdm.service" for details.
-```
-
-##### XFCE 设置分辨率
-
-> 显示（Display）→分辨率（Resolution）
-
-## 中文输入法
-
-### ibus
-
-1、安装
-
-```sh
-sudo pacman -S ibus ibus-libpinyin
-```
-
-2、编辑
-
-```sh
-sudo vim $HOME/.xprofile
-```
-
-- 添加
-
-```sh
-export GTK_IM_MODULE=ibus
-export XMODIFIERS=@im=ibus
-export QT_IM_MODULE=ibus
-ibus-daemon -x -d
-```
-
-3、刷新（重启生效）
-
-```sh
-source $HOME/.xprofile
-```
-
-4、ibus-setup
-
-默认 "General"（常规）-选择 "Preferences"（首选项）-点击 "Input Methods"（输入法）-点击 "Add"（添加）————Chinese-Intelligent Pinyin
-
-5、参考
-
-> https://github.com/ibus/ibus/wiki
-
-> https://wiki.archlinux.org/title/IBus
-
-### fcitx5
-
-1、安装 fcitx5
-
-```sh
-sudo pacman -S fcitx5  fcitx5-qt fcitx5-gtk fcitx5-configtool fcitx5-chinese-addons fcitx5-pinyin-zhwiki fcitx5-material-color
-```
-
-```sh
-yay -S fcitx5-pinyin-moegirl
-```
-
-2、编辑
-
-```sh
-sudo vim /etc/environment
-```
-
-- 添加
-
-```sh
-GTK_IM_MODULE=fcitx
-QT_IM_MODULE=fcitx
-XMODIFIERS=@im=fcitx
-SDL_IM_MODULE=fcitx
-GLFW_IM_MODULE=ibus
-```
-
-3、重启系统生效
-
-4、参考
-
-> https://wiki.archlinux.org/title/Fcitx5
 
 ## 报错
 
