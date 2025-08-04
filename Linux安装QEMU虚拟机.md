@@ -98,18 +98,6 @@ sudo virsh net-define /etc/libvirt/qemu/networks/default.xml
 
 > 从 default定义网络/etc/libvirt/qemu/networks/default.xml
 
-### 默认虚拟网络设置
-
-```sh
-sudo EDITOR=vim virsh net-edit default
-```
-
-### 重启 libvirtd 使网络配置生效
-
-```sh
-sudo systemctl restart libvirtd
-```
-
 ### 启动默认虚拟网络
 
 ```sh
@@ -166,7 +154,13 @@ sudo EDITOR=vim virsh net-edit default
 </video>
 ```
 
-3、启动虚拟机，在虚拟机内部使用 glxinfo | grep OpenGL 确认 VirGL 是否成功启用。
+3、重启 libvirtd 使网络配置生效
+
+```sh
+sudo systemctl restart libvirtd
+```
+
+4、启动虚拟机，在虚拟机内部使用 glxinfo | grep OpenGL 确认 VirGL 是否成功启用。
 
 # Fedora
 
@@ -343,7 +337,13 @@ sudo EDITOR=vim virsh net-edit default
 </video>
 ```
 
-3、启动虚拟机，在虚拟机内部使用 glxinfo | grep OpenGL 确认 VirGL 是否成功启用。
+3、重启 libvirtd 使网络配置生效
+
+```sh
+sudo systemctl restart libvirtd
+```
+
+4、启动虚拟机，在虚拟机内部使用 glxinfo | grep OpenGL 确认 VirGL 是否成功启用。
 
 # 报错
 
@@ -351,7 +351,7 @@ sudo EDITOR=vim virsh net-edit default
 
 ```sh
 Unable to connect to libvirt qemu:///system
-Verify that the 'libvirtd' daemon is running.  ##请验证 'libvirtd' 守护进程是否正在运行。
+Verify that the 'libvirtd' daemon is running.   ##请验证 'libvirtd' 守护进程是否正在运行。
 ```
 
 1、查看 libvirtd 当前状态
