@@ -32,6 +32,21 @@ ebtables：用户空间工具，用于管理 Linux 内核的网桥过滤表
 spice-vdagent：提供剪贴板共享、文件拖放等功能
 ```
 
+## 查看 virsh 的版本信息
+
+```sh
+virsh version
+```
+
+输出结果
+
+```sh
+根据库编译：libvirt 11.6.0
+使用库：libvirt 11.6.0
+使用的 API: QEMU 11.6.0
+运行管理程序: QEMU 10.0.3
+```
+
 ## libvirt
 
 ### 启动 libvirtd 服务
@@ -59,21 +74,6 @@ sudo vim /etc/libvirt/libvirtd.conf
 ```sh
 unix_sock_group = 'libvirt'
 unix_sock_rw_perms = '0770'
-```
-
-### 验证 libvirt
-
-```sh
-virsh version
-```
-
-输出结果
-
-```sh
-根据库编译：libvirt 11.2.0
-使用库：libvirt 11.2.0
-使用的 API: QEMU 11.2.0
-运行管理程序: QEMU 9.2.3
 ```
 
 ### 将用户名添加到 libvirt 和 kvm 组
@@ -142,6 +142,12 @@ virt-manager
 sudo dnf install qemu-kvm virt-manager libvirt virt-viewer virt-install swtpm swtpm-tools
 ```
 
+## 查看 virsh 的版本信息
+
+```sh
+virsh version
+```
+
 ## libvirt
 
 ### 启动 libvirtd 服务
@@ -180,21 +186,6 @@ sudo usermod -aG kvm $USER
 
 ```sh
 id $USER
-```
-
-### 验证 libvirt
-
-```sh
-virsh version
-```
-
-输出结果
-
-```sh
-Compiled against library: libvirt 10.0.0
-Using library: libvirt 10.0.0
-Using API: QEMU 10.0.0
-Running hypervisor: QEMU 8.2.2
 ```
 
 ## 运行 virt-manager
@@ -228,7 +219,13 @@ sudo systemctl enable --now spice-vdagent
 ## 安装
 
 ```sh
-sudo apt install virt-manager qemu-system qemu-utils libvirt-daemon-system libvirt-clients bridge-utils swtpm swtpm-tools 
+sudo apt install qemu-system qemu-utils libvirt-daemon-system libvirt-clients virt-manager bridge-utils swtpm swtpm-tools 
+```
+
+## 检查内核模块
+
+```sh
+lsmod | grep kvm
 ```
 
 ## libvirt
@@ -269,12 +266,6 @@ sudo usermod -aG kvm $USER
 
 ```sh
 id $USER
-```
-
-## 检查内核模块
-
-```sh
-lsmod | grep kvm
 ```
 
 ## 运行 virt-manager
