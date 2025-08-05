@@ -144,13 +144,19 @@ sudo pacman -S --needed virglrenderer
 
 2、点击感叹号（❕）图标
 
-显示协议 Spice
+### 显示协议 Spice
 
-Spice 服务器——类型：Spice 服务器；监听类型：无
+Spice 服务器类型：Spice 服务器；监听类型：无
 
 勾选：OpenGL(G)，自动
 
-3、概况——编辑 xml 配置文件
+### 显卡 Virtio
+
+视频型号：Virtio
+
+勾选：3D 加速
+
+### 概况——编辑 xml 配置文件
 
 去掉所有 `<video></video>` 与 `<graphics></graphics>` 的代码块，替换为
 
@@ -323,7 +329,7 @@ virt-manager
 ```
 ## VirGL：半虚拟化 3D 图形加速技术
 
-1、安装 virglrenderer
+安装 virglrenderer
 
 ```sh
 sudo apt install libvirglrenderer-dev libvirglrenderer1 virgl-server
@@ -333,45 +339,7 @@ sudo apt install libvirglrenderer-dev libvirglrenderer1 virgl-server
 
 https://tracker.debian.org/pkg/virglrenderer
 
-2、点击感叹号（❕）图标
-
-显示协议 Spice
-
-Spice 服务器——类型：Spice 服务器；监听类型：无
-
-勾选：OpenGL(G)，自动
-
-3、概况——编辑 xml 配置文件
-
-去掉所有 `<video></video>` 与 `<graphics></graphics>` 的代码块，替换为
-
-```xml
-<graphics type="spice" autoport="yes">
-  <listen type="address"/>
-</graphics>
-<graphics type="egl-headless">
-  <gl rendernode="/dev/dri/renderD128"/>
-</graphics>
-
-<video>
-  <model type="virtio" heads="1" primary="yes">
-    <acceleration accel3d="yes"/>
-  </model>
-  <address type="pci" domain="0x0000" bus="0x00" slot="0x01" function="0x0"/>
-</video>
-```
-
-3、在虚拟机中运行如下代码，是否成功加载
-
-```sh
-sudo dmesg | grep drm
-```
-
-4、在虚拟机中运行如下代码，确认 VirGL 是否成功启用。
-
-```sh
-glxinfo | grep OpenGL
-```
+设置同上
 
 # 报错
 
