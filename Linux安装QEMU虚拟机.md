@@ -144,7 +144,7 @@ sudo pacman -S --needed virglrenderer
 
 2、编辑 xml 配置文件
 
-去掉所有 <video></video> 与 <graphics></graphics> 的代码块，替换为
+去掉所有 `<video></video>` 与 `<graphics></graphics>` 的代码块，替换为
 
 ```xml
 <graphics type="spice" autoport="yes">
@@ -317,7 +317,7 @@ https://tracker.debian.org/pkg/virglrenderer
 
 2、编辑 xml 配置文件
 
-去掉所有 <video></video> 与 <graphics></graphics> 的区块，替换为
+去掉所有 `<video></video>` 与 `<graphics></graphics>` 的代码块，替换为
 
 ```xml
 <graphics type="spice" autoport="yes">
