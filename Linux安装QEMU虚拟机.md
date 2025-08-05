@@ -63,7 +63,7 @@ sudo service libvirtd start
 sudo systemctl enable --now libvirtd
 ```
 
-### 编辑
+### 编辑 libvirtd 配置文件
 
 ```sh
 sudo vim /etc/libvirt/libvirtd.conf
@@ -72,8 +72,21 @@ sudo vim /etc/libvirt/libvirtd.conf
 取消注释#
 
 ```sh
-unix_sock_group = 'libvirt'
-unix_sock_rw_perms = '0770'
+unix_sock_group = "libvirt"
+unix_sock_rw_perms = "0770"
+```
+
+### 编辑 qemu 配置文件
+
+```sh
+sudo vim /etc/libvirt/qemu.conf
+```
+
+取消注释#，将引号内容改成用户名
+
+```sh
+user = "libvirt-qemu"
+group = "libvirt-qemu"
 ```
 
 ### 将用户名添加到 libvirt 和 kvm 组
