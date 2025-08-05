@@ -463,19 +463,19 @@ CPUs：4（最小值）
 
 创建第2步
 
-勾选：Automatically detect operating system based on install media（自动检测操作系统类型和版本）
+勾选：Automatically detect operating system based on install media（自动从安装介质/源检测）
 
-创建第4步
+创建第4步（自定义存放位置）
 
 勾选：Select or Create custom storage（选择或创建自定义存储）
 
 创建第5步
 
-勾选：Customize configuration before install（安装前自定义配置）
+勾选：Customize configuration before install（在安装前自定义配置）
 
 ## 添加硬件
 
-### Add hardware（添加硬件）→添加 TPM
+### Add hardware（添加硬件）——TPM
 
 Model=TIS
 
