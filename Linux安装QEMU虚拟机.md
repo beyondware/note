@@ -492,4 +492,10 @@ https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/v
 
 有一个光驱设备，打开后有两个 msi 可执行文件，64 位系统需要运行 virtio-win-gt-x64.msi
 
-另外也可以选择运行 virtio-win-guest-tools.exe 来安装 QEMU Guest Agent 和 SPICE agent 来获得更好的远程桌面的体验。
+也可以选择运行 virtio-win-guest-tools.exe
+
+https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/latest-virtio/virtio-win-guest-tools.exe
+
+QEMU Guest Agent 和 SPICE agent 来获得更好的远程桌面的体验
+
+
