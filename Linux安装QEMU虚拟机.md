@@ -430,15 +430,15 @@ sudo systemctl start libvirtd
 sudo systemctl enable --now libvirtd
 ```
 
-# 分辨率
+# 安装 Windows 11
+
+分辨率
 
 Video Virtio > Model - Virtio
 
 View > Scale Display > Always
 
-# 安装 Windows 11
-
-1、设置条件
+## 设置条件
 
 Memory（内存）：8GB
 
@@ -446,7 +446,7 @@ CPUs：4（最小值）
 
 存储容量：60GB
 
-2、创建步骤
+## 创建步骤
 
 创建第2步
 
@@ -460,13 +460,9 @@ CPUs：4（最小值）
 
 勾选：Customize configuration before install（安装前自定义配置）
 
-3、Overview（概述）
+## 添加硬件
 
-Chipset=Q35
-
-Firmware=BIOS
-
-Add hardware（添加硬件）→添加 TPM
+### Add hardware（添加硬件）→添加 TPM
 
 Model=TIS
 
@@ -474,18 +470,26 @@ Backend=Emulated device
 
 Version=2.0
 
-显示协议 Spice
-
-Spice 服务器→类型=Spice 服务器
-
-添加硬件→通道（2个）
+### 添加硬件——通道（2个）
 
 通道：名称选择 com.redhat.spice.0
 
 通道：名称选择 org.qemu.guest_agent.0
 
-显示虚拟硬件详细信息 -> 添加硬件 -> 存储 ，然后添加 VirtIO 驱动程序 ISO 文件
+### 添加硬件——SATA CDROM—— 源路径：添加 virtio-win.iso
 
 Show virtual hardware details -> Add Hardware -> Storage
 
-> https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso
+#### 最新版
+
+https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/latest-virtio/virtio-win.iso
+
+#### 稳定版
+
+https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso
+
+## 启动进入 Windows 11 虚拟机
+
+有一个光驱设备，打开后有两个 msi 可执行文件，64 位系统需要运行 virtio-win-gt-x64.msi
+
+另外也可以选择运行 virtio-win-guest-tools.exe 来安装 QEMU Guest Agent 和 SPICE agent 来获得更好的远程桌面的体验。
