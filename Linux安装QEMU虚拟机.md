@@ -98,6 +98,18 @@ sudo virsh net-define /etc/libvirt/qemu/networks/default.xml
 
 > 从 default定义网络/etc/libvirt/qemu/networks/default.xml
 
+### 确认文件是否存在
+
+```sh
+sudo EDITOR=vim virsh net-edit default
+```
+
+### 重启 libvirtd 使网络配置生效
+
+```sh
+sudo systemctl restart libvirtd
+```
+
 ### 启动默认虚拟网络
 
 ```sh
@@ -122,7 +134,7 @@ sudo virsh net-list --all
 virt-manager
 ```
 
-## VirGL——半虚拟化 3D 图形加速技术
+## VirGL：半虚拟化 3D 图形加速技术
 
 1、安装 virglrenderer
 
@@ -132,11 +144,7 @@ sudo pacman -S --needed virglrenderer
 
 2、编辑 xml 配置文件
 
-```sh
-sudo EDITOR=vim virsh net-edit default
-```
-
-去掉所有 <video></video> 与 <graphics></graphics> 的区块，替换为
+去掉所有 <video></video> 与 <graphics></graphics> 的代码块，替换为
 
 ```xml
 <graphics type="spice" autoport="yes">
@@ -154,13 +162,7 @@ sudo EDITOR=vim virsh net-edit default
 </video>
 ```
 
-3、重启 libvirtd 使网络配置生效
-
-```sh
-sudo systemctl restart libvirtd
-```
-
-4、启动虚拟机，在虚拟机内部使用 glxinfo | grep OpenGL 确认 VirGL 是否成功启用。
+3、启动虚拟机，在虚拟机内部使用 glxinfo | grep OpenGL 确认 VirGL 是否成功启用。
 
 # Fedora
 
@@ -301,7 +303,7 @@ id $USER
 ```sh
 virt-manager
 ```
-## VirGL——半虚拟化 3D 图形加速技术
+## VirGL：半虚拟化 3D 图形加速技术
 
 1、安装 virglrenderer
 
@@ -314,10 +316,6 @@ sudo apt install libvirglrenderer-dev libvirglrenderer1 virgl-server
 https://tracker.debian.org/pkg/virglrenderer
 
 2、编辑 xml 配置文件
-
-```sh
-sudo EDITOR=vim virsh net-edit default
-```
 
 去掉所有 <video></video> 与 <graphics></graphics> 的区块，替换为
 
@@ -337,13 +335,7 @@ sudo EDITOR=vim virsh net-edit default
 </video>
 ```
 
-3、重启 libvirtd 使网络配置生效
-
-```sh
-sudo systemctl restart libvirtd
-```
-
-4、启动虚拟机，在虚拟机内部使用 glxinfo | grep OpenGL 确认 VirGL 是否成功启用。
+3、启动虚拟机，在虚拟机内部使用 glxinfo | grep OpenGL 确认 VirGL 是否成功启用。
 
 # 报错
 
