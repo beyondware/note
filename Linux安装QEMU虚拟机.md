@@ -270,10 +270,10 @@ sudo systemctl enable --now spice-vdagent
 sudo apt install qemu-system qemu-utils libvirt-daemon-system libvirt-clients virt-manager bridge-utils swtpm swtpm-tools 
 ```
 
-## 检查内核模块
+## 查看 virsh 的版本信息
 
 ```sh
-lsmod | grep kvm
+virsh version
 ```
 
 ## libvirt
