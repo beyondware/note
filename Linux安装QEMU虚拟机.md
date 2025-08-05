@@ -142,7 +142,15 @@ virt-manager
 sudo pacman -S --needed virglrenderer
 ```
 
-2、编辑 xml 配置文件
+2、点击感叹号（❕）图标
+
+显示协议 Spice
+
+Spice 服务器——类型：Spice 服务器；监听类型：无
+
+勾选：OpenGL(G)，自动
+
+3、概况——编辑 xml 配置文件
 
 去掉所有 `<video></video>` 与 `<graphics></graphics>` 的代码块，替换为
 
@@ -162,7 +170,17 @@ sudo pacman -S --needed virglrenderer
 </video>
 ```
 
-3、启动虚拟机，在虚拟机内部使用 glxinfo | grep OpenGL 确认 VirGL 是否成功启用。
+3、在虚拟机中运行如下代码，是否成功加载
+
+```sh
+sudo dmesg | grep drm
+```
+
+4、在虚拟机中运行如下代码，确认 VirGL 是否成功启用。
+
+```sh
+glxinfo | grep OpenGL
+```
 
 # Fedora
 
@@ -315,7 +333,15 @@ sudo apt install libvirglrenderer-dev libvirglrenderer1 virgl-server
 
 https://tracker.debian.org/pkg/virglrenderer
 
-2、编辑 xml 配置文件
+2、点击感叹号（❕）图标
+
+显示协议 Spice
+
+Spice 服务器——类型：Spice 服务器；监听类型：无
+
+勾选：OpenGL(G)，自动
+
+3、概况——编辑 xml 配置文件
 
 去掉所有 `<video></video>` 与 `<graphics></graphics>` 的代码块，替换为
 
@@ -335,7 +361,17 @@ https://tracker.debian.org/pkg/virglrenderer
 </video>
 ```
 
-3、启动虚拟机，在虚拟机内部使用 glxinfo | grep OpenGL 确认 VirGL 是否成功启用。
+3、在虚拟机中运行如下代码，是否成功加载
+
+```sh
+sudo dmesg | grep drm
+```
+
+4、在虚拟机中运行如下代码，确认 VirGL 是否成功启用。
+
+```sh
+glxinfo | grep OpenGL
+```
 
 # 报错
 
