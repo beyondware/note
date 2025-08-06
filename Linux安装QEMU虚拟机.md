@@ -285,10 +285,12 @@ sudo apt install virt-what
 ## 安装
 
 ```sh
-sudo apt install qemu-utils qemu-system-x86 qemu-system-gui qemu-guest-agent libvirt-daemon-system libvirt-clients virt-manager bridge-utils 
+sudo apt install qemu-utils qemu-system-x86 qemu-system-gui qemu-guest-agent libvirt-clients libvirt-daemon libvirt-daemon-system virt-manager bridge-utils 
 ```
 
 https://tracker.debian.org/pkg/qemu
+
+https://tracker.debian.org/pkg/libvirt
 
 ### 模拟 TPM 2.0
 
