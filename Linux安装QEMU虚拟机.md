@@ -63,7 +63,7 @@ sudo service libvirtd start
 sudo systemctl enable --now libvirtd
 ```
 
-### 编辑 libvirtd 配置文件
+### 将 UNIX 域套接字所有权设置为 libvirt，将 UNIX 套接字权限设置为读写权限
 
 ```sh
 sudo vim /etc/libvirt/libvirtd.conf
@@ -76,17 +76,22 @@ unix_sock_group = "libvirt"
 unix_sock_rw_perms = "0770"
 ```
 
-### 编辑 qemu 配置文件
+### 将用户添加到 libvirt 用户组
 
 ```sh
 sudo vim /etc/libvirt/qemu.conf
 ```
 
-取消注释#，将引号内容改成用户名
+```sh
+#user = "libvirt-qemu"
+#group = "libvirt-qemu"
+```
+
+修改为
 
 ```sh
-user = "libvirt-qemu"
-group = "libvirt-qemu"
+user = "用户名"
+group = "用户名"
 ```
 
 ### 将用户名添加到 libvirt 和 kvm 组
@@ -280,10 +285,18 @@ sudo apt install virt-what
 ## 安装
 
 ```sh
-sudo apt install qemu-utils qemu-system-x86 qemu-system-gui qemu-guest-agent libvirt-daemon-system libvirt-clients virt-manager bridge-utils swtpm swtpm-tools 
+sudo apt install qemu-utils qemu-system-x86 qemu-system-gui qemu-guest-agent libvirt-daemon-system libvirt-clients virt-manager bridge-utils 
 ```
 
 https://tracker.debian.org/pkg/qemu
+
+### 模拟 TPM 2.0
+
+```sh
+sudo apt install swtpm swtpm-tools
+```
+
+https://tracker.debian.org/pkg/swtpm
 
 ## 查看 virsh 的版本信息
 
