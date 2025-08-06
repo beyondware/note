@@ -479,9 +479,11 @@ Version=2.0
 
 通道：名称选择 org.qemu.guest_agent.0
 
-### 添加硬件——SATA CDROM—— 源路径：添加 virtio-win.iso
+### 添加硬件——存储
 
-Show virtual hardware details -> Add Hardware -> Storage
+设备类型：CDROM 设备
+
+源路径：添加 virtio-win.iso
 
 #### 最新版
 
