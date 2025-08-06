@@ -147,6 +147,16 @@ sudo virsh net-list --all
 virt-manager
 ```
 
+## 共享剪贴板（安装在虚拟机）
+
+```sh
+sudo pacman -S --needed qemu-guest-agent spice-vdagent
+```
+
+```sh
+sudo systemctl enable qemu-guest-agent
+```
+
 ## VirGL：半虚拟化 3D 图形加速技术
 
 1、安装 virglrenderer
@@ -168,26 +178,6 @@ Spice 服务器类型：Spice 服务器；监听类型：无
 视频型号：Virtio
 
 勾选：3D 加速
-
-### 概况——编辑 xml 配置文件
-
-去掉所有 `<video></video>` 与 `<graphics></graphics>` 的代码块，替换为
-
-```xml
-<graphics type="spice" autoport="yes">
-  <listen type="address"/>
-</graphics>
-<graphics type="egl-headless">
-  <gl rendernode="/dev/dri/renderD128"/>
-</graphics>
-
-<video>
-  <model type="virtio" heads="1" primary="yes">
-    <acceleration accel3d="yes"/>
-  </model>
-  <address type="pci" domain="0x0000" bus="0x00" slot="0x01" function="0x0"/>
-</video>
-```
 
 3、在虚拟机中运行如下代码，是否成功加载
 
@@ -261,24 +251,28 @@ id $USER
 virt-manager
 ```
 
-## 宿主机和虚拟机之间共享粘贴板
+## 共享剪贴板（安装在虚拟机）
 
 ### 安装 spice-vdagent
 
 ```sh
-sudo dnf install spice-vdagent
-```
-
-### 启动
-
-```sh
-sudo systemctl start spice-vdagent
+sudo dnf install spice-vdagent qemu-guest-agent
 ```
 
 ### 开机自启动
 
 ```sh
+sudo systemctl enable qemu-guest-agent
+```
+
+```sh
 sudo systemctl enable --now spice-vdagent
+```
+
+## 查询虚拟机使用的虚拟化技术
+
+```sh
+sudo apt install virt-what
 ```
 
 # Debian
@@ -286,8 +280,10 @@ sudo systemctl enable --now spice-vdagent
 ## 安装
 
 ```sh
-sudo apt install qemu-system qemu-utils libvirt-daemon-system libvirt-clients virt-manager bridge-utils swtpm swtpm-tools 
+sudo apt install qemu-utils qemu-system-x86 qemu-system-gui qemu-guest-agent libvirt-daemon-system libvirt-clients virt-manager bridge-utils swtpm swtpm-tools 
 ```
+
+https://tracker.debian.org/pkg/qemu
 
 ## 查看 virsh 的版本信息
 
@@ -342,17 +338,11 @@ virt-manager
 ```
 ## VirGL：半虚拟化 3D 图形加速技术
 
-安装 virglrenderer
-
 ```sh
 sudo apt install libvirglrenderer-dev libvirglrenderer1 virgl-server
 ```
 
-参考
-
 https://tracker.debian.org/pkg/virglrenderer
-
-设置同上
 
 # 报错
 
