@@ -52,26 +52,6 @@ sudo apt install chromium-browser
 sudo apt remove chromium-browser
 ```
 
-# Chrome
-
-1、下载
-
-```sh
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-```
-
-2、安装
-
-```sh
-sudo apt install google-chrome-stable_current_amd64.deb
-```
-
-3、删除下载包
-
-```sh
-rm google-chrome-stable_current_amd64.deb
-```
-
 # Microsoft Edge
 
 1、更新并升级
