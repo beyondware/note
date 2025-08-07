@@ -1,96 +1,90 @@
-## Ubuntu 安装 Wine
+# Debian
 
-1、启用 32 位架构
+## 启用 32 位架构（可选）
 
 ```sh
 sudo dpkg --add-architecture i386
 ```
 
-2、添加存储库密钥
+## 导入密钥
 
 ```sh
-sudo mkdir -pm755 /etc/apt/keyrings
+curl -s https://dl.winehq.org/wine-builds/winehq.key | sudo gpg --dearmor | sudo tee /usr/share/keyrings/winehq.gpg > /dev/null
 ```
+
+## 导入 WineHQ 存储库
 
 ```sh
-sudo wget -O /etc/apt/keyrings/winehq-archive.key https://dl.winehq.org/wine-builds/winehq.key
+echo deb [signed-by=/usr/share/keyrings/winehq.gpg] http://dl.winehq.org/wine-builds/ubuntu/ $(lsb_release -cs) main | sudo tee /etc/apt/sources.list.d/winehq.list
 ```
 
-3、下载 WineHQ 源文件（以 Ubuntu 22.04 为例）
+## 更新
 
 ```sh
-sudo wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/ubuntu/dists/jammy/winehq-jammy.sources
+sudo apt update
 ```
 
-4、更新软件包和安装 Wine 稳定版
+## 安装
 
 ```sh
 sudo apt install --install-recommends winehq-stable
 ```
 
-5、初始化 Wine 配置
+--install-recommends：安装 WineHQ 推荐的依赖项
+
+## 验证已安装的 Wine 版本
+
+```sh
+wine --version
+```
+
+## 启动 Wine 配置对话框
 
 ```sh
 winecfg
 ```
 
-6、找不到 “Open With Wine Windows Program Loader” 选项，修复、重启系统
+## 帮助 Wine 更流畅地运行 Windows 软件
+
+```sh
+sudo apt install winetricks
+```
+
+使用 Wine 运行安装文件，请右键单击 .exe 文件，选择“使用其他应用程序打开”，然后从应用程序列表中选择 Wine。
+
+## 删除
+
+```sh
+sudo apt remove winehq-stable
+```
+
+## 删除存储库
+
+```sh
+sudo rm /etc/apt/sources.list.d/winehq.list
+```
+
+## 删除密钥
+
+```sh
+sudo rm /usr/share/keyrings/winehq.gpg
+```
+
+## 找不到 “Open With Wine Windows Program Loader” 选项
 
 ```sh
 sudo ln -s /usr/share/doc/wine/examples/wine.desktop /usr/share/applications/
 ```
 
-7、Wine 卸载应用程序
+## Wine 卸载应用程序
 
 ```sh
 wine uninstaller
 ```
 
-8、移除已安装 wine-stable
+# Fedora
 
-```sh
-sudo apt remove --purge wine-stable
-```
-
-9、更新软件包
-
-```sh
-sudo apt update
-```
-
-10、清理本地存储库
-
-```sh
-sudo apt autoclean
-```
-
-11、移除不需要的软件包
-
-```sh
-sudo apt autoremove
-```
-
-12、移除源文件
-
-```sh
-sudo rm /etc/apt/sources.list.d/winehq-jammy.sources
-```
-
-13、移除存储库密钥
-
-```sh
-sudo rm /etc/apt/keyrings/winehq-archive.key
-```
-
-14、更新软件包
-
-```sh
-sudo apt update
-```
-
-## Fedora 安装 Wine
-
-### 方案一（推荐）
+## 方案一（推荐）
 
 1、安装
 
@@ -116,7 +110,7 @@ winecfg
 sudo dnf --enablerepo=updates-testing update wine
 ```
 
-### 方案二
+## 方案二
 
 1、添加存储库
 
@@ -124,57 +118,37 @@ sudo dnf --enablerepo=updates-testing update wine
 sudo dnf config-manager --add-repo https://dl.winehq.org/wine-builds/fedora/$(rpm -E %fedora)/winehq.repo
 ```
 
-2、安装与删除
-
-#### 稳定版（推荐）
+2、安装
 
 ```sh
 sudo dnf install winehq-stable
 ```
 
+3、删除
+
 ```sh
 sudo dnf autoremove winehq-stable
 ```
 
-#### 暂存版
-
-```sh
-sudo dnf install winehq-staging
-```
-
-```sh
-sudo dnf autoremove winehq-staging
-```
-
-#### 开发版
-
-```sh
-sudo dnf install winehq-devel
-```
-
-```sh
-sudo dnf autoremove winehq-devel
-```
-
-3、确认版本
+4、确认版本
 
 ```sh
 wine --version
 ```
 
-4、配置
+5、配置
 
 ```sh
 winecfg
 ```
 
-5、删除存储库
+6、删除存储库
 
 ```sh
 sudo rm /etc/yum.repos.d/winehq.repo
 ```
 
-### 删除 Wine 安装的软件
+7、删除 Wine 安装的软件
 
 ```sh
 wine uninstaller
@@ -278,27 +252,9 @@ prefix=foobar         select WINEPREFIX=/home/pc/.local/share/wineprefixes/fooba
 annihilate            Delete ALL DATA AND APPLICATIONS INSIDE THIS WINEPREFIX
 ```
 
-## Flatpak 安装 Wine（不推荐）
+# Flatpak 安装 Wine（不推荐）
 
-1、添加存储库
-
-```sh
-sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-```
-
-2、更换镜像源
-
-```sh
-sudo flatpak remote-modify flathub --url=https://mirror.sjtu.edu.cn/flathub
-```
-
-3、启用 Flathub
-
-```sh
-flatpak remote-modify --enable flathub
-```
-
-4、安装一些依赖
+1、安装一些依赖
 
 ```sh
 sudo flatpak install \
@@ -309,19 +265,19 @@ sudo flatpak install \
     org.freedesktop.Platform.VAAPI.Intel.i386/x86_64/22.08
 ```
 
-5、安装 Wine
+2、安装 Wine
 
 ```sh
 flatpak install flathub org.winehq.Wine
 ```
 
-6、查询版本
+3、查询版本
 
 ```sh
 flatpak run org.winehq.Wine --version
 ```
 
-7、配置
+4、配置
 
 ```sh
 flatpak run org.winehq.Wine winecfg
