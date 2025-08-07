@@ -4,14 +4,14 @@
 
 > https://wiki.archlinux.org/title/Installation_guide
 
-### VMware Workstation 设置
+### VMware Workstation 设置 UEFI
 
-> 编辑虚拟机设置→选项-高级-固件类型，改成：UEFI
+> 编辑虚拟机设置——选项——高级——固件类型，改成：UEFI
 
-### 设置终端字体大小
+### 终端字体太小，设置大一点
 
 ```sh
-setfont ter-132n
+setfont ter-132b
 ```
 
 ### 联网（ping通就忽略）
@@ -68,25 +68,25 @@ exit
 
 ### ssh（默认：开启）
 
-1、启动 ssh
-
-```sh
-systemctl start sshd
-```
-
-2、开机启动 ssh
-
-```sh
-systemctl enable sshd
-```
-
-3、查看 ssh 状态
+1、查看 ssh 状态
 
 ```sh
 systemctl status sshd
 ```
 
-- active (running) 表示开启
+active (running) 表示开启
+
+2、启动 ssh
+
+```sh
+systemctl start sshd
+```
+
+3、开机启动 ssh
+
+```sh
+systemctl enable sshd
+```
 
 4、查看 ssh 进程
 
