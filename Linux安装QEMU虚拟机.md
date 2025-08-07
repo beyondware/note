@@ -73,6 +73,7 @@ sudo vim /etc/libvirt/libvirtd.conf
 
 ```sh
 unix_sock_group = "libvirt"
+#unix_sock_ro_perms = "0770"
 unix_sock_rw_perms = "0770"
 ```
 
@@ -360,6 +361,26 @@ sudo apt install libvirglrenderer-dev libvirglrenderer1 virgl-server
 https://tracker.debian.org/pkg/virglrenderer
 
 # 报错
+
+## 虚拟机无法联网
+
+### 查看当前 ufw 状态
+
+```sh
+sudo ufw status
+```
+
+### 停止 ufw 服务
+
+```sh
+sudo systemctl stop ufw
+```
+
+### 禁止 ufw 服务
+
+```sh
+sudo systemctl disable ufw
+```
 
 ## libvirtd 守护进程未运行
 
