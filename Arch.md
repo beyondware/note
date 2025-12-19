@@ -318,7 +318,7 @@ arch-chroot /mnt
 
 > https://wiki.archlinux.org/title/GRUB
 
-#### 传统 BIOS 引导
+#### BIOS 引导
 
 1、安装 grub
 
@@ -405,7 +405,7 @@ Installation finished. No error reported.
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
-#### 先进 EFI 引导
+#### UEFI 引导
 
 1、查看磁盘信息
 
@@ -416,11 +416,11 @@ fdisk -l
 2、挂载 EFI 分区
 
 ```sh
-mkdir -p /mnt/efi
+mkdir -p /boot/efi
 ```
 
 ```sh
-mount /dev/sda1 /mnt/efi
+mount /dev/sda1 /boot/efi
 ```
 
 3、安装引导检测器
@@ -442,7 +442,7 @@ pacman -S grub efibootmgr
 5、grub-install
 
 ```sh
-grub-install --target=x86_64-efi --efi-directory=/mnt/efi --bootloader-id=GRUB
+grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
 ```
 
 - 输出以下信息，表示成功。
