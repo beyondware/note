@@ -96,3 +96,7 @@ net user administrator /active:yes
 ```sh
 net user administrator /active:no
 ```
+
+# can not create temp folder archeve
+
+右击“我的电脑”选择“属性”－“高级”，单击“环境变量”按钮，然后单击里边的“新建”按钮，在变量名中输入“TEMP”，值设为“%USERPROFILE%\AppData\Local\Temp”
