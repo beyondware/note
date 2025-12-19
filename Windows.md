@@ -18,6 +18,25 @@ reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OOBE /v BypassNRO /t REG_
 shutdown /r /t 0
 ```
 
+## 方法三
+
+输入regedit，打开注册表编辑器
+
+路径：
+
+```sh
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OOBE
+```
+
+新建一个DWORD（32位）值，命名为BypassNRO。键值修改为1，保存并重启。
+
+```sh
+net user "User Name" /add
+net localgroup "Administrators" "User Name" /add
+cd OOBE
+msoobe && shutdown -r
+```
+
 # Windows 关闭端口扫描防护筛选器的日志写入功能（管理员权限执行）
 
 ```sh
