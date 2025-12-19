@@ -8,6 +8,14 @@ LC_ALL=C lscpu | grep Virtualization
 
 > Virtualization:     VT-x
 
+# 参考
+
+> https://wiki.archlinux.org/title/QEMU
+
+> https://wiki.archlinux.org/title/Libvirt
+
+> https://wiki.archlinux.org/title/Virt-manager
+
 # Arch
 
 ## 安装
