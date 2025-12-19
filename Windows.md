@@ -1,9 +1,21 @@
 # 跳过联网注册 Windows 11 账户
 
-按<kbd>Shift</kbd> + <kbd>F10</kbd>组合键打开命令提示符，输入以下命令：
+按<kbd>Shift</kbd> + <kbd>F10</kbd>组合键打开命令提示符
+
+## 方法一
 
 ```sh
-start ms-cxh:localonly
+start ms-cxh:localonly  #创建本地账户
+```
+
+## 方法二
+
+```sh
+reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OOBE /v BypassNRO /t REG_DWORD /d 1 /f
+```
+
+```sh
+shutdown /r /t 0
 ```
 
 # Windows 关闭端口扫描防护筛选器的日志写入功能（管理员权限执行）
@@ -52,19 +64,16 @@ REG DELETE "HKEY_CLASSES_ROOT\DesktopBackground\Shell\UWTSettings" /f
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /v FlightSettingsMaxPauseDays /t reg_dword /d 10000 /f
 ```
 
-# 超级管理员
+# 超级管理员（管理员权限运行）
 
-cmd 以管理员权限运行
-
-启用超级管理员帐户
+## 启用超级管理员帐户
 
 ```sh
 net user administrator /active:yes
 ```
 
-禁用超级管理员帐户
+## 禁用超级管理员帐户
 
 ```sh
 net user administrator /active:no
 ```
-
