@@ -48,6 +48,48 @@ dnf groupremove "Server with GUI"
 systemctl set-default graphical
 ```
 
+## EPEL
+
+### 安装 EPEL
+
+```sh
+sudo dnf install epel-release
+```
+
+```sh
+sudo dnf repolist | grep epel
+```
+
+### 刷新更新
+
+```sh
+sudo dnf upgrade --refresh
+```
+
+### EPEL 软件源提供的软件包完整列表
+
+```sh
+dnf repository-packages epel list
+```
+
+### EPEL 软件源已安装的软件包
+
+```sh
+dnf repository-packages epel list installed
+```
+
+### 启用 EPEL 软件源
+
+```sh
+sudo dnf config-manager --set-enabled epel
+```
+
+禁用 EPEL 软件源
+
+```sh
+sudo dnf config-manager --set-disabled epel
+```
+
 # Fedora
 
 ## 换源
