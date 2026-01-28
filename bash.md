@@ -30,6 +30,8 @@ sudo chsh -s /bin/bash
 sudo usermod -s /bin/bash $USER
 ```
 
+重启系统，才会生效。
+
 # 历史记录
 
 ## 删除 bash 历史记录
