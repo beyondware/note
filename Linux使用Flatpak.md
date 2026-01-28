@@ -38,57 +38,112 @@ https://flatpak.org/setup/
 
 https://wiki.archlinux.org/title/Flatpak
 
-# 第三方存储库
 
-## fedora 存储库
+# 远程仓库
+
+> https://flatpak.pkgs.org/
+
+> https://github.com/boredsquirrel/Flatpak-remotes
+
+# flathub-beta
+
+```sh
+flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
+```
+
+## 安装
+
+```sh
+flatpak install flathub-beta <APP-ID>
+```
+
+# fedora
 
 ```sh
 flatpak remote-add --if-not-exists fedora oci+https://registry.fedoraproject.org
 ```
 
-### 安装
+## 安装
 
 ```sh
-flatpak install fedora 应用程序ID
+flatpak install fedora <APP-ID>
 ```
 
-## gnome-nightly 存储库
+## 参考
+
+> https://docs.fedoraproject.org/en-US/flatpak/installation/
+
+# Elementary
+
+```sh
+flatpak remote-add --if-not-exists elementary https://flatpak.elementary.io/repo.flatpakrepo
+```
+
+## 安装
+
+```sh
+flatpak install elementary <APP-ID>
+```
+
+## 运行
+
+```sh
+flatpak run <APP-ID>
+```
+
+## 参考
+
+> https://flatpak.elementary.io/
+
+# gnome-nightly
 
 ```sh
 flatpak remote-add --if-not-exists gnome-nightly https://nightly.gnome.org/gnome-nightly.flatpakrepo
 ```
 
-### 安装
-
-```sh
-flatpak install gnome-nightly 应用程序ID
-```
-
-### 列出所有
+## 列出 gnome-nightly 所有应用
 
 ```sh
 flatpak remote-ls --app gnome-nightly
 ```
 
-### 参考
+## 安装
+
+```sh
+flatpak install gnome-nightly <APP-ID>
+```
+
+## 运行
+
+```sh
+flatpak run <APP-ID>//master
+```
+
+## 参考
 
 > https://wiki.gnome.org/Apps/Nightly
 
-## KDE 存储库
+# Nightly KDE apps
 
-直接从仓库下载
+## 安装
+
+```sh
+flatpak install --user --or-update https://cdn.kde.org/flatpak/kate-nightly/org.kde.kate.flatpakref
+```
+
+## 运行
+
+```sh
+flatpak run --user org.kde.kate//master
+```
+
+## 参考
 
 > https://userbase.kde.org/Tutorials/Flatpak
 
 > https://cdn.kde.org/flatpak/
 
-# 列出 Flatpak 存储库
-
-```sh
-flatpak remotes
-```
-
-# flatpak 常用命令
+# 常用命令
 
 ## 列出已配置的 Flatpak 仓库中的可用软件包
 
@@ -116,13 +171,15 @@ flatpak install https://dl.flathub.org/repo/appstream/com.github.tchx84.Flatseal
 
 > 必须全部打勾 ✔ 才能安装成功
 
-## 安装失败，修复与本地安装不一致问题
+## 安装失败
+
+### 修复与本地安装不一致问题
 
 ```sh
 flatpak repair
 ```
 
-再重新启动 flatpak 服务
+### 再重新启动 flatpak 服务
 
 ```sh
 sudo systemctl restart flatpak-system-helper.service
@@ -136,10 +193,10 @@ sudo systemctl restart flatpak-system-helper.service
 flatpak list --app
 ```
 
-2、列出以前的版本并获取对应<Commit值>
+2、列出以前的版本并获取对应 <Commit值>
 
 ```sh
-flatpak remote-info --log flathub appid
+flatpak remote-info --log flathub <APP-ID>
 ```
 
 3、降级包
@@ -154,40 +211,47 @@ sudo flatpak update --commit=<Commit值> appid
 flatpak update
 ```
 
+## 已安装  Flatpak 应用列表
+
+```sh
+flatpak list --app
+```
+
 ## 卸载
 
 ### 卸载软件
 
 ```sh
-flatpak uninstall appid
+flatpak uninstall <APP-ID>
 ```
 
 > Uninstall complete. //卸载完成
 
-### 卸载软件和 Flatpak 相关数据（推荐）
+### 卸载并删除 flatpak 相关数据（推荐）
 
 ```sh
-flatpak uninstall --delete-data appid
+flatpak uninstall --delete-data <APP-ID>
 ```
 
-### 卸载所有和 Flatpak 相关数据
+--delete-data：确保所有相关数据被删除
 
-```sh
-flatpak uninstall --all --delete-data
-```
-
-### 删除已安装但未使用的应用程序运行时和扩展
+### 卸载不再需要的运行时（可选）
 
 ```sh
 flatpak uninstall --unused
-或者
-flatpak remove --unused
 ```
 
-## 运行 flatpak
+### 两条命令，卸载所有 Flatpak 应用程序和依赖（可选）
 
 ```sh
-flatpak run appid
+flatpak uninstall --all
+flatpak uninstall --unused --all
+```
+
+## 运行
+
+```sh
+flatpak run <APP-ID>
 ```
 
 ## 更新
@@ -201,7 +265,7 @@ flatpak update
 ### 更新软件
 
 ```sh
-flatpak update --app appid
+flatpak update --app <APP-ID>
 ```
 
 ## 搜索
@@ -233,13 +297,19 @@ flatpak --columns=app,name,size,installation list
 ## 查看详细信息
 
 ```sh
-flatpak info appid
+flatpak info <APP-ID>
 ```
 
 ## 删除缓存
 
 ```sh
 sudo rm -rf /var/tmp/flatpak-cache-*
+```
+
+# 移除远程仓库但保留应用程序
+
+```sh
+flatpak remote-delete --force <远程仓库名>
 ```
 
 # flatpak --help
