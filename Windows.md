@@ -83,6 +83,20 @@ REG DELETE "HKEY_CLASSES_ROOT\DesktopBackground\Shell\UWTSettings" /f
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /v FlightSettingsMaxPauseDays /t reg_dword /d 10000 /f
 ```
 
+# WiFi
+
+## 显示所有已保存 WiFi 的名称
+
+```sh
+netsh wlan show profiles
+```
+
+## 显示所有已保存 WiFi 的密码
+
+```sh
+for /f "skip=9 tokens=1,2 delims=:" %i in ('netsh wlan show profiles') do @echo %j | findstr -i -v echo | netsh wlan show profiles %j key=clear
+```
+
 # 超级管理员（管理员权限运行）
 
 ## 启用超级管理员帐户
