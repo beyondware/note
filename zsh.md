@@ -20,6 +20,15 @@ sudo chsh -s /bin/zsh
 
 退出终端，重开才能生效。
 
+
+### 依然无效，使用
+
+```sh
+sudo usermod -s /bin/zsh $USER
+```
+
+重启系统，才会生效。
+
 # 删除 zsh 历史记录
 
 1、编辑用户配置文件
