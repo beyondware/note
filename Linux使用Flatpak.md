@@ -202,7 +202,7 @@ flatpak remote-info --log flathub <APP-ID>
 3、降级包
 
 ```sh
-sudo flatpak update --commit=<Commit值> appid
+sudo flatpak update --commit=<Commit值> <APP-ID>
 ```
 
 4、检查是否降级成功
@@ -211,10 +211,20 @@ sudo flatpak update --commit=<Commit值> appid
 flatpak update
 ```
 
-## 已安装  Flatpak 应用列表
+### 已安装  Flatpak 应用列表
 
 ```sh
 flatpak list --app
+```
+
+```sh
+flatpak list | grep <APP-ID>
+```
+
+### 重置应用程序的所有门户权限
+
+```sh
+flatpak permission-reset <APP-ID>
 ```
 
 ## 卸载
