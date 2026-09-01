@@ -49,10 +49,12 @@ Add-AppxProvisionedPackage -Online -PackagePath <Microsoft.DesktopAppInstaller.m
 
 # 报错信息
 
+```sh
 Add-AppxPackage : Deployment failed with HRESULT: 0x80073CF3, 包无法进行更新、相关性或冲突验证。
 Windows 无法安装程序包Microsoft.DesktopAppInstaller_1.29.280.0_x64__8wekyb3d8bbwe，因为此程序包依赖于找不到的框架。提供
 由"CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US"发布的框架"Microsoft.WindowsAppRunt
 ime.1.8"，其中包含中性或x64处理器体系结构和最低版本8000.616.304.0，以及要安装的此包。
+```
 
 下载 1.8 版本
 
@@ -64,10 +66,12 @@ ime.1.8"，其中包含中性或x64处理器体系结构和最低版本8000.616.
 Get-AppxPackage *Microsoft.WindowsAppRuntime*
 ```
 
+```sh
 Add-AppxPackage : Deployment failed with HRESULT: 0x80073CF3, 包无法进行更新、相关性或冲突验证。
 Windows 无法安装程序包Microsoft.DesktopAppInstaller_1.29.280.0_x64__8wekyb3d8bbwe，因为此程序包依赖于找不到的框架。提供
-由"CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US"发布的框架"Microsoft.VCLibs.140.00"
-，其中包含中性或x64处理器体系结构和最低版本14.0.33519.0，以及要安装的此包。
+由"CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US"发布的框架"Microsoft.VCLibs.140.00.
+UWPDesktop"，其中包含中性或x64处理器体系结构和最低版本14.0.33728.0，以及要安装的此包。
+```
 
 确认安装版本
 
@@ -77,11 +81,8 @@ Get-AppxPackage *Microsoft.VCLibs*
 
 # 参考
 
-> https://learn.microsoft.com/zh-cn/windows/iot/iot-enterprise/deployment/install-winget-windows-iot
-
 由于文档未更新相关软件链接，导致安装失败，获取最新下载地址
 
 > https://store.rg-adguard.net/
 
 > https://apps.microsoft.com/detail/9wzdncrfjbmp
-
