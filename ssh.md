@@ -18,17 +18,17 @@ sudo apt install openssh-server
 sudo dnf install openssh-server
 ```
 
-## 验证是否已安装 ssh 服务
+### 验证是否已安装 ssh 服务
 
 ```sh
 ls /etc | grep ssh
 ```
 
-# 运行 ssh
+# 启动 ssh
 
 > 提醒：sshd（Arch、Fedora）或者 ssh（Debian），具体情况而定。
 
-## 当前 ssh 状态
+## 查看当前状态
 
 ```sh
 systemctl status ssh
@@ -38,7 +38,7 @@ sudo /etc/init.d/ssh status
 service ssh status
 ```
 
-### 报错
+## 运行
 
 > Unit ssh.service could not be found.
 
@@ -50,6 +50,12 @@ Active: active (running) 表示开启
 
 Active: inactive (dead) 表示关闭
 
+> Failed to start ssh.service: Unit ssh.service not found.
+
+```sh
+sudo systemctl start sshd
+```
+
 ## 启动 ssh
 
 ```sh
@@ -58,14 +64,6 @@ sudo systemctl start ssh
 sudo /etc/init.d/ssh start
 或者
 service ssh start
-```
-
-### 报错
-
-> Failed to start ssh.service: Unit ssh.service not found.
-
-```sh
-sudo systemctl start sshd
 ```
 
 ## 停止 ssh
@@ -88,7 +86,7 @@ sudo /etc/init.d/ssh restart
 service ssh restart
 ```
 
-### 报错
+## 开机启动 ssh
 
 > Failed to restart ssh.service: Unit ssh.service not found.
 
@@ -96,13 +94,9 @@ service ssh restart
 sudo systemctl restart sshd
 ```
 
-## 开机启动 ssh
-
 ```sh
-sudo systemctl enable ssh
+sudo systemctl enable sshd
 ```
-
-### 报错
 
 > Failed to enable unit: Unit ssh.service does not exist
 
@@ -115,7 +109,7 @@ sudo systemctl enable --now sshd
 ## 禁止开机启动 ssh
 
 ```sh
-sudo systemctl disable ssh
+sudo systemctl disable sshd
 ```
 
 # 查看 ssh 进程
@@ -126,9 +120,7 @@ ps -e | grep ssh
 
 显示 00:00:00 sshd，已经启动。
 
-# 常见问题
-
-## 错误：未连接
+# 报错一
 
 > Remote rejected opening a shell channel: Error: Not connected
 
@@ -139,6 +131,8 @@ systemctl status sshd
 ```
 
 2、如果未运行，启动 ssh 服务
+
+> connect ECONNREFUSED
 
 ```sh
 sudo systemctl start sshd
@@ -153,6 +147,8 @@ sudo systemctl enable --now sshd
 4、如果仍然无法远程连接，是否防火墙阻拦。
 
 方法一、允许 ssh 通过防火墙
+
+> connect ETIMEDOUT
 
 ```sh
 sudo ufw allow ssh
@@ -170,7 +166,7 @@ grep Port /etc/ssh/sshd_config
 sudo ufw allow 22/tcp
 ```
 
-## 身份验证失败
+# 身份验证失败
 
 > All configured authentication methods failed
 
