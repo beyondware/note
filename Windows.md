@@ -114,3 +114,27 @@ net user administrator /active:no
 # can not create temp folder archeve
 
 右击“我的电脑”选择“属性”－“高级”，单击“环境变量”按钮，然后单击里边的“新建”按钮，在变量名中输入“TEMP”，值设为“%USERPROFILE%\AppData\Local\Temp”
+
+# 小箭头
+
+## 去掉小箭头
+
+```sh
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Icons" /v 29 /d "%systemroot%\system32\imageres.dll,197" /t reg_sz /f
+taskkill /f /im explorer.exe
+attrib -s -r -h "%userprofile%\AppData\Local\iconcache.db"
+del "%userprofile%\AppData\Local\iconcache.db" /f /q
+start explorer
+pause
+```
+
+## 恢复小箭头
+
+```sh
+reg delete "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Icons" /v 29 /f
+taskkill /f /im explorer.exe
+attrib -s -r -h "%userprofile%\AppData\Local\iconcache.db"
+del "%userprofile%\AppData\Local\iconcache.db" /f /q
+start explorer
+pause
+```
