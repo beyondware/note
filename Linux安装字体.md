@@ -1,3 +1,17 @@
+# 系统字体安装位置
+
+```sh
+/usr/share/fonts
+```
+
+# 用户字体安装位置
+
+```sh
+~/.local/share/fonts
+```
+
+# 安装字体
+
 1、在/usr/share/fonts/目录下建立子目录，例如：wqy
 
 ```sh
@@ -25,18 +39,22 @@ cd /usr/share/fonts/wqy
 5、建立字体索引信息（可选）
 
 ```sh
-sudo mkfontscale  //生成fonts.scale
-sudo mkfontdir //生成fonts.dir
+sudo mkfontscale   //生成fonts.scale
+sudo mkfontdir    //生成fonts.dir
 ```
 
-6、更新字体缓存
+# 更新字体缓存
 
 ```sh
-fc-cache -vf
+fc-cache -fv
 ```
 
-7、查看已安装的字体
+# 验证安装的字体
 
 ```sh
 fc-list | grep wqy-zenhei
+```
+
+```sh
+fc-list | grep "WenQuanYi Micro Hei"
 ```
