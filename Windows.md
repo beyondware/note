@@ -117,7 +117,7 @@ net user administrator /active:no
 
 # 小箭头
 
-## 去掉小箭头
+## 去掉小箭头（扩展名保存为.bat）
 
 ```sh
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Icons" /v 29 /d "%systemroot%\system32\imageres.dll,197" /t reg_sz /f
@@ -128,7 +128,7 @@ start explorer
 pause
 ```
 
-## 恢复小箭头
+## 恢复小箭头（扩展名保存为.bat）
 
 ```sh
 reg delete "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Icons" /v 29 /f
