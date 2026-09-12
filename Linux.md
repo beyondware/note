@@ -101,10 +101,9 @@ KVM acceleration can be used
 lspci | grep -e VGA -e 3D
 ```
 
-## 系统架构
+#系统架构
 
-### 显示系统架构
-
+## 显示系统架构
 
 ```sh
 uname -m
@@ -120,13 +119,19 @@ arch
 dpkg --print-architecture
 ```
 
-### 显示 Linux 内核版本
+## 检查当前系统版本
+
+```sh
+cat /etc/os-release
+```
+
+## 显示 Linux 内核版本
 
 ```sh
 hostnamectl | grep -i kernel
 ```
 
-### 显示 Linux 发行版信息
+## 显示 Linux 发行版信息
 
 ```sh
 lsb_release -a
@@ -138,13 +143,19 @@ lsb_release -a
 cat /proc/version
 ```
 
+## 查看系统中 CPU 基本信息
+
+```sh
+cat /proc/cpuinfo
+```
+
 ### 提供更详细的 CPU 信息
 
 ```sh
 lscpu
 ```
 
-## timedatectl 时区
+# timedatectl 时区
 
 1、显示当前时区
 
@@ -164,9 +175,9 @@ timedatectl list-timezones
 sudo timedatectl set-timezone Asia/Shanghai
 ```
 
-## WiFi
+# WiFi
 
-### 查看 WiFi 状态
+## 查看 WiFi 状态
 
 ```sh
 nmcli radio
@@ -184,7 +195,7 @@ nmcli radio wifi on
 nmcli radio wifi off
 ```
 
-### WiFi 网络状态
+## 网络状态
 
 ```sh
 sudo nmcli networking
