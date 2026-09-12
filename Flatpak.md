@@ -1,4 +1,4 @@
-# Flatpak 安装
+# 安装
 
 ## Debian
 
@@ -45,123 +45,113 @@ https://wiki.archlinux.org/title/Flatpak
 
 > https://github.com/boredsquirrel/Flatpak-remotes
 
-# flathub-beta
+## 移除远程仓库但保留应用程序
 
 ```sh
-flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
+flatpak remote-delete --force <远程仓库名>
 ```
 
-## 安装
-
-```sh
-flatpak install flathub-beta <APP-ID>
-```
-
-# fedora
-
-```sh
-flatpak remote-add --if-not-exists fedora oci+https://registry.fedoraproject.org
-```
-
-## 安装
-
-```sh
-flatpak install fedora <APP-ID>
-```
-
-## 参考
-
-> https://docs.fedoraproject.org/en-US/flatpak/installation/
-
-# Elementary
-
-```sh
-flatpak remote-add --if-not-exists elementary https://flatpak.elementary.io/repo.flatpakrepo
-```
-
-## 安装
-
-```sh
-flatpak install elementary <APP-ID>
-```
-
-## 运行
-
-```sh
-flatpak run <APP-ID>
-```
-
-## 参考
-
-> https://flatpak.elementary.io/
-
-# gnome-nightly
-
-```sh
-flatpak remote-add --if-not-exists gnome-nightly https://nightly.gnome.org/gnome-nightly.flatpakrepo
-```
-
-## 列出 gnome-nightly 所有应用
-
-```sh
-flatpak remote-ls --app gnome-nightly
-```
-
-## 安装
-
-```sh
-flatpak install gnome-nightly <APP-ID>
-```
-
-## 运行
-
-```sh
-flatpak run <APP-ID>//master
-```
-
-## 参考
-
-> https://wiki.gnome.org/Apps/Nightly
-
-# Nightly KDE apps
-
-## 安装
-
-```sh
-flatpak install --user --or-update https://cdn.kde.org/flatpak/kate-nightly/org.kde.kate.flatpakref
-```
-
-## 运行
-
-```sh
-flatpak run --user org.kde.kate//master
-```
-
-## 参考
-
-> https://userbase.kde.org/Tutorials/Flatpak
-
-> https://cdn.kde.org/flatpak/
-
-# 常用命令
-
-## 列出已配置的 Flatpak 仓库中的可用软件包
+## 查看‌已配置远程仓库里可安装的软件包列表
 
 ```sh
 flatpak remote-ls
 ```
 
---updates：只显示有更新的内容
+### 列出有可用更新的软件包
 
-## 安装
+```sh
+flatpak remote-ls --updates
+```
 
-### 方法一
+## flathub-beta
+
+```sh
+flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
+```
+
+### 安装
+
+```sh
+flatpak install flathub-beta <APP-ID>
+```
+
+## fedora
+
+```sh
+flatpak remote-add --if-not-exists fedora oci+https://registry.fedoraproject.org
+```
+
+### 安装
+
+```sh
+flatpak install fedora <APP-ID>
+```
+
+### 参考
+
+> https://docs.fedoraproject.org/en-US/flatpak/installation/
+
+## Elementary
+
+```sh
+flatpak remote-add --if-not-exists elementary https://flatpak.elementary.io/repo.flatpakrepo
+```
+
+### 安装
+
+```sh
+flatpak install elementary <APP-ID>
+```
+
+### 参考
+
+> https://flatpak.elementary.io/
+
+## gnome-nightly
+
+```sh
+flatpak remote-add --if-not-exists gnome-nightly https://nightly.gnome.org/gnome-nightly.flatpakrepo
+```
+
+### 列出 gnome-nightly 所有应用
+
+```sh
+flatpak remote-ls --app gnome-nightly
+```
+
+### 安装
+
+```sh
+flatpak install gnome-nightly <APP-ID>
+```
+
+### 参考
+
+> https://wiki.gnome.org/Apps/Nightly
+
+## Nightly KDE apps
+
+### 安装
+
+```sh
+flatpak install --user --or-update https://cdn.kde.org/flatpak/kate-nightly/org.kde.kate.flatpakref
+```
+
+### 参考
+
+> https://userbase.kde.org/Tutorials/Flatpak
+
+> https://cdn.kde.org/flatpak/
+
+# 安装
+
+## 安装方法一
 
 ```sh
 flatpak install flathub com.github.tchx84.Flatseal
 ```
 
-### 方法二
+## 安装方法二
 
 ```sh
 flatpak install https://dl.flathub.org/repo/appstream/com.github.tchx84.Flatseal.flatpakref
@@ -171,21 +161,35 @@ flatpak install https://dl.flathub.org/repo/appstream/com.github.tchx84.Flatseal
 
 > 必须全部打勾 ✔ 才能安装成功
 
-## 安装失败
+# 修复
 
-### 修复与本地安装不一致问题
+> 应用安装失败、运行异常或提示“无法挂载文件系统”时
+
+## 系统级修复‌
 
 ```sh
-flatpak repair
+sudo flatpak repair
 ```
 
-### 再重新启动 flatpak 服务
+## 用户级修复
+
+```sh
+flatpak repair --user
+```
+
+## 强制重新安装所有已安装的应用和运行时
+
+```sh
+flatpak repair --reinstall-all
+```
+
+## 重新启动 flatpak 服务
 
 ```sh
 sudo systemctl restart flatpak-system-helper.service
 ```
 
-## 降级
+# 降级
 
 1、获取 appid
 
@@ -211,25 +215,7 @@ sudo flatpak update --commit=<Commit值> <APP-ID>
 flatpak update
 ```
 
-### 已安装  Flatpak 应用列表
-
-```sh
-flatpak list --app
-```
-
-```sh
-flatpak list | grep <APP-ID>
-```
-
-### 重置应用程序的所有门户权限
-
-```sh
-flatpak permission-reset <APP-ID>
-```
-
-## 卸载
-
-### 卸载软件
+# 卸载
 
 ```sh
 flatpak uninstall <APP-ID>
@@ -237,7 +223,7 @@ flatpak uninstall <APP-ID>
 
 > Uninstall complete. //卸载完成
 
-### 卸载并删除 flatpak 相关数据（推荐）
+## 卸载并删除 flatpak 相关数据（推荐）
 
 ```sh
 flatpak uninstall --delete-data <APP-ID>
@@ -245,7 +231,7 @@ flatpak uninstall --delete-data <APP-ID>
 
 --delete-data：确保所有相关数据被删除
 
-### 卸载不再需要的运行时（可选）
+## 卸载不再需要的运行时（可选）
 
 ```sh
 flatpak uninstall --unused
@@ -258,68 +244,72 @@ flatpak uninstall --all
 flatpak uninstall --unused --all
 ```
 
-## 运行
+# 运行
 
 ```sh
 flatpak run <APP-ID>
 ```
 
-## 更新
+# 更新
 
-### 更新所有
+## 更新所有
 
 ```sh
 flatpak update
 ```
 
-### 更新软件
+## 更新指定软件
 
 ```sh
 flatpak update --app <APP-ID>
 ```
 
-## 搜索
+# 搜索
 
 ```sh
 flatpak search 关键字
 ```
 
-## 列出
+# 列出
 
-### 列出已安装的应用程序和运行时
+## 列出已安装的应用程序和运行时
 
 ```sh
 flatpak list
 ```
 
-### 仅列出已安装的应用程序
+## 列出所有已安装
 
 ```sh
 flatpak list --app
 ```
 
-### 列出所有已安装 flatpak，包括安装类型、大小和应用程序 ID
+```sh
+flatpak list | grep <APP-ID>
+```
+
+### 列出所有已安装，包括安装类型、大小和应用程序 ID
 
 ```sh
 flatpak --columns=app,name,size,installation list
 ```
 
-## 查看详细信息
+# 详细信息
 
 ```sh
 flatpak info <APP-ID>
 ```
 
-## 删除缓存
+# 删除缓存
 
 ```sh
 sudo rm -rf /var/tmp/flatpak-cache-*
 ```
 
-# 移除远程仓库但保留应用程序
+# 重置应用程序的所有门户权限
 
 ```sh
-flatpak remote-delete --force <远程仓库名>
+flatpak permission-reset <APP-ID>
 ```
 
 # flatpak --help
