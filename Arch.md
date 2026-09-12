@@ -1000,9 +1000,9 @@ sudo systemctl start lightdm
 sudo systemctl enable lightdm
 ```
 
-## 报错
+# 报错
 
-### 无法启动 gnome-terminal、vim
+## 无法启动 gnome-terminal、vim
 
 ```sh
 vim /etc/locale.gen
@@ -1024,7 +1024,7 @@ sudo localectl set-locale LANG=en_US.UTF-8
 sudo localectl set-locale LANG=zh_CN.UTF-8
 ```
 
-### 系统中文改回英文
+## 系统中文改回英文
 
 ```sh
 sudo vim /etc/default/locale
@@ -1042,7 +1042,7 @@ LANG="en_US.UTF-8"
 LANGUAGE="en_US:en"
 ```
 
-### 系统设置中文
+## 系统设置中文（界面乱码）
 
 > https://wiki.archlinux.org/title/Localization/Simplified_Chinese
 
@@ -1075,3 +1075,10 @@ export LANGUAGE=zh_CN:en_US
 ```
 
 5、系统重启，才能生效。
+
+## running, you can remove /var/lib/pacman/db.lck
+
+```sh
+sudo rm /var/lib/pacman/db.lck
+sudo pacman -Syu
+```
