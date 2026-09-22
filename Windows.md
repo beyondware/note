@@ -1,3 +1,17 @@
+# 启用内置 Administrator 账户、禁用临时 defaultuser0 账户、强制重新触发初始化向导并重启系统
+
+按<kbd>Shift</kbd> + <kbd>F10</kbd>组合键打开命令提示符
+
+```sh
+net user administrator /active:yes & net user defaultuser0 /active:no & oobe\msoobe & shutdown -r
+```
+
+或者
+
+```sh
+net user administrator /active:yes & net user defaultuser0 /active:no & C:\Windows\System32\oobe\msoobe.exe & shutdown /r /t 0
+```
+
 # 跳过联网注册 Windows 11 账户
 
 按<kbd>Shift</kbd> + <kbd>F10</kbd>组合键打开命令提示符
